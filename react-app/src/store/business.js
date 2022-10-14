@@ -2,7 +2,6 @@
 // Actions:
 // ***************************************************************//
 const GET_ALL_BUSINESSES = 'businesses/GET_ALL_BUSINESSES'
-const GET_BUSINESS = 'businesses/GET_BUSINESS'
 
 
 // ***************************************************************//
@@ -12,11 +11,6 @@ const GET_BUSINESS = 'businesses/GET_BUSINESS'
 export const getAllBusinessesAC = (businesses) => ({
     type: GET_ALL_BUSINESSES,
     payload: businesses,
-})
-
-export const getBusinessAC = (businesses) => ({
-    type: GET_BUSINESS,
-    businesses
 })
 
 
@@ -32,12 +26,6 @@ export const getAllBusinessesThunk = () => async (dispatch) => {
         dispatch(getAllBusinessesAC(businessObj.businesses))
         return businessObj
     }
-}
-
-
-// get single Business
-export const getBusinessThunk = () => async (dispatch) => {
-
 }
 
 
