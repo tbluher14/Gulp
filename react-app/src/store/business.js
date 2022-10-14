@@ -18,6 +18,9 @@ export const getAllSpots = () => async (dispatch) => {
     const res = await fetch('/api/business')
     if (res.ok) {
         const businessObj = res.json()
-        
+        dispatch(getAllBusinesses(businessObj))
     }
 }
+
+
+//
