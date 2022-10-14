@@ -1,25 +1,42 @@
-
-// Actions
-
+// ***************************************************************//
+// Actions:
+// ***************************************************************//
 const GET_ALL_BUSINESSES = 'businesses/GET_ALL_BUSINESSES'
+const GET_BUSINESS = 'businesses/GET_BUSINESS'
 
 
+// ***************************************************************//
 // Action Creators:
+// ***************************************************************//
 
-export const getAllBusinesses = (businesses) => ({
+export const getAllBusinessesAC = (businesses) => ({
     type: GET_ALL_BUSINESSES,
     businesses
 })
 
+export const getBusinessAC = (businesses) => ({
+    type: GET_BUSINESS,
+    businesses
+})
 
+
+// ***************************************************************//
 // Thunks
+// ***************************************************************//
 
-export const getAllSpots = () => async (dispatch) => {
-    const res = await fetch('/api/business')
+// get all Businesses
+export const getAllBusinessesThunk = () => async (dispatch) => {
+    const res = await fetch('/api/business/all-businesses')
     if (res.ok) {
         const businessObj = res.json()
-        dispatch(getAllBusinesses(businessObj))
+        dispatch(getAllBusinessesAC(businessObj))
     }
+}
+
+
+// get single Business
+export const getBusinessThunk = () => async (dispatch) => {
+    const res = await fetch('/all')
 }
 
 
