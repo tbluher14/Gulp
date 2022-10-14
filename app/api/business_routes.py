@@ -5,9 +5,8 @@ from app.models import User, Business
 business_routes = Blueprint('businesses', __name__)
 
 
-@business_routes.route('/all-businesses', methods=['GET'])
+@business_routes.route('/', methods=['GET'])
 def get_all_businesses():
   businesses = Business.query.all()
   print('THIS IS BUSINESS', businesses)
   return {'businesses': [business.to_dict() for business in businesses]}
-

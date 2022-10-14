@@ -11,7 +11,7 @@ const GET_BUSINESS = 'businesses/GET_BUSINESS'
 
 export const getAllBusinessesAC = (businesses) => ({
     type: GET_ALL_BUSINESSES,
-    businesses
+    payload: businesses,
 })
 
 export const getBusinessAC = (businesses) => ({
@@ -26,10 +26,10 @@ export const getBusinessAC = (businesses) => ({
 
 // get all Businesses
 export const getAllBusinessesThunk = () => async (dispatch) => {
-    const res = await fetch('/api/business/all-businesses')
+    const res = await fetch('/api/business/')
     if (res.ok) {
-        const businessObj = res.json()
-        dispatch(getAllBusinessesAC(businessObj))
+        const businessObj = await res.json()
+        dispatch(getAllBusinessesAC(businessObj.businesses))
         return businessObj
     }
 }
