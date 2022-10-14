@@ -11,6 +11,8 @@ from .api.auth_routes import auth_routes
 
 from .seeds import seed_commands
 
+# here 
+
 from .config import Config
 
 app = Flask(__name__)
