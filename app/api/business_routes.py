@@ -10,3 +10,4 @@ def get_all_businesses():
   businesses = Business.query.all()
   print('THIS IS BUSINESS', businesses)
   return {'businesses': [business.to_dict() for business in businesses]}
+
