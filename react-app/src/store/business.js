@@ -36,7 +36,6 @@ export const getAllBusinessesThunk = () => async (dispatch) => {
 
 // get single Business
 export const getBusinessThunk = () => async (dispatch) => {
-    const res = await fetch('/all')
 }
 
 
