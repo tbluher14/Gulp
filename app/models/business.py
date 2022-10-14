@@ -33,3 +33,4 @@ class Business(db.Model):
       "description" : self.description,
       "owner_id" : self.owner_id,
     }
+
