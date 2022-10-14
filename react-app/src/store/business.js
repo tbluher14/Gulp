@@ -30,23 +30,29 @@ export const getAllBusinessesThunk = () => async (dispatch) => {
     if (res.ok) {
         const businessObj = res.json()
         dispatch(getAllBusinessesAC(businessObj))
+        return businessObj
     }
 }
 
 
 // get single Business
 export const getBusinessThunk = () => async (dispatch) => {
+
 }
 
 
+// ***************************************************************//
 // Business Reducer
+// ***************************************************************//
+
 const intialState = {};
 const businessReducer = (state = intialState, action) => {
     let newState;
     switch (action.type){
         case GET_ALL_BUSINESSES: {
             newState = {}
-            action.businesses.forEach(business => newState[business.id] = business)
+            console.log("this is action", action)
+            // action.businesses.forEach(business => newState[business.id] = business)
             return newState
         }
         default:
