@@ -51,8 +51,11 @@ const businessReducer = (state = intialState, action) => {
     switch (action.type){
         case GET_ALL_BUSINESSES: {
             newState = {}
-            console.log("this is action", action)
-            // action.businesses.forEach(business => newState[business.id] = business)
+            // console.log("this is action", action)
+            action.payload.forEach((business) => {
+                newState[business.id] = business
+            })
+            // console.log("this is newstate", newState)
             return newState
         }
         default:
