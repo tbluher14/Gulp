@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getAllBusinessesThunk } from '../../store/business';
 import { getAllReviewsThunk } from '../../store/review';
+import BusinessCard from '../BusinessCard';
 
 
 const AllBusinesses = () => {
@@ -22,8 +23,7 @@ const AllBusinesses = () => {
         <div>
             {Object.values(businesses).map((business) => (
                 <>
-                <div key={business.id}> NAME:{business.name} </div>
-                <div>CITY:{business.city}</div>
+                <BusinessCard key={business.id} business={business}/>
                 </>
             ))}
         </div>

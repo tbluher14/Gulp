@@ -13,6 +13,7 @@ import BusinessCreateForm from './components/NavBar/CreateBusiness';
 import BusinessEditForm from './components/BusinessDetails/EditBusinessForm';
 import BusinessesDetails from './components/BusinessDetails/BusinessDetails';
 import ReviewForm from './components/Reviews/CreateReviewForm';
+import BusinessCard from './components/BusinessCard';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -62,6 +63,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/testingreviews' exact={true}>
           <ReviewForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/businesscard' exact={true}>
+          <BusinessCard />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
