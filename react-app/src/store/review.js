@@ -11,10 +11,10 @@ export const getAllReviewsAC = (reviews) => ({
     payload: reviews,
 })
 
-// export const createBusinessesAC = (business) => ({
-//     type: CREATE_BUSINESS,
-//     payload: business,
-// })
+export const createReviewAC = (reviews) => ({
+    type: CREATE_REVIEW,
+    payload: reviews,
+})
 
 // export const updateBusinessesAC = (business) => ({
 //     type: UPDATE_BUSINESS,
@@ -29,7 +29,7 @@ export const getAllReviewsAC = (reviews) => ({
 //****************************************************************************************************
 
 // Thunks
-
+// get all reviews thunk
 export const getAllReviewsThunk = () => async (dispatch) => {
     const res = await fetch('/api/reviews/');
     if (res.ok) {
@@ -38,21 +38,36 @@ export const getAllReviewsThunk = () => async (dispatch) => {
         return review
     }
 }
+// Create review thunk
+export const createReviewThunk = (review) => async (dispatch) => {
+    const res = await fetch(`api/reviews/}`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(review)
+    })
+    if (res.ok) {
+        const review = await res.json()
+        dispatch(createReviewAC(review))
+        dispatch()
+        return review
+    }
+}
 
 //****************************************************************************************************
 
-// Business Reducer
+// Review Reducer
 const initialState = {}
 const reviewReducer = (state = initialState, action) => {
     let newState = {...state}
     switch (action.type) {
         case GET_ALL_REVIEWS:
-            console.log("this is review action", action)
-            // newState = action.payload
             action.payload.forEach((review) => {
                 newState[review.id] = review
             })
-            console.log("this is review newstate", newState)
+            return newState
+        case CREATE_REVIEW:
+            newState = {...state}
+            console.log(newState)
             return newState
         default:
             return state

@@ -78,7 +78,7 @@ def edit_business(business_id):
     business.description=form.data['description']
 
 
-    print('THIS IS DB SESSION', db.session)
+    # print('THIS IS DB SESSION', db.session)
     # db.session.add(businessData)
     db.session.commit()
     return jsonify(business.to_dict()), 200

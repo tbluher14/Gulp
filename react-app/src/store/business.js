@@ -29,6 +29,7 @@ export const deleteBusinessesAC = (businessId) => ({
 //****************************************************************************************************
 
 // Thunks
+// get all businesses thunk
 export const getAllBusinessesThunk = () => async (dispatch) => {
     const res = await fetch('/api/business/');
     if (res.ok) {
@@ -37,7 +38,7 @@ export const getAllBusinessesThunk = () => async (dispatch) => {
         return business
     }
 }
-
+// create business thunk
 export const createBusinessThunk = (business) => async (dispatch) => {
     const res = await fetch('/api/business/create_business', {
         method: 'POST',
@@ -51,7 +52,7 @@ export const createBusinessThunk = (business) => async (dispatch) => {
         return business
     }
 }
-
+// edit business thunk
 export const editBusinessThunk = (business, businessId) => async (dispatch) => {
     const res = await fetch(`/api/business/${businessId}`, {
         method: 'PUT',
