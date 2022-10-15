@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getAllBusinessesThunk } from '../../store/business';
+import { getAllReviewsThunk } from '../../store/review';
 
 
 const AllBusinesses = () => {
@@ -12,6 +13,7 @@ const AllBusinesses = () => {
 
     useEffect((e) => {
         dispatch(getAllBusinessesThunk())
+        dispatch(getAllReviewsThunk())
     }, [])
 
     console.log("this is businessesssssss", businesses)
