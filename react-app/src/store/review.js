@@ -31,7 +31,7 @@ export const getAllReviewsAC = (reviews) => ({
 // Thunks
 
 export const getAllReviewsThunk = () => async (dispatch) => {
-    const res = await fetch('/api/review/');
+    const res = await fetch('/api/reviews/');
     if (res.ok) {
         const review = await res.json()
         dispatch(getAllReviewsAC(review.reviews))
@@ -47,7 +47,12 @@ const reviewReducer = (state = initialState, action) => {
     let newState = {...state}
     switch (action.type) {
         case GET_ALL_REVIEWS:
-            newState = action.payload
+            console.log("this is review action", action)
+            // newState = action.payload
+            action.payload.forEach((review) => {
+                newState[review.id] = review
+            })
+            console.log("this is review newstate", newState)
             return newState
         default:
             return state
