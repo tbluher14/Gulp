@@ -1,10 +1,14 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import BusinessCreateForm from './CreateBusinessForm';
 import logo from './gulpedpic.jpg'
 import './NavBar.css'
 
 const NavBar = () => {
+
+  const history = useHistory()
+
   return (
     // <nav>
     //   <ul>
@@ -38,6 +42,9 @@ const NavBar = () => {
       <NavLink exact to="/">
         <img className='navbar-logo' src={logo}></img>
       </NavLink>
+      <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>
+        Create Business
+      </div>
     </div>
   );
 }
