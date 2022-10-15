@@ -1,0 +1,19 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 76px;
+  padding: 24px;
+}
+
+.navbar-logo {
+  height: 65px;
+  width: 170px;
+}
+
+.navbar-create-business {
+  cursor: pointer;
+  margin-right: 150px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}

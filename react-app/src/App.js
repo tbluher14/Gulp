@@ -12,8 +12,9 @@ import AllBusinesses from './components/AllBusinesses/AllBusinesses';
 import BusinessCreateForm from './components/NavBar/CreateBusinessForm';
 import BusinessEditForm from './components/BusinessDetails/EditBusinessForm';
 import BusinessesDetails from './components/BusinessDetails/BusinessDetails';
-import ReviewForm from './components/Reviews/CreateReviewForm';
+import CreateReviewForm from './components/Reviews/CreateReviewForm';
 import BusinessCard from './components/BusinessCard';
+import HomePage from './components/HomePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,7 +48,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <HomePage />
         </ProtectedRoute>
         <ProtectedRoute path='/businesses' exact={true}>
           <AllBusinesses />
@@ -65,7 +66,7 @@ function App() {
           <BusinessesDetails />
         </ProtectedRoute>
         <ProtectedRoute path='/testingreviews' exact={true}>
-          <ReviewForm />
+          <CreateReviewForm />
         </ProtectedRoute>
         <ProtectedRoute path='/businesscard' exact={true}>
           <BusinessCard />

@@ -4,12 +4,14 @@ import { useEffect } from 'react'
 import { getAllBusinessesThunk } from '../../store/business';
 import { getAllReviewsThunk } from '../../store/review';
 import BusinessCard from '../BusinessCard';
+import './AllBusinesses.css'
 
 
 const AllBusinesses = () => {
     const dispatch = useDispatch();
 
     const businesses = useSelector(state => (state.business))
+    const reviews = useSelector(state => (state.review))
     // const businessesArr = Object.values(businesses)
 
     useEffect((e) => {
@@ -23,7 +25,9 @@ const AllBusinesses = () => {
         <div>
             {Object.values(businesses).map((business) => (
                 <>
-                <BusinessCard key={business.id} business={business}/>
+                <div className='all-businesses-card-container'>
+                    <BusinessCard key={business.id} business={business}/>
+                </div>
                 </>
             ))}
         </div>
