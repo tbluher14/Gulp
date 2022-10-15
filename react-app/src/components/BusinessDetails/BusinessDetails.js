@@ -28,7 +28,7 @@ const BusinessesDetails = () => {
     return (
         <div>
           {/* {currentBusiness.name} */}
-          <button className='delete_business_button' onClick={removeBusiness(6)}>Delete</button>
+          <button className='delete_business_button' onClick={removeBusiness(2)}>Delete</button>
         </div>
     )
 }
