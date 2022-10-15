@@ -44,7 +44,7 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
-        <ProtectedRoute path='/all-businesses' exact={true}>
+        <ProtectedRoute path='/businesses' exact={true}>
           <AllBusinesses />
         </ProtectedRoute>
       </Switch>
