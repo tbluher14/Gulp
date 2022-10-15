@@ -7,7 +7,7 @@ import { getAllBusinessesThunk } from '../../store/business';
 const AllBusinesses = () => {
     const dispatch = useDispatch();
 
-    const businesses = useSelector(state => (state.businessReducer))
+    const businesses = useSelector(state => (state.business))
     // const businessesArr = Object.values(businesses)
 
     useEffect((e) => {

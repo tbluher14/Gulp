@@ -5,7 +5,7 @@ import businessReducer from './business';
 
 const rootReducer = combineReducers({
   session,
-  businessReducer,
+  business: businessReducer,
 });
 
 
