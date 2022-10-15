@@ -9,7 +9,7 @@ class Business(db.Model):
   city = db.Column(db.String(50), nullable=False)
   state = db.Column(db.String(50), nullable=False)
   country = db.Column(db.String(50), nullable=False)
-  zip_code = db.Column(db.String(5), nullable=False)
+  zipCode = db.Column(db.String(5), nullable=False)
   website = db.Column(db.String(500), nullable=False)
   phone = db.Column(db.String(10), nullable=False)
   description = db.Column(db.String(2000), nullable=False)
@@ -27,10 +27,9 @@ class Business(db.Model):
       "city" : self.city,
       "state" : self.state,
       "country" : self.country,
-      "zip_code" : self.zip_code,
+      "zipCode" : self.zipCode,
       "website" : self.website,
       "phone" : self.phone,
       "description" : self.description,
       "owner_id" : self.owner_id,
     }
-
