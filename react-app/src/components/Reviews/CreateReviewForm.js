@@ -5,12 +5,12 @@ import { createReviewThunk } from '../../store/review';
 import { getAllReviewsThunk } from '../../store/review';
 
 
-const CreateReviewForm = () => {
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const businessId = useParams()
-  const business = useSelector(state => (state.business))
-  const user = useSelector(state => (state.session.user))
+const ReviewForm = () => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const businessId = useParams()
+    const business = useSelector(state => (state.business))
+    const user = useSelector(state => (state.session.user))
 
   const [review, setReview] = useState('')
   const [rating, setRating] = useState('')

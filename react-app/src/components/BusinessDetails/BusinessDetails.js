@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { deleteBusinessThunk, getAllBusinessesThunk } from '../../store/business';
 import { useHistory, useParams } from 'react-router-dom';
+import CreateReviewModal from '../Reviews/CreateReviewModal';
 
 
 const BusinessesDetails = () => {
@@ -38,6 +39,14 @@ const BusinessesDetails = () => {
             {user?.id == currentBusiness?.owner_id && (
                 <button className='delete_business_button' onClick={removeBusiness(2)}>Delete</button>
             )}
+            <div>
+            {user && user?.id !== currentBusiness?.owner_id && (
+          <button className="review-modal-button">
+            <CreateReviewModal />
+          </button>
+        )
+        }
+            </div>
         </div>
     )
 }
