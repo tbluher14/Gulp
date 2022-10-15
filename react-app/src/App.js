@@ -9,7 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import AllBusinesses from './components/AllBusinesses/AllBusinesses';
-import BusinessCreateForm from './components/NavBar/CreateBusiness';
+import BusinessCreateForm from './components/NavBar/CreateBusinessForm';
 import BusinessEditForm from './components/BusinessDetails/EditBusinessForm';
 import BusinessesDetails from './components/BusinessDetails/BusinessDetails';
 import ReviewForm from './components/Reviews/CreateReviewForm';
