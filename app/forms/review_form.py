@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField
 from wtforms.validators import DataRequired, ValidationError, Length, NumberRange
-from app.models import User
 
 
 class CreateReviewForm(FlaskForm):
