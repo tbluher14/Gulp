@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import AllBusinesses from './components/AllBusinesses';
+import BusinessCreateForm from './components/NavBar/CreateBusiness';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,6 +47,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/businesses' exact={true}>
           <AllBusinesses />
+        </ProtectedRoute>
+        <ProtectedRoute path='/testing' exact={true}>
+          <BusinessCreateForm />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
