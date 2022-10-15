@@ -9,10 +9,13 @@ const BusinessesDetails = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const businessId = useParams()
-    const business = useSelector(state => (state.businessReducer))
-    // const currentBusiness = business[businessId]
 
+    const business = useSelector(state => (state.business))
+    const currentBusiness = business[businessId.businessId]
 
+    // console.log("this is businessesssssss", business)
+    // console.log('this is business id', businessId.businessId)
+    // console.log('this is current business', currentBusiness)
 
     useEffect((e) => {
         dispatch(getAllBusinessesThunk())
@@ -27,7 +30,10 @@ const BusinessesDetails = () => {
 
     return (
         <div>
-          {/* {currentBusiness.name} */}
+          {currentBusiness?.name}
+          {currentBusiness?.city}
+          {currentBusiness?.state}
+
           <button className='delete_business_button' onClick={removeBusiness(2)}>Delete</button>
         </div>
     )

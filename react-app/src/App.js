@@ -52,6 +52,9 @@ function App() {
         <ProtectedRoute path='/businesses' exact={true}>
           <AllBusinesses />
         </ProtectedRoute>
+        <ProtectedRoute path='/businesses/:businessId' exact={true}>
+          <BusinessesDetails />
+        </ProtectedRoute>
         <ProtectedRoute path='/testing' exact={true}>
           <BusinessCreateForm />
         </ProtectedRoute>
