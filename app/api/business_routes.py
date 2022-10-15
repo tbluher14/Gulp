@@ -46,6 +46,8 @@ def create_business():
     print('THIS IS THE FORM', form.errors)
     return {'errors': form.errors}, 401
 
+
+#****************************************************************************************************
 @business_routes.route('/<int:business_id>', methods=['PUT'])
 @login_required
 def edit_business(business_id):
@@ -79,3 +81,13 @@ def edit_business(business_id):
   else:
     print('THIS IS THE FORM', form.errors)
     return {'errors': form.errors}, 401
+
+#****************************************************************************************************
+# delete business route
+@business_routes.route('/<int:business_id>', methods=['DELETE'])
+@login_required
+def delete_business(business_id):
+  business = Business.query.get(business_id)
+  db.session.delete(business)
+  db.session.commit()
+  return {'message': 'Business deleted'}
