@@ -12,7 +12,7 @@ const BusinessesDetails = () => {
     const business = useSelector(state => (state.businessReducer))
     const currentBusiness = business[businessId]
 
-    // const businessesArr = Object.values(businesses)
+
 
     useEffect((e) => {
         dispatch(getAllBusinessesThunk())
@@ -30,6 +30,7 @@ const BusinessesDetails = () => {
           {currentBusiness.name}
           <button className='delete_business_button' onClick={removeBusiness(businessId)}>Delete</button>
         </div>
+    )
 }
 
 export default BusinessesDetails;
