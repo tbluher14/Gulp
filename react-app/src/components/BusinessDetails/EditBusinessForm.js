@@ -42,7 +42,7 @@ function BusinessEditForm() {
       description: description,
     };
 
-    return dispatch(editBusinessThunk(data));
+    return dispatch(editBusinessThunk(data, 6));
 
   };
 
@@ -134,7 +134,7 @@ function BusinessEditForm() {
           </div>
 
           <button name="submit" type="submit" className="submitButton">
-            Create Business
+            Edit Business
           </button>
         </div>
 

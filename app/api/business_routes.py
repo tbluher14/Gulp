@@ -38,11 +38,44 @@ def create_business():
       description=form.data['description'],
     )
 
-    # form.populate_obj(data)
 
     db.session.add(businessData)
     db.session.commit()
     return jsonify(businessData.to_dict()), 200
+  else:
+    print('THIS IS THE FORM', form.errors)
+    return {'errors': form.errors}, 401
+
+@business_routes.route('/<int:business_id>', methods=['PUT'])
+@login_required
+def edit_business(business_id):
+  form = CreateBusinessForm()
+
+  form["csrf_token"].data = request.cookies["csrf_token"]
+
+  if form.validate_on_submit():
+    business = Business.query.get(business_id)
+
+    print('THIS IS THE FORM', form)
+
+    print('THIS IS THE FORM DATA', form.data)
+
+    business.owner_id=current_user.id
+    business.name=form.data['name']
+    business.address=form.data['address']
+    business.city=form.data['city']
+    business.state=form.data['state']
+    business.country=form.data['country']
+    business.zipCode=form.data['zipCode']
+    business.website=form.data['website']
+    business.phone=form.data['phone']
+    business.description=form.data['description']
+
+
+    print('THIS IS DB SESSION', db.session)
+    # db.session.add(businessData)
+    db.session.commit()
+    return jsonify(business.to_dict()), 200
   else:
     print('THIS IS THE FORM', form.errors)
     return {'errors': form.errors}, 401

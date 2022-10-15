@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import AllBusinesses from './components/AllBusinesses/AllBusinesses';
 import BusinessCreateForm from './components/NavBar/CreateBusiness';
+import BusinessEditForm from './components/BusinessDetails/EditBusinessForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -50,6 +51,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/testing' exact={true}>
           <BusinessCreateForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/testingedit' exact={true}>
+          <BusinessEditForm />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
