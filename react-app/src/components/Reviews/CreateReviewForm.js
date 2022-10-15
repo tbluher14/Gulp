@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
 import { createReviewThunk } from '../../store/review';
+import { getAllReviewsThunk } from '../../store/review';
 
 
 const ReviewForm = () => {
@@ -15,21 +16,30 @@ const ReviewForm = () => {
     const [rating, setRating] = useState('')
     const [errors, setErrors] = useState([])
 
+    useEffect((e) => {
+      dispatch(getAllReviewsThunk())
+  }, [])
+
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        const data = {
-            user_id: user.id,
-            business_id: businessId,
-            review: review,
-            rating: rating,
-        }
-        const res = await dispatch(createReviewThunk(data))
-        if (res.ok) {
-            history.push(`/businesses/${businessId}`)
-        } else {
-            setErrors(res.data.errors)
-        }
+      e.preventDefault();
+
+      const data = {
+          user_id: user.id,
+          business_id: 1,
+          review: review,
+          rating: rating,
+      }
+
+      // const res = await dispatch(createReviewThunk(data))
+      // if (res.ok) {
+      //     history.push(`/businesses/${businessId}`)
+      // } else {
+      //     setErrors(res.data.errors)
+      // }
+
+      return dispatch(createReviewThunk(data))
+
     }
 
 

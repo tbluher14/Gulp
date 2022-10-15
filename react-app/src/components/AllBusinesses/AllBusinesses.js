@@ -10,6 +10,7 @@ const AllBusinesses = () => {
     const dispatch = useDispatch();
 
     const businesses = useSelector(state => (state.business))
+    const reviews = useSelector(state => (state.review))
     // const businessesArr = Object.values(businesses)
 
     useEffect((e) => {
