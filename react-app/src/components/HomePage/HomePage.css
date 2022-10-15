@@ -11,8 +11,18 @@
 .homepage-picture {
   width: 100%;
   /* height: 100%; */
-  height: 700px;
+  height: 800px;
   object-fit: cover;
+}
+
+.homepage-welcome {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  color: white;
+  font-size: 55px;
+  font-weight: 700;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .homepage-business-button {
