@@ -14,6 +14,7 @@ import BusinessEditForm from './components/BusinessDetails/EditBusinessForm';
 import BusinessesDetails from './components/BusinessDetails/BusinessDetails';
 import ReviewForm from './components/Reviews/CreateReviewForm';
 import BusinessCard from './components/BusinessCard';
+import HomePage from './components/HomePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,7 +48,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <HomePage />
         </ProtectedRoute>
         <ProtectedRoute path='/businesses' exact={true}>
           <AllBusinesses />
