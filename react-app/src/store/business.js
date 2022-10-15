@@ -51,6 +51,19 @@ export const createBusinessThunk = (business) => async (dispatch) => {
     }
 }
 
+export const editBusinessThunk = (business) => async (dispatch) => {
+    const res = await fetch(`/api/business/${business.id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(business)
+    });
+    if (res.ok) {
+        const business = await res.json()
+        dispatch(updateBusinessesAC(business))
+        return business
+    }
+}
+
 
 
 // Business Reducer
@@ -71,6 +84,10 @@ const businessReducer = (state = intialState, action) => {
             newState = {...state}
             console.log('this is state', newState)
             console.log('this is action', action)
+            return newState;
+        case UPDATE_BUSINESS:
+            newState = {...state}
+            newState[action.payload.id] = action.payload
             return newState;
         default:
             return state
