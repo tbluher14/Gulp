@@ -36,7 +36,7 @@ const BusinessesDetails = () => {
           {currentBusiness?.state}
 
             {user?.id == currentBusiness?.owner_id && (
-                <button className='delete_business_button' onClick={removeBusiness(businessId.businessId)}>Delete</button>
+                <button className='delete_business_button' onClick={removeBusiness(2)}>Delete</button>
             )}
         </div>
     )
