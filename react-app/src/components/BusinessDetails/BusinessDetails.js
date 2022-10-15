@@ -11,6 +11,7 @@ const BusinessesDetails = () => {
     const businessId = useParams()
 
     const business = useSelector(state => (state.business))
+    const user = useSelector((state) => state.session.user);
     const currentBusiness = business[businessId.businessId]
 
     // console.log("this is businessesssssss", business)
@@ -34,7 +35,9 @@ const BusinessesDetails = () => {
           {currentBusiness?.city}
           {currentBusiness?.state}
 
-          <button className='delete_business_button' onClick={removeBusiness(2)}>Delete</button>
+            {user?.id == currentBusiness?.owner_id && (
+                <button className='delete_business_button' onClick={removeBusiness(2)}>Delete</button>
+            )}
         </div>
     )
 }
