@@ -1,27 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { editBusinessThunk } from "../../store/business";
+import { useHistory, useParams } from "react-router-dom";
+import { editBusinessThunk, getAllBusinessesThunk } from "../../store/business";
 
 function BusinessEditForm() {
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
+  const businesses = useSelector(state => (state.business))
   const history = useHistory();
+  const { businessId } = useParams();
 
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [country, setCountry] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [website, setWebsite] = useState("");
-  const [phone, setPhone] = useState("");
-  const [description, setDescription] = useState("");
+  const business = businesses[businessId];
+
+  const [name, setName] = useState(business?.name);
+  const [address, setAddress] = useState(business?.address);
+  const [city, setCity] = useState(business?.city);
+  const [state, setState] = useState(business?.state);
+  const [country, setCountry] = useState(business?.country);
+  const [zipCode, setZipCode] = useState(business?.zipCode);
+  const [website, setWebsite] = useState(business?.website);
+  const [phone, setPhone] = useState(business?.phone);
+  const [description, setDescription] = useState(business?.description);
 
   const [errors, setErrors] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+
+  useEffect(() => {
+    dispatch(getAllBusinessesThunk())
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
