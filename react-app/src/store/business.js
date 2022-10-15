@@ -3,7 +3,7 @@ const GET_ALL_BUSINESSES = 'businesses/GET_ALL_BUSINESSES'
 const CREATE_BUSINESS = "businesses/CREATE_BUSINESS";
 const UPDATE_BUSINESS = "businesses/UPDATE_BUSINESS";
 const DELETE_BUSINESS = "businesses/DELETE_BUSINESS";
-
+//****************************************************************************************************
 
 // Action Creators:
 export const getAllBusinessesAC = (businesses) => ({
@@ -26,6 +26,7 @@ export const deleteBusinessesAC = (businessId) => ({
     payload: businessId,
 })
 
+//****************************************************************************************************
 
 // Thunks
 export const getAllBusinessesThunk = () => async (dispatch) => {
@@ -66,6 +67,15 @@ export const editBusinessThunk = (business, businessId) => async (dispatch) => {
 }
 
 
+export const deleteBusinessThunk = (businessId) => async (dispatch) => {
+    const res = await fetch(`/api/business/${businessId}`, {
+        method: 'DELETE',
+    });
+    if (res.ok){
+    dispatch(deleteBusinessesAC(businessId))
+}}
+
+//****************************************************************************************************
 
 // Business Reducer
 
@@ -89,6 +99,10 @@ const businessReducer = (state = intialState, action) => {
         case UPDATE_BUSINESS:
             newState = {...state}
             newState[action.payload.id] = action.payload
+            return newState;
+        case DELETE_BUSINESS:
+            newState = {...state}
+            delete newState[action.payload]
             return newState;
         default:
             return state

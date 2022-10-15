@@ -5,13 +5,16 @@ from ..forms.business_form import CreateBusinessForm
 
 business_routes = Blueprint('businesses', __name__)
 
-
+#****************************************************************************************************
+# Get Business Route
 @business_routes.route('/', methods=['GET'])
 def get_all_businesses():
   businesses = Business.query.all()
   print('THIS IS BUSINESS', businesses)
   return {'businesses': [business.to_dict() for business in businesses]}
 
+#****************************************************************************************************
+# Create Business Route
 @business_routes.route('/create_business', methods=['POST'])
 @login_required
 def create_business():
@@ -48,6 +51,7 @@ def create_business():
 
 
 #****************************************************************************************************
+# Edit Business Route
 @business_routes.route('/<int:business_id>', methods=['PUT'])
 @login_required
 def edit_business(business_id):
@@ -83,7 +87,7 @@ def edit_business(business_id):
     return {'errors': form.errors}, 401
 
 #****************************************************************************************************
-# delete business route
+# delete Business route
 @business_routes.route('/<int:business_id>', methods=['DELETE'])
 @login_required
 def delete_business(business_id):
@@ -91,3 +95,6 @@ def delete_business(business_id):
   db.session.delete(business)
   db.session.commit()
   return {'message': 'Business deleted'}
+
+
+#****************************************************************************************************
