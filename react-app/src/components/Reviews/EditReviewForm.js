@@ -25,10 +25,10 @@ const EditReviewForm = () => {
     e.preventDefault();
 
     const data = {
-        user_id: user.id,
-        business_id: 1,
-        review: review,
-        rating: rating,
+      user_id: user.id,
+      business_id: 1,
+      review: review,
+      rating: rating,
     }
 
     return dispatch(editReviewThunk(data))
