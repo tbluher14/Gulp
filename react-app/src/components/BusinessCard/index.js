@@ -5,7 +5,7 @@ const BusinessCard = ({ business }) => {
   const history = useHistory()
 
   return (
-    <div className='testing'>
+    <div className='business-card'>
       <div onClick={() => history.push(`/businesses/${business?.id}`)}>
         <div className='business-card-container'>
           <div className='business-card-inner-container'>
@@ -15,8 +15,9 @@ const BusinessCard = ({ business }) => {
             </div>
 
             <div className='business-card-inner-container-right'>
-              <div>NAME:{business.name}</div>
-              <div>CITY:{business.city}</div>
+              <div>NAME: {business.name}</div>
+              <div>CITY: {business.city}</div>
+              <div>DESCRIPTION: {business.description}</div>
             </div>
 
           </div>
