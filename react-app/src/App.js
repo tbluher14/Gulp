@@ -12,7 +12,7 @@ import AllBusinesses from './components/AllBusinesses/AllBusinesses';
 import BusinessCreateForm from './components/NavBar/CreateBusinessForm';
 import BusinessEditForm from './components/BusinessDetails/EditBusinessForm';
 import BusinessesDetails from './components/BusinessDetails/BusinessDetails';
-import ReviewForm from './components/Reviews/CreateReviewForm';
+import CreateReviewForm from './components/Reviews/CreateReviewForm';
 import BusinessCard from './components/BusinessCard';
 import HomePage from './components/HomePage';
 
@@ -66,7 +66,7 @@ function App() {
           <BusinessesDetails />
         </ProtectedRoute>
         <ProtectedRoute path='/testingreviews' exact={true}>
-          <ReviewForm />
+          <CreateReviewForm />
         </ProtectedRoute>
         <ProtectedRoute path='/businesscard' exact={true}>
           <BusinessCard />

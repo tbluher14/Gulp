@@ -5,7 +5,7 @@ import { createReviewThunk } from '../../store/review';
 import { getAllReviewsThunk } from '../../store/review';
 
 
-const ReviewForm = () => {
+const CreateReviewForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const businessId = useParams()
@@ -73,8 +73,4 @@ const ReviewForm = () => {
     )
 }
 
-
-
-
-
-export default ReviewForm;
+export default CreateReviewForm;
