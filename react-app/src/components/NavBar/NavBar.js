@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import BusinessCreateForm from './CreateBusinessForm';
+import ProfileButton from './ProfileButton';
 import logo from './gulpedpic.jpg'
 import './NavBar.css'
 
@@ -44,6 +45,9 @@ const NavBar = () => {
       </NavLink>
       <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>
         Create Business
+      </div>
+      <div className='navbar-profile-button' onClick={() => history.push('/')}>
+        <ProfileButton />
       </div>
     </div>
   );
