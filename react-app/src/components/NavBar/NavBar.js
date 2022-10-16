@@ -1,13 +1,14 @@
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
 import BusinessCreateForm from './CreateBusinessForm';
-import ProfileButton from './ProfileButton';
 import logo from './gulpedpic.jpg'
 import './NavBar.css'
 
 const NavBar = () => {
 
+  const sessionUser = useSelector((state) => state.session.user)
   const history = useHistory()
 
   return (
@@ -47,9 +48,25 @@ const NavBar = () => {
       <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>
         Create Business
       </div>
-      <div className='navbar-profile-button' onClick={() => history.push('/')}>
-        <ProfileButton />
+      {
+        !sessionUser && (
+      <div classname='navbar-login-signup'>
+        <div classname='navbar-login' onClick={() => history.push(`/login`)}>
+          Log In
+        </div>
+        <div classname='navbar-signup' onClick={() => history.push(`/sign-up`)}>
+          Sign Up
+        </div>
       </div>
+        )
+      }
+      {
+        sessionUser && (
+          <div>
+            <LogoutButton />
+          </div>
+        )
+      }
     </div>
   );
 }
