@@ -42,6 +42,7 @@ const NavBar = () => {
       <NavLink exact to="/">
         <img className='navbar-logo' src={logo}></img>
       </NavLink>
+      <div className='navbar-search-bar'>Search Bar</div>
       <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>
         Create Business
       </div>
