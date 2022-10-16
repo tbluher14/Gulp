@@ -48,15 +48,15 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <Route path='/' exact={true} >
           <HomePage />
-        </ProtectedRoute>
-        <ProtectedRoute path='/businesses' exact={true}>
+        </Route>
+        <Route path='/businesses' exact={true}>
           <AllBusinesses />
-        </ProtectedRoute>
-        <ProtectedRoute path='/businesses/:businessId' exact={true}>
+        </Route>
+        <Route path='/businesses/:businessId' exact={true}>
           <BusinessesDetailsCopy />
-        </ProtectedRoute>
+        </Route>
         <ProtectedRoute path='/testing' exact={true}>
           <BusinessCreateForm />
         </ProtectedRoute>
@@ -69,9 +69,9 @@ function App() {
         <ProtectedRoute path='/testingreviews' exact={true}>
           <CreateReviewForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/businesscard' exact={true}>
+        <Route path='/businesscard' exact={true}>
           <BusinessCard />
-        </ProtectedRoute>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
