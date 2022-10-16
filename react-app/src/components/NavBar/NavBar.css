@@ -3,14 +3,18 @@
   justify-content: space-between;
   align-items: center;
   height: 96px;
-  padding: 0 70px;
+  padding: 0 75px;
   box-sizing: border-box;
 }
 
+.navbar-logo-container {
+  width: 300px;
+}
 
 .navbar-logo {
   height: 65px;
   width: 170px;
+  cursor: pointer;
 }
 
 .navbar-search-bar {
@@ -24,25 +28,23 @@
   color: gray;
 }
 
+.navbar-business-login-signup-container {
+  display: flex;
+  width: 330px;
+  justify-content: space-between;
+  font-family: 'Open Sans', sans-serif;
+}
+
 .navbar-create-business {
   cursor: pointer;
-  /* margin-right: 150px; */
-  font-family: 'Open Sans', sans-serif;
   font-weight: 600;
+  margin-left: 24px;
 }
 
-.navbar-login {
+#navbar-login-button {
   cursor: pointer;
-  display: flex;
-  margin-right: 25px;
 }
 
-.navbar-signup {
+#navbar-signup-button {
   cursor: pointer;
-  display: flex;
-  margin-right: 25px;
-}
-
-.navbar-login-signup {
-  display: flex;
 }

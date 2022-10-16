@@ -41,22 +41,23 @@ const NavBar = () => {
     // </nav>
 
     <div className='navbar-container'>
-      <NavLink exact to="/">
-        <img className='navbar-logo' src={logo}></img>
-      </NavLink>
-      <div className='navbar-search-bar'>Search Bar</div>
-      <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>
-        Create Businesssssss
+      <div className='navbar-logo-container' exact to="/">
+        <img className='navbar-logo' src={logo} onClick={() => history.push(`/`)}></img>
       </div>
-      {
+      <div className='navbar-search-bar'>Search Bar</div>
+      {/* <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>Create Business</div> */}
+
+      <div className='navbar-business-login-signup-container'>
+        <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>Create Business</div>
+        <div id='navbar-login-button' onClick={() => history.push(`/login`)}>Log In</div>
+        <div id='navbar-signup-button' onClick={() => history.push(`/sign-up`)}>Sign Up</div>
+      </div>
+
+      {/* {
         !sessionUser && (
       <div classname='navbar-login-signup'>
-        <div classname='navbar-login' onClick={() => history.push(`/login`)}>
-          Log In
-        </div>
-        <div classname='navbar-signup' onClick={() => history.push(`/sign-up`)}>
-          Sign Up
-        </div>
+        <div classname='navbar-login-button-a' onClick={() => history.push(`/login`)}>Log In</div>
+        <div classname='navbar-signup-button-b' onClick={() => history.push(`/sign-up`)}>Sign Up</div>
       </div>
         )
       }
@@ -66,7 +67,15 @@ const NavBar = () => {
             <LogoutButton />
           </div>
         )
-      }
+      } */}
+
+
+
+
+
+
+
+
     </div>
   );
 }
