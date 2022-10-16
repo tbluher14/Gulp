@@ -15,9 +15,11 @@ const BusinessCard = ({ business }) => {
             </div>
 
             <div className='business-card-inner-container-right'>
-              <div>NAME: {business.name}</div>
-              <div>CITY: {business.city}</div>
-              <div>DESCRIPTION: {business.description}</div>
+              <div className='business-card-header'>{business?.name}</div>
+              <div className='business-card-rating'>Rating</div>
+              <div className='business-card-address'>{business?.address}</div>
+              <div className='business-card-hours'>Open until Midnight</div>
+              <div className='business-card-description'>DESCRIPTION: {business?.description}</div>
             </div>
 
           </div>
