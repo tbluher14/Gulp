@@ -47,13 +47,13 @@ export const createReviewThunk = (review) => async (dispatch) => {
     })
     if (res.ok) {
         const review = await res.json()
-        console.log('this is review', review)
+        
         dispatch(createReviewAC(review))
         return review
     }
 }
 
-// HEROKU TESTING
+
 
 //****************************************************************************************************
 

@@ -9,6 +9,7 @@ const ReviewForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const businessId = useParams()
+    console.log("this is business id in review react", businessId)
     const business = useSelector(state => (state.business))
     const user = useSelector(state => (state.session.user))
 
