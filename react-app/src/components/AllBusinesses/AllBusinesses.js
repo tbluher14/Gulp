@@ -22,7 +22,7 @@ const AllBusinesses = () => {
     console.log("this is businessesssssss", businesses)
 
     return (
-        <div>
+        <div className='all-business-container'>
             {Object.values(businesses).map((business) => (
                 <>
                 <div className='all-businesses-card-container'>

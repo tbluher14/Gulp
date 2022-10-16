@@ -33,3 +33,9 @@
 .business-card-inner-container-right {
   font-family: 'Open Sans', sans-serif;
 }
+
+.business-card-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
