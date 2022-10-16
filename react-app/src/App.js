@@ -15,6 +15,7 @@ import BusinessesDetails from './components/BusinessDetails/BusinessDetails';
 import CreateReviewForm from './components/Reviews/CreateReviewForm';
 import BusinessCard from './components/BusinessCard';
 import HomePage from './components/HomePage';
+import BusinessesDetailsCopy from './components/BusinessDetails/BusinessDetailCopy';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -54,7 +55,7 @@ function App() {
           <AllBusinesses />
         </ProtectedRoute>
         <ProtectedRoute path='/businesses/:businessId' exact={true}>
-          <BusinessesDetails />
+          <BusinessesDetailsCopy />
         </ProtectedRoute>
         <ProtectedRoute path='/testing' exact={true}>
           <BusinessCreateForm />
