@@ -100,15 +100,16 @@ const BusinessesDetailsCopy = () => {
                   </div>
                 </div>
               </div>
+                  <div className='description_box'>{currentBusiness?.description}</div>
             </div>
           </div>
-
+          <h2 className='reviews_header'> Reviews: </h2>
           {reviews && (
           businessReviewsArray.map((review) => (
-              <ReviewCard key={review.id} review={review} />
+              <ReviewCard key={review.id} review={review} className='review-cards' />
             )))}
             {user?.id !== currentBusiness?.owner_id && (
-                <button className='review_business_button' onClick={reviewBusiness(currentBusiness.id)}>REVIEWS IN THIS BITCH</button>
+                <button className='review_business_button' onClick={reviewBusiness(currentBusiness.id)}>Create Review</button>
             )}
         </div>
       </div>

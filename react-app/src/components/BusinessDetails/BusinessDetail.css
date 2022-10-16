@@ -153,6 +153,16 @@
   line-height: 24px;
 }
 
+.description_box{
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
 
 .delete_business_button {
   background-color: #ff0000;
@@ -169,3 +179,39 @@
   margin-left: 5px;
 }
 
+
+.review_business_button {
+  background-color: #ff0000;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  left: 660px;
+  top: 30px;
+}
+
+.review-card{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  margin-top: 20px;
+  position: relative;
+  width: 50%;
+  left: 22%;
+  border: 1px solid lightgray;
+}
+
+.reviews_header{
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  right: 60px;
+}
