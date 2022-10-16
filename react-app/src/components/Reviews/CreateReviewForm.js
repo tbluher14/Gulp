@@ -36,23 +36,23 @@ const ReviewForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-        <div className="create-review-container">
-          <div className="create-review-input-container">
+                <input className="create-business-input"
+                  type="text"
+                  placeholder="rating"
+                  onChange={(e) => setRating(e.target.value)}
+                  required
+                />
+          <div className="create-review-container">
             <div className="create-review-input-container">
-              <input className="create-review-input"
-                type="text"
-                placeholder='review'
-                onChange={(e) => setReview(e.target.value)}
-                required
-              />
+              <div className="create-review-input-container">
+                <input className="create-review-input"
+                  type="text"
+                  placeholder='review'
+                  onChange={(e) => setReview(e.target.value)}
+                  required
+                />
             </div>
             <div className="create-business-input-container">
-              <input className="create-business-input"
-                type="text"
-                placeholder="rating"
-                onChange={(e) => setRating(e.target.value)}
-                required
-              />
             </div>
             <button name="submit" type="submit" className="submitButton">
               Create Review
