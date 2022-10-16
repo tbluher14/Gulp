@@ -33,6 +33,10 @@ const BusinessesDetailsCopy = () => {
       history.push(`/businesses/${businessId}/edit`)
     }
 
+    const reviewBusiness = (businessId) => async (e) => {
+      e.preventDefault();
+      history.push(`/reviews/${currentBusiness.id}`)
+    }
     return (
       <div className='business-detail-container'>
         <div className='business-detail-inner-container'>
@@ -92,6 +96,9 @@ const BusinessesDetailsCopy = () => {
                 </div>
               </div>
             </div>
+                    {user?.id !== currentBusiness?.owner_id && (
+                <button className='review_business_button' onClick={reviewBusiness(currentBusiness.id)}>REVIEWS IN THIS BITCH</button>
+                )}
           </div>
         </div>
       </div>
