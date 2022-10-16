@@ -46,7 +46,7 @@ const NavBar = () => {
       </NavLink>
       <div className='navbar-search-bar'>Search Bar</div>
       <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>
-        Create Busines
+        Create Businesssssss
       </div>
       {
         !sessionUser && (
