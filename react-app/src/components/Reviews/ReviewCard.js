@@ -7,6 +7,7 @@ const ReviewCard = ({ review }) => {
   const history = useHistory()
   const dispatch = useDispatch()
   const sessionUser = useSelector((state) => state.session.user)
+  
   const { businessId } = useParams()
   // const review = useSelector(state => (state.review))
 
@@ -21,9 +22,13 @@ const ReviewCard = ({ review }) => {
     <div className='review-card'>
       <div>
             <div>
+              <div></div>
               {/* <div>{name}</div> */}
-              <div>Rating</div>
-              <div>{review.rating}</div>
+              <h4>Rating</h4>
+              <div>
+                {review.rating}
+              </div>
+              Review:{review.review}
             </div>
 
       </div>
