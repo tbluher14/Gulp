@@ -7,11 +7,16 @@ const ReviewCard = ({ review }) => {
   const history = useHistory()
   const dispatch = useDispatch()
   const sessionUser = useSelector((state) => state.session.user)
-  
+
   const { businessId } = useParams()
   // const review = useSelector(state => (state.review))
 
 
+  const editReview = (e) => {
+    e.preventDefault()
+    
+    history.push(`/businesses/${businessId}`)
+  }
   // useEffect(() => {
   //   dispatch(getAllReviewsThunk())
   // }, [])
@@ -23,7 +28,13 @@ const ReviewCard = ({ review }) => {
       <div>
             <div>
               <div></div>
-              {/* <div>{name}</div> */}
+              {review?.user_id == sessionUser?.id && (
+              <button
+              id='edit_my_review'
+              onClick={() => history.push(`/reviews/${review.id}/edit`)}
+
+              >Edit My Review</button>
+              )}
               <h4>Rating</h4>
               <div>
                 {review.rating}

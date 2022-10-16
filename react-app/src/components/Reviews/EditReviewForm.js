@@ -30,7 +30,7 @@ const EditReviewForm = () => {
       review: review,
       rating: rating,
     }
-
+    history.push(`/businesses/${review.business_id}`)
     return dispatch(editReviewThunk(data))
 
   }
@@ -57,7 +57,7 @@ const EditReviewForm = () => {
           />
         </div>
         <button name="submit" type="submit" className="submitButton">
-          Create Review
+          Edit Review
         </button>
       </div>
 

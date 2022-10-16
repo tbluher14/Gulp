@@ -16,6 +16,7 @@ import CreateReviewForm from './components/Reviews/CreateReviewForm';
 import BusinessCard from './components/BusinessCard';
 import HomePage from './components/HomePage';
 import BusinessesDetailsCopy from './components/BusinessDetails/BusinessDetailCopy';
+import EditReviewForm from './components/Reviews/EditReviewForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -71,6 +72,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/businesscard' exact={true}>
           <BusinessCard />
+        </Route>
+        <Route path='/reviews/:reviewId/edit'>
+          <EditReviewForm></EditReviewForm>
         </Route>
       </Switch>
     </BrowserRouter>

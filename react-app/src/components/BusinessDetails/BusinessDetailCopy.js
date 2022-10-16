@@ -69,7 +69,7 @@ const BusinessesDetailsCopy = () => {
           <div className='business-detail-two-inner-container'>
             <div className='business-detail-two-left'>
               <div className='business-detail-two-left-inner-container'>
-                <div className='business-detail-two-left-button'>BUTTONS</div>
+                <div className='business-detail-two-left-button'></div>
                 {user?.id == currentBusiness?.owner_id && (
                   <button className='delete_business_button' onClick={editBusiness(currentBusiness.id)}>Edit</button>
                 )}
@@ -90,13 +90,21 @@ const BusinessesDetailsCopy = () => {
 
             <div className='business-detail-two-right'>
               <div className='business-detail-two-right-box'>
-                <div className='business-detail-two-right-box-website'>{currentBusiness?.website}</div>
-                <div className='business-detail-two-right-box-phone'>{currentBusiness?.phone}</div>
+                <div className='business-detail-two-right-box-website'>{currentBusiness?.website}
+                <i class="fa-solid fa-share-from-square"></i>
+                </div>
+                <div className='business-detail-phone'>{currentBusiness?.phone}
+                 <i class="fa-solid fa-phone-volume"></i>
+                </div>
                 <div className='business-detail-two-right-box-direction'>
                   <div className='business-detail-two-right-box-direction-one'>Get Directions:</div>
                   <div className='business-detail-two-right-box-direction-two'>
                     <div>{currentBusiness?.address}</div>
                     <div>{currentBusiness?.zipCode}</div>
+
+                    <div className='business-detail-direction'>
+                    <i class="fa-regular fa-map"></i>
+                    </div>
                   </div>
                 </div>
               </div>
