@@ -51,7 +51,7 @@ export const createReviewThunk = (review) => async (dispatch) => {
     })
     if (res.ok) {
         const review = await res.json()
-
+        console.log("this is a NEW REVIEWWWWW", review)
         dispatch(createReviewAC(review))
         return review
     }
@@ -85,7 +85,7 @@ const reviewReducer = (state = initialState, action) => {
             return newState
         case CREATE_REVIEW:
             newState = {...state}
-            console.log(newState)
+            console.log("this is new state",newState)
             return newState
         default:
             return state
