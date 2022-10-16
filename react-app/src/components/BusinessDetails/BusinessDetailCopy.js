@@ -16,11 +16,6 @@ const BusinessesDetailsCopy = () => {
     const user = useSelector((state) => state.session.user);
     const currentBusiness = business[businessId.businessId]
 
-    // console.log("this is businessesssssss", business)
-    // console.log('this is business id', businessId.businessId)
-    // console.log('this is current business', currentBusiness)
-
-    // comment for git
 
     useEffect((e) => {
         dispatch(getAllBusinessesThunk())
@@ -43,8 +38,12 @@ const BusinessesDetailsCopy = () => {
         <div className='business-detail-inner-container'>
 
           <div className='business-detail-one'>
-            <img className='business-detail-image' src='https://res.cloudinary.com/the-infatuation/image/upload/q_auto,f_auto/images/KatePrevite_Lore_Spread_00005_gf8zsr'></img>
-
+            <img
+            className='business-detail-image'
+            src='https://res.cloudinary.com/the-infatuation/image/upload/q_auto,f_auto/images/KatePrevite_Lore_Spread_00005_gf8zsr'
+            alt= 'business'
+            >
+            </img>
             <div className='business-detail-image-text-container'>
               <div className='business-detail-image-text-inner-container'>
                 <div className='business-detail-image-text-name'>{currentBusiness?.name}</div>
@@ -56,13 +55,10 @@ const BusinessesDetailsCopy = () => {
               </div>
             </div>
           </div>
-
           <div className='business-detail-two'>
             <div className='business-detail-two-inner-container'>
-
               <div className='business-detail-two-left'>
                 <div className='business-detail-two-left-inner-container'>
-
                   <div className='business-detail-two-left-button'>BUTTONS</div>
                   {user?.id == currentBusiness?.owner_id && (
                   <button className='delete_business_button' onClick={editBusiness(currentBusiness.id)}>Edit</button>
@@ -84,21 +80,19 @@ const BusinessesDetailsCopy = () => {
 
               <div className='business-detail-two-right'>
                 <div className='business-detail-two-right-box'>
-                  <div className='business-detail-two-right-box-website'>{currentBusiness}</div>
-                  <div className='business-detail-two-right-box-phone'>{`(777) 777-7777`}</div>
+                  <div className='business-detail-two-right-box-website'>{currentBusiness?.website}</div>
+                  <div className='business-detail-two-right-box-phone'>{currentBusiness?.phone}</div>
                   <div className='business-detail-two-right-box-direction'>
-                    <div className='business-detail-two-right-box-direction-one'>Get Directions</div>
+                    <div className='business-detail-two-right-box-direction-one'>Get Directions:</div>
                     <div className='business-detail-two-right-box-direction-two'>
-                      <div>7777 S Fake Address Blvd New York, NY</div>
-                      <div>89109</div>
+                      <div>{currentBusiness?.address}</div>
+                      <div>{currentBusiness?.zipCode}</div>
                     </div>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
     )
