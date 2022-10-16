@@ -20,6 +20,8 @@ const BusinessesDetailsCopy = () => {
     // console.log('this is business id', businessId.businessId)
     // console.log('this is current business', currentBusiness)
 
+    // comment for git
+
     useEffect((e) => {
         dispatch(getAllBusinessesThunk())
     }, [])
