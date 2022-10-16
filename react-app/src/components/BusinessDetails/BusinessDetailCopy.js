@@ -82,7 +82,7 @@ const BusinessesDetailsCopy = () => {
 
               <div className='business-detail-two-right'>
                 <div className='business-detail-two-right-box'>
-                  <div className='business-detail-two-right-box-website'>{currentBusiness}</div>
+                  <div className='business-detail-two-right-box-website'></div>
                   <div className='business-detail-two-right-box-phone'>{`(777) 777-7777`}</div>
                   <div className='business-detail-two-right-box-direction'>
                     <div className='business-detail-two-right-box-direction-one'>Get Directions</div>
