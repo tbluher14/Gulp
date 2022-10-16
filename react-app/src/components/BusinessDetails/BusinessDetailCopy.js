@@ -15,6 +15,9 @@ const BusinessesDetailsCopy = () => {
     const business = useSelector(state => (state.business))
     const user = useSelector((state) => state.session.user);
     const currentBusiness = business[businessId.businessId]
+    const reviews = useSelector(state => (state.review))
+
+    const businessReviews = 
 
 
     useEffect((e) => {
