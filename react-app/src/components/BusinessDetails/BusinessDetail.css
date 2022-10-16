@@ -89,11 +89,33 @@
   margin-bottom: 32px;
 }
 
-.business-detail-two-left-menu {
+.business-detail-two-left-menu-container {
   padding-top: 32px;
+  padding-bottom: 32px;
   border-top: 1px solid #ebebeb;
-  font-weight: 600;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.business-detail-two-left-menu {
+  font-weight: 700;
   font-size: 20px;
+}
+
+.business-detail-two-left-dishes {
+  font-size: 16px;
+  font-weight: 700;
+  padding-top: 24px;
+}
+
+.business-detail-two-left-location-hours-container {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.business-detail-two-left-location-hours-header {
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .business-detail-two-right {

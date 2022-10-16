@@ -55,8 +55,18 @@ const BusinessesDetailsCopy = () => {
 
               <div className='business-detail-two-left'>
                 <div className='business-detail-two-left-inner-container'>
+
                   <div className='business-detail-two-left-button'>BUTTONS</div>
-                  <div className='business-detail-two-left-menu'>MENU</div>
+
+                  <div className='business-detail-two-left-menu-container'>
+                    <div className='business-detail-two-left-menu'>MENU</div>
+                    <div className='business-detail-two-left-dishes'>Popular dishes</div>
+                  </div>
+
+                  <div className='business-detail-two-left-location-hours-container'>
+                    <div className='business-detail-two-left-location-hours-header'>Location & Hours</div>
+                  </div>
+
                 </div>
               </div>
 
