@@ -17,8 +17,10 @@ const BusinessesDetailsCopy = () => {
     const currentBusiness = business[businessId.businessId]
     const reviews = useSelector(state => (state.review))
 
-    const businessReviews = 
+    const businessReviews = Object.values(reviews)
 
+    const businessReviewsArray = businessReviews.filter(review => review.business_id === currentBusiness.id)
+    // console.log("this is business reviews array", businessReviewsArray)
 
     useEffect((e) => {
         dispatch(getAllBusinessesThunk())
@@ -99,6 +101,9 @@ const BusinessesDetailsCopy = () => {
                 </div>
               </div>
             </div>
+                <div>
+                {businessReviewsArray.map(review => review.review)}
+                </div>
                     {user?.id !== currentBusiness?.owner_id && (
                 <button className='review_business_button' onClick={reviewBusiness(currentBusiness.id)}>REVIEWS IN THIS BITCH</button>
                 )}
