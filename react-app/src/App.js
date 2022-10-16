@@ -55,12 +55,12 @@ function App() {
           <AllBusinesses />
         </Route>
         <Route path='/businesses/:businessId' exact={true}>
-          <BusinessesDetails />
+          <BusinessesDetailsCopy />
         </Route>
         <ProtectedRoute path='/testing' exact={true}>
           <BusinessCreateForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/testingedit' exact={true}>
+        <ProtectedRoute path='/businesses/:businessid/edit' exact={true}>
           <BusinessEditForm />
         </ProtectedRoute>
         <ProtectedRoute path='/testdelete' exact={true}>

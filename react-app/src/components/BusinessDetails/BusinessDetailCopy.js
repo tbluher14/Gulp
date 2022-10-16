@@ -31,6 +31,11 @@ const BusinessesDetailsCopy = () => {
         return res
     }
 
+    const editBusiness = (businessId) => async (e) => {
+      e.preventDefault();
+      history.push(`/businesses/${businessId}/edit`)
+    }
+
     return (
       <div className='business-detail-container'>
         <div className='business-detail-inner-container'>
@@ -57,7 +62,11 @@ const BusinessesDetailsCopy = () => {
                 <div className='business-detail-two-left-inner-container'>
 
                   <div className='business-detail-two-left-button'>BUTTONS</div>
-
+                  {user?.id == currentBusiness?.owner_id && (
+                <button className='delete_business_button' onClick={removeBusiness(currentBusiness.id)}>Delete</button>)}
+                {user?.id == currentBusiness?.owner_id && (
+                <button className='delete_business_button' onClick={editBusiness(currentBusiness.id)}>Edit</button>
+                )}
                   <div className='business-detail-two-left-menu-container'>
                     <div className='business-detail-two-left-menu'>MENU</div>
                     <div className='business-detail-two-left-dishes'>Popular dishes</div>
