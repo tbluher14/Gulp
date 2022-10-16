@@ -12,8 +12,10 @@ import AllBusinesses from './components/AllBusinesses/AllBusinesses';
 import BusinessCreateForm from './components/NavBar/CreateBusinessForm';
 import BusinessEditForm from './components/BusinessDetails/EditBusinessForm';
 import BusinessesDetails from './components/BusinessDetails/BusinessDetails';
-import ReviewForm from './components/Reviews/CreateReviewForm';
+import CreateReviewForm from './components/Reviews/CreateReviewForm';
 import BusinessCard from './components/BusinessCard';
+import HomePage from './components/HomePage';
+import BusinessesDetailsCopy from './components/BusinessDetails/BusinessDetailCopy';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,30 +48,30 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
-        <ProtectedRoute path='/businesses' exact={true}>
+        <Route path='/' exact={true} >
+          <HomePage />
+        </Route>
+        <Route path='/businesses' exact={true}>
           <AllBusinesses />
-        </ProtectedRoute>
-        <ProtectedRoute path='/businesses/:businessId' exact={true}>
-          <BusinessesDetails />
-        </ProtectedRoute>
+        </Route>
+        <Route path='/businesses/:businessId' exact={true}>
+          <BusinessesDetailsCopy />
+        </Route>
         <ProtectedRoute path='/testing' exact={true}>
           <BusinessCreateForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/testingedit' exact={true}>
+        <ProtectedRoute path='/businesses/:businessId/edit' exact={true}>
           <BusinessEditForm />
         </ProtectedRoute>
         <ProtectedRoute path='/testdelete' exact={true}>
           <BusinessesDetails />
         </ProtectedRoute>
-        <ProtectedRoute path='/testingreviews' exact={true}>
-          <ReviewForm />
+        <ProtectedRoute path='/reviews/:businessId' exact={true}>
+          <CreateReviewForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/businesscard' exact={true}>
+        <Route path='/businesscard' exact={true}>
           <BusinessCard />
-        </ProtectedRoute>
+        </Route>
       </Switch>
     </BrowserRouter>
   );

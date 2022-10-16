@@ -1,0 +1,171 @@
+.business-detail-one {
+  position: relative;
+  height: 426px;
+
+}
+
+.business-detail-image {
+  width: 100%;
+  height: 426px;
+  object-fit: cover;
+}
+
+.business-detail-image-text-container {
+  width: 100%;
+  max-width: 1144px;
+  height: 426px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px 64px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+}
+
+.business-detail-image-text-inner-container {
+  height: 170.42px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.business-detail-image-text-name {
+  color: white;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.business-detail-image-text-review {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 36px;
+}
+
+.business-detail-image-text-hours {
+  display: flex;
+  margin-top: 24px;
+}
+
+.business-detail-image-text-hours-open {
+  color: green;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.business-detail-image-text-hours-time {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.business-detail-two {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.business-detail-two-inner-container {
+  width: 100%;
+  max-width: 1144px;
+  margin: 0 auto;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.business-detail-two-left {
+  width: 66.6666666%;
+  box-sizing: border-box;
+  padding-right: 16px;
+}
+
+.business-detail-two-left-inner-container {
+  /* border: 1px solid black; */
+}
+
+.business-detail-two-left-button {
+  margin-bottom: 32px;
+}
+
+.business-detail-two-left-menu-container {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.business-detail-two-left-menu {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.business-detail-two-left-dishes {
+  font-size: 16px;
+  font-weight: 700;
+  padding-top: 24px;
+}
+
+.business-detail-two-left-location-hours-container {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.business-detail-two-left-location-hours-header {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.business-detail-two-right {
+  width: 33.3333333%;
+  box-sizing: border-box;
+  padding-left: 16px;
+}
+
+.business-detail-two-right-box {
+  border: 1px solid #ebebeb;
+  padding: 16px;
+  border-radius: 4px;
+}
+
+.business-detail-two-right-box-website {
+  padding-bottom: 16px;
+}
+
+.business-detail-two-right-box-phone {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-top: 1px solid #ebebeb;
+}
+
+.business-detail-two-right-box-direction {
+  padding-top: 16px;
+  border-top: 1px solid #ebebeb;
+}
+
+.business-detail-two-right-box-direction-one {
+  line-height: 24px;
+}
+
+.business-detail-two-right-box-direction-two {
+  line-height: 24px;
+}
+
+
+.delete_business_button {
+  background-color: #ff0000;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  right: 5px;
+  bottom: 10px;
+  margin-left: 5px;
+}
+

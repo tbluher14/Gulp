@@ -41,7 +41,7 @@ function BusinessCreateForm() {
       phone: phone,
       description: description,
     };
-
+    history.push('/businesses')
     return dispatch(createBusinessThunk(data));
 
   };

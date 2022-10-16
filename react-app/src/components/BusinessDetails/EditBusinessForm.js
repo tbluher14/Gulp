@@ -12,6 +12,8 @@ function BusinessEditForm() {
   const { businessId } = useParams();
 
   const business = businesses[businessId];
+  console.log("this is businessID in react", businessId)
+  console.log("this is business in react", business)
 
   const [name, setName] = useState(business?.name);
   const [address, setAddress] = useState(business?.address);
@@ -49,8 +51,8 @@ function BusinessEditForm() {
       phone: phone,
       description: description,
     };
-
-    return dispatch(editBusinessThunk(data, 6));
+    history.push('/businesses')
+    return dispatch(editBusinessThunk(data, businessId));
 
   };
 

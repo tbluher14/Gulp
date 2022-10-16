@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
-import { createReviewThunk } from '../../store/review';
+import { createReviewThunk, getAllReviewsThunk } from '../../store/review';
+
 
 
 
@@ -9,6 +10,7 @@ const ReviewForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const businessId = useParams()
+    console.log("this is business id in review react", businessId)
     const business = useSelector(state => (state.business))
     const user = useSelector(state => (state.session.user))
 
@@ -21,16 +23,13 @@ const ReviewForm = () => {
         e.preventDefault();
         const data = {
             user_id: user.id,
-            business_id: businessId,
+            business_id: businessId.businessId,
             review: review,
             rating: rating,
         }
         const res = await dispatch(createReviewThunk(data))
-        if (res.ok) {
-            history.push(`/businesses/${businessId}`)
-        } else {
-            setErrors(res.data.errors)
-        }
+        dispatch(getAllReviewsThunk())
+        history.push(`/businesses/${businessId.businessId}`)
     }
 
 

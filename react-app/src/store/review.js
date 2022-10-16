@@ -40,20 +40,20 @@ export const getAllReviewsThunk = () => async (dispatch) => {
 }
 // Create review thunk
 export const createReviewThunk = (review) => async (dispatch) => {
-    const res = await fetch(`api/reviews/`, {
+    const res = await fetch(`/api/reviews/create_review`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(review)
     })
     if (res.ok) {
         const review = await res.json()
+
         dispatch(createReviewAC(review))
-        dispatch()
         return review
     }
 }
 
-// HEROKU TESTING 
+
 
 //****************************************************************************************************
 

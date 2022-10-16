@@ -1,0 +1,50 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 96px;
+  padding: 0 75px;
+  box-sizing: border-box;
+}
+
+.navbar-logo-container {
+  width: 300px;
+}
+
+.navbar-logo {
+  height: 65px;
+  width: 170px;
+  cursor: pointer;
+}
+
+.navbar-search-bar {
+  border: 1px solid black;
+  height: 40px;
+  width: 700px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+
+.navbar-business-login-signup-container {
+  display: flex;
+  width: 330px;
+  justify-content: space-between;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-create-business {
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 24px;
+}
+
+#navbar-login-button {
+  cursor: pointer;
+}
+
+#navbar-signup-button {
+  cursor: pointer;
+}
