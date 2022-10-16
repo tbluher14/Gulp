@@ -7,6 +7,7 @@
   box-sizing: border-box;
 }
 
+
 .navbar-logo {
   height: 65px;
   width: 170px;
@@ -28,4 +29,20 @@
   /* margin-right: 150px; */
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
+}
+
+.navbar-login {
+  cursor: pointer;
+  display: flex;
+  margin-right: 25px;
+}
+
+.navbar-signup {
+  cursor: pointer;
+  display: flex;
+  margin-right: 25px;
+}
+
+.navbar-login-signup {
+  display: flex;
 }
