@@ -47,11 +47,22 @@ const NavBar = () => {
       <div className='navbar-search-bar'>Search Bar</div>
       {/* <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>Create Business</div> */}
 
-      <div className='navbar-business-login-signup-container'>
-        <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>Create Business</div>
-        <div id='navbar-login-button' onClick={() => history.push(`/login`)}>Log In</div>
-        <div id='navbar-signup-button' onClick={() => history.push(`/sign-up`)}>Sign Up</div>
-      </div>
+      {
+        !sessionUser && (
+          <div className='navbar-business-login-signup-container'>
+            <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>Create Business</div>
+            <div id='navbar-login-button' onClick={() => history.push(`/login`)}>Log In</div>
+            <div id='navbar-signup-button' onClick={() => history.push(`/sign-up`)}>Sign Up</div>
+          </div>
+        )
+      }
+      {
+        sessionUser && (
+          <div>
+            <LogoutButton />
+          </div>
+        )
+      }
 
       {/* {
         !sessionUser && (
@@ -68,13 +79,6 @@ const NavBar = () => {
           </div>
         )
       } */}
-
-
-
-
-
-
-
 
     </div>
   );
