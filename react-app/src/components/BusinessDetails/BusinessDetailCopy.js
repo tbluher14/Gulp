@@ -63,9 +63,10 @@ const BusinessesDetailsCopy = () => {
 
                   <div className='business-detail-two-left-button'>BUTTONS</div>
                   {user?.id == currentBusiness?.owner_id && (
-                <button className='delete_business_button' onClick={removeBusiness(currentBusiness.id)}>Delete</button>)}
-                {user?.id == currentBusiness?.owner_id && (
-                <button className='delete_business_button' onClick={editBusiness(currentBusiness.id)}>Edit</button>
+                  <button className='delete_business_button' onClick={editBusiness(currentBusiness.id)}>Edit</button>
+                  )}
+                  {user?.id == currentBusiness?.owner_id && (
+                <button className='delete_business_button' onClick={removeBusiness(currentBusiness.id)}>Delete</button>
                 )}
                   <div className='business-detail-two-left-menu-container'>
                     <div className='business-detail-two-left-menu'>MENU</div>
@@ -81,7 +82,7 @@ const BusinessesDetailsCopy = () => {
 
               <div className='business-detail-two-right'>
                 <div className='business-detail-two-right-box'>
-                  <div className='business-detail-two-right-box-website'>https://www.businesswebsitehere.com</div>
+                  <div className='business-detail-two-right-box-website'>{currentBusiness}</div>
                   <div className='business-detail-two-right-box-phone'>{`(777) 777-7777`}</div>
                   <div className='business-detail-two-right-box-direction'>
                     <div className='business-detail-two-right-box-direction-one'>Get Directions</div>

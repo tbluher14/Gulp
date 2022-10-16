@@ -56,11 +56,13 @@ def create_business():
 @login_required
 def edit_business(business_id):
   form = CreateBusinessForm()
-
+  print('this is business id', business_id)
   form["csrf_token"].data = request.cookies["csrf_token"]
+
 
   if form.validate_on_submit():
     business = Business.query.get(business_id)
+    print('THIS IS THE BUSINESS', business)
 
     print('THIS IS THE FORM', form)
 
