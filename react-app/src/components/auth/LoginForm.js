@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import * as sessionActions from '../../store/session';
 import './Auth.css'
 
 const LoginForm = () => {
@@ -18,6 +19,15 @@ const LoginForm = () => {
       setErrors(data);
     }
   };
+
+  // const demoLogin = (e) => {
+  //   e.preventDefault()
+  //   return dispatch(sessionActions.login({
+  //     email: "demo@aa.io",
+  //     password: "password"
+  //   }))
+  // }
+
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -58,6 +68,8 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <button type='submit'>Login</button>
+        <button onClick={() =>{setEmail("demo@aa.io"); setPassword("password")}}
+          type="submit">Demo User</button>
       </div>
     </form>
   );
