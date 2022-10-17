@@ -20,15 +20,11 @@ export const updateReviewAC = (reviews) => ({
     type: UPDATE_REVIEW,
     payload: reviews,
 })
-// export const updateBusinessesAC = (business) => ({
-//     type: UPDATE_BUSINESS,
-//     payload: business,
-// })
 
-// export const deleteBusinessesAC = (businessId) => ({
-//     type: DELETE_BUSINESS,
-//     payload: businessId,
-// })
+ export const deleteReviewAC = (reviewId) => ({
+    type: DELETE_REVIEW,
+    payload: reviewId,
+})
 
 //****************************************************************************************************
 
@@ -56,7 +52,7 @@ export const createReviewThunk = (review) => async (dispatch) => {
         return review
     }
 }
-
+// Edit Review Thunk
 export const editReviewThunk = (review) => async (dispatch) => {
     const res = await fetch(`/api/reviews/${review.id}`, {
         method: 'PUT',
@@ -70,6 +66,17 @@ export const editReviewThunk = (review) => async (dispatch) => {
     }
 }
 
+// Delete Review Thunk
+export const deleteReviewThunk = (reviewId) => async (dispatch) => {
+    const res = await fetch(`/api/reviews/${reviewId}`, {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'},
+    })
+    if (res.ok) {
+        dispatch(deleteReviewAC(reviewId))
+        return res
+    }
+}
 
 //****************************************************************************************************
 
@@ -86,6 +93,10 @@ const reviewReducer = (state = initialState, action) => {
         case CREATE_REVIEW:
             newState = {...state}
             console.log("this is new state",newState)
+            return newState
+        case DELETE_REVIEW:
+            newState={...state}
+            delete newState[action.payload]
             return newState
         default:
             return state

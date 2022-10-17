@@ -48,3 +48,12 @@ def edit_review(review_id):
       return jsonify(reviewData.to_dict()), 200
   else:
       return {'errors': form.errors}, 401
+
+
+@review_routes.route('/<int:review_id>', methods=['DELETE'])
+@login_required
+def delete_review(review_id):
+  review = Business.query.get(review_id)
+  db.session.delete(review)
+  db.session.commit()
+  return {'message': 'Review deleted'}

@@ -1,7 +1,7 @@
 import { NavLink, useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
-import getAllReviewsThunk from '../../store/review';
+import getAllReviewsThunk, { deleteReviewThunk } from '../../store/review';
 
 const ReviewCard = ({ review }) => {
   const history = useHistory()
@@ -9,19 +9,22 @@ const ReviewCard = ({ review }) => {
   const sessionUser = useSelector((state) => state.session.user)
 
   const { businessId } = useParams()
-  // const review = useSelector(state => (state.review))
+  // const reviews = useSelector(state => (state.review))
 
 
   const editReview = (e) => {
     e.preventDefault()
-    
     history.push(`/businesses/${businessId}`)
   }
-  // useEffect(() => {
-  //   dispatch(getAllReviewsThunk())
-  // }, [])
 
-  console.log('reviewwwwwwwwwwwww', review)
+  const deleteReview = (e) => {
+    // e.preventDefault()
+    dispatch(deleteReviewThunk(review.id))
+    dispatch(getAllReviewsThunk())
+    history.push(`/businesses/${businessId}`)
+  }
+
+
 
   return (
     <div className='review-card'>
@@ -32,8 +35,13 @@ const ReviewCard = ({ review }) => {
               <button
               id='edit_my_review'
               onClick={() => history.push(`/reviews/${review.id}/edit`)}
-
               >Edit My Review</button>
+              )}
+              {review?.user_id == sessionUser?.id && (
+              <button
+              id='delete_my_review'
+              onClick={() => deleteReview()}
+              >Delete My Review</button>
               )}
               <h4>Rating</h4>
               <div>
