@@ -62,11 +62,11 @@ def edit_business(business_id):
 
   if form.validate_on_submit():
     business = Business.query.get(business_id)
-    print('THIS IS THE BUSINESS', business)
+    # print('THIS IS THE BUSINESS', business)
 
-    print('THIS IS THE FORM', form)
+    # print('THIS IS THE FORM', form)
 
-    print('THIS IS THE FORM DATA', form.data)
+    # print('THIS IS THE FORM DATA', form.data)
 
     business.owner_id=current_user.id
     business.name=form.data['name']

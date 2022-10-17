@@ -24,7 +24,7 @@ const ReviewCard = ({ review }) => {
     history.push(`/businesses/${businessId}`)
   }
 
-  console.log('this is review', review)
+  // console.log('this is review', review)
 
   return (
     <div className='review-card'>

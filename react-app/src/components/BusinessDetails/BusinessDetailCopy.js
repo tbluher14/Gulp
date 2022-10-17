@@ -24,14 +24,14 @@ const BusinessesDetailsCopy = () => {
   const businessReviews = Object.values(reviews)
   const businessReviewsArray = businessReviews.filter(review => review?.business_id === currentBusiness?.id)
 
-  console.log('this is current business', currentBusiness)
-  console.log('this is user', user)
+  // console.log('this is current business', currentBusiness)
+  // console.log('this is user', user)
 
-  console.log('this is businessReviews', businessReviews)
+  // console.log('this is businessReviews', businessReviews)
 
 
   const userReview = businessReviewsArray.filter(review => user.id === review.user_id)
-  console.log('this is user review', userReview)
+  // console.log('this is user review', userReview)
 
   useEffect((e) => {
     dispatch(getAllBusinessesThunk()).then(() => setIsLoaded(true))

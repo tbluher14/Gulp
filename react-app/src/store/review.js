@@ -16,9 +16,9 @@ export const createReviewAC = (reviews) => ({
     payload: reviews,
 })
 
-export const updateReviewAC = (reviews) => ({
+export const updateReviewAC = (review) => ({
     type: UPDATE_REVIEW,
-    payload: reviews,
+    payload: review,
 })
 
  export const deleteReviewAC = (reviewId) => ({
@@ -53,14 +53,15 @@ export const createReviewThunk = (review) => async (dispatch) => {
     }
 }
 // Edit Review Thunk
-export const editReviewThunk = (review) => async (dispatch) => {
-    const res = await fetch(`/api/reviews/${review.id}`, {
+export const editReviewThunk = (review, reviewId) => async (dispatch) => {
+    const res = await fetch(`/api/reviews/${reviewId}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(review)
     })
     if (res.ok) {
         const review = await res.json()
+        console.log('this is edited review', review)
         dispatch(updateReviewAC(review))
         return review
     }

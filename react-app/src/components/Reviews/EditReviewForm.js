@@ -14,14 +14,14 @@ const EditReviewForm = () => {
   const user = useSelector(state => (state.session.user))
   const reviews = useSelector(state => (state.review))
 
-  console.log('this is businessId', businessId)
-  console.log('this is reviewId', reviewId)
+  // console.log('this is businessId', businessId)
+  // console.log('this is reviewId', reviewId)
 
-  console.log('this is reviews', reviews)
+  // console.log('this is reviews', reviews)
 
   const currentReview = reviews[reviewId.reviewId]
 
-  console.log('this is currentReview', currentReview)
+  // console.log('this is currentReview', currentReview)
 
   const [review, setReview] = useState(currentReview?.review)
   const [rating, setRating] = useState(currentReview?.rating)
@@ -41,8 +41,8 @@ const EditReviewForm = () => {
       review: review,
       rating: rating,
     }
+    return dispatch(editReviewThunk(data, reviewId.reviewId)).then(() => dispatch(getAllReviewsThunk())).then(() => history.push(`/businesses/${businessId.businessId}`))
     history.push(`/businesses/${review.business_id}`)
-    return dispatch(editReviewThunk(data))
 
   }
 
