@@ -102,6 +102,7 @@ const reviewReducer = (state = initialState, action) => {
             return newState
         case DELETE_REVIEW:
             newState={...state}
+            console.log('this is action for delete', action)
             delete newState[action.payload]
             return newState
         default:

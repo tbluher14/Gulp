@@ -32,9 +32,6 @@ const BusinessesDetailsCopy = () => {
 
   const userReview = businessReviews.filter(review => user.id === review.user_id)
   console.log('this is user review', userReview)
-  const userReviewBoolean = userReview.length > 0
-  console.log('this is user review boolean', userReviewBoolean)
-  // console.log("this is business reviews array", businessReviewsArray)
 
   useEffect((e) => {
     dispatch(getAllBusinessesThunk()).then(() => setIsLoaded(true))
@@ -134,7 +131,7 @@ const BusinessesDetailsCopy = () => {
               <ReviewCard key={review.id} review={review} className='review-cards' />
           )))}
 
-          {user?.id !== currentBusiness?.owner_id && userReviewBoolean && (
+          {user?.id !== currentBusiness?.owner_id && !userReview && (
             <button className='review_business_button' onClick={reviewBusiness(currentBusiness?.id)}>Create Review</button>
           )}
 

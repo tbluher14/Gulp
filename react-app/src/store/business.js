@@ -73,7 +73,7 @@ export const deleteBusinessThunk = (businessId) => async (dispatch) => {
         method: 'DELETE',
     });
     if (res.ok){
-    dispatch(deleteBusinessesAC(businessId))
+        dispatch(deleteBusinessesAC(businessId))
 }}
 
 //****************************************************************************************************
