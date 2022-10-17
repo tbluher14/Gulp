@@ -29,26 +29,26 @@ const ReviewCard = ({ review }) => {
   return (
     <div className='review-card'>
       <div>
+          <div>
+            <div></div>
+            {review?.user_id == sessionUser?.id && (
+            <button
+            id='edit_my_review'
+            onClick={() => history.push(`/reviews/${review.id}/edit`)}
+            >Edit My Review</button>
+            )}
+            {review?.user_id == sessionUser?.id && (
+            <button
+            id='delete_my_review'
+            onClick={() => deleteReview()}
+            >Delete My Review</button>
+            )}
+            <h4>Rating</h4>
             <div>
-              <div></div>
-              {review?.user_id == sessionUser?.id && (
-              <button
-              id='edit_my_review'
-              onClick={() => history.push(`/reviews/${review.id}/edit`)}
-              >Edit My Review</button>
-              )}
-              {review?.user_id == sessionUser?.id && (
-              <button
-              id='delete_my_review'
-              onClick={() => deleteReview()}
-              >Delete My Review</button>
-              )}
-              <h4>Rating</h4>
-              <div>
-                {review.rating}
-              </div>
-              Review:{review.review}
+              {review.rating}
             </div>
+            Review:{review.review}
+          </div>
 
       </div>
 

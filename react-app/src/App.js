@@ -74,7 +74,7 @@ function App() {
           <BusinessCard />
         </Route>
         <Route path='/reviews/:reviewId/edit'>
-          <EditReviewForm></EditReviewForm>
+          <EditReviewForm />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -26,8 +26,7 @@ const ReviewForm = () => {
             review: review,
             rating: rating,
         }
-        const res = await dispatch(createReviewThunk(data))
-        dispatch(getAllReviewsThunk())
+        const res = await dispatch(createReviewThunk(data)).then(() => dispatch(getAllReviewsThunk()))
         history.push(`/businesses/${businessId.businessId}`)
     }
 

@@ -1,11 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { deleteBusinessThunk, getAllBusinessesThunk } from '../../store/business';
 import { useHistory, useParams } from 'react-router-dom';
 import CreateReviewModal from '../Reviews/CreateReviewModal';
 import './BusinessDetail.css'
 import ReviewCard from '../Reviews/ReviewCard';
+import { getAllReviewsThunk } from '../../store/review';
 
 
 const BusinessesDetailsCopy = () => {
@@ -13,19 +14,34 @@ const BusinessesDetailsCopy = () => {
   const history = useHistory();
   const businessId = useParams()
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const business = useSelector(state => (state.business))
   const user = useSelector((state) => state.session.user);
   const currentBusiness = business[businessId.businessId]
   const reviews = useSelector(state => (state.review))
 
   const businessReviews = Object.values(reviews)
+  const businessReviewsArray = businessReviews.filter(review => review?.business_id === currentBusiness?.id)
 
-  const businessReviewsArray = businessReviews.filter(review => review.business_id === currentBusiness.id)
+  console.log('this is current business', currentBusiness)
+  console.log('this is user', user)
+
+  console.log('this is businessReviews', businessReviews)
+
+
+  const userReview = businessReviews.filter(review => user.id === review.user_id)
+  console.log('this is user review', userReview)
+  const userReviewBoolean = userReview.length > 0
+  console.log('this is user review boolean', userReviewBoolean)
   // console.log("this is business reviews array", businessReviewsArray)
 
   useEffect((e) => {
-    dispatch(getAllBusinessesThunk())
+    dispatch(getAllBusinessesThunk()).then(() => setIsLoaded(true))
+    dispatch(getAllReviewsThunk())
   }, [])
+
+  if (!isLoaded) return null
 
   const removeBusiness = (businessId) => async (e) => {
     e.preventDefault();
@@ -43,7 +59,7 @@ const BusinessesDetailsCopy = () => {
     e.preventDefault();
     history.push(`/reviews/${currentBusiness.id}`)
   }
-  return (
+  return isLoaded && (
     <div className='business-detail-container'>
       <div className='business-detail-inner-container'>
 
@@ -112,13 +128,16 @@ const BusinessesDetailsCopy = () => {
             </div>
           </div>
           <h2 className='reviews_header'> Reviews: </h2>
+
           {reviews && (
-          businessReviewsArray.map((review) => (
+            businessReviewsArray.map((review) => (
               <ReviewCard key={review.id} review={review} className='review-cards' />
-            )))}
-            {user?.id !== currentBusiness?.owner_id && (
-                <button className='review_business_button' onClick={reviewBusiness(currentBusiness.id)}>Create Review</button>
-            )}
+          )))}
+
+          {user?.id !== currentBusiness?.owner_id && userReviewBoolean && (
+            <button className='review_business_button' onClick={reviewBusiness(currentBusiness?.id)}>Create Review</button>
+          )}
+
         </div>
       </div>
     </div>
