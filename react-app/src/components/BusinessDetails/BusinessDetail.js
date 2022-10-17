@@ -22,20 +22,13 @@ const BusinessesDetails = () => {
   const currentBusiness = business[businessId.businessId]
   const reviews = useSelector(state => (state.review))
   const menu_items = useSelector(state => (state.menuItems)) // menuItem or menuItems?
-  console.log('Menu Items*********************', menu_items)
+  // console.log('Menu Items*********************', menu_items)
+  const menu_itemsArr = Object.values(menu_items)
+  console.log(menu_itemsArr)
+
 
   const businessReviews = Object.values(reviews)
   const businessReviewsArray = businessReviews.filter(review => review?.business_id === currentBusiness?.id)
-
-  // console.log('this is current business', currentBusiness)
-  // console.log('this is user', user)
-
-  // console.log('this is businessReviews', businessReviews)
-
-  // console.log('this is phone', currentBusiness?.phone)
-  // console.log('testing', currentBusiness?.phone.slice(0, 3))
-  // console.log('testing', currentBusiness?.phone.slice(3, 6))
-  // console.log('testing', currentBusiness?.phone.slice(6, 10))
 
   const formattedPhone = `(${currentBusiness?.phone.slice(0, 3)}) ${currentBusiness?.phone.slice(3, 6)}-${currentBusiness?.phone.slice(6, 10)}`
   // console.log('this is formatted phone', formattedPhone)
@@ -89,6 +82,7 @@ const BusinessesDetails = () => {
             </div>
           </div>
         </div>
+        {menu_itemsArr.map(menu => menu.name)}
         <div className='business-detail-two'>
           <div className='business-detail-two-inner-container'>
             <div className='business-detail-two-left'>
