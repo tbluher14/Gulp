@@ -89,13 +89,20 @@ const BusinessesDetails = () => {
           <div className='business-detail-two-inner-container'>
             <div className='business-detail-two-left'>
               <div className='business-detail-two-left-inner-container'>
-                <div className='business-detail-two-left-button'></div>
-                {user?.id == currentBusiness?.owner_id && (
-                  <button className='delete_business_button' onClick={editBusiness(currentBusiness.id)}>Edit</button>
-                )}
-                {user?.id == currentBusiness?.owner_id && (
-                  <button className='delete_business_button' onClick={removeBusiness(currentBusiness.id)}>Delete</button>
-                )}
+
+                <div className='business-detail-two-left-button'>
+                  {user?.id == currentBusiness?.owner_id && (
+                    <button className='business-detail-edit-button' onClick={editBusiness(currentBusiness.id)}>Edit</button>
+                  )}
+                  {user?.id == currentBusiness?.owner_id && (
+                    <button className='business-detail-delete-button' onClick={removeBusiness(currentBusiness.id)}>Delete</button>
+                  )}
+                  {user?.id !== currentBusiness?.owner_id && !userReview.length && (
+                    <button className='review_business_button' onClick={reviewBusiness(currentBusiness?.id)}>
+                      <i class="fa-regular fa-star"></i> Write a Review</button>
+                  )}
+                </div>
+
                 <div className='business-detail-two-left-menu-container'>
                   <div className='business-detail-two-left-menu'>MENU</div>
                   <div className='business-detail-two-left-dishes'>Popular dishes</div>
@@ -154,9 +161,9 @@ const BusinessesDetails = () => {
               <ReviewCard key={review.id} review={review} className='review-cards' />
           )))} */}
 
-          {user?.id !== currentBusiness?.owner_id && !userReview.length && (
+          {/* {user?.id !== currentBusiness?.owner_id && !userReview.length && (
             <button className='review_business_button' onClick={reviewBusiness(currentBusiness?.id)}>Create Review</button>
-          )}
+          )} */}
 
         </div>
       </div>
