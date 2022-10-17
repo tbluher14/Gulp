@@ -14,7 +14,7 @@ def get_all_menu_items():
   print('THIS IS MENU ITEMS', menu_items)
   return {'menu_items': [menu_item.to_dict() for menu_item in menu_items]}
 
-@menu_item_routes.route('<int:menu_item_id>', methods=['POST'])
+@menu_item_routes.route('<int:menu_item_id>', methods=['DELETE'])
 @login_required
 def delete_menu_item(menu_item_id):
   menu_item = MenuItem.query.get(menu_item_id)
