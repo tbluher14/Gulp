@@ -62,6 +62,8 @@ const BusinessesDetails = () => {
     e.preventDefault();
     history.push(`/reviews/${currentBusiness.id}`)
   }
+  const currentTime = new Date()
+
   return isLoaded && (
     <div className='business-detail-container'>
       <div className='business-detail-inner-container'>
@@ -69,17 +71,17 @@ const BusinessesDetails = () => {
         <div className='business-detail-one'>
           <img
             className='business-detail-image'
-            src='https://res.cloudinary.com/the-infatuation/image/upload/q_auto,f_auto/images/KatePrevite_Lore_Spread_00005_gf8zsr'
+            src={currentBusiness?.image}
             alt='business'
           >
           </img>
           <div className='business-detail-image-text-container'>
             <div className='business-detail-image-text-inner-container'>
               <div className='business-detail-image-text-name'>{currentBusiness?.name}</div>
-              <div className='business-detail-image-text-review'>REVIEWS</div>
+              <div className='business-detail-image-text-review'>REVIEW AVERAGE</div>
               <div className='business-detail-image-text-hours'>
-                <div className='business-detail-image-text-hours-open'>Open</div>
-                <div className='business-detail-image-text-hours-time'>10:00 AM - 12:00 AM</div>
+                <div className='business-detail-image-text-hours-open'>{currentBusiness.open < currentTime ? "Closed" : "Open" && currentBusiness.close> currentTime ? "Closed": "Open"}</div>
+                <div className='business-detail-image-text-hours-time'>Hours {currentBusiness?.open} - {currentBusiness?.close}</div>
               </div>
             </div>
           </div>
