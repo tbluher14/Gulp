@@ -15,18 +15,6 @@ const ReviewCard = ({ review }) => {
 
   const allUsers = useSelector(state => (state.users))
   const reviewUser = allUsers[review?.user_id]
-  console.log('this is reviewUser', reviewUser)
-  console.log('this is reviewUserID', reviewUser?.id)
-  // const test = Object.entries(reviewUser)
-  // console.log('this is test', test)
-  // console.log('this is test[1]', test[1])
-
-  // console.log('this is allUsers', allUsers)
-
-  const editReview = (e) => {
-    e.preventDefault()
-    history.push(`/businesses/${businessId}`)
-  }
 
   useEffect((e) => {
     dispatch(getAllUsersThunk())

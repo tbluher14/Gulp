@@ -51,21 +51,23 @@ const EditReviewForm = () => {
     <form onSubmit={handleSubmit}>
     <div className="create-review-container">
       <div className="create-review-input-container">
+        <div className="create-business-input-container">
+          <input className="create-business-input"
+            type="number"
+            min="1"
+            max="5"
+            value={rating}
+            placeholder="Rating"
+            onChange={(e) => setRating(e.target.value)}
+            required
+          />
+        </div>
         <div className="create-review-input-container">
           <input className="create-review-input"
             type="text"
             value={review}
-            placeholder='review'
+            placeholder='Review Message'
             onChange={(e) => setReview(e.target.value)}
-            required
-          />
-        </div>
-        <div className="create-business-input-container">
-          <input className="create-business-input"
-            type="text"
-            value={rating}
-            placeholder="rating"
-            onChange={(e) => setRating(e.target.value)}
             required
           />
         </div>
