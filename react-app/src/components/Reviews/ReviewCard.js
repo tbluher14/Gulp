@@ -17,14 +17,6 @@ const ReviewCard = ({ review }) => {
     history.push(`/businesses/${businessId}`)
   }
 
-  const deleteReview = (e) => {
-    // e.preventDefault()
-    dispatch(deleteReviewThunk(review.id))
-    dispatch(getAllReviewsThunk())
-    history.push(`/businesses/${businessId}`)
-  }
-
-  // console.log('this is review', review)
 
   return (
     <div className='review-card'>
@@ -32,15 +24,11 @@ const ReviewCard = ({ review }) => {
           <div>
             <div></div>
             {review?.user_id === sessionUser?.id && (
-            <button id='edit_my_review' onClick={() => history.push(`/reviews/${review.id}/${businessId}/edit`)}>Edit My Review</button>
+            <button id='edit_my_review' onClick={() => history.push(`/reviews/${review.id}/${businessId}/edit`)}>Edit Review</button>
             )}
 
-            {/* {review?.user_id == sessionUser?.id && (
-            <button id='delete_my_review' onClick={() => deleteReview()}>Delete My Review</button>
-            )} */}
-
             {review?.user_id === sessionUser?.id && (
-            <button id='delete_my_review' onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete My Review</button>
+            <button id='delete_my_review' onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete Review</button>
             )}
 
             <h4>Rating</h4>

@@ -9,7 +9,7 @@ import ReviewCard from '../Reviews/ReviewCard';
 import { getAllReviewsThunk } from '../../store/review';
 
 
-const BusinessesDetailsCopy = () => {
+const BusinessesDetails = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const businessId = useParams()
@@ -141,4 +141,4 @@ const BusinessesDetailsCopy = () => {
   )
 }
 
-export default BusinessesDetailsCopy;
+export default BusinessesDetails;
