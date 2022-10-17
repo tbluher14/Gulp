@@ -17,7 +17,7 @@ const BusinessesDetailsCopy = () => {
     const currentBusiness = business[businessId.businessId]
     const reviews = useSelector(state => (state.review))
 
-    const businessReviews = 
+    const businessReviews =
 
 
     useEffect((e) => {
@@ -100,7 +100,7 @@ const BusinessesDetailsCopy = () => {
               </div>
             </div>
                     {user?.id !== currentBusiness?.owner_id && (
-                <button className='review_business_button' onClick={reviewBusiness(currentBusiness.id)}>REVIEWS IN THIS BITCH</button>
+                <button className='review_business_button' onClick={reviewBusiness(currentBusiness.id)}>Leave a Review</button>
                 )}
           </div>
         </div>
