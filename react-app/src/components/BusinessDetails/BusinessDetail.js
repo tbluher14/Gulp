@@ -29,6 +29,13 @@ const BusinessesDetails = () => {
 
   // console.log('this is businessReviews', businessReviews)
 
+  console.log('this is phone', currentBusiness?.phone)
+  console.log('testing', currentBusiness?.phone.slice(0, 3))
+  console.log('testing', currentBusiness?.phone.slice(3, 6))
+  console.log('testing', currentBusiness?.phone.slice(6, 10))
+
+  const formattedPhone = `(${currentBusiness?.phone.slice(0, 3)}) ${currentBusiness?.phone.slice(3, 6)}-${currentBusiness?.phone.slice(6, 10)}`
+  console.log('this is formatted phone', formattedPhone)
 
   const userReview = businessReviewsArray.filter(review => user.id === review.user_id)
   // console.log('this is user review', userReview)
@@ -112,25 +119,30 @@ const BusinessesDetails = () => {
 
             <div className='business-detail-two-right'>
               <div className='business-detail-two-right-box'>
+
                 <div className='business-detail-two-right-box-website'>{currentBusiness?.website}
-                <i class="fa-solid fa-share-from-square"></i>
+                  <i class="fa-solid fa-share-from-square"></i>
                 </div>
-                <div className='business-detail-phone'>{currentBusiness?.phone}
+
+                <div className='business-detail-phone'>{formattedPhone}
                  <i class="fa-solid fa-phone-volume"></i>
                 </div>
+
                 <div className='business-detail-two-right-box-direction'>
-                  <div className='business-detail-two-right-box-direction-one'>Get Directions:</div>
+                  <div className='business-detail-two-right-box-direction-one'>Get Directions</div>
                   <div className='business-detail-two-right-box-direction-two'>
                     <div>{currentBusiness?.address}</div>
                     <div>{currentBusiness?.zipCode}</div>
 
                     <div className='business-detail-direction'>
-                    <i class="fa-regular fa-map"></i>
+                      <i class="fa-regular fa-map"></i>
                     </div>
                   </div>
                 </div>
+
+                <div className='business-detail-description'>{currentBusiness?.description}</div>
+
               </div>
-                  <div className='description_box'>{currentBusiness?.description}</div>
             </div>
           </div>
 

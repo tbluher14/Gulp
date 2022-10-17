@@ -20,28 +20,6 @@ const ReviewCard = ({ review }) => {
 
 
   return (
-    // <div className='review-card-container'>
-
-    //   <div>
-    //     {review?.user_id === sessionUser?.id && (
-    //     <button id='edit_my_review' onClick={() => history.push(`/reviews/${review.id}/${businessId}/edit`)}>Edit Review</button>
-    //     )}
-
-    //     {review?.user_id === sessionUser?.id && (
-    //     <button id='delete_my_review' onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete Review</button>
-    //     )}
-
-    //     <h4>Rating</h4>
-
-    //     <div>
-    //       {review.rating}
-    //     </div>
-
-    //     Review:{review.review}
-    //   </div>
-
-    // </div>
-
     <div className='review-card-container'>
 
       <div className='review-card-upper'>
@@ -52,11 +30,9 @@ const ReviewCard = ({ review }) => {
         </div>
       </div>
 
-      <div className='review-card-middle'>RATING STARS/DATE</div>
+      <div className='review-card-middle'>Rating: {review?.rating}</div>
 
-      <div className='review-card-bottom'>REVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEW</div>
-
-
+      <div className='review-card-bottom'>{review?.review}</div>
 
       <div className='review-card-button-container'>
         {review?.user_id === sessionUser?.id && (

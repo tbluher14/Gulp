@@ -167,6 +167,7 @@
 
 .business-detail-two-right-box-direction-one {
   line-height: 24px;
+  font-weight: 600;
 }
 
 .business-detail-two-right-box-direction-two {
@@ -183,14 +184,14 @@
   position: relative;
 }
 
-.description_box{
-  padding: 10px;
-  border: 1px solid #ebebeb;
+.business-detail-description {
   border-radius: 5px;
   align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
+  padding-top: 16px;
+  border-top: 1px solid #ebebeb;
 }
 
 
