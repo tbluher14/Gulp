@@ -14,7 +14,7 @@ import BusinessEditForm from './components/BusinessDetails/EditBusinessForm';
 import CreateReviewForm from './components/Reviews/CreateReviewForm';
 import BusinessCard from './components/BusinessCard';
 import HomePage from './components/HomePage';
-import BusinessesDetails from './components/BusinessDetails/BusinessDetailCopy';
+import BusinessesDetails from './components/BusinessDetails/BusinessDetail';
 import EditReviewForm from './components/Reviews/EditReviewForm';
 
 function App() {
