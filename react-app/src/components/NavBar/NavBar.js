@@ -17,7 +17,9 @@ const NavBar = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+
     dispatch(searchBusinessThunk(search));
+
     const url = `/search?name=${search}`;
     setSearch("");
     history.push(url);
@@ -63,7 +65,7 @@ const NavBar = () => {
       <div >
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Search Business Name"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onKeyPress={(e) => {
