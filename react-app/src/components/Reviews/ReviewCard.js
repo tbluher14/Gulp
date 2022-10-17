@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
 import getAllReviewsThunk, { deleteReviewThunk } from '../../store/review';
 import './ReviewCard.css'
+import { getAllUsersThunk } from '../../store/users';
 
 const ReviewCard = ({ review }) => {
   const history = useHistory()
@@ -12,11 +13,24 @@ const ReviewCard = ({ review }) => {
   const { businessId } = useParams()
   // const reviews = useSelector(state => (state.review))
 
+  const allUsers = useSelector(state => (state.users))
+  const reviewUser = allUsers[review?.user_id]
+  console.log('this is reviewUser', reviewUser)
+  console.log('this is reviewUserID', reviewUser?.id)
+  // const test = Object.entries(reviewUser)
+  // console.log('this is test', test)
+  // console.log('this is test[1]', test[1])
+
+  // console.log('this is allUsers', allUsers)
 
   const editReview = (e) => {
     e.preventDefault()
     history.push(`/businesses/${businessId}`)
   }
+
+  useEffect((e) => {
+    dispatch(getAllUsersThunk())
+  }, [])
 
 
   return (
@@ -25,7 +39,7 @@ const ReviewCard = ({ review }) => {
       <div className='review-card-upper'>
         <img className='review-card-user-pic' src='https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg'></img>
         <div className='review-card-upper-right-container'>
-          <div>Name</div>
+          <div className='review-card-upper-user-name'>{`${reviewUser?.first_name} ${reviewUser?.last_name}`}</div>
           <div>Location</div>
         </div>
       </div>
