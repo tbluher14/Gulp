@@ -7,6 +7,7 @@ import CreateReviewModal from '../Reviews/CreateReviewModal';
 import './BusinessDetail.css'
 import ReviewCard from '../Reviews/ReviewCard';
 import { getAllReviewsThunk } from '../../store/review';
+import { getAllMenuItemsThunk } from '../../store/menuItem';
 
 
 const BusinessesDetails = () => {
@@ -20,6 +21,8 @@ const BusinessesDetails = () => {
   const user = useSelector((state) => state.session.user);
   const currentBusiness = business[businessId.businessId]
   const reviews = useSelector(state => (state.review))
+  const menu_items = useSelector(state => (state.menuItems)) // menuItem or menuItems?
+  console.log('Menu Items*********************', menu_items)
 
   const businessReviews = Object.values(reviews)
   const businessReviewsArray = businessReviews.filter(review => review?.business_id === currentBusiness?.id)
@@ -43,6 +46,7 @@ const BusinessesDetails = () => {
   useEffect((e) => {
     dispatch(getAllBusinessesThunk()).then(() => setIsLoaded(true))
     dispatch(getAllReviewsThunk())
+    dispatch(getAllMenuItemsThunk())
   }, [])
 
   if (!isLoaded) return null

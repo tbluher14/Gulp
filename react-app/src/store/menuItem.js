@@ -33,7 +33,6 @@ const menuItemsReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case GET_ALL_MENU_ITEMS:
-      newState = {...state}
       action.payload.forEach(menuItem => {
         newState[menuItem.id] = menuItem
       })
