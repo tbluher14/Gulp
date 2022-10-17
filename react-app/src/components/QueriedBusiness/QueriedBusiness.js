@@ -21,6 +21,12 @@ const QueriedBusiness = () => {
         <div>
           <h1>{business.name}</h1>
           <h1>{business.address}</h1>
+          <h1>{business.city}</h1>
+          <h1>{business.state}</h1>
+          <h1>{business.country}</h1>
+          <h1>{business.zipCode}</h1>
+          <h1>{business.website}</h1>
+          <h1>{business.phone}</h1>
         </div>
       ))}
     </div>
