@@ -1,6 +1,8 @@
 // Actions:
 const GET_ALL_MENU_ITEMS = 'menu_items/GET_ALL_MENU_ITEMS'
 const CREATE_MENU_ITEM = 'menu_items/CREATE_MENU_ITEM'
+const DELETE_MENU_ITEM = 'menu_items/DELETE_MENU_ITEM'
+
 
 //****************************************************************************************************
 
@@ -13,6 +15,11 @@ export const getAllMenuItemsAC = (menuItems) => ({
 
 export const createMenuItemAC = (menuItem) => ({
   type: CREATE_MENU_ITEM,
+  payload: menuItem,
+})
+
+export const deleteMenuItemAC = (menuItem) => ({
+  type: DELETE_MENU_ITEM,
   payload: menuItem,
 })
 
@@ -45,6 +52,17 @@ export const createMenuItemThunk = (menuItem) => async (dispatch) => {
 }
 
 
+// Delete menu item thunk
+export const deleteMenuItemThunk = (menuItemId) => async (dispatch) => {
+  const res = await fetch(`/api/menu_items/${menuItemId}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+  })
+  if (res.ok) {
+    dispatch(deleteMenuItemAC(menuItemId))
+    return res
+  }
+}
 
 //****************************************************************************************************
 
@@ -58,6 +76,14 @@ const menuItemsReducer = (state = initialState, action) => {
       action.payload.forEach(menuitem => {
         newState[menuitem.id] = menuitem
       })
+      return newState
+    case CREATE_MENU_ITEM:
+      newState = { ...state }
+      console.log("this is new state", newState)
+      return newState
+    case DELETE_MENU_ITEM:
+      newState = { ...state }
+      delete newState[action.payload]
       return newState
     default:
       return state
