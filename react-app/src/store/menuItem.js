@@ -1,5 +1,6 @@
 // Actions:
 const GET_ALL_MENU_ITEMS = 'menu_items/GET_ALL_MENU_ITEMS'
+const CREATE_MENU_ITEM = 'menu_items/CREATE_MENU_ITEM'
 
 //****************************************************************************************************
 
@@ -10,6 +11,10 @@ export const getAllMenuItemsAC = (menuItems) => ({
   payload: menuItems,
 })
 
+export const createMenuItemAC = (menuItem) => ({
+  type: CREATE_MENU_ITEM,
+  payload: menuItem,
+})
 
 //****************************************************************************************************
 
@@ -19,11 +24,26 @@ export const getAllMenuItemsThunk = () => async (dispatch) => {
   const res = await fetch('/api/menu_items/');
   if (res.ok) {
     const menuItems = await res.json()
-    console.log('this is menuitems thunkkkkk', menuItems)
     dispatch(getAllMenuItemsAC(menuItems.menu_items))
     return menuItems
   }
 }
+
+// Create menu item thunk
+export const createMenuItemThunk = (menuItem) => async (dispatch) => {
+  const res = await fetch(`/api/menu_items/create_menu_item`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(menuItem)
+  })
+  if (res.ok) {
+    const menuItem = await res.json()
+    console.log("MENU ITEM********", menuItem)
+    dispatch(createMenuItemAC(menuItem))
+    return menuItem
+  }
+}
+
 
 
 //****************************************************************************************************
@@ -31,15 +51,13 @@ export const getAllMenuItemsThunk = () => async (dispatch) => {
 // MenuItems Reducer
 const initialState = {}
 const menuItemsReducer = (state = initialState, action) => {
-  let newState = {...state}
+  let newState = { ...state }
   switch (action.type) {
     case GET_ALL_MENU_ITEMS:
       console.log('this is menu items action', action)
       action.payload.forEach(menuitem => {
         newState[menuitem.id] = menuitem
       })
-
-      console.log('this is menu action new state', newState)
       return newState
     default:
       return state
