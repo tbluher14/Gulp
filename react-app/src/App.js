@@ -73,7 +73,7 @@ function App() {
         <Route path='/businesscard' exact={true}>
           <BusinessCard />
         </Route>
-        <Route path='/reviews/:reviewId/edit'>
+        <Route path='/reviews/:reviewId/:businessId/edit'>
           <EditReviewForm />
         </Route>
       </Switch>

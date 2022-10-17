@@ -8,12 +8,23 @@ import { getAllReviewsThunk } from '../../store/review';
 const EditReviewForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const businessId = useParams()
+  const businessId = useParams();
+  const reviewId = useParams()
   const business = useSelector(state => (state.business))
   const user = useSelector(state => (state.session.user))
+  const reviews = useSelector(state => (state.review))
 
-  const [review, setReview] = useState('')
-  const [rating, setRating] = useState('')
+  console.log('this is businessId', businessId)
+  console.log('this is reviewId', reviewId)
+
+  console.log('this is reviews', reviews)
+
+  const currentReview = reviews[reviewId.reviewId]
+
+  console.log('this is currentReview', currentReview)
+
+  const [review, setReview] = useState(currentReview?.review)
+  const [rating, setRating] = useState(currentReview?.rating)
   const [errors, setErrors] = useState([])
 
   useEffect((e) => {
@@ -26,7 +37,7 @@ const EditReviewForm = () => {
 
     const data = {
       user_id: user.id,
-      business_id: 1,
+      business_id: businessId.businessId,
       review: review,
       rating: rating,
     }
@@ -43,6 +54,7 @@ const EditReviewForm = () => {
         <div className="create-review-input-container">
           <input className="create-review-input"
             type="text"
+            value={review}
             placeholder='review'
             onChange={(e) => setReview(e.target.value)}
             required
@@ -51,6 +63,7 @@ const EditReviewForm = () => {
         <div className="create-business-input-container">
           <input className="create-business-input"
             type="text"
+            value={rating}
             placeholder="rating"
             onChange={(e) => setRating(e.target.value)}
             required

@@ -32,7 +32,7 @@ const ReviewCard = ({ review }) => {
           <div>
             <div></div>
             {review?.user_id === sessionUser?.id && (
-            <button id='edit_my_review' onClick={() => history.push(`/reviews/${review.id}/edit`)}>Edit My Review</button>
+            <button id='edit_my_review' onClick={() => history.push(`/reviews/${review.id}/${businessId}/edit`)}>Edit My Review</button>
             )}
 
             {/* {review?.user_id == sessionUser?.id && (
