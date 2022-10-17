@@ -106,3 +106,9 @@ def delete_business(business_id):
 
 
 #****************************************************************************************************
+# search business route
+@business_routes.route("/search")
+def search_businesses():
+    query_name = request.args.get("name")
+    businesses = Business.query.filter(Business.name.ilike(f"%{query_name}%")).all()
+    return {"businesses": [business.to_dict() for business in businesses]}

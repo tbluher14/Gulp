@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
 import BusinessCreateForm from './CreateBusinessForm';
 import logo from './gulpedpic.jpg'
 import './NavBar.css'
+import { searchBusinessThunk } from '../../store/querybusiness';
 
 const NavBar = () => {
 
   const sessionUser = useSelector((state) => state.session.user)
+  const dispatch = useDispatch();
   const history = useHistory()
+
+  const [search, setSearch] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    dispatch(searchBusinessThunk(search));
+    const url = `/search?name=${search}`;
+    setSearch("");
+    history.push(url);
+  };
 
   return (
     // <nav>
@@ -44,8 +56,26 @@ const NavBar = () => {
       <div className='navbar-logo-container' exact to="/">
         <img className='navbar-logo' src={logo} onClick={() => history.push(`/`)}></img>
       </div>
-      <div className='navbar-search-bar'>Search Bar</div>
-      {/* <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>Create Business</div> */}
+
+
+      {/* <div className='navbar-search-bar'>Search Bar</div> */}
+
+      <div >
+          <input
+            type="text"
+            placeholder="Search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                handleSearch(e);
+              }
+            }}
+          ></input>
+          <button onClick={handleSearch}>
+          </button>
+        </div>
+
 
       {
         !sessionUser && (

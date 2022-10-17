@@ -5,13 +5,15 @@ import businessReducer from './business';
 import reviewReducer from './review';
 import usersReducer from './users';
 import menuItemsReducer from './menuItem';
+import queryBusinessReducer from './querybusiness';
 
 const rootReducer = combineReducers({
   session,
   business: businessReducer,
   review: reviewReducer,
   users: usersReducer,
-  menuItems: menuItemsReducer
+  menuItems: menuItemsReducer,
+  queryBusiness: queryBusinessReducer
 });
 
 

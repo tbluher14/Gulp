@@ -77,6 +77,7 @@ export const deleteBusinessThunk = (businessId) => async (dispatch) => {
         dispatch(deleteBusinessesAC(businessId))
 }}
 
+
 //****************************************************************************************************
 
 // Business Reducer
@@ -111,4 +112,4 @@ const businessReducer = (state = intialState, action) => {
     }
 }
 
-export default businessReducer
+export default businessReducer;
