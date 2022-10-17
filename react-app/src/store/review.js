@@ -94,6 +94,12 @@ const reviewReducer = (state = initialState, action) => {
             newState = {...state}
             console.log("this is new state",newState)
             return newState
+        case UPDATE_REVIEW:
+            newState = {...state}
+            newState[action.payload.id] = action.payload
+            console.log("this is new state for update", newState)
+            console.log('this is action for update', action)
+            return newState
         case DELETE_REVIEW:
             newState={...state}
             delete newState[action.payload]
