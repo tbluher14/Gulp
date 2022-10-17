@@ -38,6 +38,7 @@ const menuItemsReducer = (state = initialState, action) => {
       action.payload.forEach(menuitem => {
         newState[menuitem.id] = menuitem
       })
+
       console.log('this is menu action new state', newState)
       return newState
     default:
