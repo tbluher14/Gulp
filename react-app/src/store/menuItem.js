@@ -53,13 +53,13 @@ export const createMenuItemThunk = (menuItem) => async (dispatch) => {
 
 
 // Delete menu item thunk
-export const deleteMenuItemThunk = (menuItem) => async (dispatch) => {
-  const res = await fetch(`/api/menu_items/${menuItem.id}`, {
+export const deleteMenuItemThunk = (menuItemId) => async (dispatch) => {
+  const res = await fetch(`/api/menu_items/${menuItemId}`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
   })
   if (res.ok) {
-    dispatch(deleteMenuItemAC(menuItem))
+    dispatch(deleteMenuItemAC(menuItemId))
     return res
   }
 }
