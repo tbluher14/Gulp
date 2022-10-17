@@ -8,6 +8,7 @@ import './BusinessDetail.css'
 import ReviewCard from '../Reviews/ReviewCard';
 import { getAllReviewsThunk } from '../../store/review';
 import { getAllMenuItemsThunk } from '../../store/menuItem';
+import MenuItemCard from '../MenuItemCard';
 
 
 const BusinessesDetails = () => {
@@ -83,7 +84,9 @@ const BusinessesDetails = () => {
             </div>
           </div>
         </div>
-        {specific_menuArr.map(item => item.name)}
+        {specific_menuArr.map(menuItems => (
+          <MenuItemCard menuItems={menuItems}></MenuItemCard>
+        ))}
         <div className='business-detail-two'>
           <div className='business-detail-two-inner-container'>
             <div className='business-detail-two-left'>

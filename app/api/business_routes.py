@@ -38,6 +38,9 @@ def create_business():
       zipCode=form.data['zipCode'],
       website=form.data['website'],
       phone=form.data['phone'],
+      open=form.data['open'],
+      close=form.data['close'],
+      image=form.data['image'],
       description=form.data['description'],
     )
 
@@ -76,6 +79,9 @@ def edit_business(business_id):
     business.country=form.data['country']
     business.zipCode=form.data['zipCode']
     business.website=form.data['website']
+    business.open=form.data['open'],
+    business.close=form.data['close'],
+    business.image=form.data['image']
     business.phone=form.data['phone']
     business.description=form.data['description']
 

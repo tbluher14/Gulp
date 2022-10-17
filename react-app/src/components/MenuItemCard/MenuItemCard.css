@@ -1,0 +1,16 @@
+.menu-item-image{
+    width: 185px;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    position: relative;
+    left: 50px;
+}
+
+
+.menu-item-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

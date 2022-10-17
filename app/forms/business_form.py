@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField
+from wtforms import StringField, SubmitField, IntegerField, SelectField
 from wtforms.validators import DataRequired, Email, ValidationError, Length
 from app.models import Business
 
@@ -52,5 +52,7 @@ class CreateBusinessForm(FlaskForm):
     website = StringField('Website', validators=[DataRequired(), website_length_check])
     phone = StringField('Phone Number', validators=[DataRequired(), phone_length_check])
     description = StringField('Description', validators=[DataRequired(), description_length_check])
-    # image = StringField('Image', validators=[DataRequired()])
+    open = SelectField("Open", validators=[DataRequired()], options=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23])
+    close = SelectField("Close", validators=[DataRequired()], options=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23])
+    image = StringField('Image', validators=[DataRequired()])
     submit = SubmitField("Submit")
