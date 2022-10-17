@@ -15,7 +15,7 @@ const BusinessCard = ({ business }) => {
           <div className='business-card-inner-container'>
 
             <div className='business-card-inner-container-left'>
-              <img className='business-card-picture' src='https://loving-newyork.com/wp-content/uploads/2021/08/Manhatta-Restaurant-NYC-190909102021004-1.jpeg'></img>
+              <img className='business-card-picture' src={business.image} alt='card-pic'></img>
             </div>
 
             <div className='business-card-inner-container-right'>
