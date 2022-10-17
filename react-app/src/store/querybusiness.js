@@ -26,9 +26,6 @@ const queryBusinessReducer = (state = intialState, action) => {
         console.log('this is action payload business', business)
         newState[business.id] = business
       })
-      // action.payload.forEach((business) => {
-      //   newState[business.id] = business
-      // })
       console.log("this is query business action", action)
       console.log("this is query business newstate", newState)
       return newState;
