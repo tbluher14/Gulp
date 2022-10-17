@@ -1,6 +1,23 @@
 
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { deleteMenuItemThunk } from '../../store/menuItem'
 import './MenuItemCard.css'
+
+
 const MenuItemCard = ({menuItems}) => {
+    const dispatch = useDispatch();
+    const businessId = useParams()
+    const sessionUser = useSelector(state => state.session.user)
+    const allUsers = useSelector(state => (state.users))
+    const allBusinesses = useSelector(state => state.business)
+    const currentBusiness = allBusinesses[businessId.businessId]
+    // const businessOwner = allBusinesses[owner_id]
+
+    console.log('Business Owner', currentBusiness?.owner_id)
+    console.log('Business_Id**********', businessId.businessId)
+    console.log('Business**********', allBusinesses)
+    // console.log('BusinessOwner**********', businessOwner)
 
 
     return (
@@ -17,6 +34,9 @@ const MenuItemCard = ({menuItems}) => {
         {menuItems.name}
         Price:
         {menuItems.price}
+        {sessionUser?.id == currentBusiness?.owner_id && (
+            <button onClick={() => dispatch(deleteMenuItemThunk(menuItems?.id))}>Delete Menu Item</button>
+        )}
     </div>
     )
 }
