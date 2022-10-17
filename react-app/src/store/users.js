@@ -10,7 +10,7 @@ export const getAllUsersThunk = () => async (dispatch) => {
   const res = await fetch('/api/users/');
   if (res.ok) {
     const users = await res.json()
-    console.log('this is users', users)
+    // console.log('this is users', users)
     dispatch(getAllUsers(users))
     return users
   }
@@ -21,11 +21,11 @@ export default function usersReducer(state = initialState, action) {
   let newState = {...state}
   switch (action.type) {
     case GET_ALL_USERS:
-      console.log('this is action', action)
+      // console.log('this is action', action)
       action.payload.users.forEach(user => {
         newState[user.id] = user
         })
-      console.log('this is new state', newState)
+      // console.log('this is new state', newState)
       return newState
     default:
       return state;

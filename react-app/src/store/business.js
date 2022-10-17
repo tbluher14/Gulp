@@ -34,6 +34,7 @@ export const getAllBusinessesThunk = () => async (dispatch) => {
     const res = await fetch('/api/business/');
     if (res.ok) {
         const business = await res.json()
+        console.log('this is business thunkkkkk', business)
         dispatch(getAllBusinessesAC(business.businesses))
         return business
     }

@@ -32,13 +32,13 @@ const BusinessesDetails = () => {
 
   // console.log('this is businessReviews', businessReviews)
 
-  console.log('this is phone', currentBusiness?.phone)
-  console.log('testing', currentBusiness?.phone.slice(0, 3))
-  console.log('testing', currentBusiness?.phone.slice(3, 6))
-  console.log('testing', currentBusiness?.phone.slice(6, 10))
+  // console.log('this is phone', currentBusiness?.phone)
+  // console.log('testing', currentBusiness?.phone.slice(0, 3))
+  // console.log('testing', currentBusiness?.phone.slice(3, 6))
+  // console.log('testing', currentBusiness?.phone.slice(6, 10))
 
   const formattedPhone = `(${currentBusiness?.phone.slice(0, 3)}) ${currentBusiness?.phone.slice(3, 6)}-${currentBusiness?.phone.slice(6, 10)}`
-  console.log('this is formatted phone', formattedPhone)
+  // console.log('this is formatted phone', formattedPhone)
 
   const userReview = businessReviewsArray.filter(review => user?.id === review.user_id)
   // console.log('this is user review', userReview)
