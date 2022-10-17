@@ -16,15 +16,15 @@ export const createReviewAC = (reviews) => ({
     payload: reviews,
 })
 
-// export const updateBusinessesAC = (business) => ({
-//     type: UPDATE_BUSINESS,
-//     payload: business,
-// })
+export const updateReviewAC = (review) => ({
+    type: UPDATE_REVIEW,
+    payload: review,
+})
 
-// export const deleteBusinessesAC = (businessId) => ({
-//     type: DELETE_BUSINESS,
-//     payload: businessId,
-// })
+ export const deleteReviewAC = (reviewId) => ({
+    type: DELETE_REVIEW,
+    payload: reviewId,
+})
 
 //****************************************************************************************************
 
@@ -40,20 +40,44 @@ export const getAllReviewsThunk = () => async (dispatch) => {
 }
 // Create review thunk
 export const createReviewThunk = (review) => async (dispatch) => {
-    const res = await fetch(`api/reviews/create_review`, {
+    const res = await fetch(`/api/reviews/create_review`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(review)
     })
     if (res.ok) {
         const review = await res.json()
-        
+        console.log("this is a NEW REVIEWWWWW", review)
         dispatch(createReviewAC(review))
         return review
     }
 }
+// Edit Review Thunk
+export const editReviewThunk = (review, reviewId) => async (dispatch) => {
+    const res = await fetch(`/api/reviews/${reviewId}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(review)
+    })
+    if (res.ok) {
+        const review = await res.json()
+        console.log('this is edited review', review)
+        dispatch(updateReviewAC(review))
+        return review
+    }
+}
 
-
+// Delete Review Thunk
+export const deleteReviewThunk = (reviewId) => async (dispatch) => {
+    const res = await fetch(`/api/reviews/${reviewId}`, {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'},
+    })
+    if (res.ok) {
+        dispatch(deleteReviewAC(reviewId))
+        return res
+    }
+}
 
 //****************************************************************************************************
 
@@ -69,7 +93,18 @@ const reviewReducer = (state = initialState, action) => {
             return newState
         case CREATE_REVIEW:
             newState = {...state}
-            console.log(newState)
+            console.log("this is new state",newState)
+            return newState
+        case UPDATE_REVIEW:
+            newState = {...state}
+            newState[action.payload.id] = action.payload
+            console.log("this is new state for update", newState)
+            console.log('this is action for update', action)
+            return newState
+        case DELETE_REVIEW:
+            newState={...state}
+            console.log('this is action for delete', action)
+            delete newState[action.payload]
             return newState
         default:
             return state

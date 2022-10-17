@@ -5,6 +5,7 @@ import { getAllBusinessesThunk } from '../../store/business';
 import { getAllReviewsThunk } from '../../store/review';
 import BusinessCard from '../BusinessCard';
 import './AllBusinesses.css'
+import { getAllUsersThunk } from '../../store/users';
 
 
 const AllBusinesses = () => {
@@ -17,9 +18,10 @@ const AllBusinesses = () => {
     useEffect((e) => {
         dispatch(getAllBusinessesThunk())
         dispatch(getAllReviewsThunk())
+        dispatch(getAllUsersThunk())
     }, [])
 
-    console.log("this is businessesssssss", businesses)
+    // console.log("this is businessesssssss", businesses)
 
     return (
         <div className='all-business-container'>

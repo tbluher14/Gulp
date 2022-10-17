@@ -48,3 +48,13 @@
 #navbar-signup-button {
   cursor: pointer;
 }
+
+.navbar-loggedin-container {
+  display: flex;
+  width: 300px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.nav-bar-logout-button {
+  margin-left: 48px;
+}

@@ -11,11 +11,11 @@ import { authenticate } from './store/session';
 import AllBusinesses from './components/AllBusinesses/AllBusinesses';
 import BusinessCreateForm from './components/NavBar/CreateBusinessForm';
 import BusinessEditForm from './components/BusinessDetails/EditBusinessForm';
-import BusinessesDetails from './components/BusinessDetails/BusinessDetails';
 import CreateReviewForm from './components/Reviews/CreateReviewForm';
 import BusinessCard from './components/BusinessCard';
 import HomePage from './components/HomePage';
-import BusinessesDetailsCopy from './components/BusinessDetails/BusinessDetailCopy';
+import BusinessesDetails from './components/BusinessDetails/BusinessDetail';
+import EditReviewForm from './components/Reviews/EditReviewForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -55,7 +55,7 @@ function App() {
           <AllBusinesses />
         </Route>
         <Route path='/businesses/:businessId' exact={true}>
-          <BusinessesDetailsCopy />
+          <BusinessesDetails />
         </Route>
         <ProtectedRoute path='/testing' exact={true}>
           <BusinessCreateForm />
@@ -63,14 +63,14 @@ function App() {
         <ProtectedRoute path='/businesses/:businessId/edit' exact={true}>
           <BusinessEditForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/testdelete' exact={true}>
-          <BusinessesDetails />
-        </ProtectedRoute>
         <ProtectedRoute path='/reviews/:businessId' exact={true}>
           <CreateReviewForm />
         </ProtectedRoute>
         <Route path='/businesscard' exact={true}>
           <BusinessCard />
+        </Route>
+        <Route path='/reviews/:reviewId/:businessId/edit'>
+          <EditReviewForm />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -33,3 +33,27 @@ def create_review():
   else:
       print('THIS IS THE FORM', form.errors)
       return {'errors': form.errors}, 401
+
+
+@review_routes.route('/<int:review_id>', methods=['PUT'])
+@login_required
+def edit_review(review_id):
+  form = CreateReviewForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if form.validate_on_submit():
+      reviewData = Review.query.get(review_id)
+      reviewData.review = form.data['review']
+      reviewData.rating = form.data['rating']
+      db.session.commit()
+      return jsonify(reviewData.to_dict()), 200
+  else:
+      return {'errors': form.errors}, 401
+
+
+@review_routes.route('/<int:review_id>', methods=['DELETE'])
+@login_required
+def delete_review(review_id):
+  review = Review.query.get(review_id)
+  db.session.delete(review)
+  db.session.commit()
+  return {'message': 'Review deleted'}

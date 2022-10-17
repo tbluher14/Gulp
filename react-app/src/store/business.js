@@ -61,7 +61,7 @@ export const editBusinessThunk = (business, businessId) => async (dispatch) => {
     });
     if (res.ok) {
         const business = await res.json()
-        console.log('this is edited business', business)
+        // console.log('this is edited business', business)
         dispatch(updateBusinessesAC(business))
         return business
     }
@@ -73,7 +73,7 @@ export const deleteBusinessThunk = (businessId) => async (dispatch) => {
         method: 'DELETE',
     });
     if (res.ok){
-    dispatch(deleteBusinessesAC(businessId))
+        dispatch(deleteBusinessesAC(businessId))
 }}
 
 //****************************************************************************************************

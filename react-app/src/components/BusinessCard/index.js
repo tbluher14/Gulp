@@ -1,8 +1,12 @@
 import { NavLink, useHistory } from 'react-router-dom'
+import { getAllUsersThunk } from '../../store/users';
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 import './BusinessCard.css';
 
 const BusinessCard = ({ business }) => {
   const history = useHistory()
+  const dispatch = useDispatch();
 
   return (
     <div className='business-card'>
