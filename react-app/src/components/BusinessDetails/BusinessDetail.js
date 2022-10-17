@@ -21,20 +21,21 @@ const BusinessesDetails = () => {
   const user = useSelector((state) => state.session.user);
   const currentBusiness = business[businessId.businessId]
   const reviews = useSelector(state => (state.review))
-  const menu_items = useSelector(state => (state.menuItems)) // menuItem or menuItems?
-  // console.log('Menu Items*********************', menu_items)
+  const menu_items = useSelector(state => (state.menuItems))
+
+  // Menu Items Logic
   const menu_itemsArr = Object.values(menu_items)
-  console.log(menu_itemsArr)
+  const specific_menu = menu_itemsArr.filter(menuItem => menuItem.business_id == currentBusiness.id)
+  const specific_menuArr= Object.values(specific_menu)
 
-
+  // Reviews Logic
   const businessReviews = Object.values(reviews)
   const businessReviewsArray = businessReviews.filter(review => review?.business_id === currentBusiness?.id)
-
-  const formattedPhone = `(${currentBusiness?.phone.slice(0, 3)}) ${currentBusiness?.phone.slice(3, 6)}-${currentBusiness?.phone.slice(6, 10)}`
-  // console.log('this is formatted phone', formattedPhone)
-
   const userReview = businessReviewsArray.filter(review => user?.id === review.user_id)
-  // console.log('this is user review', userReview)
+
+  // Formatted Phone
+  const formattedPhone = `(${currentBusiness?.phone.slice(0, 3)}) ${currentBusiness?.phone.slice(3, 6)}-${currentBusiness?.phone.slice(6, 10)}`
+
 
   useEffect((e) => {
     dispatch(getAllBusinessesThunk()).then(() => setIsLoaded(true))
@@ -82,7 +83,7 @@ const BusinessesDetails = () => {
             </div>
           </div>
         </div>
-        {menu_itemsArr.map(menu => menu.name)}
+        {specific_menuArr.map(item => item.name)}
         <div className='business-detail-two'>
           <div className='business-detail-two-inner-container'>
             <div className='business-detail-two-left'>
@@ -153,16 +154,6 @@ const BusinessesDetails = () => {
               </div>
             </div>
           </div>
-
-          {/* {reviews && (
-            businessReviewsArray.map((review) => (
-              <ReviewCard key={review.id} review={review} className='review-cards' />
-          )))} */}
-
-          {/* {user?.id !== currentBusiness?.owner_id && !userReview.length && (
-            <button className='review_business_button' onClick={reviewBusiness(currentBusiness?.id)}>Create Review</button>
-          )} */}
-
         </div>
       </div>
     </div>
