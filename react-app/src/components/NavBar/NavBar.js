@@ -58,8 +58,13 @@ const NavBar = () => {
       }
       {
         sessionUser && (
-          <div>
-            <LogoutButton />
+          <div className='navbar-loggedin-container'>
+            <div>
+              <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>Create Business</div>
+            </div>
+            <div className='nav-bar-logout-button'>
+              <LogoutButton />
+            </div>
           </div>
         )
       }

@@ -98,7 +98,7 @@ const BusinessesDetails = () => {
                     <button className='business-detail-delete-button' onClick={removeBusiness(currentBusiness.id)}>Delete</button>
                   )}
                   {user?.id !== currentBusiness?.owner_id && !userReview.length && (
-                    <button className='review_business_button' onClick={reviewBusiness(currentBusiness?.id)}>
+                    <button className='business-detail-review-button' onClick={reviewBusiness(currentBusiness?.id)}>
                       <i class="fa-regular fa-star"></i> Write a Review</button>
                   )}
                 </div>
