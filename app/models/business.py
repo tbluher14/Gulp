@@ -13,6 +13,9 @@ class Business(db.Model):
   website = db.Column(db.String(500), nullable=False)
   phone = db.Column(db.String(10), nullable=False)
   description = db.Column(db.String(2000), nullable=False)
+  image= db.Column(db.String(500), nullable=False)
+  open = db.Column(db.Integer, nullable=False)
+  close = db.Column(db.Integer, nullable=False)
   owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
   owner = db.relationship("User", back_populates="business_owner")
@@ -30,6 +33,9 @@ class Business(db.Model):
       "zipCode" : self.zipCode,
       "website" : self.website,
       "phone" : self.phone,
+      "image": self.image,
+      "open": self.open,
+      "close": self.close,
       "description" : self.description,
       "owner_id" : self.owner_id,
     }
