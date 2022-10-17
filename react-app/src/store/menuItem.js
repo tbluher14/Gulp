@@ -83,7 +83,7 @@ const menuItemsReducer = (state = initialState, action) => {
       return newState
     case DELETE_MENU_ITEM:
       newState = { ...state }
-      delete newState[action.payload.id]
+      delete newState[action.payload]
       return newState
     default:
       return state
