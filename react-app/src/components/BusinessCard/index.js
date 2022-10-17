@@ -7,7 +7,7 @@ import './BusinessCard.css';
 const BusinessCard = ({ business }) => {
   const history = useHistory()
   const dispatch = useDispatch();
-
+ // new
   return (
     <div className='business-card'>
       <div onClick={() => history.push(`/businesses/${business?.id}`)}>
