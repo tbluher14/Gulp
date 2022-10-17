@@ -30,7 +30,7 @@ const BusinessesDetailsCopy = () => {
   console.log('this is businessReviews', businessReviews)
 
 
-  const userReview = businessReviews.filter(review => user.id === review.user_id)
+  const userReview = businessReviewsArray.filter(review => user.id === review.user_id)
   console.log('this is user review', userReview)
 
   useEffect((e) => {
@@ -131,7 +131,7 @@ const BusinessesDetailsCopy = () => {
               <ReviewCard key={review.id} review={review} className='review-cards' />
           )))}
 
-          {user?.id !== currentBusiness?.owner_id && !userReview && (
+          {user?.id !== currentBusiness?.owner_id && !userReview.length && (
             <button className='review_business_button' onClick={reviewBusiness(currentBusiness?.id)}>Create Review</button>
           )}
 
