@@ -58,13 +58,13 @@ const ReviewCard = ({ review }) => {
 
 
 
-      <div>
+      <div className='review-card-button-container'>
         {review?.user_id === sessionUser?.id && (
-        <button id='edit_my_review' onClick={() => history.push(`/reviews/${review.id}/${businessId}/edit`)}>Edit Review</button>
+          <button id='review-card-edit-button' onClick={() => history.push(`/reviews/${review.id}/${businessId}/edit`)}>Edit Review</button>
         )}
 
         {review?.user_id === sessionUser?.id && (
-        <button id='delete_my_review' onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete Review</button>
+          <button id='review-card-delete-button' onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete Review</button>
         )}
       </div>
 
