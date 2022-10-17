@@ -1,8 +1,8 @@
-"""empty message
+"""updated menu_item model
 
-Revision ID: ac1b2e096874
+Revision ID: 944fefc3a343
 Revises: 
-Create Date: 2022-10-16 23:41:24.998996
+Create Date: 2022-10-17 12:19:36.588865
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'ac1b2e096874'
+revision = '944fefc3a343'
 down_revision = None
 branch_labels = None
 depends_on = None
