@@ -37,7 +37,7 @@ const BusinessesDetails = () => {
   const formattedPhone = `(${currentBusiness?.phone.slice(0, 3)}) ${currentBusiness?.phone.slice(3, 6)}-${currentBusiness?.phone.slice(6, 10)}`
   console.log('this is formatted phone', formattedPhone)
 
-  const userReview = businessReviewsArray.filter(review => user.id === review.user_id)
+  const userReview = businessReviewsArray.filter(review => user?.id === review.user_id)
   // console.log('this is user review', userReview)
 
   useEffect((e) => {
