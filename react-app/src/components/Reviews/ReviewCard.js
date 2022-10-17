@@ -44,8 +44,16 @@ const ReviewCard = ({ review }) => {
 
     <div className='review-card-container'>
 
-      <div className='review-card-upper'>PICTURE/ICON</div>
-      <div className='review-card-middle'>RATING/DATE</div>
+      <div className='review-card-upper'>
+        <img className='review-card-user-pic' src='https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg'></img>
+        <div className='review-card-upper-right-container'>
+          <div>Name</div>
+          <div>Location</div>
+        </div>
+      </div>
+
+      <div className='review-card-middle'>RATING STARS/DATE</div>
+
       <div className='review-card-bottom'>REVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEW</div>
 
 

@@ -32,12 +32,20 @@
 
 
 .review-card-container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 100%;
+  margin-bottom: 40px;
 }
 
 .review-card-upper {
   margin-bottom: 24px;
+  display: flex;
+}
+
+.review-card-user-pic {
+  height: 64px;
+  width: 64px;
+  margin-right: 12px;
 }
 
 .review-card-middle {
@@ -47,4 +55,5 @@
 .review-card-bottom {
   word-wrap: break-word;
   max-width: 655px;
+  margin-bottom: 16px;
 }
