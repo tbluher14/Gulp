@@ -157,12 +157,13 @@
   justify-content: space-between;
   display: flex;
 
-
 }
 
 .business-detail-two-right-box-direction {
   padding-top: 16px;
   border-top: 1px solid #ebebeb;
+  display: flex;
+  justify-content: space-between;
 }
 
 .business-detail-two-right-box-direction-one {
@@ -178,10 +179,7 @@
 .business-detail-direction{
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  left: 275px;
-  bottom: 40px;
-  position: relative;
+  padding-right: 10px;
 }
 
 .business-detail-description {
@@ -248,3 +246,4 @@
   top: 5px;
   left: 200px;
 }
+

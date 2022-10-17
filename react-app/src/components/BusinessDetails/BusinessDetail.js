@@ -129,14 +129,17 @@ const BusinessesDetails = () => {
                 </div>
 
                 <div className='business-detail-two-right-box-direction'>
-                  <div className='business-detail-two-right-box-direction-one'>Get Directions</div>
-                  <div className='business-detail-two-right-box-direction-two'>
-                    <div>{currentBusiness?.address}</div>
-                    <div>{currentBusiness?.zipCode}</div>
-
-                    <div className='business-detail-direction'>
-                      <i class="fa-regular fa-map"></i>
+                  <div>
+                    <div className='business-detail-two-right-box-direction-one'>Get Directions</div>
+                    <div className='business-detail-two-right-box-direction-two'>
+                      <div>{currentBusiness?.address}</div>
+                      <div>{currentBusiness?.zipCode}</div>
                     </div>
+
+                  </div>
+
+                  <div className='business-detail-direction'>
+                    <i class="fa-regular fa-map"></i>
                   </div>
                 </div>
 
