@@ -161,6 +161,7 @@
 
 .business-detail-two-right-box-direction {
   padding-top: 16px;
+  padding-bottom: 16px;
   border-top: 1px solid #ebebeb;
   display: flex;
   justify-content: space-between;
@@ -246,4 +247,3 @@
   top: 5px;
   left: 200px;
 }
-
