@@ -2,6 +2,7 @@ import { NavLink, useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
 import getAllReviewsThunk, { deleteReviewThunk } from '../../store/review';
+import './ReviewCard.css'
 
 const ReviewCard = ({ review }) => {
   const history = useHistory()
@@ -19,27 +20,44 @@ const ReviewCard = ({ review }) => {
 
 
   return (
-    <div className='review-card'>
+    // <div className='review-card-container'>
+
+    //   <div>
+    //     {review?.user_id === sessionUser?.id && (
+    //     <button id='edit_my_review' onClick={() => history.push(`/reviews/${review.id}/${businessId}/edit`)}>Edit Review</button>
+    //     )}
+
+    //     {review?.user_id === sessionUser?.id && (
+    //     <button id='delete_my_review' onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete Review</button>
+    //     )}
+
+    //     <h4>Rating</h4>
+
+    //     <div>
+    //       {review.rating}
+    //     </div>
+
+    //     Review:{review.review}
+    //   </div>
+
+    // </div>
+
+    <div className='review-card-container'>
+
+      <div className='review-card-upper'>PICTURE/ICON</div>
+      <div className='review-card-middle'>RATING/DATE</div>
+      <div className='review-card-bottom'>REVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEWREVIEW</div>
+
+
+
       <div>
-          <div>
-            <div></div>
-            {review?.user_id === sessionUser?.id && (
-            <button id='edit_my_review' onClick={() => history.push(`/reviews/${review.id}/${businessId}/edit`)}>Edit Review</button>
-            )}
+        {review?.user_id === sessionUser?.id && (
+        <button id='edit_my_review' onClick={() => history.push(`/reviews/${review.id}/${businessId}/edit`)}>Edit Review</button>
+        )}
 
-            {review?.user_id === sessionUser?.id && (
-            <button id='delete_my_review' onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete Review</button>
-            )}
-
-            <h4>Rating</h4>
-
-            <div>
-              {review.rating}
-            </div>
-
-            Review:{review.review}
-          </div>
-
+        {review?.user_id === sessionUser?.id && (
+        <button id='delete_my_review' onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete Review</button>
+        )}
       </div>
 
     </div>

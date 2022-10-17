@@ -98,6 +98,15 @@ const BusinessesDetails = () => {
                   <div className='business-detail-two-left-location-hours-header'>Location & Hours</div>
                 </div>
 
+                <div className='business-detail-two-left-reviews-container'>
+                  <div className='business-detail-two-left-reviews-header'>Recommended Reviews</div>
+                </div>
+
+                {reviews && (
+                  businessReviewsArray.map((review) => (
+                    <ReviewCard key={review.id} review={review} className='review-cards' />
+                )))}
+
               </div>
             </div>
 
@@ -124,12 +133,11 @@ const BusinessesDetails = () => {
                   <div className='description_box'>{currentBusiness?.description}</div>
             </div>
           </div>
-          <h2 className='reviews_header'> Reviews: </h2>
 
-          {reviews && (
+          {/* {reviews && (
             businessReviewsArray.map((review) => (
               <ReviewCard key={review.id} review={review} className='review-cards' />
-          )))}
+          )))} */}
 
           {user?.id !== currentBusiness?.owner_id && !userReview.length && (
             <button className='review_business_button' onClick={reviewBusiness(currentBusiness?.id)}>Create Review</button>
