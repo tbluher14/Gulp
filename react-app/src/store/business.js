@@ -41,11 +41,14 @@ export const getAllBusinessesThunk = () => async (dispatch) => {
 }
 // create business thunk
 export const createBusinessThunk = (business) => async (dispatch) => {
+    console.log("CREATE BUSINESS THUNK RUNNING")
     const res = await fetch('/api/business/create_business', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(business)
     });
+    console.log("THIS IS AFTER THE FETCH IN THE CREATE BUSINESS THUNK")
+    console.log("THIS IS RES IN THE THUNK", res)
     if (res.ok) {
         const business = await res.json()
         console.log('this is business', business)

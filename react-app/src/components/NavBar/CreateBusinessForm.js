@@ -17,17 +17,18 @@ function BusinessCreateForm() {
   const [zipCode, setZipCode] = useState("");
   const [website, setWebsite] = useState("");
   const [phone, setPhone] = useState("");
+  const [open, setOpen] = useState('')
+  const [close, setClose] = useState('')
   const [description, setDescription] = useState("");
+  const [image, setImage] = useState('')
 
   const [errors, setErrors] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    setIsSubmitted(true);
-    setErrors([]);
+    e.preventDefault()
+    setErrors([])
 
     const data = {
       owner_id: user.id,
@@ -37,17 +38,39 @@ function BusinessCreateForm() {
       state: state,
       country: country,
       zipCode: zipCode,
+      open: open,
+      close: close,
       website: website,
       phone: phone,
       description: description,
+      image: image
     };
-    history.push('/businesses')
-    return dispatch(createBusinessThunk(data));
 
+    
+    return dispatch(createBusinessThunk(data))
+    .then( async (res) => {
+      setIsSubmitted(true)
+      setErrors([])
+    })
+    .catch(async (res) => {
+      console.log("THIS IS RESSSSS", res)
+      const result = res.json()
+      console.log("THIS IS DATA IN CREATE", result)
+      if (result && result.errors){
+        setIsSubmitted(false)
+        setErrors(Object.values(data.errors))
+      }
+    })
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      <h4 className="form_requirements">Please fill out all of the following fields:</h4>
+        <ul className="create_errors">
+          {errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
+          </ul>
       <div className="create-business-container">
         <div className="create-business-input-container">
 
@@ -109,8 +132,26 @@ function BusinessCreateForm() {
             <input className="create-business-input"
               type="text"
               value={website}
-              placeholder="website"
+              placeholder="Website"
               onChange={(e) => setWebsite(e.target.value)}
+              required
+            />
+          </div>
+          <div className="create-business-input-container">
+            <input className="create-business-input"
+              type="text"
+              value={open}
+              placeholder="Open"
+              onChange={(e) => setOpen(e.target.value)}
+              required
+            />
+          </div>
+          <div className="create-business-input-container">
+            <input className="create-business-input"
+              type="text"
+              value={close}
+              placeholder="Close"
+              onChange={(e) => setClose(e.target.value)}
               required
             />
           </div>
@@ -129,6 +170,15 @@ function BusinessCreateForm() {
               value={description}
               placeholder="description"
               onChange={(e) => setDescription(e.target.value)}
+              required
+            />
+          </div>
+          <div className="create-business-input-container">
+            <input className="create-business-input"
+              type="text"
+              value={image}
+              placeholder="image"
+              onChange={(e) => setImage(e.target.value)}
               required
             />
           </div>
