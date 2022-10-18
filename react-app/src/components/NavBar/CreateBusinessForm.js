@@ -122,22 +122,6 @@ const handleSubmit = async (e) => {
   }
 }
 
-
-
-  //   return dispatch(createBusinessThunk(data))
-  //   .then( async (res) => {
-  //     setIsSubmitted(true)
-  //     setErrors([])
-  //   })
-  //   .catch(async (res) => {
-  //     const result = res.json()
-  //     if (result && result.errors){
-  //       setIsSubmitted(false)
-  //       setErrors(Object.values(data.errors))
-  //     }
-  //   })
-  // };
-
   return (
     <form onSubmit={handleSubmit}>
       <h4 className="form_requirements">Please fill out all of the following fields:</h4>
