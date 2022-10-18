@@ -94,8 +94,8 @@ const NavBar = () => {
             <div>
               <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>Create Business</div>
             </div>
-            <div className='nav-bar-logout-button'>
-              <LogoutButton />
+            <div>
+              <LogoutButton/>
             </div>
           </div>
         )
