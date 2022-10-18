@@ -12,8 +12,8 @@ function BusinessEditForm() {
   const { businessId } = useParams();
 
   const business = businesses[businessId];
-  console.log("this is businessID in react", businessId)
-  console.log("this is business in react", business)
+  // console.log("this is businessID in react", businessId)
+  // console.log("this is business in react", business)
 
   const [name, setName] = useState(business?.name);
   const [address, setAddress] = useState(business?.address);
@@ -32,9 +32,9 @@ function BusinessEditForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
 
-  useEffect(() => {
-    dispatch(getAllBusinessesThunk())
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getAllBusinessesThunk())
+  // }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,13 +47,17 @@ function BusinessEditForm() {
       state: state,
       country: country,
       zipCode: zipCode,
+      website: website,
       open: open,
       close: close,
-      website: website,
+      image: image,
       phone: phone,
       description: description,
-      image: image
     };
+
+    // console.log('THIS IS EDIT BIZ FORM DATA', data)
+    // console.log('THIS IS BUSINESS ID', businessId)
+
     let errors = []
 
     if (!user){

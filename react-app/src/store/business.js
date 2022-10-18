@@ -34,7 +34,7 @@ export const getAllBusinessesThunk = () => async (dispatch) => {
     const res = await fetch('/api/business/');
     if (res.ok) {
         const business = await res.json()
-        console.log('this is business thunkkkkk', business)
+        // console.log('this is business thunkkkkk', business)
         dispatch(getAllBusinessesAC(business.businesses))
         return business
     }
@@ -50,21 +50,20 @@ export const createBusinessThunk = (business) => async (dispatch) => {
 
     if (res.ok) {
         const business = await res.json()
-
         dispatch(createBusinessesAC(business))
         return business
     }
 }
 // edit business thunk
 export const editBusinessThunk = (business, businessId) => async (dispatch) => {
-    console.log("EDIT BUSINESS THUNK RUNNING")
+    // console.log("EDIT BUSINESS THUNK RUNNING")
     const res = await fetch(`/api/business/${businessId}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(businessId)
+        body: JSON.stringify(business)
     });
-    console.log("this is RES IN EDIT BUSINESS THUNK", res)
     if (res.ok) {
+        console.log("this is RES IN EDIT BUSINESS THUNKKKKK", res)
         const business = await res.json()
         // console.log('this is edited business', business)
         dispatch(updateBusinessesAC(business))
@@ -104,6 +103,8 @@ const businessReducer = (state = intialState, action) => {
         case UPDATE_BUSINESS:
             newState = {...state}
             newState[action.payload.id] = action.payload
+            console.log("this is action edit biz", action)
+            console.log("this is newstate edit biz", newState)
             return newState;
         case DELETE_BUSINESS:
             newState = {...state}

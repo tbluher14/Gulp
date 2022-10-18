@@ -10,7 +10,7 @@ business_routes = Blueprint('businesses', __name__)
 @business_routes.route('/', methods=['GET'])
 def get_all_businesses():
   businesses = Business.query.all()
-  print('THIS IS BUSINESS', businesses)
+  # print('THIS IS BUSINESS', businesses)
   return {'businesses': [business.to_dict() for business in businesses]}
 
 #****************************************************************************************************
@@ -24,9 +24,9 @@ def create_business():
 
   if form.validate_on_submit():
 
-    print('THIS IS THE FORM', form)
+    # print('THIS IS THE FORM', form)
 
-    print('THIS IS THE FORM DATA', form.data)
+    # print('THIS IS THE FORM DATA', form.data)
 
     businessData = Business(
       owner_id=current_user.id,
@@ -49,7 +49,7 @@ def create_business():
     db.session.commit()
     return jsonify(businessData.to_dict()), 200
   else:
-    print('THIS IS THE FORM', form.errors)
+    # print('THIS IS THE FORM', form.errors)
     return {'errors': form.errors}, 401
 
 
@@ -65,6 +65,8 @@ def edit_business(business_id):
   if form.validate_on_submit():
     business = Business.query.get(business_id)
 
+    print('THIS IS THE FORM FOR EDIT BIZ', form)
+    print('THIS IS EDIT BUSINESS BUSINESS,', business)
 
     business.owner_id=current_user.id
     business.name=form.data['name']
@@ -74,11 +76,11 @@ def edit_business(business_id):
     business.country=form.data['country']
     business.zipCode=form.data['zipCode']
     business.website=form.data['website']
-    business.open=form.data['open'],
-    business.close=form.data['close'],
-    business.image=form.data['image']
     business.phone=form.data['phone']
     business.description=form.data['description']
+    business.open=form.data['open']
+    business.close=form.data['close']
+    business.image=form.data['image']
 
 
     # print('THIS IS DB SESSION', db.session)
@@ -86,7 +88,7 @@ def edit_business(business_id):
     db.session.commit()
     return jsonify(business.to_dict()), 200
   else:
-    print('THIS IS THE FORM', form.errors)
+    print('THIS IS THE FORM ERRORS FOR EDIT BIZ', form.errors)
     return {'errors': form.errors}, 401
 
 #****************************************************************************************************
