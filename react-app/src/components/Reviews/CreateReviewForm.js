@@ -1,19 +1,28 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
+import { getAllBusinessesThunk } from '../../store/business';
 import { createReviewThunk, getAllReviewsThunk } from '../../store/review';
 
 const ReviewForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const businessId = useParams()
+  console.log(businessId)
   const business = useSelector(state => (state.business))
+  const businessArr = Object.values(business)
+  const currentBusiness = businessArr.filter(bus => bus.id == businessId.businessId)
+
   const user = useSelector(state => (state.session.user))
 
   const [review, setReview] = useState('')
   const [rating, setRating] = useState('')
   const [errors, setErrors] = useState([])
 
+  useEffect(() => {
+    dispatch(getAllBusinessesThunk())
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,7 +52,9 @@ const ReviewForm = () => {
   }
 
   return (
-      <form onSubmit={handleSubmit}>
+    <div className='create_review_page_container'>
+      <h2 className='create_review_header'>Create Review for {currentBusiness[0]?.name} </h2>
+      <form onSubmit={handleSubmit} className="create_review_form_container">
         <div className="create-review-container">
           <div className="create-review-input-container">
             <div className="createReviewError">
@@ -72,13 +83,14 @@ const ReviewForm = () => {
           </div>
           <div className="create-business-input-container">
           </div>
-          <button name="submit" type="submit" className="submitButton">
+          <button name="submit" type="submit" className="submit_review_button">
             Create Review
           </button>
         </div>
 
       </div>
     </form>
+    </div>
   )
 }
 
