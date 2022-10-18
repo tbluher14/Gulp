@@ -52,9 +52,7 @@ const BusinessesDetails = () => {
     const res = await dispatch(deleteBusinessThunk(businessId))
     return res
   }
-  const editMenu = () => {
-    // history.push(`/businesses/${businessId}/menu`)
-  }
+
   const editBusiness = (businessId) => async (e) => {
     e.preventDefault();
     history.push(`/businesses/${businessId}/menu`)
@@ -114,9 +112,9 @@ const BusinessesDetails = () => {
                   {specific_menuArr.map(menuItems => (
                     <MenuItemCard menuItems={menuItems}></MenuItemCard>
                   ))}
-                  {user?.id == currentBusiness?.owner_id && (
-                    <button className='business-detail-edit-button' onClick={editMenu(businessId)}>Edit Menu</button>
-                    )}
+                  {/* {user?.id == currentBusiness?.owner_id && (
+                    <button className='business-detail-edit-button' onClick={history.push(`/businesses/menu/${businessId}`)}>Edit Menu</button>
+                    )} */}
                 </div>
 
                 <div className='business-detail-two-left-location-hours-container'>
