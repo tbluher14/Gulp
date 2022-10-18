@@ -20,9 +20,11 @@ function MenuItemsModal({ menuItems }) {
               <div className='menuItemsmenuItems'>Full Menu</div>
             </div>
 
-            <div>
+            <div className='menuItems-modal-body'>
               <MenuItemCard menuItems={menuItems}/>
             </div>
+
+            {/* <img src='https://loving-newyork.com/wp-content/uploads/2021/08/Manhatta-Restaurant-NYC-190909102021004-1.jpeg'></img> */}
 
             <div className='menuItems-modal-form'>
               <MenuItems />

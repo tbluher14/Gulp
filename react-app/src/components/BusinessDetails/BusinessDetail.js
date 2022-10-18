@@ -90,7 +90,7 @@ const BusinessesDetails = () => {
         {specific_menuArr.map(menuItems => (
           <>
           {/* <MenuItemCard menuItems={menuItems}></MenuItemCard> */}
-          <MenuItemsModal menuItems={menuItems}/>
+          {/* <MenuItemsModal menuItems={menuItems}/> */}
           </>
         ))}
         <div className='business-detail-two'>
@@ -109,6 +109,12 @@ const BusinessesDetails = () => {
                     <button className='business-detail-review-button' onClick={reviewBusiness(currentBusiness?.id)}>
                       <i class="fa-regular fa-star"></i> Write a Review</button>
                   )}
+                  {specific_menuArr.map(menuItems => (
+                    <>
+                    {/* <MenuItemCard menuItems={menuItems}></MenuItemCard> */}
+                    <MenuItemsModal menuItems={menuItems}/>
+                    </>
+                  ))}
                 </div>
 
                 <div className='business-detail-two-left-menu-container'>
