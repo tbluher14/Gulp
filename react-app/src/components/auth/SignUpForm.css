@@ -8,6 +8,10 @@
     top: 50px;
 }
 
+.sign_up_header{
+    position: relative;
+    bottom: 30px;
+}
 .sign-up-input-label{
     position: relative;
     left: 15px;
@@ -16,6 +20,10 @@
     font-size: 14px;
 }
 
+.sign_up_errors{
+    position: relative;
+    bottom: 20px;
+}
 .sign-up-form-button{
     position: relative;
     width: 200px;
