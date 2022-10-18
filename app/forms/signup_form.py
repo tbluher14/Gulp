@@ -11,6 +11,29 @@ def user_exists(form, field):
     if user:
         raise ValidationError('Email address is already in use.')
 
+def check_user_length(form, field):
+    if len(field.data)<1 or len(field.data)>50:
+        raise ValidationError('User Name must be between 1 and 50 characters')
+
+def check_email_length(form, field):
+    if len(field.data)<1 or len(field.data)>50:
+        raise ValidationError('Email must be between 1 and 50 characters')
+
+def check_email(form, field):
+    if "@" not in field.data:
+        raise ValidationError('Please enter a valid email address')
+
+def check_fname_length(form, field):
+    if len(field.data)<1 or len(field.data)>50:
+        raise ValidationError('First name must be between 1 and 50 characters')
+
+def check_lname_length(form, field):
+    if len(field.data)<1 or len(field.data)>50:
+        raise ValidationError('Last name must be between 1 and 50 characters')
+
+def check_password_length(form, field):
+    if len(field.data)<1 or len(field.data)>50:
+        raise ValidationError('Please choose a stronger password')
 
 def username_exists(form, field):
     # Checking if username is already in use
@@ -21,8 +44,8 @@ def username_exists(form, field):
 
 
 class SignUpForm(FlaskForm):
-    username = StringField('username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists])
-    password = StringField('password', validators=[DataRequired()])
-    first_name = StringField('first_name', validators=[DataRequired()])
-    last_name = StringField('last_name', validators=[DataRequired()])
+    username = StringField('username', validators=[DataRequired(), username_exists, check_user_length])
+    email = StringField('email', validators=[DataRequired(), user_exists, check_email, check_email_length])
+    password = StringField('password', validators=[DataRequired(), check_password_length])
+    first_name = StringField('first_name', validators=[DataRequired(), check_fname_length])
+    last_name = StringField('last_name', validators=[DataRequired(), check_lname_length])

@@ -51,7 +51,7 @@ function BusinessEditForm() {
       phone: phone,
       description: description,
     };
-    history.push('/businesses')
+    history.push(`/businesses/${businessId}`)
     return dispatch(editBusinessThunk(data, businessId));
 
   };
