@@ -48,8 +48,8 @@ const BusinessesDetails = () => {
 
   const removeBusiness = (businessId) => async (e) => {
     e.preventDefault();
-    const res = await dispatch(deleteBusinessThunk(businessId))
     history.push('/businesses')
+    const res = await dispatch(deleteBusinessThunk(businessId))
     return res
   }
 
