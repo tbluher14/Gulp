@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
 import { editReviewThunk } from '../../store/review';
 import { getAllReviewsThunk } from '../../store/review';
+import './CreateReview.css'
 
 
 const EditReviewForm = () => {
