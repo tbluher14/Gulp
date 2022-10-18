@@ -119,9 +119,9 @@ const BusinessesDetails = () => {
                 </div>
 
                 {/* <div onClick={history.push(`/businesses/menu/${businessId}`)}>test</div> */}
-
-                <div onClick={() => history.push(`/businesses/menu/${businessId.businessId}`)}>hello</div>
-
+                {user?.id == currentBusiness?.owner_id && (
+                <button onClick={() => history.push(`/businesses/menu/${businessId.businessId}`)}>Edit Menu</button>
+                )}
                 <div className='business-detail-two-left-location-hours-container'>
                   <div className='business-detail-two-left-location-hours-header'>Location & Hours</div>
                 </div>
