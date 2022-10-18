@@ -25,14 +25,35 @@ const ReviewForm = () => {
       rating: rating,
     }
 
-    const res = await dispatch(createReviewThunk(data)).then(() => dispatch(getAllReviewsThunk()))
-    history.push(`/businesses/${businessId.businessId}`)
+    let errors = [];
+
+    if (review.length > 255 || review.length < 10) {
+      errors.push( "Review must be between 10 to 255 Characters!" );
+    }
+
+    setErrors(errors)
+
+    if (review.length <= 255 && review.length >= 10) {
+      const res = await dispatch(
+        createReviewThunk(data))
+        // .then(() =>
+        // dispatch(getAllReviewsThunk()))
+      history.push(`/businesses/${businessId.businessId}`)
+    }
   }
 
   return (
       <form onSubmit={handleSubmit}>
         <div className="create-review-container">
           <div className="create-review-input-container">
+            <div className="createReviewError">
+              {(errors).map((error, i) => (
+                <div className="errorMessageContainer" key={i}>
+                  <i class="fa-solid fa-exclamation exclamation-point"></i>
+                  <div className="errorMessage">{error}</div>
+                </div>
+              ))}
+            </div>
             <div className="create-review-input-container">
               <input className="create-business-input"
                 type="number"

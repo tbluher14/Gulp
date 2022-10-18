@@ -26,7 +26,7 @@ const BusinessesDetails = () => {
 
   // Menu Items Logic
   const menu_itemsArr = Object.values(menu_items)
-  const specific_menu = menu_itemsArr.filter(menuItem => menuItem.business_id == currentBusiness.id)
+  const specific_menu = menu_itemsArr.filter(menuItem => menuItem?.business_id == currentBusiness?.id)
   const specific_menuArr= Object.values(specific_menu)
 
   // Reviews Logic

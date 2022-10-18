@@ -1,0 +1,10 @@
+.errorMessageContainer {
+  display: flex;
+  color: red;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.exclamation-point {
+  margin-right: 5px;
+  margin-top: 2.5px
+}

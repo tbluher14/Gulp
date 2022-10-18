@@ -74,7 +74,10 @@ const NavBar = () => {
               }
             }}
           ></input>
-          <button onClick={handleSearch}>
+          <button
+          onClick={handleSearch}
+          className='nav-bar-search-button'
+          ><i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
 
@@ -94,8 +97,8 @@ const NavBar = () => {
             <div>
               <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>Create Business</div>
             </div>
-            <div className='nav-bar-logout-button'>
-              <LogoutButton />
+            <div>
+              <LogoutButton/>
             </div>
           </div>
         )
