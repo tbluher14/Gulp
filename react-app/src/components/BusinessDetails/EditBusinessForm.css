@@ -1,0 +1,20 @@
+.edit-business-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 22%;
+}
+
+.edit_form_requirements{
+    position: relative;
+    left: 50px;
+}
+
+.edit_business_errors{
+    font-size: 13px;
+    position: relative;
+    bottom: 20px;
+
+}

@@ -17,6 +17,7 @@ const LoginForm = () => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
+      console.log("this is data", data)
       setErrors(data);
     }
   };
@@ -47,11 +48,6 @@ const LoginForm = () => {
     onSubmit={onLogin}
     className='login-form-container'>
       <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
         <label htmlFor='email' className='login-form-field-labels'>Email</label>
         <input
           name='email'
@@ -59,19 +55,26 @@ const LoginForm = () => {
           type='text'
           placeholder='Email'
           value={email}
+          required
           onChange={updateEmail}
-        />
+          />
       </div>
       <div>
         <label htmlFor='password' className='login-form-field-labels'>Password</label>
         <input
           name='password'
           type='password'
+          required
           className='login-form-field-labels'
           placeholder='Password'
           value={password}
           onChange={updatePassword}
-        />
+          />
+        <div className='login_errors_container'>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
         <button type='submit' className='login-button'>Login</button>
         <button onClick={() =>{setEmail("demo@aa.io"); setPassword("password")}}
           type="submit" className='demo-user-button-login-page'>Demo User</button>

@@ -8,8 +8,10 @@
     position: relative;
     left: 30px;
     top: 20px;
+    height: 37px;
     border: none;
     cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 .login-form-container{
@@ -18,10 +20,14 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    left: 30.3%;
+    left: 28.3%;
     top: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+#root{
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
 .demo-user-button-login-page{
     position: relative;
     left: 40px;
@@ -31,17 +37,22 @@
     font-size: 16px;
     font-weight: 700;
     padding: 8px 16px;
+    height: 37px;
     border-radius: 4px;
     border: 1px solid #ff0000;
     cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .login-form-field-labels{
     position: relative;
     left: 20px;
     margin: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
 }
 
-
-
+.login_errors_container{
+    position: relative;
+    left: 30px;
+}

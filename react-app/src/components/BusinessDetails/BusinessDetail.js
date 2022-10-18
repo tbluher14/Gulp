@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { deleteBusinessThunk, getAllBusinessesThunk } from '../../store/business';
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import CreateReviewModal from '../Reviews/CreateReviewModal';
 import './BusinessDetail.css'
 import ReviewCard from '../Reviews/ReviewCard';
@@ -55,7 +55,7 @@ const BusinessesDetails = () => {
 
   const editBusiness = (businessId) => async (e) => {
     e.preventDefault();
-    history.push(`/businesses/${businessId}/edit`)
+    history.push(`/businesses/${businessId}/menu`)
   }
 
   const reviewBusiness = (businessId) => async (e) => {
@@ -86,30 +86,35 @@ const BusinessesDetails = () => {
             </div>
           </div>
         </div>
-        {specific_menuArr.map(menuItems => (
-          <MenuItemCard menuItems={menuItems}></MenuItemCard>
-        ))}
         <div className='business-detail-two'>
           <div className='business-detail-two-inner-container'>
             <div className='business-detail-two-left'>
               <div className='business-detail-two-left-inner-container'>
 
                 <div className='business-detail-two-left-button'>
+
                   {user?.id == currentBusiness?.owner_id && (
-                    <button className='business-detail-edit-button' onClick={editBusiness(currentBusiness.id)}>Edit</button>
-                  )}
+                    <button className='business-detail-edit-button' onClick={editBusiness(currentBusiness.id)}>Edit Business</button>
+                    )}
                   {user?.id == currentBusiness?.owner_id && (
-                    <button className='business-detail-delete-button' onClick={removeBusiness(currentBusiness.id)}>Delete</button>
-                  )}
+                    <button className='business-detail-delete-button' onClick={removeBusiness(currentBusiness.id)}>Delete Business</button>
+                    )}
                   {user?.id !== currentBusiness?.owner_id && !userReview.length && (
                     <button className='business-detail-review-button' onClick={reviewBusiness(currentBusiness?.id)}>
                       <i class="fa-regular fa-star"></i> Write a Review</button>
                   )}
+
                 </div>
 
                 <div className='business-detail-two-left-menu-container'>
                   <div className='business-detail-two-left-menu'>MENU</div>
                   <div className='business-detail-two-left-dishes'>Popular dishes</div>
+                  {specific_menuArr.map(menuItems => (
+                    <MenuItemCard menuItems={menuItems}></MenuItemCard>
+                  ))}
+                  {/* {user?.id == currentBusiness?.owner_id && (
+                    <button className='business-detail-edit-button' onClick={history.push(`/businesses/menu/${businessId}`)}>Edit Menu</button>
+                    )} */}
                 </div>
 
                 <div className='business-detail-two-left-location-hours-container'>
@@ -117,7 +122,7 @@ const BusinessesDetails = () => {
                 </div>
 
                 <div className='business-detail-two-left-reviews-container'>
-                  <div className='business-detail-two-left-reviews-header'>Recommended Reviews</div>
+                  <div className='business-detail-two-left-reviews-header'>Reviews</div>
                 </div>
 
                 {reviews && (
