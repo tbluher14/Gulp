@@ -14,9 +14,9 @@ const MenuItemCard = ({menuItems}) => {
     const currentBusiness = allBusinesses[businessId.businessId]
     // const businessOwner = allBusinesses[owner_id]
 
-    console.log('Business Owner', currentBusiness?.owner_id)
-    console.log('Business_Id**********', businessId.businessId)
-    console.log('Business**********', allBusinesses)
+    // console.log('Business Owner', currentBusiness?.owner_id)
+    // console.log('Business_Id**********', businessId.businessId)
+    // console.log('Business**********', allBusinesses)
     // console.log('BusinessOwner**********', businessOwner)
 
 
