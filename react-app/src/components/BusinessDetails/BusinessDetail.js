@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { deleteBusinessThunk, getAllBusinessesThunk } from '../../store/business';
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import CreateReviewModal from '../Reviews/CreateReviewModal';
 import './BusinessDetail.css'
 import ReviewCard from '../Reviews/ReviewCard';
@@ -27,7 +27,7 @@ const BusinessesDetails = () => {
 
   // Menu Items Logic
   const menu_itemsArr = Object.values(menu_items)
-  const specific_menu = menu_itemsArr.filter(menuItem => menuItem?.business_id == currentBusiness?.id)
+  const specific_menu = menu_itemsArr.filter(menuItem => menuItem.business_id == currentBusiness.id)
   const specific_menuArr= Object.values(specific_menu)
 
   // Reviews Logic
@@ -38,6 +38,7 @@ const BusinessesDetails = () => {
   // Formatted Phone
   const formattedPhone = `(${currentBusiness?.phone.slice(0, 3)}) ${currentBusiness?.phone.slice(3, 6)}-${currentBusiness?.phone.slice(6, 10)}`
 
+  console.log('this is buisnessId', businessId)
 
   useEffect((e) => {
     dispatch(getAllBusinessesThunk()).then(() => setIsLoaded(true))
@@ -49,8 +50,8 @@ const BusinessesDetails = () => {
 
   const removeBusiness = (businessId) => async (e) => {
     e.preventDefault();
-    const res = await dispatch(deleteBusinessThunk(businessId))
     history.push('/businesses')
+    const res = await dispatch(deleteBusinessThunk(businessId))
     return res
   }
 
@@ -81,17 +82,14 @@ const BusinessesDetails = () => {
               <div className='business-detail-image-text-name'>{currentBusiness?.name}</div>
               <div className='business-detail-image-text-review'>REVIEW AVERAGE</div>
               <div className='business-detail-image-text-hours'>
-                <div className='business-detail-image-text-hours-open'>{currentBusiness.open < currentTime ? "Closed" : "Open" && currentBusiness.close> currentTime ? "Closed": "Open"}</div>
+                <div className='business-detail-image-text-hours-open'>{currentBusiness?.open < currentTime ? "Closed" : "Open" && currentBusiness?.close> currentTime ? "Closed": "Open"}</div>
                 <div className='business-detail-image-text-hours-time'>Hours {currentBusiness?.open} - {currentBusiness?.close}</div>
               </div>
             </div>
           </div>
         </div>
         {specific_menuArr.map(menuItems => (
-          <>
-          {/* <MenuItemCard menuItems={menuItems}></MenuItemCard> */}
-          {/* <MenuItemsModal menuItems={menuItems}/> */}
-          </>
+          <MenuItemCard menuItems={menuItems}></MenuItemCard>
         ))}
         <div className='business-detail-two'>
           <div className='business-detail-two-inner-container'>
@@ -99,35 +97,40 @@ const BusinessesDetails = () => {
               <div className='business-detail-two-left-inner-container'>
 
                 <div className='business-detail-two-left-button'>
+
                   {user?.id == currentBusiness?.owner_id && (
-                    <button className='business-detail-edit-button' onClick={editBusiness(currentBusiness.id)}>Edit</button>
-                  )}
+                    <button className='business-detail-edit-button' onClick={editBusiness(currentBusiness.id)}>Edit Business</button>
+                    )}
                   {user?.id == currentBusiness?.owner_id && (
-                    <button className='business-detail-delete-button' onClick={removeBusiness(currentBusiness.id)}>Delete</button>
-                  )}
+                    <button className='business-detail-delete-button' onClick={removeBusiness(currentBusiness.id)}>Delete Business</button>
+                    )}
                   {user?.id !== currentBusiness?.owner_id && !userReview.length && (
                     <button className='business-detail-review-button' onClick={reviewBusiness(currentBusiness?.id)}>
                       <i class="fa-regular fa-star"></i> Write a Review</button>
                   )}
-                  {specific_menuArr.map(menuItems => (
-                    <>
-                    {/* <MenuItemCard menuItems={menuItems}></MenuItemCard> */}
-                    <MenuItemsModal menuItems={menuItems}/>
-                    </>
-                  ))}
                 </div>
 
                 <div className='business-detail-two-left-menu-container'>
                   <div className='business-detail-two-left-menu'>MENU</div>
                   <div className='business-detail-two-left-dishes'>Popular dishes</div>
+                  {specific_menuArr.map(menuItems => (
+                    <MenuItemCard menuItems={menuItems}></MenuItemCard>
+                  ))}
+                  {/* {user?.id == currentBusiness?.owner_id && ( */}
+                    {/* <button className='business-detail-edit-button' onClick={history.push(`/businesses/menu/${businessId}`)}>Edit Menu</button> */}
+                    {/* )} */}
                 </div>
+
+                {/* <div onClick={history.push(`/businesses/menu/${businessId}`)}>test</div> */}
+
+                <div onClick={() => history.push(`/businesses/menu/${businessId.businessId}`)}>hello</div>
 
                 <div className='business-detail-two-left-location-hours-container'>
                   <div className='business-detail-two-left-location-hours-header'>Location & Hours</div>
                 </div>
 
                 <div className='business-detail-two-left-reviews-container'>
-                  <div className='business-detail-two-left-reviews-header'>Recommended Reviews</div>
+                  <div className='business-detail-two-left-reviews-header'>Reviews</div>
                 </div>
 
                 {reviews && (

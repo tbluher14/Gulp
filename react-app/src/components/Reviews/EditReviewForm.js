@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
 import { editReviewThunk } from '../../store/review';
 import { getAllReviewsThunk } from '../../store/review';
+import './CreateReview.css'
 
 
 const EditReviewForm = () => {
@@ -41,8 +42,21 @@ const EditReviewForm = () => {
       review: review,
       rating: rating,
     }
-    return dispatch(editReviewThunk(data, reviewId.reviewId)).then(() => dispatch(getAllReviewsThunk())).then(() => history.push(`/businesses/${businessId.businessId}`))
-    history.push(`/businesses/${review.business_id}`)
+
+    let errors = [];
+
+    if (review.length > 255 || review.length < 10) {
+      errors.push( "Review must be between 10 to 255 Characters!" );
+    }
+
+    setErrors(errors)
+
+    if (review.length <= 255 && review.length >= 10) {
+      const res = await dispatch(
+      editReviewThunk(data, reviewId.reviewId))
+      // .then(() => dispatch(getAllReviewsThunk())).then(() => history.push(`/businesses/${businessId.businessId}`))
+      history.push(`/businesses/${businessId.businessId}`)
+    }
 
   }
 
@@ -51,6 +65,14 @@ const EditReviewForm = () => {
     <form onSubmit={handleSubmit}>
     <div className="create-review-container">
       <div className="create-review-input-container">
+        <div className="createReviewError">
+          {(errors).map((error, i) => (
+            <div className="errorMessageContainer" key={i}>
+              <i class="fa-solid fa-exclamation exclamation-point"></i>
+              <div className="errorMessage">{error}</div>
+            </div>
+          ))}
+        </div>
         <div className="create-business-input-container">
           <input className="create-business-input"
             type="number"
