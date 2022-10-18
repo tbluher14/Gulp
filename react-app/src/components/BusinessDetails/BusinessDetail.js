@@ -9,6 +9,7 @@ import ReviewCard from '../Reviews/ReviewCard';
 import { getAllReviewsThunk } from '../../store/review';
 import { getAllMenuItemsThunk } from '../../store/menuItem';
 import MenuItemCard from '../MenuItemCard';
+import MenuItemsModal from '../MenuItems/MenuItemsModal';
 
 
 const BusinessesDetails = () => {
@@ -26,7 +27,7 @@ const BusinessesDetails = () => {
 
   // Menu Items Logic
   const menu_itemsArr = Object.values(menu_items)
-  const specific_menu = menu_itemsArr.filter(menuItem => menuItem.business_id == currentBusiness.id)
+  const specific_menu = menu_itemsArr.filter(menuItem => menuItem?.business_id == currentBusiness?.id)
   const specific_menuArr= Object.values(specific_menu)
 
   // Reviews Logic
@@ -87,7 +88,10 @@ const BusinessesDetails = () => {
           </div>
         </div>
         {specific_menuArr.map(menuItems => (
-          <MenuItemCard menuItems={menuItems}></MenuItemCard>
+          <>
+          {/* <MenuItemCard menuItems={menuItems}></MenuItemCard> */}
+          <MenuItemsModal menuItems={menuItems}/>
+          </>
         ))}
         <div className='business-detail-two'>
           <div className='business-detail-two-inner-container'>

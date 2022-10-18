@@ -1,0 +1,60 @@
+#modal {
+  display: flex;
+  justify-content: center;
+}
+
+#modal-background {
+  background-color: rgba(0, 0, 0, .50) !important;
+}
+
+#modal-content {
+  max-width: 568px;
+  width: 100%;
+  max-height: calc(100vh - 210px);
+  overflow-y: auto;
+}
+
+.menuItems-modal-container {
+  max-width: 568px;
+  width: 100%;
+}
+
+.menuItems-modal-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  align-items: center;
+  padding: 24px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.menuItems-modal-form {
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 14px
+}
+
+.menuItems-button {
+  /* background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  margin-right: 7px;
+  font-family: 'Montserrat', sans-serif; */
+  color: white;
+  padding: 9px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 16px;
+  width: 100px;
+  background-color: #e51d53;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.menuItemsmenuItems {
+  padding-right: 219.2265px;
+}

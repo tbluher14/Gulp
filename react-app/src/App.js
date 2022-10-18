@@ -17,6 +17,8 @@ import HomePage from './components/HomePage';
 import BusinessesDetails from './components/BusinessDetails/BusinessDetail';
 import EditReviewForm from './components/Reviews/EditReviewForm';
 import QueriedBusiness from './components/QueriedBusiness/QueriedBusiness';
+import MenuItems from './components/MenuItems/MenuItems';
+import MenuItemsModal from './components/MenuItems/MenuItemsModal';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -75,6 +77,12 @@ function App() {
         </Route>
         <Route path='/search'>
           <QueriedBusiness />
+        </Route>
+        <Route path='/menuitems'>
+          <MenuItems />
+        </Route>
+        <Route path='/menuitemsmodal'>
+          <MenuItemsModal />
         </Route>
       </Switch>
     </BrowserRouter>
