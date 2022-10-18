@@ -10,12 +10,6 @@ const QueriedBusiness = () => {
   const queriedBusinesses = useSelector(state => (state.queryBusiness))
   const queriedBusinessesArr = Object.values(queriedBusinesses)
 
-  console.log('this is queriedBusinesses from redux', queriedBusinessesArr)
-
-  useEffect((e) => {
-    // dispatch(searchBusinessThunk())
-  }, [])
-
   return (
     <div>
       {queriedBusinessesArr.map((business) => (

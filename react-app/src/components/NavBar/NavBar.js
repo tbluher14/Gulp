@@ -26,60 +26,26 @@ const NavBar = () => {
   };
 
   return (
-    // <nav>
-    //   <ul>
-    //     <li>
-    //       <NavLink to='/' exact={true} activeClassName='active'>
-    //         Home
-    //       </NavLink>
-    //     </li>
-    //     <li>
-    //       <NavLink to='/login' exact={true} activeClassName='active'>
-    //         Login
-    //       </NavLink>
-    //     </li>
-    //     <li>
-    //       <NavLink to='/sign-up' exact={true} activeClassName='active'>
-    //         Sign Up
-    //       </NavLink>
-    //     </li>
-    //     <li>
-    //       <NavLink to='/users' exact={true} activeClassName='active'>
-    //         Users
-    //       </NavLink>
-    //     </li>
-    //     <li>
-    //       <LogoutButton />
-    //     </li>
-    //   </ul>
-    // </nav>
-
     <div className='navbar-container'>
+
       <div className='navbar-logo-container' exact to="/">
         <img className='navbar-logo' src={logo} onClick={() => history.push(`/`)}></img>
       </div>
 
+      <div className='navbar-search-container'>
+        <input
+          className='navbar-search-box'
+          type="text"
+          placeholder="Search Business Name"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyPress={(e) => {if (e.key === "Enter") {handleSearch(e)}}}>
+        </input>
 
-      {/* <div className='navbar-search-bar'>Search Bar</div> */}
-
-      <div >
-          <input
-            type="text"
-            placeholder="Search Business Name"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            onKeyPress={(e) => {
-              if (e.key === "Enter") {
-                handleSearch(e);
-              }
-            }}
-          ></input>
-          <button
-          onClick={handleSearch}
-          className='nav-bar-search-button'
-          ><i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
+        <button onClick={handleSearch} className='navbar-search-button'>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
 
 
       {
@@ -97,28 +63,12 @@ const NavBar = () => {
             <div>
               <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>Create Business</div>
             </div>
-            <div>
+            <div className='navbar-logged-out-button'>
               <LogoutButton/>
             </div>
           </div>
         )
       }
-
-      {/* {
-        !sessionUser && (
-      <div classname='navbar-login-signup'>
-        <div classname='navbar-login-button-a' onClick={() => history.push(`/login`)}>Log In</div>
-        <div classname='navbar-signup-button-b' onClick={() => history.push(`/sign-up`)}>Sign Up</div>
-      </div>
-        )
-      }
-      {
-        sessionUser && (
-          <div>
-            <LogoutButton />
-          </div>
-        )
-      } */}
 
     </div>
   );
