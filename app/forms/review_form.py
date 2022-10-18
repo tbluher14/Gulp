@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, ValidationError, Length, NumberRang
 
 def check_rating(form, field):
     if field.data<1 or field.data>5:
-        raise ValidationError("Please enter a valid number between 1 and 5")
+        raise ValidationError("Please enter a valid rating between 1 and 5 stars")
 
 def check_review(form, field):
     if len(field.data)<1 or len(field.data>255):
