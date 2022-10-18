@@ -74,7 +74,10 @@ const NavBar = () => {
               }
             }}
           ></input>
-          <button onClick={handleSearch}>
+          <button
+          onClick={handleSearch}
+          className='nav-bar-search-button'
+          ><i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
 
