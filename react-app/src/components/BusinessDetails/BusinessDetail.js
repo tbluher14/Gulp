@@ -96,10 +96,10 @@ const BusinessesDetails = () => {
 
                 <div className='business-detail-two-left-button'>
                   {user?.id == currentBusiness?.owner_id && (
-                    <button className='business-detail-edit-button' onClick={editBusiness(currentBusiness.id)}>Edit</button>
+                    <button className='business-detail-edit-button' onClick={editBusiness(currentBusiness.id)}>Edit Business</button>
                   )}
                   {user?.id == currentBusiness?.owner_id && (
-                    <button className='business-detail-delete-button' onClick={removeBusiness(currentBusiness.id)}>Delete</button>
+                    <button className='business-detail-delete-button' onClick={removeBusiness(currentBusiness.id)}>Delete Business</button>
                   )}
                   {user?.id !== currentBusiness?.owner_id && !userReview.length && (
                     <button className='business-detail-review-button' onClick={reviewBusiness(currentBusiness?.id)}>
@@ -117,7 +117,7 @@ const BusinessesDetails = () => {
                 </div>
 
                 <div className='business-detail-two-left-reviews-container'>
-                  <div className='business-detail-two-left-reviews-header'>Recommended Reviews</div>
+                  <div className='business-detail-two-left-reviews-header'>Reviews</div>
                 </div>
 
                 {reviews && (

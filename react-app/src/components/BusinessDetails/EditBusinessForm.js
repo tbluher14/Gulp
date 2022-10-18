@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { editBusinessThunk, getAllBusinessesThunk } from "../../store/business";
+import "./EditBusinessForm.css"
 
 function BusinessEditForm() {
 
@@ -69,40 +70,46 @@ function BusinessEditForm() {
     //   errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
     // }
 
-    if (name.length < 5 || name.length > 255) {
-      errors.push( "Name must be between 5 to 255 characters." )
+    if (name.length < 2 || name.length > 255) {
+      errors.push( "Please Enter A Valid Business Name" )
     }
 
-    if (address.length < 5 || address.length > 255) {
-      errors.push( "Address must be between 5 to 255 characters." )
+    if (address.length < 2 || address.length > 255) {
+      errors.push( "Please Enter A Valid Street Address" )
     }
 
-    if (city.length < 5 || city.length > 255) {
-      errors.push( "City must be between 5 to 255 characters." )
+    if (city.length < 2 || city.length > 255) {
+      errors.push( "Please Enter A Valid City" )
     }
 
-    if (state.length < 5 || state.length > 255) {
-      errors.push( "State must be between 5 to 255 characters." )
+    if (state.length < 2 || state.length > 255) {
+      errors.push( " Please enter a Valid State" )
     }
 
     if (open < 0 || open > 23){
-      errors.push('Please enter valid opening time')
+      errors.push('Please Enter a Valid Opening time')
     }
     if (close < 0 || close > 23){
-      errors.push('Please enter valid closing time')
+      errors.push('Please Enter Valid Closing time')
     }
 
-    if (country.length < 1 || country.length > 255) {
-      errors.push( "Country must be between 1 and 255 characters." )
+    if (country.length < 2 || country.length > 255) {
+      errors.push( "Please Enter A Valid Country" )
     }
     if (zipCode.length < 5 || zipCode.length > 5) {
-      errors.push( "Country must be 5 characters" )
+      errors.push( "Please Enter A Valid Zip Code" )
     }
     if (description.length < 5 || description.length > 255) {
-      errors.push( "Description must be between 5 to 255 characters." )
+      errors.push( "Please Enter A Valid Description" )
     }
     if (phone.length !== 10) {
-      errors.push( "Phone must be 10 characters" )
+      errors.push( "Phone Number Must Be 10 Characters" )
+    }
+    if (website.length < 2){
+      errors.push("Please Enter A Valid Business Website")
+    }
+    if (!image.includes("https")){
+      errors.push("Please Enter A Valid Business Image URL")
     }
     setErrors(errors)
   }
@@ -117,6 +124,8 @@ function BusinessEditForm() {
     && (zipCode.length === 5)
     && (description.length >= 5 && description.length <= 255)
     && (phone.length === 10)
+    && (website.length > 2)
+    && (image.includes('https'))
     ){
     return dispatch(editBusinessThunk(data, businessId))
     // .then(dispatch(getAllBusinessesThunk()))
@@ -125,17 +134,17 @@ function BusinessEditForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-        <h4 className="form_requirements">Please fill out all of the following fields:</h4>
-        <ul className="create_errors">
+    <form onSubmit={handleSubmit} className="edit-business-container">
+        <h4 className="edit_form_requirements">Please fill out all of the following fields:</h4>
+        <ul className="edit_business_errors">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
           </ul>
-      <div className="create-business-container">
-        <div className="create-business-input-container">
+      <div className="edit-business-container">
+        <div className="edit-business-input-container">
 
-          <div className="create-business-input-container">
+          <div className="edit-business-input-container">
             <input className="create-business-input"
               type="text"
               value={name}
