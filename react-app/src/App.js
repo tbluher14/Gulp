@@ -17,6 +17,7 @@ import HomePage from './components/HomePage';
 import BusinessesDetails from './components/BusinessDetails/BusinessDetail';
 import EditReviewForm from './components/Reviews/EditReviewForm';
 import QueriedBusiness from './components/QueriedBusiness/QueriedBusiness';
+import MenuItemsPage from './components/MenuItemsPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -75,6 +76,9 @@ function App() {
         </Route>
         <Route path='/search'>
           <QueriedBusiness />
+        </Route>
+        <Route path='/businesses/:businessId/menu'>
+          <MenuItemsPage />
         </Route>
       </Switch>
     </BrowserRouter>
