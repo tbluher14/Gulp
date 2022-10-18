@@ -8,6 +8,7 @@ import './AllBusinesses.css'
 import { getAllUsersThunk } from '../../store/users';
 
 
+
 const AllBusinesses = () => {
     const dispatch = useDispatch();
 
