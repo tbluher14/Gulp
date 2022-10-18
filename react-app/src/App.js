@@ -56,11 +56,11 @@ function App() {
         <Route path='/businesses' exact={true}>
           <AllBusinesses />
         </Route>
-        <Route path='/businesses/menu/:businessId' exact={true}>
-          <MenuItemsPage />
-        </Route>
         <Route path='/businesses/:businessId' exact={true}>
           <BusinessesDetails />
+        </Route>
+        <Route path='/businesses/menu/:businessId' exact={true}>
+          <MenuItemsPage />
         </Route>
         <ProtectedRoute path='/testing' exact={true}>
           <BusinessCreateForm />
