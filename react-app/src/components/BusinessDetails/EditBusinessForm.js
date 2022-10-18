@@ -115,7 +115,7 @@ function BusinessEditForm() {
     && (phone.length === 10)
     ){
     return dispatch(editBusinessThunk(data, businessId))
-    .then(dispatch(getAllBusinessesThunk()))
+    // .then(dispatch(getAllBusinessesThunk()))
     .then(history.push(`/businesses/${businessId}`));
     }
   };
