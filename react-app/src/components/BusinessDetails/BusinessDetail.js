@@ -93,8 +93,9 @@ const BusinessesDetails = () => {
               <div className='business-detail-image-text-name'>{currentBusiness?.name}</div>
               <div className='business-detail-image-text-review'>REVIEW AVERAGE</div>
               <div className='business-detail-image-text-hours'>
-                <div className='business-detail-image-text-hours-open'>{currentBusiness?.open < currentTime ? "Closed" : "Open" && currentBusiness?.close> currentTime ? "Closed": "Open"}</div>
-                <div className='business-detail-image-text-hours-time'>Hours {currentBusiness?.open} - {currentBusiness?.close}</div>
+                {/* <div className='business-detail-image-text-hours-open'>{currentBusiness?.open < currentTime ? "Closed" : "Open" && currentBusiness?.close> currentTime ? "Closed": "Open"}</div> */}
+                <div className='business-detail-image-text-hours-open'>Business Hours:</div>
+                <div className='business-detail-image-text-hours-time'>Hours {currentBusiness?.open}{currentBusiness?.ampmopen} - {currentBusiness?.close}{currentBusiness?.ampmclose}</div>
               </div>
             </div>
           </div>
