@@ -32,10 +32,13 @@ function BusinessEditForm() {
   const [errors, setErrors] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const imageRegX = /\.(jpeg|jpg|png|svg|gif)$/
+  const webRegX = /\.(com|net|org|co|biz|info)$/
+  
+  useEffect(() => {
 
-  // useEffect(() => {
-  //   dispatch(getAllBusinessesThunk())
-  // }, []);
+
+  })
 
   const handleSubmit = async (e) => {
     e.preventDefault();
