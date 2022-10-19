@@ -26,9 +26,12 @@ function BusinessCreateForm() {
   const [errors, setErrors] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
-  
+
   const imageRegX = /\.(jpeg|jpg|png|svg|gif)$/
-  const webRegX = /\.(com|net|org|co|biz|info)$/
+  const webRegX = /\.(com|net|org|co|biz|info|gov)$/
+  const timeRegX = /^(0?[1-9]|1[0-2]):[0-5][0-9]$/
+  const phoneRegX = /^\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$/
+  const zipRegX = /^\d{5}$/
 
   useEffect(() => {
     let errors = []
@@ -64,23 +67,23 @@ function BusinessCreateForm() {
         errors.push("State must be between 5 to 255 characters.")
       }
 
-      // if (open < 0 || open > 23) {
-      //   errors.push('Please enter valid opening time')
-      // }
-      // if (close < 0 || close > 23) {
-      //   errors.push('Please enter valid closing time')
-      // }
+      if (open < 0 || open > 13 || !open.match(timeRegX)) {
+        errors.push('Please enter valid opening time')
+      }
+      if (close < 0 || close > 13 || !close.match(timeRegX)) {
+        errors.push('Please enter valid closing time')
+      }
 
       if (country.length < 1 || country.length > 255) {
         errors.push("Country must be between 1 and 255 characters.")
       }
-      if (zipCode.length < 5 || zipCode.length > 5) {
+      if (!zipCode.match(zipRegX)) {
         errors.push("Zipcode must be 5 characters")
       }
       if (description.length < 5 || description.length > 255) {
         errors.push("Description must be between 5 to 255 characters.")
       }
-      if (phone.length !== 10) {
+      if (!phone.match(phoneRegX)) {
         errors.push("Phone must be 10 characters")
       }
       setErrors(errors)
