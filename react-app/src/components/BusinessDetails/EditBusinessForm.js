@@ -98,7 +98,7 @@ function BusinessEditForm() {
     setSubmitted(true)
 
     if (errors.length) return
-    
+
     const data = {
       owner_id: user.id,
       name: name,
