@@ -18,6 +18,7 @@ import BusinessesDetails from './components/BusinessDetails/BusinessDetail';
 import EditReviewForm from './components/Reviews/EditReviewForm';
 import QueriedBusiness from './components/QueriedBusiness/QueriedBusiness';
 import MenuItemsPage from './components/MenuItemsPage';
+import CreateMenuItemForm from './components/MenuItemsPage/CreateMenuItem'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,6 +62,9 @@ function App() {
         </Route>
         <Route path='/businesses/menu/:businessId' exact={true}>
           <MenuItemsPage />
+        </Route>
+        <Route path='/businesses/menu/:businessId/add' exact={true}>
+          <CreateMenuItemForm />
         </Route>
         <ProtectedRoute path='/testing' exact={true}>
           <BusinessCreateForm />

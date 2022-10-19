@@ -21,3 +21,24 @@ def delete_menu_item(menu_item_id):
   db.session.delete(menu_item)
   db.session.commit()
   return {'message': 'Menu Item deleted'}
+
+
+@menu_item_routes.route('/create_menu_item', methods=['POST'])
+@login_required
+def create_menu_item():
+  form = CreateMenuItemForm()
+
+  form["csrf_token"].data = request.cookies["csrf_token"]
+
+  if form.validate_on_submit():
+    menuItemData = MenuItem(
+      name=form.data['name'],
+      price =form.data['price'],
+      image_url = form.data['image_url'],
+      business_id= form.data['business_id']
+    )
+    db.session.add(menuItemData)
+    db.session.commit()
+    return jsonify (menuItemData.to_dict()), 200
+  else:
+    return {'errors': form.errors}, 401
