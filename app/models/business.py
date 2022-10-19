@@ -36,8 +36,10 @@ class Business(db.Model):
       "website" : self.website,
       "phone" : self.phone,
       "image": self.image,
+      "description" : self.description,
       "open": self.open,
       "close": self.close,
-      "description" : self.description,
+      "ampmopen": self.am_pm_open,
+      "ampmclose": self.am_pm_close,
       "owner_id" : self.owner_id,
     }
