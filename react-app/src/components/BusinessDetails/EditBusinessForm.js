@@ -30,10 +30,11 @@ function BusinessEditForm() {
   const [image, setImage] = useState(business?.image)
 
   const [errors, setErrors] = useState([]);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const imageRegX = /\.(jpeg|jpg|png|svg|gif)$/
   const webRegX = /\.(com|net|org|co|biz|info)$/
+  const zipRegX = /^\d{5}$/
 
   useEffect(() => {
     let errors = []
@@ -79,7 +80,7 @@ function BusinessEditForm() {
       if (country.length < 1 || country.length > 255) {
         errors.push("Country must be between 1 and 255 characters.")
       }
-      if (zipCode.length < 5 || zipCode.length > 5) {
+      if (!zipCode.match(zipRegX)) {
         errors.push("Zipcode must be 5 characters")
       }
       if (description.length < 5 || description.length > 255) {
@@ -94,7 +95,10 @@ function BusinessEditForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitted(true)
 
+    if (errors.length) return
+    
     const data = {
       owner_id: user.id,
       name: name,
@@ -118,11 +122,11 @@ function BusinessEditForm() {
   return (
     <form onSubmit={handleSubmit} className="edit-business-container">
       <h4 className="edit_form_requirements">Please fill out all of the following fields:</h4>
-      <ul className="edit_business_errors">
-        {errors.map((error, idx) => (
+      <div className="edit_business_errors">
+        {submitted && errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
-      </ul>
+      </div>
       <div className="edit-business-container">
         <div className="edit-business-input-container">
 
