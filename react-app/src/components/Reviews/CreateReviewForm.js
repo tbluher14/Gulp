@@ -29,7 +29,7 @@ const ReviewForm = () => {
 
     const data = {
       user_id: user.id,
-      business_id: businessId.businessId,
+      business_id: Number(businessId.businessId),
       review: review,
       rating: rating,
     }

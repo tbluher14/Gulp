@@ -38,14 +38,15 @@ export const getAllMenuItemsThunk = () => async (dispatch) => {
 
 // Create menu item thunk
 export const createMenuItemThunk = (menuItem) => async (dispatch) => {
+  console.log("THUNK IS RUNNING ")
   const res = await fetch(`/api/menu_items/create_menu_item`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(menuItem)
   })
+  console.log("THIS IS THE RES FROM THE THUNK", res)
   if (res.ok) {
     const menuItem = await res.json()
-    console.log("MENU ITEM********", menuItem)
     dispatch(createMenuItemAC(menuItem))
     return menuItem
   }
@@ -79,7 +80,6 @@ const menuItemsReducer = (state = initialState, action) => {
       return newState
     case CREATE_MENU_ITEM:
       newState = { ...state }
-      console.log("this is new state", newState)
       return newState
     case DELETE_MENU_ITEM:
       newState = { ...state }
