@@ -24,7 +24,7 @@ function BusinessCreateForm() {
   const [image, setImage] = useState('')
 
   const [errors, setErrors] = useState([]);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   // function isImage(image) {
   //   return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(image)
@@ -33,6 +33,7 @@ function BusinessCreateForm() {
 
 const handleSubmit = async (e) => {
     e.preventDefault()
+    setSubmitted(true)
 
     const data = {
       owner_id: user.id,
@@ -126,11 +127,11 @@ const handleSubmit = async (e) => {
   return (
     <form onSubmit={handleSubmit}>
       <h4 className="form_requirements">Please fill out all of the following fields:</h4>
-        <ul className="create_errors">
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+        <div className="create_errors">
+          {submitted && errors.map((error, idx) => (
+            <div key={idx}>{error}</div>
           ))}
-          </ul>
+          </div>
       <div className="create-business-container">
         <div className="create-business-input-container">
 
