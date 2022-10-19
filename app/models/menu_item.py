@@ -6,7 +6,7 @@ class MenuItem(db.Model):
 
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(50), nullable=False)
-  price = db.Column(db.Integer, nullable=False)
+  price = db.Column(db.String(50), nullable=False)
   image_url = db.Column(db.String(200), nullable=False)
   business_id = db.Column(db.Integer, db.ForeignKey("businesses.id"),  nullable=False)
 

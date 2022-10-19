@@ -22,17 +22,17 @@ const MenuItemCreateForm = () => {
             return "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1398&q=80"
         }
     }
+    console.log("This is PRICE", price)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        
+
         const data = {
             name: name,
             price: price,
             image_url: imageLogic(image_url),
             business_id: Number(businessId.businessId)
         }
-        console.log("THIS IS DATS IN CREATE MENU ITEM", data)
 
        const res = await dispatch(createMenuItemThunk(data)).then((res) => history.push(`/businesses/menu/${businessId.businessId}`))
     }
