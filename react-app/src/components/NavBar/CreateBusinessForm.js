@@ -30,7 +30,7 @@ function BusinessCreateForm() {
   const imageRegX = /\.(jpeg|jpg|png|svg|gif)$/
   const webRegX = /\.(com|net|org|co|biz|info|gov)$/
   const timeRegX = /^(0?[1-9]|1[0-2]):[0-5][0-9]$/
-  const phoneRegX = /^\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$/
+  // const phoneRegX = /^\(?\d{3}\)?[- .]?\d{3}[- .]?\d{4}$/
   const zipRegX = /^\d{5}$/
 
   useEffect(() => {
@@ -83,7 +83,7 @@ function BusinessCreateForm() {
       if (description.length < 5 || description.length > 255) {
         errors.push("Description must be between 5 to 255 characters.")
       }
-      if (!phone.match(phoneRegX)) {
+      if (phone.length !== 10) {
         errors.push("Phone must be 10 characters")
       }
       setErrors(errors)
