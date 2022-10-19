@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { getAllMenuItemsThunk } from "../../store/menuItem";
 import MenuItemCard from "../MenuItemCard";
+import './MenuItemsPage.css'
 
 const MenuItemsPage = () => {
   const dispatch = useDispatch()
@@ -21,8 +22,8 @@ const MenuItemsPage = () => {
   }, [])
 
   return (
-    <div>
-      <button onClick={() => history.push(`/businesses/menu/${businessId.businessId}/add`)}>Add Menu Item</button>
+    <div className="menuitemspage-container">
+      <button className='menuitemspage-button' onClick={() => history.push(`/businesses/menu/${businessId.businessId}/add`)}>Add Menu Item</button>
       {specific_menuArr.map(menuItems => (
         <MenuItemCard menuItems={menuItems}></MenuItemCard>
       ))}

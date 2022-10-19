@@ -29,8 +29,6 @@ const BusinessesDetails = () => {
   const specific_menu = menu_itemsArr.filter(menuItem => menuItem?.business_id == currentBusiness?.id)
   const specific_menuArr= Object.values(specific_menu)
 
-  console.log('this is spsecific menu', specific_menuArr)
-
   let threeMenuItems = []
   if (specific_menuArr.length === 1) {
     threeMenuItems.push(specific_menuArr[0])
@@ -42,9 +40,6 @@ const BusinessesDetails = () => {
     threeMenuItems.push(specific_menuArr[1])
     threeMenuItems.push(specific_menuArr[2])
   }
-
-
-  console.log('THIS IS NEW TEST ARR', threeMenuItems)
 
   // Reviews Logic
   const businessReviews = Object.values(reviews)

@@ -1,0 +1,7 @@
+.menuitemspage-container {
+  display: flex;
+}
+
+.menuitemspage-button {
+  height: 25px;
+}
