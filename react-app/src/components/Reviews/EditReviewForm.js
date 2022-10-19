@@ -27,14 +27,29 @@ const EditReviewForm = () => {
   const [review, setReview] = useState(currentReview?.review)
   const [rating, setRating] = useState(currentReview?.rating)
   const [errors, setErrors] = useState([])
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect((e) => {
     dispatch(getAllReviewsThunk())
   }, [])
 
+useEffect(() => {
+  let errors = [];
+
+  // if(Number.isInteger(rating)) {
+  //   errors.push('Rating must be a number')
+  // }
+
+  if (review.length > 255 || review.length < 10) {
+    errors.push( "Review must be between 10 to 255 Characters!" );
+  }
+
+  setErrors(errors)
+}, [review, rating])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitted(true)
 
     const data = {
       user_id: user.id,
@@ -43,13 +58,6 @@ const EditReviewForm = () => {
       rating: rating,
     }
 
-    let errors = [];
-
-    if (review.length > 255 || review.length < 10) {
-      errors.push( "Review must be between 10 to 255 Characters!" );
-    }
-
-    setErrors(errors)
 
     if (review.length <= 255 && review.length >= 10) {
       const res = await dispatch(
@@ -66,7 +74,7 @@ const EditReviewForm = () => {
     <div className="create-review-container">
       <div className="create-review-input-container">
         <div className="createReviewError">
-          {(errors).map((error, i) => (
+          {submitted && (errors).map((error, i) => (
             <div className="errorMessageContainer" key={i}>
               <i class="fa-solid fa-exclamation exclamation-point"></i>
               <div className="errorMessage">{error}</div>
