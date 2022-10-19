@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { createMenuItemThunk, getAllMenuItemsThunk } from "../../store/menuItem";
+import './CreateMenuItem.css'
 
 
 const MenuItemCreateForm = () => {
@@ -54,25 +55,33 @@ const MenuItemCreateForm = () => {
     }
     return (
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='create_menu_item_container'>
+            <h2>Add An Item To Your Menu:</h2>
+            <label className="create_menu_item_label">Item Name:</label>
             <input
                 type="text"
                 value={name}
-                placeholder={"Item Name"}
+                placeholder
                 onChange={(e)=> setName(e.target.value)}
                 required
             ></input>
+            <label className="create_menu_item_label">
+                Item Price ($.$$):
+            </label>
             <input
                 type="text"
                 value={price}
-                placeholder={"Item Price"}
+
                 onChange={(e)=> setPrice(e.target.value)}
                 required
             ></input>
+            <label className="create_menu_item_label">
+                Image URL:
+            </label>
             <input
                 type="text"
                 value={image_url}
-                placeholder={"Item Image URL"}
+                
                 onChange={(e)=> setImageUrl(e.target.value)}
 
             ></input>
