@@ -1,16 +1,29 @@
-.menu-item-image{
-    width: 185px;
-    display: flex;
-    flex-direction: column;
-    height: 150px;
-    position: relative;
-    left: 50px;
+.menu-item-card {
+    height: 201px;
+    width: 192px;
+    margin-right: 16px;
+    font-family: 'Open Sans', sans-serif;
 }
 
-
-.menu-item-card{
+.menu-item-image {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 184px;
+    height: 150px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+}
+
+.menu-item-name {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.menu-item-price {
+    font-size: 14px;
+    color: rgba(110,112,114,1);
+    line-height: 20px;
+}
+
+.menu-item-delete {
+    cursor: pointer;
 }

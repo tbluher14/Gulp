@@ -109,19 +109,32 @@ const BusinessesDetails = () => {
 
                 <div className='business-detail-two-left-menu-container'>
                   <div className='business-detail-two-left-menu'>MENU</div>
-                  <div className='business-detail-two-left-dishes'>Popular dishes</div>
-                  {specific_menuArr.map(menuItems => (
-                    <MenuItemCard menuItems={menuItems}></MenuItemCard>
-                  ))}
-                  {/* {user?.id == currentBusiness?.owner_id && ( */}
-                    {/* <button className='business-detail-edit-button' onClick={history.push(`/businesses/menu/${businessId}`)}>Edit Menu</button> */}
-                    {/* )} */}
+
+                  <div className='business-detail-two-left-dishes'>
+                    <div className='business-detail-two-left-popular'>
+                      <div>Popular dishes</div>
+                      <div className='business-detail-view-menu-container' onClick={() => history.push(`/businesses/menu/${businessId.businessId}`)}>
+                        <div className='business-detail-view-menu'>View full menu</div>
+                        <div>{`>`}</div>
+                      </div>
+                    </div>
+                    <div className='business-detail-two-left-menuitems'>
+                      {specific_menuArr.map(menuItems => (
+                        <MenuItemCard menuItems={menuItems}></MenuItemCard>
+                      ))}
+                      {/* {user?.id == currentBusiness?.owner_id && ( */}
+                        {/* <button className='business-detail-edit-button' onClick={history.push(`/businesses/menu/${businessId}`)}>Edit Menu</button> */}
+                        {/* )} */}
+                    </div>
+                  </div>
                 </div>
 
                 {/* <div onClick={history.push(`/businesses/menu/${businessId}`)}>test</div> */}
-                {user?.id == currentBusiness?.owner_id && (
+
+                {/* {user?.id == currentBusiness?.owner_id && (
                 <button onClick={() => history.push(`/businesses/menu/${businessId.businessId}`)}>Edit Menu</button>
-                )}
+                )} */}
+
                 <div className='business-detail-two-left-location-hours-container'>
                   <div className='business-detail-two-left-location-hours-header'>Location & Hours</div>
                 </div>
