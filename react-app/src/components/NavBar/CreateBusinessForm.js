@@ -22,9 +22,12 @@ function BusinessCreateForm() {
   const [close, setClose] = useState('')
   const [description, setDescription] = useState("");
   const [image, setImage] = useState('')
+  const [ampmopen, setAmpmopen] = useState('')
 
   const [errors, setErrors] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+
+  console.log('please work', ampmopen)
 
 
   const imageRegX = /\.(jpeg|jpg|png|svg|gif)$/
@@ -338,12 +341,19 @@ function BusinessCreateForm() {
               required
             />
           </div>
+          <div className="create-business-input-container">
+
+            <select className="create-business-input" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)}>
+                <option value='AM'>AM</option>
+                <option value='PM'>PM</option>
+            </select>
+
+          </div>
 
           <button name="submit" type="submit" className="submitButton">
             Create Business
           </button>
         </div>
-
       </div>
     </form>
   );

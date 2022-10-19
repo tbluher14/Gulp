@@ -40,6 +40,8 @@ def create_business():
       phone=form.data['phone'],
       open=form.data['open'],
       close=form.data['close'],
+      am_pm_open=form.data['ampmopen'],
+      am_pm_close=form.data['ampmclose'],
       image=form.data['image'],
       description=form.data['description'],
     )
@@ -80,6 +82,8 @@ def edit_business(business_id):
     business.description=form.data['description']
     business.open=form.data['open']
     business.close=form.data['close']
+    business.am_pm_open=form.data['ampmopen']
+    business.am_pm_close=form.data['ampmclose']
     business.image=form.data['image']
 
 
