@@ -25,8 +25,8 @@ const MenuItemCard = ({ menuItems }) => {
         </img>
 
         <div className='menu-item-description'>
-            <div className='menu-item-name'>{menuItems.name}</div>
-            <div className='menu-item-price'>{`Price: $${menuItems.price}`}</div>
+            <div className='menu-item-name'>{menuItems?.name}</div>
+            <div className='menu-item-price'>{`Price: $${menuItems?.price}`}</div>
 
                 {/* {sessionUser?.id == currentBusiness?.owner_id && (
                     <button onClick={() => dispatch(deleteMenuItemThunk(menuItems?.id))}>Delete Menu Item</button>

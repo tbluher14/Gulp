@@ -29,6 +29,23 @@ const BusinessesDetails = () => {
   const specific_menu = menu_itemsArr.filter(menuItem => menuItem?.business_id == currentBusiness?.id)
   const specific_menuArr= Object.values(specific_menu)
 
+  console.log('this is spsecific menu', specific_menuArr)
+
+  let threeMenuItems = []
+  if (specific_menuArr.length === 1) {
+    threeMenuItems.push(specific_menuArr[0])
+  } else if (specific_menuArr.length === 2) {
+    threeMenuItems.push(specific_menuArr[0])
+    threeMenuItems.push(specific_menuArr[1])
+  } else if (specific_menuArr.length >= 3) {
+    threeMenuItems.push(specific_menuArr[0])
+    threeMenuItems.push(specific_menuArr[1])
+    threeMenuItems.push(specific_menuArr[2])
+  }
+
+
+  console.log('THIS IS NEW TEST ARR', threeMenuItems)
+
   // Reviews Logic
   const businessReviews = Object.values(reviews)
   const businessReviewsArray = businessReviews.filter(review => review?.business_id === currentBusiness?.id)
@@ -119,12 +136,14 @@ const BusinessesDetails = () => {
                       </div>
                     </div>
                     <div className='business-detail-two-left-menuitems'>
-                      {specific_menuArr.map(menuItems => (
+                      {threeMenuItems.map(menuItems => (
                         <MenuItemCard menuItems={menuItems}></MenuItemCard>
                       ))}
+
                       {/* {user?.id == currentBusiness?.owner_id && ( */}
                         {/* <button className='business-detail-edit-button' onClick={history.push(`/businesses/menu/${businessId}`)}>Edit Menu</button> */}
                         {/* )} */}
+
                     </div>
                   </div>
                 </div>
