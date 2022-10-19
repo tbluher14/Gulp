@@ -20,30 +20,39 @@ const HomePage = () => {
         <div className='homepage-bottom-links'>
 
           <div className='homepage-links-matt'>
-            <a href='https://github.com/matt-fong'>
-              <img className='home-page-github' src={github}></img>
-            </a>
-            <a href='https://www.linkedin.com/in/matthewfongny/'>
-              <img className='home-page-linkedin' src={linkedin}></img>
-            </a>
+            <div className='homepage-first-last-name'>Matt Fong</div>
+            <div>
+              <a href='https://github.com/matt-fong'>
+                <img className='home-page-github' src={github}></img>
+              </a>
+              <a href='https://www.linkedin.com/in/matthewfongny/'>
+                <img className='home-page-linkedin' src={linkedin}></img>
+              </a>
+            </div>
           </div>
 
           <div className='homepage-links-tom'>
-            <a href='https://github.com/tbluher14'>
-              <img className='home-page-github' src={github}></img>
-            </a>
-            <a href='https://www.linkedin.com/in/tom-bluher-172321115/'>
-              <img className='home-page-linkedin' src={linkedin}></img>
-            </a>
+            <div className='homepage-first-last-name'>Tom Bluher</div>
+            <div>
+              <a href='https://github.com/tbluher14'>
+                <img className='home-page-github' src={github}></img>
+              </a>
+              <a href='https://www.linkedin.com/in/tom-bluher-172321115/'>
+                <img className='home-page-linkedin' src={linkedin}></img>
+              </a>
+            </div>
           </div>
 
           <div className='homepage-links-will'>
-            <a href='https://github.com/codewjm'>
-              <img className='home-page-github' src={github}></img>
-            </a>
-            <a href='https://www.linkedin.com/in/will-marett-a0b4b3188/'>
-              <img className='home-page-linkedin' src={linkedin}></img>
-            </a>
+            <div className='homepage-first-last-name'>Will Marett</div>
+            <div>
+              <a href='https://github.com/codewjm'>
+                <img className='home-page-github' src={github}></img>
+              </a>
+              <a href='https://www.linkedin.com/in/will-marett-a0b4b3188/'>
+                <img className='home-page-linkedin' src={linkedin}></img>
+              </a>
+            </div>
           </div>
 
         </div>
