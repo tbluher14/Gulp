@@ -34,11 +34,63 @@ function BusinessEditForm() {
 
   const imageRegX = /\.(jpeg|jpg|png|svg|gif)$/
   const webRegX = /\.(com|net|org|co|biz|info)$/
-  
+
   useEffect(() => {
+    let errors = []
+    if (!user) {
+      errors.push("User must be logged in")
+      setErrors(errors)
+    }
+    else {
+      // if (!isImage(image)) {
+      //   errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
+      // }
+      if (image.length < 1 || !image.split('?')[0].match(imageRegX)) {
+        errors.push("Provide a valid image URL");
+      }
 
+      if (website.length < 1 || !website.match(webRegX)) {
+        errors.push("Provide a website URL");
+      }
 
-  })
+      if (name.length < 5 || name.length > 255) {
+        errors.push("Name must be between 5 to 255 characters.")
+      }
+
+      if (address.length < 5 || address.length > 255) {
+        errors.push("Address must be between 5 to 255 characters.")
+      }
+
+      if (city.length < 5 || city.length > 255) {
+        errors.push("City must be between 5 to 255 characters.")
+      }
+
+      if (state.length < 5 || state.length > 255) {
+        errors.push("State must be between 5 to 255 characters.")
+      }
+
+      // if (open < 0 || open > 23) {
+      //   errors.push('Please enter valid opening time')
+      // }
+      // if (close < 0 || close > 23) {
+      //   errors.push('Please enter valid closing time')
+      // }
+
+      if (country.length < 1 || country.length > 255) {
+        errors.push("Country must be between 1 and 255 characters.")
+      }
+      if (zipCode.length < 5 || zipCode.length > 5) {
+        errors.push("Zipcode must be 5 characters")
+      }
+      if (description.length < 5 || description.length > 255) {
+        errors.push("Description must be between 5 to 255 characters.")
+      }
+      if (phone.length !== 10) {
+        errors.push("Phone must be 10 characters")
+      }
+      setErrors(errors)
+    }
+  }, [name, address, city, state, country, zipCode, website, phone, open, close, description, image, user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,92 +110,19 @@ function BusinessEditForm() {
       phone: phone,
       description: description,
     };
-
-    // console.log('THIS IS EDIT BIZ FORM DATA', data)
-    // console.log('THIS IS BUSINESS ID', businessId)
-
-    let errors = []
-
-    if (!user){
-      errors.push("User must be logged in")
-      setErrors(errors)
-    }
-    else {
-    // if (!isImage(image)) {
-    //   errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
-    // }
-
-    if (name.length < 2 || name.length > 255) {
-      errors.push( "Please Enter A Valid Business Name" )
-    }
-
-    if (address.length < 2 || address.length > 255) {
-      errors.push( "Please Enter A Valid Street Address" )
-    }
-
-    if (city.length < 2 || city.length > 255) {
-      errors.push( "Please Enter A Valid City" )
-    }
-
-    if (state.length < 2 || state.length > 255) {
-      errors.push( " Please enter a Valid State" )
-    }
-
-    if (open < 0 || open > 23){
-      errors.push('Please Enter a Valid Opening time')
-    }
-    if (close < 0 || close > 23){
-      errors.push('Please Enter Valid Closing time')
-    }
-
-    if (country.length < 2 || country.length > 255) {
-      errors.push( "Please Enter A Valid Country" )
-    }
-    if (zipCode.length < 5 || zipCode.length > 5) {
-      errors.push( "Please Enter A Valid Zip Code" )
-    }
-    if (description.length < 5 || description.length > 255) {
-      errors.push( "Please Enter A Valid Description" )
-    }
-    if (phone.length !== 10) {
-      errors.push( "Phone Number Must Be 10 Characters" )
-    }
-    if (website.length < 2){
-      errors.push("Please Enter A Valid Business Website")
-    }
-    if (!image.includes("https")){
-      errors.push("Please Enter A Valid Business Image URL")
-    }
-    setErrors(errors)
-  }
-  if (user
-    && (name.length > 5 && name.length<255)
-    && (address.length >=5 && address.length <= 255)
-    && (city.length >= 5 && city.length <= 255)
-    && (state.length >= 5 && state.length <= 255)
-    && (open >= 0 && open <= 23)
-    && (close >= 0 && close <= 23)
-    && (country.length >= 5 && country.length <= 255)
-    && (zipCode.length === 5)
-    && (description.length >= 5 && description.length <= 255)
-    && (phone.length === 10)
-    && (website.length > 2)
-    && (image.includes('https'))
-    ){
     return dispatch(editBusinessThunk(data, businessId))
-    // .then(dispatch(getAllBusinessesThunk()))
-    .then(history.push(`/businesses/${businessId}`));
-    }
+      // .then(dispatch(getAllBusinessesThunk()))
+      .then(history.push(`/businesses/${businessId}`));
   };
 
   return (
     <form onSubmit={handleSubmit} className="edit-business-container">
-        <h4 className="edit_form_requirements">Please fill out all of the following fields:</h4>
-        <ul className="edit_business_errors">
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-          </ul>
+      <h4 className="edit_form_requirements">Please fill out all of the following fields:</h4>
+      <ul className="edit_business_errors">
+        {errors.map((error, idx) => (
+          <li key={idx}>{error}</li>
+        ))}
+      </ul>
       <div className="edit-business-container">
         <div className="edit-business-input-container">
 
