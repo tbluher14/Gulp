@@ -26,14 +26,74 @@ function BusinessCreateForm() {
   const [errors, setErrors] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
-  // function isImage(image) {
-  //   return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(image)
-  // }
+  
+  const imageRegX = /\.(jpeg|jpg|png|svg|gif)$/
+  const webRegX = /\.(com|net|org|co|biz|info)$/
+
+  useEffect(() => {
+    let errors = []
+    if (!user) {
+      errors.push("User must be logged in")
+      setErrors(errors)
+    }
+    else {
+      // if (!isImage(image)) {
+      //   errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
+      // }
+      if (image.length < 1 || !image.split('?')[0].match(imageRegX)) {
+        errors.push("Provide a valid image URL");
+      }
+
+      if (website.length < 1 || !website.match(webRegX)) {
+        errors.push("Provide a website URL");
+      }
+
+      if (name.length < 5 || name.length > 255) {
+        errors.push("Name must be between 5 to 255 characters.")
+      }
+
+      if (address.length < 5 || address.length > 255) {
+        errors.push("Address must be between 5 to 255 characters.")
+      }
+
+      if (city.length < 5 || city.length > 255) {
+        errors.push("City must be between 5 to 255 characters.")
+      }
+
+      if (state.length < 5 || state.length > 255) {
+        errors.push("State must be between 5 to 255 characters.")
+      }
+
+      // if (open < 0 || open > 23) {
+      //   errors.push('Please enter valid opening time')
+      // }
+      // if (close < 0 || close > 23) {
+      //   errors.push('Please enter valid closing time')
+      // }
+
+      if (country.length < 1 || country.length > 255) {
+        errors.push("Country must be between 1 and 255 characters.")
+      }
+      if (zipCode.length < 5 || zipCode.length > 5) {
+        errors.push("Zipcode must be 5 characters")
+      }
+      if (description.length < 5 || description.length > 255) {
+        errors.push("Description must be between 5 to 255 characters.")
+      }
+      if (phone.length !== 10) {
+        errors.push("Phone must be 10 characters")
+      }
+      setErrors(errors)
+    }
+  }, [name, address, city, state, country, zipCode, website, phone, open, close, description, image, user]);
 
 
-const handleSubmit = async (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setSubmitted(true)
+
+    if (errors.length) return
 
     const data = {
       owner_id: user.id,
@@ -51,87 +111,119 @@ const handleSubmit = async (e) => {
       image: image
     };
 
-    let errors = []
-
-    if (!user){
-      errors.push("User must be logged in")
-      setErrors(errors)
-    }
-    else {
-    // if (!isImage(image)) {
-    //   errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
-    // }
-
-    if (name.length < 5 || name.length > 255) {
-      errors.push( "Name must be between 5 to 255 characters." )
-    }
-
-    if (address.length < 5 || address.length > 255) {
-      errors.push( "Address must be between 5 to 255 characters." )
-    }
-
-    if (city.length < 5 || city.length > 255) {
-      errors.push( "City must be between 5 to 255 characters." )
-    }
-
-    if (state.length < 5 || state.length > 255) {
-      errors.push( "State must be between 5 to 255 characters." )
-    }
-
-    if (open < 0 || open > 23){
-      errors.push('Please enter valid opening time')
-    }
-    if (close < 0 || close > 23){
-      errors.push('Please enter valid closing time')
-    }
-
-    if (country.length < 1 || country.length > 255) {
-      errors.push( "Country must be between 1 and 255 characters." )
-    }
-    if (zipCode.length < 5 || zipCode.length > 5) {
-      errors.push( "Country must be 5 characters" )
-    }
-    if (description.length < 5 || description.length > 255) {
-      errors.push( "Description must be between 5 to 255 characters." )
-    }
-    if (phone.length !== 10) {
-      errors.push( "Phone must be 10 characters" )
-    }
-    setErrors(errors)
-  }
-
-  if (user
-  && (name.length > 5 && name.length<255)
-  && (address.length >=5 && address.length <= 255)
-  && (city.length >= 5 && city.length <= 255)
-  && (state.length >= 5 && state.length <= 255)
-  && (open >= 0 && open <= 23)
-  && (close >= 0 && close <= 23)
-  && (country.length >= 5 && country.length <= 255)
-  && (zipCode.length === 5)
-  && (description.length >= 5 && description.length <= 255)
-  && (phone.length === 10)
-  )
-  {
     return dispatch(createBusinessThunk(data)).then((res) => history.push(`/businesses/${res.id}`)
-    // .catch(
-    //   async (res) => {
-    //     const data = await res.json()
-    //     if (data && data.errors) setErrors(data.errors)
-    //   }
-    // )
+      // .catch(
+      //   async (res) => {
+      //     const data = await res.json()
+      //     if (data && data.errors) setErrors(data.errors)
+      //   }
+      // )
     )
   }
-}
+
+
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+  //   setSubmitted(true)
+
+  //   const data = {
+  //     owner_id: user.id,
+  //     name: name,
+  //     address: address,
+  //     city: city,
+  //     state: state,
+  //     country: country,
+  //     zipCode: zipCode,
+  //     open: open,
+  //     close: close,
+  //     website: website,
+  //     phone: phone,
+  //     description: description,
+  //     image: image
+  //   };
+
+  //   let errors = []
+
+  //   if (!user){
+  //     errors.push("User must be logged in")
+  //     setErrors(errors)
+  //   }
+  //   else {
+  //   // if (!isImage(image)) {
+  //   //   errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
+  //   // }
+
+  //   if (name.length < 5 || name.length > 255) {
+  //     errors.push( "Name must be between 5 to 255 characters." )
+  //   }
+
+  //   if (address.length < 5 || address.length > 255) {
+  //     errors.push( "Address must be between 5 to 255 characters." )
+  //   }
+
+  //   if (city.length < 5 || city.length > 255) {
+  //     errors.push( "City must be between 5 to 255 characters." )
+  //   }
+
+  //   if (state.length < 5 || state.length > 255) {
+  //     errors.push( "State must be between 5 to 255 characters." )
+  //   }
+
+  //   if (open < 0 || open > 23){
+  //     errors.push('Please enter valid opening time')
+  //   }
+  //   if (close < 0 || close > 23){
+  //     errors.push('Please enter valid closing time')
+  //   }
+
+  //   if (country.length < 1 || country.length > 255) {
+  //     errors.push( "Country must be between 1 and 255 characters." )
+  //   }
+  //   if (zipCode.length < 5 || zipCode.length > 5) {
+  //     errors.push( "Country must be 5 characters" )
+  //   }
+  //   if (description.length < 5 || description.length > 255) {
+  //     errors.push( "Description must be between 5 to 255 characters." )
+  //   }
+  //   if (phone.length !== 10) {
+  //     errors.push( "Phone must be 10 characters" )
+  //   }
+  //   setErrors(errors)
+  // }
+
+  // if (user
+  // && (name.length > 5 && name.length<255)
+  // && (address.length >=5 && address.length <= 255)
+  // && (city.length >= 5 && city.length <= 255)
+  // && (state.length >= 5 && state.length <= 255)
+  // && (open >= 0 && open <= 23)
+  // && (close >= 0 && close <= 23)
+  // && (country.length >= 5 && country.length <= 255)
+  // && (zipCode.length === 5)
+  // && (description.length >= 5 && description.length <= 255)
+  // && (phone.length === 10)
+  // )
+  // {
+  //   return dispatch(createBusinessThunk(data)).then((res) => history.push(`/businesses/${res.id}`)
+  //   // .catch(
+  //   //   async (res) => {
+  //   //     const data = await res.json()
+  //   //     if (data && data.errors) setErrors(data.errors)
+  //   //   }
+  //   // )
+  //   )
+  // }
+  // }
 
   return (
     <form onSubmit={handleSubmit}>
       <h4 className="form_requirements">Please fill out all of the following fields:</h4>
-        <div className="create_errors">
-          {submitted && errors.map((error, idx) => (
-            <div key={idx}>{error}</div>
-          ))}
-          </div>
+      <div className="create_errors">
+        {submitted && errors.map((error, idx) => (
+          <div key={idx}>{error}</div>
+        ))}
+      </div>
       <div className="create-business-container">
         <div className="create-business-input-container">
 
