@@ -14,8 +14,10 @@ class Business(db.Model):
   phone = db.Column(db.String(10), nullable=False)
   description = db.Column(db.String(2000), nullable=False)
   image= db.Column(db.String(500), nullable=False)
-  open = db.Column(db.Integer, nullable=False)
-  close = db.Column(db.Integer, nullable=False)
+  # open = db.Column(db.Integer, nullable=False)
+  # close = db.Column(db.Integer, nullable=False)
+  open = db.Column(db.String, nullable=False)
+  close = db.Column(db.String, nullable=False)
   owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
   owner = db.relationship("User", back_populates="business_owner")
