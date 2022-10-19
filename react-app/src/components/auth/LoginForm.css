@@ -6,7 +6,7 @@
     padding: 8px 16px;
     border-radius: 4px;
     position: relative;
-    left: 30px;
+    left: 18px;
     top: 20px;
     height: 37px;
     border: none;
@@ -17,7 +17,6 @@
 .login-form-container{
     display:flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     position: relative;
     left: 28.3%;
@@ -52,7 +51,17 @@
     display: flex;
 }
 
+.login-form-field {
+    width: 500px;
+    height: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid lightgrey;
+    margin-left: 18px;
+}
+
 .login_errors_container{
     position: relative;
+    top: 50px;
     left: 30px;
 }
