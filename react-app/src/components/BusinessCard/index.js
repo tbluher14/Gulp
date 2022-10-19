@@ -3,23 +3,31 @@ import { getAllUsersThunk } from '../../store/users';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import './BusinessCard.css';
+import { getAllReviewsThunk } from '../../store/review';
+
 
 const BusinessCard = ({ business }) => {
   const history = useHistory()
   const dispatch = useDispatch();
 
-  const reviews = useSelector(state => (state.reviews))
+  // Reviews Logic
+  const reviews = useSelector(state => (state.review))
+  const businessReviews = Object.values(reviews)
+  const businessReviewsArray = businessReviews.filter(review => review?.business_id === business?.id)
+
+  const averageReview = (businessReviewsArray) => {
+      let total = 0
+      for (let i = 0; i<businessReviewsArray.length; i++){
+        total += businessReviewsArray[i].rating
+      }
+      return (total / businessReviewsArray.length).toFixed(2)
+    }
+
+  useEffect((e) => {
+    dispatch(getAllReviewsThunk())
+  }, [])
 
 
-  console.log("THIS IS BUSINESS REVIEWS" , reviews)
-
-  // const averageReview = (businessReviewsArray) => {
-  //   let total = 0
-  //   for (let i = 0; i<businessReviewsArray.length; i++){
-  //     total += businessReviewsArray[i].rating
-  //   }
-  //   return (total / businessReviewsArray.length).toFixed(2)
-  // }
  // new
   return (
     <div className='business-card'>
@@ -33,10 +41,10 @@ const BusinessCard = ({ business }) => {
 
             <div className='business-card-inner-container-right'>
               <div className='business-card-header'>{business?.name}</div>
-              <div className='business-card-rating'>Rating </div>
+              <div className='business-card-rating'><i class="fa-solid fa-star"></i> {averageReview(businessReviewsArray)} </div>
               <div className='business-card-address'>{business?.address}</div>
-              <div className='business-card-hours'>Hours: {business?.open} - {business?.close}</div>
-              <div className='business-card-description'>DESCRIPTION: {business?.description}</div>
+              <div className='business-card-hours'>Hours: {business?.open} {business?.ampmopen}- {business?.close}{business?.ampmclose}</div>
+              <div className='business-card-description'>{business?.description}</div>
             </div>
 
           </div>

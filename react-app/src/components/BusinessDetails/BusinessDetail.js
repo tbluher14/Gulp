@@ -45,6 +45,7 @@ const BusinessesDetails = () => {
   const businessReviews = Object.values(reviews)
   const businessReviewsArray = businessReviews.filter(review => review?.business_id === currentBusiness?.id)
   const userReview = businessReviewsArray.filter(review => user?.id === review.user_id)
+
   const averageReview = (businessReviewsArray) => {
     let total = 0
     for (let i = 0; i<businessReviewsArray.length; i++){
@@ -99,7 +100,7 @@ const BusinessesDetails = () => {
           <div className='business-detail-image-text-container'>
             <div className='business-detail-image-text-inner-container'>
               <div className='business-detail-image-text-name'>{currentBusiness?.name}</div>
-              <div className='business-detail-image-text-review'>Stars: {averageReview(businessReviewsArray)}</div>
+              <div className='business-detail-image-text-review'><i class="fa-solid fa-star"></i> {averageReview(businessReviewsArray)}</div>
               <div className='business-detail-image-text-hours'>
                 {/* <div className='business-detail-image-text-hours-open'>{currentBusiness?.open < currentTime ? "Closed" : "Open" && currentBusiness?.close> currentTime ? "Closed": "Open"}</div> */}
                 <div className='business-detail-image-text-hours-open'>Business Hours:</div>
