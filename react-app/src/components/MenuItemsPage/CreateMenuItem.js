@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { createMenuItemThunk } from "../../store/menuItem";
+import { createMenuItemThunk, getAllMenuItemsThunk } from "../../store/menuItem";
 
 
 const MenuItemCreateForm = () => {
@@ -13,6 +13,7 @@ const MenuItemCreateForm = () => {
     const [name, setName] = useState('')
     const [price, setPrice] = useState('')
     const [image_url, setImageUrl] = useState('')
+    const [errors, setErrors] = useState([])
 
     const imageLogic = (image_url) => {
         if (image_url){
@@ -23,22 +24,37 @@ const MenuItemCreateForm = () => {
         }
     }
 
+
     const handleSubmit = async (e) => {
         e.preventDefault()
-        
+
         const data = {
             name: name,
             price: price,
             image_url: imageLogic(image_url),
             business_id: Number(businessId.businessId)
         }
-        console.log("THIS IS DATS IN CREATE MENU ITEM", data)
 
-       const res = await dispatch(createMenuItemThunk(data)).then((res) => history.push(`/businesses/menu/${businessId.businessId}`))
+        const errors = []
+        // for (let i = 0; i<price.length; i++){
+        //     if (!price[i].includes("1" || "2" || "3" || "4"|| "5"|| "6"|| "7"|| "8" || "9" || "0" || ".")){
+        //         errors.push("Please enter a valid decimal price")
+        //         return setErrors(errors)
+        //     }
+        // }
+        setErrors(errors)
+
+        // if (price.includes("1" || "2" || "3" || "4"|| "5"|| "6"|| "7"|| "8" || "9" || "0" || "."))
+        {
+            const res = await dispatch(createMenuItemThunk(data))
+            .then(dispatch(getAllMenuItemsThunk()))
+            .then((res) => history.push(`/businesses/menu/${businessId.businessId}`))
+        }
+
     }
     return (
-        <form onSubmit={handleSubmit}>
 
+        <form onSubmit={handleSubmit}>
             <input
                 type="text"
                 value={name}
@@ -61,9 +77,12 @@ const MenuItemCreateForm = () => {
 
             ></input>
 
-            <button name="submit" type="submit">
+            <button name="submit" type="submit" className="menu_item_submit">
                 Add Menu Item
             </button>
+            <div>
+                {errors.map(error => error)}
+            </div>
         </form>
 
     )

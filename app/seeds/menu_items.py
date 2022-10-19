@@ -4,11 +4,11 @@ from app.models import db, MenuItem
 # Adds a demo user, you can add other users here if you want
 def seed_menu_items():
   item_one = MenuItem(
-      name='Test1', price=10, image_url='something.jpeg', business_id=1)
+      name='Test1', price="10", image_url='', business_id=1)
   item_two = MenuItem(
-      name='Test2', price=20, image_url='something.jpeg', business_id=2)
+      name='Test2', price="20", image_url='', business_id=2)
   item_three = MenuItem(
-      name='Test3', price=15, image_url='something.jpeg', business_id=3)
+      name='Test3', price="15", image_url='', business_id=3)
 
   db.session.add(item_one)
   db.session.add(item_two)
