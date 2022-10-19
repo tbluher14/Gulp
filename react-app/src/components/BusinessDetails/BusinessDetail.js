@@ -41,6 +41,18 @@ const BusinessesDetails = () => {
     threeMenuItems.push(specific_menuArr[2])
   }
 
+  const utcToLocale12 = (utcTime) => {
+    const date = new Date();
+    date.setUTCHours(...utcTime.split(":"));
+    return date.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+  };
+
+  // console.log(utcToLocale12(currentBusiness?.open))
+
   // Reviews Logic
   const businessReviews = Object.values(reviews)
   const businessReviewsArray = businessReviews.filter(review => review?.business_id === currentBusiness?.id)
@@ -76,6 +88,9 @@ const BusinessesDetails = () => {
     history.push(`/reviews/${currentBusiness.id}`)
   }
   const currentTime = new Date()
+  console.log('this is current time', currentTime)
+  // console.log('this is current time utc', currentTime.toUTCString())
+  console.log('this is current time hours', currentTime.getHours())
 
   return isLoaded && (
     <div className='business-detail-container'>
