@@ -82,8 +82,8 @@ def edit_business(business_id):
     business.description=form.data['description']
     business.open=form.data['open']
     business.close=form.data['close']
-    business.am_pm_open=form.data['ampmopen']
-    business.am_pm_close=form.data['ampmclose']
+    business.am_pm_open=form.data['am_pm_open']
+    business.am_pm_close=form.data['am_pm_close']
     business.image=form.data['image']
 
 

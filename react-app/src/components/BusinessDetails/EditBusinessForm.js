@@ -28,6 +28,8 @@ function BusinessEditForm() {
   const [open, setOpen] = useState(business?.open)
   const [close, setClose] = useState(business?.close)
   const [image, setImage] = useState(business?.image)
+  const [ampmopen, setAmpmopen] = useState(business?.ampmopen)
+  const [ampmclose, setAmpmclose] = useState(business?.ampmclose)
 
   const [errors, setErrors] = useState([]);
   const [submitted, setSubmitted] = useState(false);
@@ -108,11 +110,13 @@ function BusinessEditForm() {
       country: country,
       zipCode: zipCode,
       website: website,
-      open: open,
-      close: close,
       image: image,
       phone: phone,
       description: description,
+      open: open,
+      close: close,
+      am_pm_open: ampmopen,
+      am_pm_close: ampmclose,
     };
     return dispatch(editBusinessThunk(data, businessId))
       // .then(dispatch(getAllBusinessesThunk()))
@@ -194,22 +198,64 @@ function BusinessEditForm() {
             />
           </div>
           <div className="create-business-input-container">
-            <input className="create-business-input"
+            {/* <input className="create-business-input"
               type="text"
               value={open}
               placeholder="Open Time"
               onChange={(e) => setOpen(e.target.value)}
               required
-            />
+            /> */}
+            <select className="create-business-input" value={open} onChange={(e) => setOpen(e.target.value)}>
+              <option value=''>----------</option>
+              <option value='1:00'>1:00</option>
+              <option value='2:00'>2:00</option>
+              <option value='3:00'>3:00</option>
+              <option value='4:00'>4:00</option>
+              <option value='5:00'>5:00</option>
+              <option value='6:00'>6:00</option>
+              <option value='7:00'>7:00</option>
+              <option value='8:00'>8:00</option>
+              <option value='9:00'>9:00</option>
+              <option value='10:00'>10:00</option>
+              <option value='11:00'>11:00</option>
+              <option value='12:00'>12:00</option>
+            </select>
+
+            <select className="create-business-input" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)}>
+              <option value=''>---</option>
+              <option value='AM'>AM</option>
+              <option value='PM'>PM</option>
+            </select>
           </div>
           <div className="create-business-input-container">
-            <input className="create-business-input"
+            {/* <input className="create-business-input"
               type="text"
               value={close}
               placeholder="Close Time"
               onChange={(e) => setClose(e.target.value)}
               required
-            />
+            /> */}
+            <select className="create-business-input" value={close} onChange={(e) => setClose(e.target.value)}>
+              <option value=''>----------</option>
+              <option value='1:00'>1:00</option>
+              <option value='2:00'>2:00</option>
+              <option value='3:00'>3:00</option>
+              <option value='4:00'>4:00</option>
+              <option value='5:00'>5:00</option>
+              <option value='6:00'>6:00</option>
+              <option value='7:00'>7:00</option>
+              <option value='8:00'>8:00</option>
+              <option value='9:00'>9:00</option>
+              <option value='10:00'>10:00</option>
+              <option value='11:00'>11:00</option>
+              <option value='12:00'>12:00</option>
+            </select>
+
+            <select className="create-business-input" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)}>
+              <option value=''>---</option>
+              <option value='AM'>AM</option>
+              <option value='PM'>PM</option>
+            </select>
           </div>
           <div className="create-business-input-container">
             <input className="create-business-input"
