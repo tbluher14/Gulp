@@ -23,11 +23,13 @@ function BusinessCreateForm() {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState('')
   const [ampmopen, setAmpmopen] = useState('')
+  const [ampmclose, setAmpmclose] = useState('')
 
   const [errors, setErrors] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
-  console.log('please work', ampmopen)
+  // console.log('ampmopen', ampmopen)
+  // console.log('ampmclose', ampmclose)
 
 
   const imageRegX = /\.(jpeg|jpg|png|svg|gif)$/
@@ -109,11 +111,13 @@ function BusinessCreateForm() {
       state: state,
       country: country,
       zipCode: zipCode,
-      open: open,
-      close: close,
       website: website,
       phone: phone,
       description: description,
+      open: open,
+      close: close,
+      am_pm_open: ampmopen,
+      am_pm_close: ampmclose,
       image: image
     };
 
@@ -297,6 +301,7 @@ function BusinessCreateForm() {
             />
           </div>
           <div className="create-business-input-container">
+
             <input className="create-business-input"
               type="text"
               value={open}
@@ -304,8 +309,15 @@ function BusinessCreateForm() {
               onChange={(e) => setOpen(e.target.value)}
               required
             />
+            <select className="create-business-input" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)}>
+              <option value=''>---</option>
+              <option value='AM'>AM</option>
+              <option value='PM'>PM</option>
+            </select>
+
           </div>
           <div className="create-business-input-container">
+
             <input className="create-business-input"
               type="text"
               value={close}
@@ -313,6 +325,12 @@ function BusinessCreateForm() {
               onChange={(e) => setClose(e.target.value)}
               required
             />
+            <select className="create-business-input" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)}>
+              <option value=''>---</option>
+              <option value='AM'>AM</option>
+              <option value='PM'>PM</option>
+            </select>
+
           </div>
           <div className="create-business-input-container">
             <input className="create-business-input"
@@ -341,7 +359,8 @@ function BusinessCreateForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
+
+          {/* <div className="create-business-input-container">
 
             <select className="create-business-input" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)}>
                 <option value='AM'>AM</option>
@@ -349,6 +368,15 @@ function BusinessCreateForm() {
             </select>
 
           </div>
+
+          <div className="create-business-input-container">
+
+            <select className="create-business-input" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)}>
+                <option value='AM'>AM</option>
+                <option value='PM'>PM</option>
+            </select>
+
+          </div> */}
 
           <button name="submit" type="submit" className="submitButton">
             Create Business

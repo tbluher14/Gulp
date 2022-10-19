@@ -24,9 +24,9 @@ def create_business():
 
   if form.validate_on_submit():
 
-    # print('THIS IS THE FORM', form)
+    print('THIS IS THE FORM', form)
 
-    # print('THIS IS THE FORM DATA', form.data)
+    print('THIS IS THE FORM DATA', form.data)
 
     businessData = Business(
       owner_id=current_user.id,
@@ -40,8 +40,8 @@ def create_business():
       phone=form.data['phone'],
       open=form.data['open'],
       close=form.data['close'],
-      am_pm_open=form.data['ampmopen'],
-      am_pm_close=form.data['ampmclose'],
+      am_pm_open=form.data['am_pm_open'],
+      am_pm_close=form.data['am_pm_close'],
       image=form.data['image'],
       description=form.data['description'],
     )

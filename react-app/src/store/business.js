@@ -50,6 +50,7 @@ export const createBusinessThunk = (business) => async (dispatch) => {
 
     if (res.ok) {
         const business = await res.json()
+        console.log('THIS IS CREATE BUSINESS RES THUNK', business)
         dispatch(createBusinessesAC(business))
         return business
     }
