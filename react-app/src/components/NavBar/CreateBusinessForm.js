@@ -30,6 +30,8 @@ function BusinessCreateForm() {
 
   // console.log('ampmopen', ampmopen)
   // console.log('ampmclose', ampmclose)
+  console.log('this is open', open)
+  console.log('this is close', close)
 
 
   const imageRegX = /\.(jpeg|jpg|png|svg|gif)$/
@@ -302,13 +304,30 @@ function BusinessCreateForm() {
           </div>
           <div className="create-business-input-container">
 
-            <input className="create-business-input"
+            {/* <input className="create-business-input"
               type="text"
               value={open}
               placeholder="Open Time"
               onChange={(e) => setOpen(e.target.value)}
               required
-            />
+            /> */}
+
+            <select className="create-business-input" value={open} onChange={(e) => setOpen(e.target.value)}>
+              <option value=''>----------</option>
+              <option value='1:00'>1:00</option>
+              <option value='2:00'>2:00</option>
+              <option value='3:00'>3:00</option>
+              <option value='4:00'>4:00</option>
+              <option value='5:00'>5:00</option>
+              <option value='6:00'>6:00</option>
+              <option value='7:00'>7:00</option>
+              <option value='8:00'>8:00</option>
+              <option value='9:00'>9:00</option>
+              <option value='10:00'>10:00</option>
+              <option value='11:00'>11:00</option>
+              <option value='12:00'>12:00</option>
+            </select>
+
             <select className="create-business-input" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)}>
               <option value=''>---</option>
               <option value='AM'>AM</option>
@@ -318,13 +337,30 @@ function BusinessCreateForm() {
           </div>
           <div className="create-business-input-container">
 
-            <input className="create-business-input"
+            {/* <input className="create-business-input"
               type="text"
               value={close}
               placeholder="Close Time"
               onChange={(e) => setClose(e.target.value)}
               required
-            />
+            /> */}
+
+            <select className="create-business-input" value={close} onChange={(e) => setClose(e.target.value)}>
+              <option value=''>----------</option>
+              <option value='1:00'>1:00</option>
+              <option value='2:00'>2:00</option>
+              <option value='3:00'>3:00</option>
+              <option value='4:00'>4:00</option>
+              <option value='5:00'>5:00</option>
+              <option value='6:00'>6:00</option>
+              <option value='7:00'>7:00</option>
+              <option value='8:00'>8:00</option>
+              <option value='9:00'>9:00</option>
+              <option value='10:00'>10:00</option>
+              <option value='11:00'>11:00</option>
+              <option value='12:00'>12:00</option>
+            </select>
+
             <select className="create-business-input" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)}>
               <option value=''>---</option>
               <option value='AM'>AM</option>
