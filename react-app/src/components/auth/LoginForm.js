@@ -45,19 +45,19 @@ const LoginForm = () => {
 
   return (
     <form
-    onSubmit={onLogin}
-    className='login-form-container'>
+      onSubmit={onLogin}
+      className='login-form-container'>
       <div>
         <label htmlFor='email' className='login-form-field-labels'>Email</label>
         <input
           name='email'
-          className='login-form-field-labels'
+          className='login-form-field'
           type='text'
           placeholder='Email'
           value={email}
           required
           onChange={updateEmail}
-          />
+        />
       </div>
       <div>
         <label htmlFor='password' className='login-form-field-labels'>Password</label>
@@ -65,19 +65,19 @@ const LoginForm = () => {
           name='password'
           type='password'
           required
-          className='login-form-field-labels'
+          className='login-form-field'
           placeholder='Password'
           value={password}
           onChange={updatePassword}
-          />
-        <div className='login_errors_container'>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
+        />
         <button type='submit' className='login-button'>Login</button>
-        <button onClick={() =>{setEmail("demolition@aa.io"); setPassword("password")}}
+        <button onClick={() => { setEmail("demolition@aa.io"); setPassword("password") }}
           type="submit" className='demo-user-button-login-page'>Demo User</button>
+      </div>
+      <div className='login_errors_container'>
+        {errors.map((error, ind) => (
+          <div key={ind}>! {error} !</div>
+        ))}
       </div>
     </form>
   );
