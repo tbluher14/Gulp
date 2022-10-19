@@ -1,5 +1,7 @@
 from app.models import db, Business
 
+x = range(1, 6)
+
 
 def seed_businesses():
     test_one = Business(
@@ -28,7 +30,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1624464462992-2986c2a70b4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.')
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!')
 
     test_five = Business(
         name='The Burger Den',
@@ -43,7 +45,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_six = Business(
         name='Olympus Burger',
@@ -58,7 +60,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1555992336-fb0d29498b13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_seven = Business(
         name='Mr. Ds',
@@ -73,7 +75,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1543373072-69f3d4788832?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_eight = Business(
         name="Woody's Drive-In",
@@ -88,7 +90,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1555992457-720eb4e75880?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_nine = Business(
         name='Crown Burgers',
@@ -103,7 +105,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_ten = Business(
 
@@ -119,7 +121,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1616420812082-1ff2334daf57?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxw='90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
 
     )
     test_eleven = Business(
@@ -136,7 +138,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1615472846781-d9266dfff3e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_twelve = Business(
 
@@ -152,7 +154,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1514996183542-72c207fee1e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=385&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
 
     test_fourteen = Business(
@@ -168,7 +170,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1519167874178-f1c834c38f25?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_fifteen = Business(
 
@@ -184,7 +186,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1525164286253-04e68b9d94c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_sixteen = Business(
 
@@ -200,7 +202,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1584819299780-0cb713a9ba58?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_seventeen = Business(
         name='Uncle Boys',
@@ -215,7 +217,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1555992336-03a23c7b20ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_eighteen = Business(
         name='Pals Burgers and Shakes',
@@ -230,7 +232,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1579115999906-87ae4152ed03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_ninteen = Business(
         name='Mels Drive In',
@@ -245,7 +247,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1589215833259-81f2d92186f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=785&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_twenty = Business(
         name='Bucks on 66',
@@ -260,7 +262,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1624464462992-2986c2a70b4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_twenty1 = Business(
         name='Hi-Way Burger & Fry',
@@ -275,7 +277,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1537157590327-6af6d87663d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_twenty2 = Business(
         name="WesBurger 'N' More",
@@ -290,7 +292,7 @@ def seed_businesses():
         open=5,
         close=11,
         image="https://images.unsplash.com/photo-1555992457-720eb4e75880?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_twenty3 = Business(
 
@@ -306,7 +308,7 @@ def seed_businesses():
         close=11,
         phone='4157459000',
         image="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_twenty4 = Business(
 
@@ -322,7 +324,7 @@ def seed_businesses():
         close=11,
         phone='4154324322',
         image="https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_twenty5 = Business(
         name="Pearl's Delux Burgers",
@@ -337,7 +339,7 @@ def seed_businesses():
         close=11,
         phone='4154096000',
         image="https://images.unsplash.com/photo-1622431062669-ed38267b6de5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxw='90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_twenty6 = Business(
         name='Bandit',
@@ -352,7 +354,7 @@ def seed_businesses():
         close=11,
         phone='415658700',
         image="https://images.unsplash.com/photo-1616420812082-1ff2334daf57?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxw='90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_twenty7 = Business(
         name='Hidden Spot - SoMa',
@@ -367,7 +369,7 @@ def seed_businesses():
         close=11,
         phone='4158142342',
         image="https://images.unsplash.com/photo-1517601278517-456741619dad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxw='90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=906&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_twenty8 = Business(
         name='Super Duper Burgers',
@@ -382,7 +384,7 @@ def seed_businesses():
         close=11,
         phone='6507731234',
         image="https://images.unsplash.com/photo-1638725127387-9974c76769a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxw='90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_twenty9 = Business(
         name='In-N-Out',
@@ -397,7 +399,7 @@ def seed_businesses():
         close=11,
         phone='8007861234',
         image="https://images.unsplash.com/photo-1636937146786-991f0ba12d8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxw='90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_thirty = Business(
         name="Manhattn's Burgers",
@@ -412,7 +414,7 @@ def seed_businesses():
         close=11,
         phone='8007861234',
         image="https://images.unsplash.com/photo-1620997695392-acb6be25d3c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxw='90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
     test_thirty1 = Business(
         name='Burger King',
@@ -427,7 +429,7 @@ def seed_businesses():
         close=11,
         phone='8012560123',
         image="https://images.unsplash.com/photo-1629814249584-bd4d53cf0e7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxw='90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
 
     test_thirty2 = Business(
@@ -443,7 +445,7 @@ def seed_businesses():
         close=11,
         phone='4156056123',
         image="https://images.unsplash.com/photo-1665991946306-3ca545298331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxw='90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
 
     test_thirty3 = Business(
@@ -460,7 +462,7 @@ def seed_businesses():
         close=11,
         phone='4157021234',
         image="https://images.unsplash.com/photo-1616420812082-1ff2334daf57?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxw='90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-        description='The fabric of Cutles was born out of love and respect for these humble deli creations, met with a desire to bring quality ingredients to the table. Simply pit, were here to bring you a burger experience you can feel good about.'
+        description='Our restaurant opened in 2011 and has been a favorite in the community ever since! We offer a fun, family-friendly environment with delicious burgers, draft beer, and live sports all year around. Come stop by and try our delicious Bacon Burger with your friends while enjoying the weather on our back patio, or stop by after work for happy hour on Thursdays from 4-7p!'
     )
 
     db.session.add(test_one)
@@ -497,6 +499,7 @@ def seed_businesses():
     db.session.add(test_thirty3)
 
     db.session.commit()
+
 
 
 def undo_businesses():

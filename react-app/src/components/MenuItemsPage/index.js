@@ -23,7 +23,12 @@ const MenuItemsPage = () => {
 
   return (
     <div className="menuitemspage-container" id="menuitemspage-container">
-      <button className='menu-items-page-button'  onClick={() => history.push(`/businesses/menu/${businessId.businessId}/add`)}>Add Menu Item</button>
+      {}
+      <button
+      className='menu-items-page-button'
+      onClick={() => history.push(`/businesses/menu/${businessId.businessId}/add`)}
+      >Add Menu Item
+      </button>
       {specific_menuArr.map(menuItems => (
         <MenuItemCard menuItems={menuItems}></MenuItemCard>
       ))}
