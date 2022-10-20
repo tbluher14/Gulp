@@ -63,6 +63,7 @@ const ReviewForm = () => {
     <div className='form-outer-container'>
       <form onSubmit={handleSubmit} className="form-container">
       <div className='create_review_header'>Create Review for {currentBusiness[0]?.name} </div>
+
         <div className="createReviewError">
           {submitted && (errors).map((error, i) => (
             <div className="errorMessageContainer" key={i}>
@@ -71,31 +72,35 @@ const ReviewForm = () => {
             </div>
           ))}
         </div>
-            <div>
-              <label className='form-field-labels'>Rating</label>
-              <input
-                type="number"
-                className="form-field"
-                min="1"
-                max="5"
-                placeholder="Rating"
-                onChange={(e) => setRating(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-            <label className='form-field-labels'>Review</label>
-              <input
-                type="text"
-                className="form-field"
-                placeholder='Review Message'
-                onChange={(e) => setReview(e.target.value)}
-                required
-              />
-            </div>
-            <button name="submit" type="submit" className="submit_review_button">
-              Create Review
-            </button>
+
+        <div>
+          <label className='form-field-labels'>Rating</label>
+          <input
+            type="number"
+            className="form-field"
+            min="1"
+            max="5"
+            placeholder="Rating"
+            onChange={(e) => setRating(e.target.value)}
+            required
+          />
+        </div>
+
+        <div>
+        <label className='form-field-labels'>Review</label>
+          <input
+            type="text"
+            className="form-field"
+            placeholder='Review Message'
+            onChange={(e) => setReview(e.target.value)}
+            required
+          />
+        </div>
+
+        <button name="submit" type="submit" className="submit_review_button">
+          Create Review
+        </button>
+
       </form>
     </div>
   )

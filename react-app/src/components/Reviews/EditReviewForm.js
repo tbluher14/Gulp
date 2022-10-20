@@ -72,44 +72,49 @@ const EditReviewForm = () => {
 
 
   return isLoaded && (
-    <form onSubmit={handleSubmit}>
-      <div className="create-review-container">
-        <div className="create-review-input-container">
-          <div className="create-business-input-container">
-            <input className="create-business-input"
-              type="number"
-              min="1"
-              max="5"
-              value={rating}
-              placeholder="Rating"
-              onChange={(e) => setRating(e.target.value)}
-              required
-            />
-          </div>
-          <div className="create-review-input-container">
-            <input className="create-review-input"
-              type="text"
-              value={review}
-              placeholder='Review Message'
-              onChange={(e) => setReview(e.target.value)}
-              required
-            />
-          </div>
-          <button name="submit" type="submit" className="submitButton">
-            Edit Review
-          </button>
+    <div className='form-outer-container'>
+      <form onSubmit={handleSubmit} className="form-container">
+      <div className='create_review_header'>Edit Review</div>
+
+      <div className="createReviewError">
+          {submitted && (errors).map((error, i) => (
+            <div className="errorMessageContainer" key={i}>
+              <i class="fa-solid fa-exclamation exclamation-point"></i>
+              <div className="errorMessage">{error}</div>
+            </div>
+          ))}
         </div>
 
-      </div>
-      <div className="createReviewError">
-        {submitted && (errors).map((error, i) => (
-          <div className="errorMessageContainer" key={i}>
-            <i class="fa-solid fa-exclamation exclamation-point"></i>
-            <div className="errorMessage">{error}</div>
-          </div>
-        ))}
-      </div>
-    </form>
+        <div>
+          <label className='form-field-labels'>Rating</label>
+          <input className="form-field"
+            type="number"
+            min="1"
+            max="5"
+            value={rating}
+            placeholder="Rating"
+            onChange={(e) => setRating(e.target.value)}
+            required
+          />
+        </div>
+
+        <div>
+          <label className='form-field-labels'>Review</label>
+          <input className="form-field"
+            type="text"
+            value={review}
+            placeholder='Review Message'
+            onChange={(e) => setReview(e.target.value)}
+            required
+          />
+        </div>
+
+        <button name="submit" type="submit" className="submit_review_button">
+          Edit Review
+        </button>
+
+      </form>
+    </div>
   )
 }
 
