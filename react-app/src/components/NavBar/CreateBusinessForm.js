@@ -135,17 +135,16 @@ function BusinessCreateForm() {
   return (
     <form onSubmit={handleSubmit}>
       <h4 className="form_requirements">Please fill out all of the following fields:</h4>
-      <div className="create_errors">
-        {submitted && (errors).map((error, i) => (
-          <div className="errorMessageContainer" key={i}>
-            <i class="fa-solid fa-exclamation exclamation-point"></i>
-            <div className="errorMessage">{error}</div>
-          </div>
-        ))}
-      </div>
       <div className="create-business-container">
         <div className="create-business-input-container">
-
+          <div className="create_errors">
+            {submitted && (errors).map((error, i) => (
+              <div className="errorMessageContainer" key={i}>
+                <i class="fa-solid fa-exclamation exclamation-point"></i>
+                <div className="errorMessage">{error}</div>
+              </div>
+            ))}
+          </div>
           <div className="create-business-input-container">
             <input className="create-business-input"
               type="text"

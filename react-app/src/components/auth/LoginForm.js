@@ -76,7 +76,10 @@ const LoginForm = () => {
       </div>
       <div className='login_errors_container'>
         {errors.map((error, ind) => (
-          <div key={ind}>! {error} !</div>
+          <div className="errorMessageContainer" key={ind}>
+            <i class="fa-solid fa-exclamation exclamation-point"></i>
+            <div className="errorMessage">{error}</div>
+          </div>
         ))}
       </div>
     </form>
