@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createBusinessThunk } from "../../store/business";
 import "../../index.css";
+import './CreateBusinessForm.css'
 
 function BusinessCreateForm() {
 
@@ -133,219 +134,192 @@ function BusinessCreateForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h4 className="form_requirements">Please fill out all of the following fields:</h4>
-      <div className="form-container">
-        <div className="input-container">
-          <div className="create_errors">
-            {submitted && (errors).map((error, i) => (
-              <div className="errorMessageContainer" key={i}>
-                <i class="fa-solid fa-exclamation exclamation-point"></i>
-                <div className="errorMessage">{error}</div>
-              </div>
-            ))}
-          </div>
+    <div className="form-outer-container">
+      <form onSubmit={handleSubmit}>
+        <div className="create-business-form-requirements">Please fill out all of the following fields:</div>
+        <div className="form-container">
           <div className="input-container">
-          <label htmlFor='Business Name' className='form-field-labels'>Business Name</label>
-            <input className="input-field"
-              name="Business Name"
-              type="text"
-              value={name}
-              placeholder="Business Name"
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-container">
-          <label htmlFor='Business Address' className='form-field-labels'>Business Address</label>
-            <input className="input-field"
-              name="Business Address"
-              type="text"
-              value={address}
-              placeholder="Business Address"
-              onChange={(e) => setAddress(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-container">
-          <label htmlFor='City' className='form-field-labels'>City</label>
-            <input className="input-field"
-              name="City"
-              type="text"
-              value={city}
-              placeholder="City"
-              onChange={(e) => setCity(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-container">
-          <label htmlFor='State' className='form-field-labels'>State</label>
-            <input className="input-field"
-              name="State"
-              type="text"
-              value={state}
-              placeholder="State"
-              onChange={(e) => setState(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-container">
-          <label htmlFor='Country' className='form-field-labels'>Country</label>
-            <input className="input-field"
-              name='Country'
-              type="text"
-              value={country}
-              placeholder="Country"
-              onChange={(e) => setCountry(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-container">
-          <label htmlFor='Zip Code' className='form-field-labels'>Zip Code</label>
-            <input className="input-field"
-              name='Zip Code'
-              type="text"
-              value={zipCode}
-              placeholder="Zip Code"
-              onChange={(e) => setZipCode(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-container">
-          <label htmlFor='Business Website' className='form-field-labels'>Business Website</label>
-            <input className="input-field"
-              name='Business Website'
-              type="text"
-              value={website}
-              placeholder="Business Website"
-              onChange={(e) => setWebsite(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-container">
+            <div className="create_errors">
+              {submitted && (errors).map((error, i) => (
+                <div className="errorMessageContainer" key={i}>
+                  <i class="fa-solid fa-exclamation exclamation-point"></i>
+                  <div className="errorMessage">{error}</div>
+                </div>
+              ))}
+            </div>
+            <div className="input-container">
+            <label htmlFor='Business Name' className='form-field-labels'>Business Name</label>
+              <input className="form-field"
+                name="Business Name"
+                type="text"
+                value={name}
+                placeholder="Business Name"
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-container">
+            <label htmlFor='Business Address' className='form-field-labels'>Business Address</label>
+              <input className="form-field"
+                name="Business Address"
+                type="text"
+                value={address}
+                placeholder="Business Address"
+                onChange={(e) => setAddress(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-container">
+            <label htmlFor='City' className='form-field-labels'>City</label>
+              <input className="form-field"
+                name="City"
+                type="text"
+                value={city}
+                placeholder="City"
+                onChange={(e) => setCity(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-container">
+            <label htmlFor='State' className='form-field-labels'>State</label>
+              <input className="form-field"
+                name="State"
+                type="text"
+                value={state}
+                placeholder="State"
+                onChange={(e) => setState(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-container">
+            <label htmlFor='Country' className='form-field-labels'>Country</label>
+              <input className="form-field"
+                name='Country'
+                type="text"
+                value={country}
+                placeholder="Country"
+                onChange={(e) => setCountry(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-container">
+            <label htmlFor='Zip Code' className='form-field-labels'>Zip Code</label>
+              <input className="form-field"
+                name='Zip Code'
+                type="text"
+                value={zipCode}
+                placeholder="Zip Code"
+                onChange={(e) => setZipCode(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-container">
+            <label htmlFor='Business Website' className='form-field-labels'>Business Website</label>
+              <input className="form-field"
+                name='Business Website'
+                type="text"
+                value={website}
+                placeholder="Business Website"
+                onChange={(e) => setWebsite(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-container">
 
-            {/* <input className="input-field"
-              type="text"
-              value={open}
-              placeholder="Open Time"
-              onChange={(e) => setOpen(e.target.value)}
-              required
-            /> */}
-          <label htmlFor='Open Time & Close Time' className='form-field-labels'>Open Time & Close Time</label>
-            <select className="select-input-field" value={open} onChange={(e) => setOpen(e.target.value)} placeholder="time" required>
-              <option value="" disabled selected>Open Time</option>
-              <option value='1:00'>1:00</option>
-              <option value='2:00'>2:00</option>
-              <option value='3:00'>3:00</option>
-              <option value='4:00'>4:00</option>
-              <option value='5:00'>5:00</option>
-              <option value='6:00'>6:00</option>
-              <option value='7:00'>7:00</option>
-              <option value='8:00'>8:00</option>
-              <option value='9:00'>9:00</option>
-              <option value='10:00'>10:00</option>
-              <option value='11:00'>11:00</option>
-              <option value='12:00'>12:00</option>
-            </select>
+            <label htmlFor='Open Time & Close Time' className='form-field-labels'>Open Time & Close Time</label>
+              <select className="select-form-field-time" value={open} onChange={(e) => setOpen(e.target.value)} placeholder="time" required>
+                <option value="" disabled selected>Open Time</option>
+                <option value='1:00'>1:00</option>
+                <option value='2:00'>2:00</option>
+                <option value='3:00'>3:00</option>
+                <option value='4:00'>4:00</option>
+                <option value='5:00'>5:00</option>
+                <option value='6:00'>6:00</option>
+                <option value='7:00'>7:00</option>
+                <option value='8:00'>8:00</option>
+                <option value='9:00'>9:00</option>
+                <option value='10:00'>10:00</option>
+                <option value='11:00'>11:00</option>
+                <option value='12:00'>12:00</option>
+              </select>
 
-            <select className="select-input-field" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)} required>
-              <option value='' disabled selected>AM | PM</option>
-              <option value='AM'>AM</option>
-              <option value='PM'>PM</option>
-            </select>
-
-          </div>
-          <div className="input-container">
-
-            {/* <input className="input-field"
-              type="text"
-              value={close}
-              placeholder="Close Time"
-              onChange={(e) => setClose(e.target.value)}
-              required
-            /> */}
-
-            <select className="select-input-field" value={close} onChange={(e) => setClose(e.target.value)} required>
-              <option value="" disabled selected>Close Time</option>
-              <option value='1:00'>1:00</option>
-              <option value='2:00'>2:00</option>
-              <option value='3:00'>3:00</option>
-              <option value='4:00'>4:00</option>
-              <option value='5:00'>5:00</option>
-              <option value='6:00'>6:00</option>
-              <option value='7:00'>7:00</option>
-              <option value='8:00'>8:00</option>
-              <option value='9:00'>9:00</option>
-              <option value='10:00'>10:00</option>
-              <option value='11:00'>11:00</option>
-              <option value='12:00'>12:00</option>
-            </select>
-
-            <select className="select-input-field" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)} required>
-              <option value='' disabled selected>AM | PM</option>
-              <option value='AM'>AM</option>
-              <option value='PM'>PM</option>
-            </select>
-
-          </div>
-          <div className="input-container">
-          <label htmlFor='Business Phone' className='form-field-labels'>Business Phone</label>
-            <input className="input-field"
-              name='Business Phone'
-              type="text"
-              value={phone}
-              placeholder="Business Phone"
-              onChange={(e) => setPhone(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-container">
-          <label htmlFor='Business Description' className='form-field-labels'>Business Description</label>
-            <input className="input-field"
-              name='Business Description'
-              type="text"
-              value={description}
-              placeholder="Business Description"
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-container">
-          <label htmlFor='Image' className='form-field-labels'>Image</label>
-            <input className="input-field"
-              name='Image'
-              type="text"
-              value={image}
-              placeholder="Image"
-              onChange={(e) => setImage(e.target.value)}
-              required
-            />
-          </div>
-
-          {/* <div className="input-container">
-
-            <select className="input-field" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)}>
+              <select className="select-form-field-time" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)} required>
+                <option value='' disabled selected>AM | PM</option>
                 <option value='AM'>AM</option>
                 <option value='PM'>PM</option>
-            </select>
+              </select>
 
-          </div>
+            </div>
+            <div className="input-container">
 
-          <div className="input-container">
+              <select className="select-form-field-time" value={close} onChange={(e) => setClose(e.target.value)} required>
+                <option value="" disabled selected>Close Time</option>
+                <option value='1:00'>1:00</option>
+                <option value='2:00'>2:00</option>
+                <option value='3:00'>3:00</option>
+                <option value='4:00'>4:00</option>
+                <option value='5:00'>5:00</option>
+                <option value='6:00'>6:00</option>
+                <option value='7:00'>7:00</option>
+                <option value='8:00'>8:00</option>
+                <option value='9:00'>9:00</option>
+                <option value='10:00'>10:00</option>
+                <option value='11:00'>11:00</option>
+                <option value='12:00'>12:00</option>
+              </select>
 
-            <select className="input-field" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)}>
+              <select className="select-form-field-time" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)} required>
+                <option value='' disabled selected>AM | PM</option>
                 <option value='AM'>AM</option>
                 <option value='PM'>PM</option>
-            </select>
+              </select>
 
-          </div> */}
+            </div>
+            <div className="input-container">
+            <label htmlFor='Business Phone' className='form-field-labels'>Business Phone</label>
+              <input className="form-field"
+                name='Business Phone'
+                type="text"
+                value={phone}
+                placeholder="Business Phone"
+                onChange={(e) => setPhone(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-container">
+            <label htmlFor='Business Description' className='form-field-labels'>Business Description</label>
+              <input className="form-field"
+                name='Business Description'
+                type="text"
+                value={description}
+                placeholder="Business Description"
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-container">
+            <label htmlFor='Image' className='form-field-labels'>Image</label>
+              <input className="form-field"
+                name='Image'
+                type="text"
+                value={image}
+                placeholder="Image"
+                onChange={(e) => setImage(e.target.value)}
+                required
+              />
+            </div>
 
-          <button name="submit" type="submit" className="submitButton">
-            Create Business
-          </button>
+            <div className="create-business-button-container">
+              <button name="submit" type="submit" className="form-button-create-business">
+                Create Business
+              </button>
+            </div>
+
+
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 

@@ -60,8 +60,7 @@ const SignUpForm = () => {
         onSubmit={onSignUp}
         className='form-container'
       >
-        <h1
-          className='sign_up_header'>Sign Up For Gulp!</h1>
+        <h1 className='sign_up_header'>Sign Up For Gulp!</h1>
         <div className='errors_container'>
           {errors.map((error, ind) => (
             <div className="errorMessageContainer" key={ind}>
