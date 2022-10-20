@@ -103,8 +103,8 @@ const BusinessesDetails = () => {
               <div className='business-detail-image-text-review'><i class="fa-solid fa-star"></i> {averageReview(businessReviewsArray)}</div>
               <div className='business-detail-image-text-hours'>
                 {/* <div className='business-detail-image-text-hours-open'>{currentBusiness?.open < currentTime ? "Closed" : "Open" && currentBusiness?.close> currentTime ? "Closed": "Open"}</div> */}
-                <div className='business-detail-image-text-hours-open'>Business Hours:</div>
-                <div className='business-detail-image-text-hours-time'>Hours {currentBusiness?.open}{currentBusiness?.ampmopen} - {currentBusiness?.close}{currentBusiness?.ampmclose}</div>
+                <div className='business-detail-image-text-hours-open'>Hours:</div>
+                <div className='business-detail-image-text-hours-time'>{currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness?.ampmclose}</div>
               </div>
             </div>
           </div>
@@ -160,7 +160,14 @@ const BusinessesDetails = () => {
                 )} */}
 
                 <div className='business-detail-two-left-location-hours-container'>
-                  <div className='business-detail-two-left-location-hours-header'>Location & Hours</div>
+                  <div className='business-detail-two-left-location-hours-header'>Business Hours:</div>
+                  <div> Monday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
+                  <div> Tuesday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
+                  <div> Wednesday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
+                  <div> Thursday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
+                  <div> Friday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
+                  <div> Saturday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
+                  <div> Sunday: Closed</div>
                 </div>
 
                 <div className='business-detail-two-left-reviews-container'>

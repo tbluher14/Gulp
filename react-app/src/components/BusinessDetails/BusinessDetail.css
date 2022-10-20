@@ -34,22 +34,32 @@
   color: white;
   font-size: 48px;
   font-weight: 700;
+  position: relative;
+  top: 50px;
+  text-shadow: black 3px 3px 3px;
 }
 
 .business-detail-image-text-review {
   color: white;
   font-size: 16px;
   font-weight: 600;
-  margin-top: 36px;
+  position: relative;
+  top: 50px;
+  text-shadow: black 3px 3px 3px;
 }
 
 .business-detail-image-text-hours {
   display: flex;
   margin-top: 24px;
+  font-size: 16px;
+  text-shadow: black 2px 2px 2px;
+  position: relative;
+  top: 55px;
 }
 
 .business-detail-image-text-hours-open {
-  color: green;
+
+  color: white;
   font-size: 16px;
   font-weight: 600;
 }
