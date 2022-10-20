@@ -1,27 +1,17 @@
 #menuitemspage-container {
+  margin-top: 50px;
   display: flex;
-  position: relative;
-  top: 50px;
+  justify-content: center;
+  align-items: center;
 }
 
 .menuitemspage-button {
   height: 25px;
 }
 
-.menu-items-page-button{
-  background-color: #ff0000;
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  border-radius: 4px;
-  width: 200px;
-  height: 35px;
-  border: none;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
+.form-button{
   display: flex;
-  position: relative;
-  left: 42%;
-  top: 270px;
+
+  left: 45%;
+  top: 80px;
 }
