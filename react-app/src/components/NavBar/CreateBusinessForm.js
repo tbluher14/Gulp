@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createBusinessThunk } from "../../store/business";
-import "./CreateBusinessForm.css";
+import "../../index.css";
 
 function BusinessCreateForm() {
 
@@ -135,8 +135,8 @@ function BusinessCreateForm() {
   return (
     <form onSubmit={handleSubmit}>
       <h4 className="form_requirements">Please fill out all of the following fields:</h4>
-      <div className="create-business-container">
-        <div className="create-business-input-container">
+      <div className="form-container">
+        <div className="input-container">
           <div className="create_errors">
             {submitted && (errors).map((error, i) => (
               <div className="errorMessageContainer" key={i}>
@@ -145,8 +145,10 @@ function BusinessCreateForm() {
               </div>
             ))}
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="input-container">
+          <label htmlFor='Business Name' className='form-field-labels'>Business Name</label>
+            <input className="input-field"
+              name="Business Name"
               type="text"
               value={name}
               placeholder="Business Name"
@@ -154,8 +156,10 @@ function BusinessCreateForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="input-container">
+          <label htmlFor='Business Address' className='form-field-labels'>Business Address</label>
+            <input className="input-field"
+              name="Business Address"
               type="text"
               value={address}
               placeholder="Business Address"
@@ -163,8 +167,10 @@ function BusinessCreateForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="input-container">
+          <label htmlFor='City' className='form-field-labels'>City</label>
+            <input className="input-field"
+              name="City"
               type="text"
               value={city}
               placeholder="City"
@@ -172,8 +178,10 @@ function BusinessCreateForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="input-container">
+          <label htmlFor='State' className='form-field-labels'>State</label>
+            <input className="input-field"
+              name="State"
               type="text"
               value={state}
               placeholder="State"
@@ -181,8 +189,10 @@ function BusinessCreateForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="input-container">
+          <label htmlFor='Country' className='form-field-labels'>Country</label>
+            <input className="input-field"
+              name='Country'
               type="text"
               value={country}
               placeholder="Country"
@@ -190,8 +200,10 @@ function BusinessCreateForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="input-container">
+          <label htmlFor='Zip Code' className='form-field-labels'>Zip Code</label>
+            <input className="input-field"
+              name='Zip Code'
               type="text"
               value={zipCode}
               placeholder="Zip Code"
@@ -199,8 +211,10 @@ function BusinessCreateForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="input-container">
+          <label htmlFor='Business Website' className='form-field-labels'>Business Website</label>
+            <input className="input-field"
+              name='Business Website'
               type="text"
               value={website}
               placeholder="Business Website"
@@ -208,17 +222,17 @@ function BusinessCreateForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
+          <div className="input-container">
 
-            {/* <input className="create-business-input"
+            {/* <input className="input-field"
               type="text"
               value={open}
               placeholder="Open Time"
               onChange={(e) => setOpen(e.target.value)}
               required
             /> */}
-
-            <select className="create-business-input" value={open} onChange={(e) => setOpen(e.target.value)} placeholder="time" required>
+          <label htmlFor='Open Time & Close Time' className='form-field-labels'>Open Time & Close Time</label>
+            <select className="select-input-field" value={open} onChange={(e) => setOpen(e.target.value)} placeholder="time" required>
               <option value="" disabled selected>Open Time</option>
               <option value='1:00'>1:00</option>
               <option value='2:00'>2:00</option>
@@ -234,16 +248,16 @@ function BusinessCreateForm() {
               <option value='12:00'>12:00</option>
             </select>
 
-            <select className="create-business-input" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)} required>
+            <select className="select-input-field" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)} required>
               <option value='' disabled selected>AM | PM</option>
               <option value='AM'>AM</option>
               <option value='PM'>PM</option>
             </select>
 
           </div>
-          <div className="create-business-input-container">
+          <div className="input-container">
 
-            {/* <input className="create-business-input"
+            {/* <input className="input-field"
               type="text"
               value={close}
               placeholder="Close Time"
@@ -251,7 +265,7 @@ function BusinessCreateForm() {
               required
             /> */}
 
-            <select className="create-business-input" value={close} onChange={(e) => setClose(e.target.value)} required>
+            <select className="select-input-field" value={close} onChange={(e) => setClose(e.target.value)} required>
               <option value="" disabled selected>Close Time</option>
               <option value='1:00'>1:00</option>
               <option value='2:00'>2:00</option>
@@ -267,15 +281,17 @@ function BusinessCreateForm() {
               <option value='12:00'>12:00</option>
             </select>
 
-            <select className="create-business-input" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)} required>
+            <select className="select-input-field" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)} required>
               <option value='' disabled selected>AM | PM</option>
               <option value='AM'>AM</option>
               <option value='PM'>PM</option>
             </select>
 
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="input-container">
+          <label htmlFor='Business Phone' className='form-field-labels'>Business Phone</label>
+            <input className="input-field"
+              name='Business Phone'
               type="text"
               value={phone}
               placeholder="Business Phone"
@@ -283,8 +299,10 @@ function BusinessCreateForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="input-container">
+          <label htmlFor='Business Description' className='form-field-labels'>Business Description</label>
+            <input className="input-field"
+              name='Business Description'
               type="text"
               value={description}
               placeholder="Business Description"
@@ -292,8 +310,10 @@ function BusinessCreateForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="input-container">
+          <label htmlFor='Image' className='form-field-labels'>Image</label>
+            <input className="input-field"
+              name='Image'
               type="text"
               value={image}
               placeholder="Image"
@@ -302,18 +322,18 @@ function BusinessCreateForm() {
             />
           </div>
 
-          {/* <div className="create-business-input-container">
+          {/* <div className="input-container">
 
-            <select className="create-business-input" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)}>
+            <select className="input-field" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)}>
                 <option value='AM'>AM</option>
                 <option value='PM'>PM</option>
             </select>
 
           </div>
 
-          <div className="create-business-input-container">
+          <div className="input-container">
 
-            <select className="create-business-input" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)}>
+            <select className="input-field" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)}>
                 <option value='AM'>AM</option>
                 <option value='PM'>PM</option>
             </select>
