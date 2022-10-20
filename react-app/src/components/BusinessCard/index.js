@@ -41,7 +41,7 @@ const BusinessCard = ({ business }) => {
 
             <div className='business-card-inner-container-right'>
               <div className='business-card-header'>{business?.name}</div>
-              <div className='business-card-rating'><i class="fa-solid fa-star"></i> {averageReview(businessReviewsArray)} </div>
+              <div className='business-card-rating'><i class="fa-solid fa-star"></i> {businessReviewsArray.length ? averageReview(businessReviewsArray) : "No Reviews Yet!" }</div>
               <div className='business-card-address'>{business?.address}</div>
               <div className='business-card-hours'>Hours: {business?.open} {business?.ampmopen}- {business?.close}{business?.ampmclose}</div>
               <div className='business-card-description'>{business?.description}</div>

@@ -20,6 +20,10 @@ const ReviewCard = ({ review }) => {
     dispatch(getAllUsersThunk())
   }, [])
 
+  const date = new Date()
+  const newDate = date.toString()
+  const specificDate = newDate.split(1,19)
+  console.log(specificDate)
 
   return (
     <div className='review-card-container'>
@@ -28,7 +32,7 @@ const ReviewCard = ({ review }) => {
         <img className='review-card-user-pic' src='https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg'></img>
         <div className='review-card-upper-right-container'>
           <div className='review-card-upper-user-name'>{`${reviewUser?.first_name} ${reviewUser?.last_name}`}</div>
-          <div>Date</div>
+          <div>{specificDate[0]}</div>
         </div>
       </div>
 

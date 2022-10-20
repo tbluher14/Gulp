@@ -45,9 +45,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+        <Route path='/users' exact={true} >
           <UsersList/>
-        </ProtectedRoute>
+        </Route>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
@@ -72,9 +72,9 @@ function App() {
         <ProtectedRoute path='/businesses/:businessId/edit' exact={true}>
           <BusinessEditForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/reviews/:businessId' exact={true}>
+        <Route path='/reviews/:businessId' exact={true}>
           <CreateReviewForm />
-        </ProtectedRoute>
+        </Route>
         <Route path='/businesscard' exact={true}>
           <BusinessCard />
         </Route>

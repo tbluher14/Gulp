@@ -9,6 +9,7 @@ import ReviewCard from '../Reviews/ReviewCard';
 import { getAllReviewsThunk } from '../../store/review';
 import { getAllMenuItemsThunk } from '../../store/menuItem';
 import MenuItemCard from '../MenuItemCard';
+import { getAllUsersThunk } from '../../store/users';
 
 
 const BusinessesDetails = () => {
@@ -58,10 +59,13 @@ const BusinessesDetails = () => {
   // Formatted Phone
   const formattedPhone = `(${currentBusiness?.phone.slice(0, 3)}) ${currentBusiness?.phone.slice(3, 6)}-${currentBusiness?.phone.slice(6, 10)}`
 
-  console.log('this is buisnessId', businessId)
+
 
   useEffect((e) => {
-    dispatch(getAllBusinessesThunk()).then(() => setIsLoaded(true))
+
+    dispatch(getAllUsersThunk())
+    dispatch(getAllBusinessesThunk())
+    .then(() => setIsLoaded(true))
     dispatch(getAllReviewsThunk())
     dispatch(getAllMenuItemsThunk())
   }, [])
@@ -100,7 +104,7 @@ const BusinessesDetails = () => {
           <div className='business-detail-image-text-container'>
             <div className='business-detail-image-text-inner-container'>
               <div className='business-detail-image-text-name'>{currentBusiness?.name}</div>
-              <div className='business-detail-image-text-review'><i class="fa-solid fa-star"></i> {averageReview(businessReviewsArray)}</div>
+              <div className='business-detail-image-text-review'><i class="fa-solid fa-star"></i>{businessReviewsArray.length ? averageReview(businessReviewsArray) : "No Reviews Yet!"}</div>
               <div className='business-detail-image-text-hours'>
                 {/* <div className='business-detail-image-text-hours-open'>{currentBusiness?.open < currentTime ? "Closed" : "Open" && currentBusiness?.close> currentTime ? "Closed": "Open"}</div> */}
                 <div className='business-detail-image-text-hours-open'>Hours:</div>
