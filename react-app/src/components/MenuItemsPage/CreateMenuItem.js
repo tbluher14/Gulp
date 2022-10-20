@@ -15,6 +15,7 @@ const MenuItemCreateForm = () => {
     const [price, setPrice] = useState('')
     const [image_url, setImageUrl] = useState('')
     const [errors, setErrors] = useState([])
+    const [submitted, setSubmitted] = useState(false);
 
     const imageLogic = (image_url) => {
         if (image_url){
@@ -54,45 +55,61 @@ const MenuItemCreateForm = () => {
 
     }
     return (
+        <div className='form-outer-container'>
+            <form onSubmit={handleSubmit} className="form-container">
 
-        <form onSubmit={handleSubmit} className='create_menu_item_container'>
-            <h2>Add An Item To Your Menu:</h2>
-            <label className="create_menu_item_label">Item Name:</label>
-            <input
-                type="text"
-                value={name}
-                placeholder
-                onChange={(e)=> setName(e.target.value)}
-                required
-            ></input>
-            <label className="create_menu_item_label">
-                Item Price ($.$$):
-            </label>
-            <input
-                type="text"
-                value={price}
+                <div className='create_review_header'>Add An Item To Your Menu:</div>
 
-                onChange={(e)=> setPrice(e.target.value)}
-                required
-            ></input>
-            <label className="create_menu_item_label">
-                Image URL:
-            </label>
-            <input
-                type="text"
-                value={image_url}
-                
-                onChange={(e)=> setImageUrl(e.target.value)}
+                <div className="createReviewError">
+                    {submitted && (errors).map((error, i) => (
+                        <div className="errorMessageContainer" key={i}>
+                        <i class="fa-solid fa-exclamation exclamation-point"></i>
+                        <div className="errorMessage">{error}</div>
+                        </div>
+                    ))}
+                </div>
 
-            ></input>
+                <div>
+                    <label className='form-field-labels'>Item Name:</label>
+                    <input className="form-field"
+                        type="text"
+                        value={name}
+                        placeholder
+                        onChange={(e)=> setName(e.target.value)}
+                        required
+                    ></input>
+                </div>
 
-            <button name="submit" type="submit" className="menu_item_submit">
-                Add Menu Item
-            </button>
-            <div>
-                {errors.map(error => error)}
-            </div>
-        </form>
+                <div>
+                    <label className='form-field-labels'>
+                        Item Price ($.$$):
+                    </label>
+                    <input className="form-field"
+                        type="text"
+                        value={price}
+                        onChange={(e)=> setPrice(e.target.value)}
+                        required
+                    ></input>
+                </div>
+
+                <div>
+                    <label className='form-field-labels'>
+                        Image URL:
+                    </label>
+                    <input className="form-field"
+                        type="text"
+                        value={image_url}
+                        onChange={(e)=> setImageUrl(e.target.value)}
+
+                    ></input>
+                </div>
+
+                <button name="submit" type="submit" className="submit_review_button">
+                    Add Menu Item
+                </button>
+
+            </form>
+        </div>
 
     )
 
