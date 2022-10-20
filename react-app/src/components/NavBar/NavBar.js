@@ -51,7 +51,7 @@ const NavBar = () => {
       {
         !sessionUser && (
           <div className='navbar-business-login-signup-container'>
-            <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>Create Business</div>
+            <div className='navbar-create-business' onClick={() => history.push(`/create-business-form`)}>Create Business</div>
             <div id='navbar-login-button' onClick={() => history.push(`/login`)}>Log In</div>
             <div id='navbar-signup-button' onClick={() => history.push(`/sign-up`)}>Sign Up</div>
           </div>
@@ -61,7 +61,7 @@ const NavBar = () => {
         sessionUser && (
           <div className='navbar-loggedin-container'>
             <div>
-              <div className='navbar-create-business' onClick={() => history.push(`/testing`)}>Create Business</div>
+              <div className='navbar-create-business' onClick={() => history.push(`/create-business-form`)}>Create Business</div>
             </div>
             <div className='navbar-logged-out-button'>
               <LogoutButton/>
