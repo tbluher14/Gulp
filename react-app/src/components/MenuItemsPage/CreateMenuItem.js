@@ -16,20 +16,50 @@ const MenuItemCreateForm = () => {
     const [image_url, setImageUrl] = useState('')
     const [errors, setErrors] = useState([])
     const [submitted, setSubmitted] = useState(false);
+    const user = useSelector((state) => state.session.user);
+    const decimalPrice = parseFloat(price).toFixed(2)
+
+    const imageRegX = /\.(jpeg|jpg|png|svg)$/
+    const priceRegX = /^\s*-?\d+(\.\d{1,2})?\s*$/
 
     const imageLogic = (image_url) => {
-        if (image_url){
+        if (image_url) {
             return image_url
         }
-        else{
+        else {
             return "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1398&q=80"
         }
     }
 
 
+    useEffect(() => {
+        let errors = []
+        if (!user) {
+            errors.push("User must be logged in")
+            setErrors(errors)
+        }
+        else {
+
+            if (price !== decimalPrice) {
+                errors.push("Must be a valid price: 0.00 ")
+            }
+            if (name.length < 5 || name.length > 255) {
+                errors.push("Business Name must be between 5 and 255 characters.")
+            }
+            if (image_url.length < 1 || !image_url.split('?')[0].match(imageRegX)) {
+                errors.push("Image must be a valid type: jpg, jpeg, png, or svg");
+            }
+            setErrors(errors)
+        }
+    }, [price, name, image_url,user]);
+
+
+
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setSubmitted(true)
 
+        if (errors.length) return
         const data = {
             name: name,
             price: price,
@@ -37,20 +67,10 @@ const MenuItemCreateForm = () => {
             business_id: Number(businessId.businessId)
         }
 
-        const errors = []
-        // for (let i = 0; i<price.length; i++){
-        //     if (!price[i].includes("1" || "2" || "3" || "4"|| "5"|| "6"|| "7"|| "8" || "9" || "0" || ".")){
-        //         errors.push("Please enter a valid decimal price")
-        //         return setErrors(errors)
-        //     }
-        // }
-        setErrors(errors)
-
-        // if (price.includes("1" || "2" || "3" || "4"|| "5"|| "6"|| "7"|| "8" || "9" || "0" || "."))
         {
             const res = await dispatch(createMenuItemThunk(data))
-            .then(dispatch(getAllMenuItemsThunk()))
-            .then((res) => history.push(`/businesses/menu/${businessId.businessId}`))
+                .then(dispatch(getAllMenuItemsThunk()))
+                .then((res) => history.push(`/businesses/menu/${businessId.businessId}`))
         }
 
     }
@@ -63,8 +83,8 @@ const MenuItemCreateForm = () => {
                 <div className="createReviewError">
                     {submitted && (errors).map((error, i) => (
                         <div className="errorMessageContainer" key={i}>
-                        <i class="fa-solid fa-exclamation exclamation-point"></i>
-                        <div className="errorMessage">{error}</div>
+                            <i class="fa-solid fa-exclamation exclamation-point"></i>
+                            <div className="errorMessage">{error}</div>
                         </div>
                     ))}
                 </div>
@@ -75,7 +95,7 @@ const MenuItemCreateForm = () => {
                         type="text"
                         value={name}
                         placeholder
-                        onChange={(e)=> setName(e.target.value)}
+                        onChange={(e) => setName(e.target.value)}
                         required
                     ></input>
                 </div>
@@ -87,7 +107,7 @@ const MenuItemCreateForm = () => {
                     <input className="form-field"
                         type="text"
                         value={price}
-                        onChange={(e)=> setPrice(e.target.value)}
+                        onChange={(e) => setPrice(e.target.value)}
                         required
                     ></input>
                 </div>
@@ -99,7 +119,7 @@ const MenuItemCreateForm = () => {
                     <input className="form-field"
                         type="text"
                         value={image_url}
-                        onChange={(e)=> setImageUrl(e.target.value)}
+                        onChange={(e) => setImageUrl(e.target.value)}
 
                     ></input>
                 </div>

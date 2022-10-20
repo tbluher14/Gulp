@@ -24,7 +24,13 @@ const MenuItemCard = ({ menuItems }) => {
         }
     }
 
+    // const menuPrice = useSelector(state => state.menuItems)
+    // console.log("menuPrice********", menuPrice)
+    // const menuPricearry
+    // const decPrice = menuPrice.price
 
+    // console.log("decprice********", decPrice)
+    // const conDecPrice = decPrice?.toFixed(2)
 
     return (
 

@@ -14,6 +14,7 @@ const NavBar = () => {
   const history = useHistory()
 
   const [search, setSearch] = useState("");
+  
 
   const handleSearch = (e) => {
     e.preventDefault();
