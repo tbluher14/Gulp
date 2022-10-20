@@ -34,10 +34,10 @@ function BusinessCreateForm() {
   console.log('this is close', close)
 
 
-  const imageRegX = /\.(jpeg|jpg|png|svg|gif)$/
+  const imageRegX = /\.(jpeg|jpg|png|svg)$/
   const webRegX = /\.(com|net|org|co|biz|info|gov)$/
   const timeRegX = /^(0?[1-9]|1[0-2]):[0-5][0-9]$/
-  // const phoneRegX = /^\(?\d{3}\)?[- .]?\d{3}[- .]?\d{4}$/
+  const phoneRegX = /^\d{10}$/
   const zipRegX = /^\d{5}$/
 
   useEffect(() => {
@@ -50,20 +50,15 @@ function BusinessCreateForm() {
       // if (!isImage(image)) {
       //   errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
       // }
-      if (image.length < 1 || !image.split('?')[0].match(imageRegX)) {
-        errors.push("Provide a valid image URL");
-      }
 
-      if (website.length < 1 || !website.match(webRegX)) {
-        errors.push("Provide a website URL");
-      }
+
 
       if (name.length < 5 || name.length > 255) {
-        errors.push("Name must be between 5 to 255 characters.")
+        errors.push("Business Name must be between 5 to 255 characters.")
       }
 
       if (address.length < 5 || address.length > 255) {
-        errors.push("Address must be between 5 to 255 characters.")
+        errors.push("Business Address must be between 5 to 255 characters.")
       }
 
       if (city.length < 5 || city.length > 255) {
@@ -73,25 +68,29 @@ function BusinessCreateForm() {
       if (state.length < 5 || state.length > 255) {
         errors.push("State must be between 5 to 255 characters.")
       }
-
-      if (open < 0 || open > 13 || !open.match(timeRegX)) {
-        errors.push('Please enter valid opening time')
+      if (country.length < 4 || country.length > 255) {
+        errors.push("Country must be between 4 and 255 characters.")
       }
-      if (close < 0 || close > 13 || !close.match(timeRegX)) {
-        errors.push('Please enter valid closing time')
-      }
-
-      if (country.length < 1 || country.length > 255) {
-        errors.push("Country must be between 1 and 255 characters.")
+      if (website.length < 1 || !website.match(webRegX)) {
+        errors.push("Business Website must be a valid URL");
       }
       if (!zipCode.match(zipRegX)) {
-        errors.push("Zipcode must be 5 characters")
+        errors.push("Zipcode must be 5 numbers")
+      }
+      if (open < 0 || open > 13 || !open.match(timeRegX)) {
+        errors.push('Please select an opening time')
+      }
+      if (close < 0 || close > 13 || !close.match(timeRegX)) {
+        errors.push('Please select a closing time')
+      }
+      if (phone.length !== 10 || phone.NaN()) {
+        errors.push("Phone must be 10 numbers")
       }
       if (description.length < 5 || description.length > 255) {
         errors.push("Description must be between 5 to 255 characters.")
       }
-      if (phone.length !== 10) {
-        errors.push("Phone must be 10 characters")
+      if (image.length < 1 || !image.split('?')[0].match(imageRegX)) {
+        errors.push("Image must be a valid type: jpg, jpeg, png, or svg");
       }
       setErrors(errors)
     }
@@ -312,8 +311,8 @@ function BusinessCreateForm() {
               required
             /> */}
 
-            <select className="create-business-input" value={open} onChange={(e) => setOpen(e.target.value)}>
-              <option value=''>----------</option>
+            <select className="create-business-input" value={open} onChange={(e) => setOpen(e.target.value)} placeholder="time" required>
+              <option value="" disabled selected>Open Time</option>
               <option value='1:00'>1:00</option>
               <option value='2:00'>2:00</option>
               <option value='3:00'>3:00</option>
@@ -328,8 +327,8 @@ function BusinessCreateForm() {
               <option value='12:00'>12:00</option>
             </select>
 
-            <select className="create-business-input" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)}>
-              <option value=''>---</option>
+            <select className="create-business-input" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)} required>
+              <option value='' disabled selected>---</option>
               <option value='AM'>AM</option>
               <option value='PM'>PM</option>
             </select>
@@ -345,8 +344,8 @@ function BusinessCreateForm() {
               required
             /> */}
 
-            <select className="create-business-input" value={close} onChange={(e) => setClose(e.target.value)}>
-              <option value=''>----------</option>
+            <select className="create-business-input" value={close} onChange={(e) => setClose(e.target.value)} required>
+              <option value="Close Time" disabled selected>----------</option>
               <option value='1:00'>1:00</option>
               <option value='2:00'>2:00</option>
               <option value='3:00'>3:00</option>
@@ -361,7 +360,7 @@ function BusinessCreateForm() {
               <option value='12:00'>12:00</option>
             </select>
 
-            <select className="create-business-input" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)}>
+            <select className="create-business-input" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)} required>
               <option value=''>---</option>
               <option value='AM'>AM</option>
               <option value='PM'>PM</option>
