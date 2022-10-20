@@ -171,7 +171,7 @@ const BusinessesDetails = () => {
                   <div> Thursday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
                   <div> Friday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
                   <div> Saturday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
-                  <div> Sunday: Closed</div>
+                  <div> Sunday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
                 </div>
 
                 <div className='business-detail-two-left-reviews-container'>
