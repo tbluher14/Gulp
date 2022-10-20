@@ -135,7 +135,7 @@ function BusinessEditForm() {
         <div className="edit-business-input-container">
 
           <div className="edit-business-input-container">
-            <input className="create-business-input"
+            <input className="edit-business-input"
               type="text"
               value={name}
               placeholder="Business Name"
@@ -143,8 +143,8 @@ function BusinessEditForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="edit-business-input-container">
+            <input className="edit-business-input"
               type="text"
               value={address}
               placeholder="Business Address"
@@ -152,8 +152,8 @@ function BusinessEditForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="edit-business-input-container">
+            <input className="edit-business-input"
               type="text"
               value={city}
               placeholder="City"
@@ -161,8 +161,8 @@ function BusinessEditForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="edit-business-input-container">
+            <input className="edit-business-input"
               type="text"
               value={state}
               placeholder="State"
@@ -170,8 +170,8 @@ function BusinessEditForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="edit-business-input-container">
+            <input className="edit-business-input"
               type="text"
               value={country}
               placeholder="Country"
@@ -179,8 +179,8 @@ function BusinessEditForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="edit-business-input-container">
+            <input className="edit-business-input"
               type="text"
               value={zipCode}
               placeholder="Zip Code"
@@ -188,8 +188,8 @@ function BusinessEditForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="edit-business-input-container">
+            <input className="edit-business-input"
               type="text"
               value={website}
               placeholder="Business Website"
@@ -197,15 +197,15 @@ function BusinessEditForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            {/* <input className="create-business-input"
+          <div className="edit-business-input-container">
+            {/* <input className="edit-business-input"
               type="text"
               value={open}
               placeholder="Open Time"
               onChange={(e) => setOpen(e.target.value)}
               required
             /> */}
-            <select className="create-business-input" value={open} onChange={(e) => setOpen(e.target.value)}>
+            <select className="edit-business-input-dropdown" value={open} onChange={(e) => setOpen(e.target.value)}>
               <option value=''>----------</option>
               <option value='1:00'>1:00</option>
               <option value='2:00'>2:00</option>
@@ -221,21 +221,21 @@ function BusinessEditForm() {
               <option value='12:00'>12:00</option>
             </select>
 
-            <select className="create-business-input" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)}>
+            <select className="edit-business-input-ampm" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)}>
               <option value=''>---</option>
               <option value='AM'>AM</option>
               <option value='PM'>PM</option>
             </select>
           </div>
-          <div className="create-business-input-container">
-            {/* <input className="create-business-input"
+          <div className="edit-business-input-container">
+            {/* <input className="edit-business-input"
               type="text"
               value={close}
               placeholder="Close Time"
               onChange={(e) => setClose(e.target.value)}
               required
             /> */}
-            <select className="create-business-input" value={close} onChange={(e) => setClose(e.target.value)}>
+            <select className="edit-business-input-dropdown" value={close} onChange={(e) => setClose(e.target.value)}>
               <option value=''>----------</option>
               <option value='1:00'>1:00</option>
               <option value='2:00'>2:00</option>
@@ -251,14 +251,14 @@ function BusinessEditForm() {
               <option value='12:00'>12:00</option>
             </select>
 
-            <select className="create-business-input" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)}>
+            <select className="edit-business-input-ampm" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)}>
               <option value=''>---</option>
               <option value='AM'>AM</option>
               <option value='PM'>PM</option>
             </select>
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="edit-business-input-container">
+            <input className="edit-business-input"
               type="text"
               value={phone}
               placeholder="Business Phone"
@@ -266,8 +266,8 @@ function BusinessEditForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="edit-business-input-container">
+            <input className="edit-business-input"
               type="text"
               value={description}
               placeholder="Business Description"
@@ -275,8 +275,8 @@ function BusinessEditForm() {
               required
             />
           </div>
-          <div className="create-business-input-container">
-            <input className="create-business-input"
+          <div className="edit-business-input-container">
+            <input className="edit-business-input"
               type="text"
               value={image}
               placeholder="Image"
