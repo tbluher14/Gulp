@@ -1,25 +1,30 @@
 /* TODO Add site wide styles */
 
+.form-outer-container {
+  display: flex;
+  justify-content: center;
+}
+
 .form-container {
   display:flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
   top: 50px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #root{
-  font-family: Verdana, Geneva, Tahoma, sans-serif
+  font-family: 'Open Sans', sans-serif;
 }
 
 
-.form-field-labels{
+.form-field-labels {
   position: relative;
-  left: 20px;
-  margin: 10px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* left: 20px; */
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
+  font-weight: 600;
 }
 
 .form-field {
@@ -28,15 +33,16 @@
   border-radius: 5px;
   padding: 10px;
   border: 1px solid lightgrey;
-  margin-left: 18px;
+  /* margin-left: 18px; */
+  /* width: 100%; */
 }
 
 .select-input-field {
-  width: 523px;
+  /* width: 523px; */
   height: 20px;
   border-radius: 5px;
   border: 1px solid lightgrey;
-  margin-left: 18px;
+  /* margin-left: 18px; */
 }
 
 .errors_container{
@@ -48,7 +54,6 @@
 .errorMessageContainer {
   display: flex;
   color: red;
-  font-family: 'Open Sans', sans-serif;
 }
 
 /* #modal {

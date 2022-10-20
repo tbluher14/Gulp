@@ -44,45 +44,53 @@ const LoginForm = () => {
   }
 
   return (
-    <form
-      onSubmit={onLogin}
-      className='form-container'>
-      <div>
-        <label htmlFor='email' className='form-field-labels'>Email</label>
-        <input
-          name='email'
-          className='form-field'
-          type='text'
-          placeholder='Email'
-          value={email}
-          required
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password' className='form-field-labels'>Password</label>
-        <input
-          name='password'
-          type='password'
-          required
-          className='form-field'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit' className='login-button'>Login</button>
-        <button onClick={() => { setEmail("demolition@aa.io"); setPassword("password") }}
-          type="submit" className='demo-user-button-login-page'>Demo User</button>
-      </div>
-      <div className='errors_container'>
-        {errors.map((error, ind) => (
-          <div className="errorMessageContainer" key={ind}>
-            <i class="fa-solid fa-exclamation exclamation-point"></i>
-            <div className="errorMessage">{error}</div>
-          </div>
-        ))}
-      </div>
-    </form>
+    <div className='form-outer-container'>
+      <form
+        onSubmit={onLogin}
+        className='form-container'>
+        <div>
+          <label htmlFor='email' className='form-field-labels'>Email</label>
+          <input
+            name='email'
+            className='form-field'
+            type='text'
+            placeholder='Email'
+            value={email}
+            required
+            onChange={updateEmail}
+          />
+        </div>
+        <div>
+          <label htmlFor='password' className='form-field-labels'>Password</label>
+          <input
+            name='password'
+            type='password'
+            required
+            className='form-field'
+            placeholder='Password'
+            value={password}
+            onChange={updatePassword}
+          />
+        </div>
+
+        {/* <div className='login-button-container'> */}
+          <button type='submit' className='login-button'>Login</button>
+          <button onClick={() => { setEmail("demolition@aa.io"); setPassword("password") }}
+            type="submit" className='login-button'>Demo User</button>
+        {/* </div> */}
+
+
+        <div className='errors_container'>
+          {errors.map((error, ind) => (
+            <div className="errorMessageContainer" key={ind}>
+              <i class="fa-solid fa-exclamation exclamation-point"></i>
+              <div className="errorMessage">{error}</div>
+            </div>
+          ))}
+        </div>
+      </form>
+
+    </div>
   );
 };
 
