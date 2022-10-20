@@ -26,18 +26,21 @@ const MenuItemsPage = () => {
   if (!isLoaded) return null
 
   return isLoaded && (
+    <div>
     <div className="menuitemspage-container" id="menuitemspage-container">
-      {}
-      {user?.id == currentBusiness?.owner_id && (
+      {specific_menuArr.map(menuItems => (
+        <MenuItemCard menuItems={menuItems}></MenuItemCard>
+      ))}
+       </div>
+    <div>
+    {user?.id == currentBusiness?.owner_id && (
       <button
       className='menu-items-page-button'
       onClick={() => history.push(`/businesses/menu/${businessId.businessId}/add`)}
       >Add Menu Item
       </button>
       )}
-      {specific_menuArr.map(menuItems => (
-        <MenuItemCard menuItems={menuItems}></MenuItemCard>
-      ))}
+    </div>
     </div>
   );
 }
