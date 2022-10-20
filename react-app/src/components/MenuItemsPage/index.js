@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import { getAllBusinessesThunk } from "../../store/business";
 import { getAllMenuItemsThunk } from "../../store/menuItem";
 import MenuItemCard from "../MenuItemCard";
 import './MenuItemsPage.css'
@@ -20,27 +21,30 @@ const MenuItemsPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(getAllMenuItemsThunk()).then(() => setIsLoaded(true))
+    dispatch(getAllMenuItemsThunk()).then(() => dispatch(getAllBusinessesThunk())).then(() => setIsLoaded(true))
   }, [])
 
   if (!isLoaded) return null
 
   return isLoaded && (
-    <div>
-    <div className="menuitemspage-container" id="menuitemspage-container">
-      {specific_menuArr.map(menuItems => (
-        <MenuItemCard menuItems={menuItems}></MenuItemCard>
-      ))}
-       </div>
-    <div>
-    {user?.id == currentBusiness?.owner_id && (
-      <button
-      className='menu-items-page-button'
-      onClick={() => history.push(`/businesses/menu/${businessId.businessId}/add`)}
-      >Add Menu Item
-      </button>
-      )}
-    </div>
+    <div className="menuitems-outer-container">
+
+      <div className="menuitemspage-container" id="menuitemspage-container">
+        {specific_menuArr.map(menuItems => (
+          <MenuItemCard menuItems={menuItems}></MenuItemCard>
+        ))}
+      </div>
+
+      <div className="menu-item-button-container">
+        {user?.id == currentBusiness?.owner_id && (
+          <button
+          className="menu-item-button form-button"
+          onClick={() => history.push(`/businesses/menu/${businessId.businessId}/add`)}
+          >Add Menu Item
+          </button>
+          )}
+      </div>
+
     </div>
   );
 }

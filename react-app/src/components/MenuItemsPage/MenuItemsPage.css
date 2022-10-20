@@ -1,17 +1,33 @@
+.menuitems-outer-container {
+
+}
+
 #menuitemspage-container {
   margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .menuitemspage-button {
   height: 25px;
 }
 
-.form-button{
+/* .form-button{
   display: flex;
-
   left: 45%;
   top: 80px;
+} */
+
+.menu-item-button-container {
+  display: flex;
+  justify-content: center;
+  top: 50px;
+  position: relative;
+}
+
+.menu-item-button {
+
 }
