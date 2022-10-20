@@ -6,14 +6,14 @@
 }
 
 .form-container {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
   top: 25px;
 }
 
-#root{
+#root {
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -45,18 +45,18 @@
   /* margin-left: 18px; */
 }
 
-.errors_container{
-  /* position: relative; */
-  /* top: 50px; */
-  /* left: 30px; */
-}
+/* .errors_container {
+  position: relative;
+  top: 50px;
+  left: 30px;
+} */
 
 .errorMessageContainer {
   display: flex;
   color: red;
 }
 
-.form-button{
+.form-button {
   background-color: #ff0000;
   color: white;
   font-size: 16px;
