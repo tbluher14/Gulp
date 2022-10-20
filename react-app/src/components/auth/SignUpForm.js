@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import "./SignUpForm.css"
+// import "../..//index.css"
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -54,74 +55,86 @@ const SignUpForm = () => {
   }
 
   return (
-    <form
-    onSubmit={onSignUp}
-    className='sign-up-form-container'
-    >
-      <h1
-      className='sign_up_header'>Sign Up For Gulp!</h1>
-      <div className='sign_up_errors'>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label className='sign-up-input-label'>First Name:</label>
-        <input
-          type='text'
-          name='first_name'
-          onChange={updateFirstname}
-          value={first_name}
-        ></input>
-      </div>
-      <div>
-        <label className='sign-up-input-label'>Last Name:</label>
-        <input
-          type='text'
-          name='last_name'
-          onChange={updateLastname}
-          value={last_name}
-        ></input>
-      </div>
-      <div>
-        <label className='sign-up-input-label'>User Name:</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label className='sign-up-input-label'>Email:</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label className='sign-up-input-label'>Password:</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label className='sign-up-input-label'>Repeat Password:</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit' className='sign-up-form-button'>Sign Up</button>
-    </form>
+    <div className='form-outer-container'>
+      <form
+        onSubmit={onSignUp}
+        className='form-container'
+      >
+        <h1
+          className='sign_up_header'>Sign Up For Gulp!</h1>
+        <div className='errors_container'>
+          {errors.map((error, ind) => (
+            <div className="errorMessageContainer" key={ind}>
+              <i class="fa-solid fa-exclamation exclamation-point"></i>
+              <div className="errorMessage">{error}</div>
+            </div>
+          ))}
+        </div>
+        <div>
+          <label className='form-field-labels'>First Name:</label>
+          <input
+            type='text'
+            className="form-field"
+            name='first_name'
+            onChange={updateFirstname}
+            value={first_name}
+          ></input>
+        </div>
+        <div>
+          <label className='form-field-labels'>Last Name:</label>
+          <input
+            type='text'
+            className="form-field"
+            name='last_name'
+            onChange={updateLastname}
+            value={last_name}
+          ></input>
+        </div>
+        <div>
+          <label className='form-field-labels'>User Name:</label>
+          <input
+            type='text'
+            className="form-field"
+            name='username'
+            onChange={updateUsername}
+            value={username}
+          ></input>
+        </div>
+        <div>
+          <label className='form-field-labels'>Email:</label>
+          <input
+            type='text'
+            className="form-field"
+            name='email'
+            onChange={updateEmail}
+            value={email}
+          ></input>
+        </div>
+        <div>
+          <label className='form-field-labels'>Password:</label>
+          <input
+            type='password'
+            className="form-field"
+            name='password'
+            onChange={updatePassword}
+            value={password}
+          ></input>
+        </div>
+        <div>
+          <label className='form-field-labels'>Repeat Password:</label>
+          <input
+            type='password'
+            className="form-field"
+            name='repeat_password'
+            onChange={updateRepeatPassword}
+            value={repeatPassword}
+            required={true}
+          ></input>
+        </div>
+        <button type='submit' className='form-button'>Sign Up</button>
+      </form>
+
+    </div>
   );
 };
 
