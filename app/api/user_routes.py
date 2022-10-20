@@ -6,7 +6,6 @@ user_routes = Blueprint('users', __name__)
 
 
 @user_routes.route('/')
-@login_required
 def users():
     users = User.query.all()
     print('THIS IS USERS', users)

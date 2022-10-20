@@ -55,22 +55,22 @@ function BusinessCreateForm() {
 
 
       if (name.length < 5 || name.length > 255) {
-        errors.push("Business Name must be between 5 to 255 characters.")
+        errors.push("Business Name must be between 5 and 255 characters.")
       }
 
       if (address.length < 5 || address.length > 255) {
-        errors.push("Business Address must be between 5 to 255 characters.")
+        errors.push("Business Address must be between 5 and 255 characters.")
       }
 
-      if (city.length < 5 || city.length > 255) {
-        errors.push("City must be between 5 to 255 characters.")
+      if (city.length < 3 || city.length > 255) {
+        errors.push("City must be between 3 and 255 characters.")
       }
 
-      if (state.length < 5 || state.length > 255) {
-        errors.push("State must be between 5 to 255 characters.")
+      if (state.length < 3  || state.length > 255) {
+        errors.push("State must be between 4 and 255 characters.")
       }
-      if (country.length < 4 || country.length > 255) {
-        errors.push("Country must be between 4 and 255 characters.")
+      if (country.length < 3 || country.length > 255) {
+        errors.push("Country must be between 3 and 255 characters.")
       }
       if (website.length < 1 || !website.match(webRegX)) {
         errors.push("Business Website must be a valid URL");
@@ -88,7 +88,7 @@ function BusinessCreateForm() {
         errors.push("Business Phone must be 10 sequential numbers (ex: 1234567890)")
       }
       if (description.length < 5 || description.length > 255) {
-        errors.push("Description must be between 5 to 255 characters.")
+        errors.push("Description must be between 5 and 255 characters.")
       }
       if (image.length < 1 || !image.split('?')[0].match(imageRegX)) {
         errors.push("Image must be a valid type: jpg, jpeg, png, or svg");

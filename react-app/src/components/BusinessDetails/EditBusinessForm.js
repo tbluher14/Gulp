@@ -120,7 +120,7 @@ function BusinessEditForm() {
       am_pm_close: ampmclose,
     };
     return dispatch(editBusinessThunk(data, businessId))
-      // .then(dispatch(getAllBusinessesThunk()))
+      .then(dispatch(getAllBusinessesThunk()))
       .then(history.push(`/businesses/${businessId}`));
   };
 
