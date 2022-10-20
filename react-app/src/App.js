@@ -72,9 +72,9 @@ function App() {
         <ProtectedRoute path='/businesses/:businessId/edit' exact={true}>
           <BusinessEditForm />
         </ProtectedRoute>
-        <Route path='/reviews/:businessId' exact={true}>
+        <ProtectedRoute path='/reviews/:businessId' exact={true}>
           <CreateReviewForm />
-        </Route>
+        </ProtectedRoute>
         <Route path='/businesscard' exact={true}>
           <BusinessCard />
         </Route>
