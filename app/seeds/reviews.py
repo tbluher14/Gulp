@@ -2,8 +2,8 @@ from app.models import db, Review
 
 
 # Adds a demo user, you can add other users here if you want
-x = range(1, 34, 2)
-y = range(2, 34, 2)
+x = range(1, 32, 2)
+y = range(2, 32, 2)
 
 def seed_reviews():
   for n in x:

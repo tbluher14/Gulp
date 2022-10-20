@@ -1,7 +1,7 @@
 from app.models import db, MenuItem
 
 
-x = range(1,33)
+x = range(1,32)
 # Adds a demo user, you can add other users here if you want
 def seed_menu_items():
   for n in x:
