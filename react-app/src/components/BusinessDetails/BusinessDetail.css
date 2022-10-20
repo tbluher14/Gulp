@@ -1,13 +1,13 @@
 .business-detail-one {
   position: relative;
   height: 426px;
-
 }
 
 .business-detail-image {
   width: 100%;
   height: 426px;
   object-fit: cover;
+
 }
 
 .business-detail-image-text-container {
