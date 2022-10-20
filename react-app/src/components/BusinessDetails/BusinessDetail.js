@@ -46,6 +46,15 @@ const BusinessesDetails = () => {
   const businessReviewsArray = businessReviews.filter(review => review?.business_id === currentBusiness?.id)
   const userReview = businessReviewsArray.filter(review => user?.id === review.user_id)
 
+  const averageReview = (businessReviewsArray) => {
+    let total = 0
+    for (let i = 0; i<businessReviewsArray.length; i++){
+      total += businessReviewsArray[i].rating
+    }
+    return (total / businessReviewsArray.length).toFixed(2)
+  }
+
+
   // Formatted Phone
   const formattedPhone = `(${currentBusiness?.phone.slice(0, 3)}) ${currentBusiness?.phone.slice(3, 6)}-${currentBusiness?.phone.slice(6, 10)}`
 
@@ -91,11 +100,11 @@ const BusinessesDetails = () => {
           <div className='business-detail-image-text-container'>
             <div className='business-detail-image-text-inner-container'>
               <div className='business-detail-image-text-name'>{currentBusiness?.name}</div>
-              <div className='business-detail-image-text-review'>REVIEW AVERAGE</div>
+              <div className='business-detail-image-text-review'><i class="fa-solid fa-star"></i> {averageReview(businessReviewsArray)}</div>
               <div className='business-detail-image-text-hours'>
                 {/* <div className='business-detail-image-text-hours-open'>{currentBusiness?.open < currentTime ? "Closed" : "Open" && currentBusiness?.close> currentTime ? "Closed": "Open"}</div> */}
-                <div className='business-detail-image-text-hours-open'>Business Hours:</div>
-                <div className='business-detail-image-text-hours-time'>Hours {currentBusiness?.open}{currentBusiness?.ampmopen} - {currentBusiness?.close}{currentBusiness?.ampmclose}</div>
+                <div className='business-detail-image-text-hours-open'>Hours:</div>
+                <div className='business-detail-image-text-hours-time'>{currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness?.ampmclose}</div>
               </div>
             </div>
           </div>
@@ -151,7 +160,14 @@ const BusinessesDetails = () => {
                 )} */}
 
                 <div className='business-detail-two-left-location-hours-container'>
-                  <div className='business-detail-two-left-location-hours-header'>Location & Hours</div>
+                  <div className='business-detail-two-left-location-hours-header'>Business Hours:</div>
+                  <div> Monday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
+                  <div> Tuesday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
+                  <div> Wednesday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
+                  <div> Thursday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
+                  <div> Friday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
+                  <div> Saturday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
+                  <div> Sunday: Closed</div>
                 </div>
 
                 <div className='business-detail-two-left-reviews-container'>
