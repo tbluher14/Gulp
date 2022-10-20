@@ -46,12 +46,12 @@ const LoginForm = () => {
   return (
     <form
       onSubmit={onLogin}
-      className='login-form-container'>
+      className='form-container'>
       <div>
-        <label htmlFor='email' className='login-form-field-labels'>Email</label>
+        <label htmlFor='email' className='form-field-labels'>Email</label>
         <input
           name='email'
-          className='login-form-field'
+          className='form-field'
           type='text'
           placeholder='Email'
           value={email}
@@ -60,12 +60,12 @@ const LoginForm = () => {
         />
       </div>
       <div>
-        <label htmlFor='password' className='login-form-field-labels'>Password</label>
+        <label htmlFor='password' className='form-field-labels'>Password</label>
         <input
           name='password'
           type='password'
           required
-          className='login-form-field'
+          className='form-field'
           placeholder='Password'
           value={password}
           onChange={updatePassword}
@@ -74,7 +74,7 @@ const LoginForm = () => {
         <button onClick={() => { setEmail("demolition@aa.io"); setPassword("password") }}
           type="submit" className='demo-user-button-login-page'>Demo User</button>
       </div>
-      <div className='login_errors_container'>
+      <div className='errors_container'>
         {errors.map((error, ind) => (
           <div className="errorMessageContainer" key={ind}>
             <i class="fa-solid fa-exclamation exclamation-point"></i>

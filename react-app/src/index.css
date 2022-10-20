@@ -1,27 +1,10 @@
 /* TODO Add site wide styles */
-.login-button {
-  background-color: #ff0000;
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 8px 16px;
-  border-radius: 4px;
-  position: relative;
-  left: 18px;
-  top: 20px;
-  height: 37px;
-  border: none;
-  cursor: pointer;
-  font-family: Verdana, Geneva, Tahoma, sans-serif
-}
 
-
-form {
+.form-container {
   display:flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  /* left: 28.3%; */
   top: 50px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -29,21 +12,7 @@ form {
 #root{
   font-family: Verdana, Geneva, Tahoma, sans-serif
 }
-.demo-user-button-login-page{
-  position: relative;
-  left: 40px;
-  top: 20.5px;
-  background-color: #ff0000;
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 8px 16px;
-  height: 37px;
-  border-radius: 4px;
-  border: 1px solid #ff0000;
-  cursor: pointer;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+
 
 .form-field-labels{
   position: relative;
@@ -53,7 +22,7 @@ form {
   display: flex;
 }
 
-.input-field {
+.form-field {
   width: 500px;
   height: 20px;
   border-radius: 5px;
@@ -70,8 +39,90 @@ form {
   margin-left: 18px;
 }
 
-.login_errors_container{
+.errors_container{
   position: relative;
   top: 50px;
   left: 30px;
 }
+
+.errorMessageContainer {
+  display: flex;
+  color: red;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* #modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+#modal-content {
+  position: absolute;
+  background-color: white;
+  border-radius: 20px;
+  width: 600px;
+}
+
+form {
+  border-radius: 20px;
+  width: 559px;
+  margin-bottom: 5px;
+  padding: 21px;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  width: 100%;
+}
+
+.newReview_error{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  color: red;
+  margin-bottom: 12px;
+  margin-left: 19px;
+}
+
+.newSpot_error {
+  color: red;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  margin-left: 19px;
+}
+
+.login_error{
+  color: red;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  margin-left: 19px;
+}
+
+.signup_error {
+  color: red;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  margin-left: 19px;
+} */

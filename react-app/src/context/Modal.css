@@ -1,4 +1,4 @@
-#modal {
+/* #modal {
   position: fixed;
   top: 0;
   right: 0;
@@ -6,8 +6,6 @@
   bottom: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  /* border-radius: 30px; */
 }
 
 #modal-background {
@@ -72,4 +70,4 @@ h2 {
   flex-direction: column;
   margin-bottom: 12px;
   margin-left: 19px;
-}
+} */

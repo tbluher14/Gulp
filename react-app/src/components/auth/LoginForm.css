@@ -14,19 +14,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
-.login-form-container{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    left: 28.3%;
-    top: 50px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 
-#root{
-    font-family: Verdana, Geneva, Tahoma, sans-serif
-}
 .demo-user-button-login-page{
     position: relative;
     left: 40px;
@@ -43,25 +31,19 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.login-form-field-labels{
-    position: relative;
-    left: 20px;
-    margin: 10px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: flex;
-}
 
-.login-form-field {
+
+/* .login-form-field {
     width: 500px;
     height: 20px;
     border-radius: 5px;
     padding: 10px;
     border: 1px solid lightgrey;
     margin-left: 18px;
-}
+} */
 
-.login_errors_container{
+/* .login_errors_container{
     position: relative;
     top: 50px;
     left: 30px;
-}
+} */
