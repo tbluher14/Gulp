@@ -34,8 +34,10 @@ function BusinessEditForm() {
   const [errors, setErrors] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
-  const imageRegX = /\.(jpeg|jpg|png|svg|gif)$/
-  const webRegX = /\.(com|net|org|co|biz|info)$/
+  const imageRegX = /\.(jpeg|jpg|png|svg)$/
+  const webRegX = /\.(com|net|org|co|biz|info|gov)$/
+  const timeRegX = /^(0?[1-9]|1[0-2]):[0-5][0-9]$/
+  const phoneRegX = /^\d{10}$/
   const zipRegX = /^\d{5}$/
 
   useEffect(() => {
@@ -48,20 +50,15 @@ function BusinessEditForm() {
       // if (!isImage(image)) {
       //   errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
       // }
-      if (image.length < 1 || !image.split('?')[0].match(imageRegX)) {
-        errors.push("Provide a valid image URL");
-      }
 
-      if (website.length < 1 || !website.match(webRegX)) {
-        errors.push("Provide a website URL");
-      }
+
 
       if (name.length < 5 || name.length > 255) {
-        errors.push("Name must be between 5 to 255 characters.")
+        errors.push("Business Name must be between 5 to 255 characters.")
       }
 
       if (address.length < 5 || address.length > 255) {
-        errors.push("Address must be between 5 to 255 characters.")
+        errors.push("Business Address must be between 5 to 255 characters.")
       }
 
       if (city.length < 5 || city.length > 255) {
@@ -71,25 +68,29 @@ function BusinessEditForm() {
       if (state.length < 5 || state.length > 255) {
         errors.push("State must be between 5 to 255 characters.")
       }
-
-      // if (open < 0 || open > 23) {
-      //   errors.push('Please enter valid opening time')
-      // }
-      // if (close < 0 || close > 23) {
-      //   errors.push('Please enter valid closing time')
-      // }
-
-      if (country.length < 1 || country.length > 255) {
-        errors.push("Country must be between 1 and 255 characters.")
+      if (country.length < 4 || country.length > 255) {
+        errors.push("Country must be between 4 and 255 characters.")
+      }
+      if (website.length < 1 || !website.match(webRegX)) {
+        errors.push("Business Website must be a valid URL");
       }
       if (!zipCode.match(zipRegX)) {
-        errors.push("Zipcode must be 5 characters")
+        errors.push("Zipcode must be 5 numbers")
+      }
+      if (open < 0 || open > 13 || !open.match(timeRegX)) {
+        errors.push('Please select an opening time')
+      }
+      if (close < 0 || close > 13 || !close.match(timeRegX)) {
+        errors.push('Please select a closing time')
+      }
+      if (phone.length !== 10 || !phone.match(phoneRegX)) {
+        errors.push("Business Phone must be 10 sequential numbers (ex: 1234567890)")
       }
       if (description.length < 5 || description.length > 255) {
         errors.push("Description must be between 5 to 255 characters.")
       }
-      if (phone.length !== 10) {
-        errors.push("Phone must be 10 characters")
+      if (image.length < 1 || !image.split('?')[0].match(imageRegX)) {
+        errors.push("Image must be a valid type: jpg, jpeg, png, or svg");
       }
       setErrors(errors)
     }
@@ -206,7 +207,7 @@ function BusinessEditForm() {
               required
             /> */}
             <select className="edit-business-input-dropdown" value={open} onChange={(e) => setOpen(e.target.value)}>
-              <option value=''>----------</option>
+              <option value='' disabled selected>Open Time</option>
               <option value='1:00'>1:00</option>
               <option value='2:00'>2:00</option>
               <option value='3:00'>3:00</option>
@@ -222,7 +223,7 @@ function BusinessEditForm() {
             </select>
 
             <select className="edit-business-input-ampm" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)}>
-              <option value=''>---</option>
+              <option value='' disabled selected>AM | PM</option>
               <option value='AM'>AM</option>
               <option value='PM'>PM</option>
             </select>
@@ -236,7 +237,7 @@ function BusinessEditForm() {
               required
             /> */}
             <select className="edit-business-input-dropdown" value={close} onChange={(e) => setClose(e.target.value)}>
-              <option value=''>----------</option>
+              <option value='' disabled selected>Close Time</option>
               <option value='1:00'>1:00</option>
               <option value='2:00'>2:00</option>
               <option value='3:00'>3:00</option>
@@ -252,7 +253,7 @@ function BusinessEditForm() {
             </select>
 
             <select className="edit-business-input-ampm" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)}>
-              <option value=''>---</option>
+              <option value='' disabled selected>AM | PM</option>
               <option value='AM'>AM</option>
               <option value='PM'>PM</option>
             </select>

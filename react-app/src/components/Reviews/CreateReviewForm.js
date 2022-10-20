@@ -33,7 +33,7 @@ const ReviewForm = () => {
     // }
 
     if (review.length > 255 || review.length < 10) {
-      errors.push( "Review must be between 10 to 255 Characters!" );
+      errors.push("Review must be between 10 to 255 Characters");
     }
 
     setErrors(errors)
@@ -53,8 +53,8 @@ const ReviewForm = () => {
     if (review.length <= 255 && review.length >= 10) {
       const res = await dispatch(
         createReviewThunk(data))
-        // .then(() =>
-        // dispatch(getAllReviewsThunk()))
+      // .then(() =>
+      // dispatch(getAllReviewsThunk()))
       history.push(`/businesses/${businessId.businessId}`)
     }
   }
@@ -65,14 +65,6 @@ const ReviewForm = () => {
       <form onSubmit={handleSubmit} className="create_review_form_container">
         <div className="create-review-container">
           <div className="create-review-input-container">
-            <div className="createReviewError">
-              {submitted && (errors).map((error, i) => (
-                <div className="errorMessageContainer" key={i}>
-                  <i class="fa-solid fa-exclamation exclamation-point"></i>
-                  <div className="errorMessage">{error}</div>
-                </div>
-              ))}
-            </div>
             <div className="create-review-input-container">
               <input className="create-business-input"
                 type="number"
@@ -88,16 +80,23 @@ const ReviewForm = () => {
                 onChange={(e) => setReview(e.target.value)}
                 required
               />
+            </div>
+            <div className="create-business-input-container">
+            </div>
+            <button name="submit" type="submit" className="submit_review_button">
+              Create Review
+            </button>
           </div>
-          <div className="create-business-input-container">
+          <div className="createReviewError">
+            {submitted && (errors).map((error, i) => (
+              <div className="errorMessageContainer" key={i}>
+                <i class="fa-solid fa-exclamation exclamation-point"></i>
+                <div className="errorMessage">{error}</div>
+              </div>
+            ))}
           </div>
-          <button name="submit" type="submit" className="submit_review_button">
-            Create Review
-          </button>
         </div>
-
-      </div>
-    </form>
+      </form>
     </div>
   )
 }

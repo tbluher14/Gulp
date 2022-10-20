@@ -83,8 +83,8 @@ function BusinessCreateForm() {
       if (close < 0 || close > 13 || !close.match(timeRegX)) {
         errors.push('Please select a closing time')
       }
-      if (phone.length !== 10 || phone.NaN()) {
-        errors.push("Phone must be 10 numbers")
+      if (phone.length !== 10 || !phone.match(phoneRegX)) {
+        errors.push("Business Phone must be 10 sequential numbers (ex: 1234567890)")
       }
       if (description.length < 5 || description.length > 255) {
         errors.push("Description must be between 5 to 255 characters.")
@@ -132,107 +132,15 @@ function BusinessCreateForm() {
     )
   }
 
-
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-  //   setSubmitted(true)
-
-  //   const data = {
-  //     owner_id: user.id,
-  //     name: name,
-  //     address: address,
-  //     city: city,
-  //     state: state,
-  //     country: country,
-  //     zipCode: zipCode,
-  //     open: open,
-  //     close: close,
-  //     website: website,
-  //     phone: phone,
-  //     description: description,
-  //     image: image
-  //   };
-
-  //   let errors = []
-
-  //   if (!user){
-  //     errors.push("User must be logged in")
-  //     setErrors(errors)
-  //   }
-  //   else {
-  //   // if (!isImage(image)) {
-  //   //   errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
-  //   // }
-
-  //   if (name.length < 5 || name.length > 255) {
-  //     errors.push( "Name must be between 5 to 255 characters." )
-  //   }
-
-  //   if (address.length < 5 || address.length > 255) {
-  //     errors.push( "Address must be between 5 to 255 characters." )
-  //   }
-
-  //   if (city.length < 5 || city.length > 255) {
-  //     errors.push( "City must be between 5 to 255 characters." )
-  //   }
-
-  //   if (state.length < 5 || state.length > 255) {
-  //     errors.push( "State must be between 5 to 255 characters." )
-  //   }
-
-  //   if (open < 0 || open > 23){
-  //     errors.push('Please enter valid opening time')
-  //   }
-  //   if (close < 0 || close > 23){
-  //     errors.push('Please enter valid closing time')
-  //   }
-
-  //   if (country.length < 1 || country.length > 255) {
-  //     errors.push( "Country must be between 1 and 255 characters." )
-  //   }
-  //   if (zipCode.length < 5 || zipCode.length > 5) {
-  //     errors.push( "Country must be 5 characters" )
-  //   }
-  //   if (description.length < 5 || description.length > 255) {
-  //     errors.push( "Description must be between 5 to 255 characters." )
-  //   }
-  //   if (phone.length !== 10) {
-  //     errors.push( "Phone must be 10 characters" )
-  //   }
-  //   setErrors(errors)
-  // }
-
-  // if (user
-  // && (name.length > 5 && name.length<255)
-  // && (address.length >=5 && address.length <= 255)
-  // && (city.length >= 5 && city.length <= 255)
-  // && (state.length >= 5 && state.length <= 255)
-  // && (open >= 0 && open <= 23)
-  // && (close >= 0 && close <= 23)
-  // && (country.length >= 5 && country.length <= 255)
-  // && (zipCode.length === 5)
-  // && (description.length >= 5 && description.length <= 255)
-  // && (phone.length === 10)
-  // )
-  // {
-  //   return dispatch(createBusinessThunk(data)).then((res) => history.push(`/businesses/${res.id}`)
-  //   // .catch(
-  //   //   async (res) => {
-  //   //     const data = await res.json()
-  //   //     if (data && data.errors) setErrors(data.errors)
-  //   //   }
-  //   // )
-  //   )
-  // }
-  // }
-
   return (
     <form onSubmit={handleSubmit}>
       <h4 className="form_requirements">Please fill out all of the following fields:</h4>
       <div className="create_errors">
-        {submitted && errors.map((error, idx) => (
-          <div key={idx}>{error}</div>
+        {submitted && (errors).map((error, i) => (
+          <div className="errorMessageContainer" key={i}>
+            <i class="fa-solid fa-exclamation exclamation-point"></i>
+            <div className="errorMessage">{error}</div>
+          </div>
         ))}
       </div>
       <div className="create-business-container">
@@ -328,7 +236,7 @@ function BusinessCreateForm() {
             </select>
 
             <select className="create-business-input" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)} required>
-              <option value='' disabled selected>---</option>
+              <option value='' disabled selected>AM | PM</option>
               <option value='AM'>AM</option>
               <option value='PM'>PM</option>
             </select>
@@ -345,7 +253,7 @@ function BusinessCreateForm() {
             /> */}
 
             <select className="create-business-input" value={close} onChange={(e) => setClose(e.target.value)} required>
-              <option value="Close Time" disabled selected>----------</option>
+              <option value="" disabled selected>Close Time</option>
               <option value='1:00'>1:00</option>
               <option value='2:00'>2:00</option>
               <option value='3:00'>3:00</option>
@@ -361,7 +269,7 @@ function BusinessCreateForm() {
             </select>
 
             <select className="create-business-input" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)} required>
-              <option value=''>---</option>
+              <option value='' disabled selected>AM | PM</option>
               <option value='AM'>AM</option>
               <option value='PM'>PM</option>
             </select>
@@ -371,7 +279,7 @@ function BusinessCreateForm() {
             <input className="create-business-input"
               type="text"
               value={phone}
-              placeholder="Phone"
+              placeholder="Business Phone"
               onChange={(e) => setPhone(e.target.value)}
               required
             />
