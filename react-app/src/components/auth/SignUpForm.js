@@ -12,7 +12,7 @@ const SignUpForm = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const [submitted, setSubmitted] = useState(false);
@@ -22,27 +22,27 @@ const SignUpForm = () => {
   useEffect(() => {
     let errors = [];
 
-    if (first_name.length < 2 || first_name.length > 50) {
-      errors.push("First Name must be between 2 and 50 characters")
+    if (first_name.length < 1 || first_name.length > 50) {
+      errors.push("First Name must be between 1 and 50 characters")
     }
-    if(last_name.length < 2 || last_name.length > 50) {
-      errors.push("Last Name must be between 2 and 50 characters")
+    if (last_name.length < 1 || last_name.length > 50) {
+      errors.push("Last Name must be between 1 and 50 characters")
     }
-    if(!email.includes("@") || email.length < 2 || email.length > 50) {
-      errors.push("Email must be valid and between 2 and 50 characters")
+    if (!email.includes("@")) {
+      errors.push("Email must be valid email address")
     }
-    if(username < 2 || username > 50) {
-      errors.push("User Name must be between 2 and 50 characters")
+    if (username < 1 || username > 50) {
+      errors.push("User Name must be between 1 and 50 characters")
     }
-    if (password !== repeatPassword) {
+    if (password !== confirmPassword) {
       errors.push('Passwords must match');
     }
-    if (password.length < 6) {
-      errors.push('Password must be at least 6 characters');
+    if (password.length < 1) {
+      errors.push('Password must be at least 1 characters');
     }
 
     setErrors(errors);
-  }, [password, repeatPassword]);
+  }, [password, confirmPassword]);
 
 
 
@@ -52,7 +52,7 @@ const SignUpForm = () => {
 
     // if (errors.length > 0) return
 
-    if (password === repeatPassword) {
+    if (password === confirmPassword) {
       const data = await dispatch(signUp(username, email, password, first_name, last_name));
       if (data) {
         setErrors(Object.values(data));
@@ -80,8 +80,8 @@ const SignUpForm = () => {
     setPassword(e.target.value);
   };
 
-  const updateRepeatPassword = (e) => {
-    setRepeatPassword(e.target.value);
+  const updateConfirmPassword = (e) => {
+    setConfirmPassword(e.target.value);
   };
 
   if (user) {
@@ -90,86 +90,85 @@ const SignUpForm = () => {
 
   return (
     <div className='form-outer-container'>
-      <form
-        onSubmit={onSignUp}
-        className='form-container'
-      >
-        <h1 className='sign_up_header'>Sign Up For Gulp!</h1>
-        <div className='errors_container'>
-          {submitted && errors.map((error, ind) => (
-            <div className="errorMessageContainer" key={ind}>
-              <i class="fa-solid fa-exclamation exclamation-point"></i>
-              <div className="errorMessage">{error}</div>
-            </div>
-          ))}
+      <form onSubmit={onSignUp}>
+        <div className='form-header'>Sign Up For Gulp!</div>
+        <div className='form-container'>
+          <div className='errors_container'>
+            {submitted && errors.map((error, ind) => (
+              <div className="errorMessageContainer" key={ind}>
+                <i class="fa-solid fa-exclamation exclamation-point"></i>
+                <div className="errorMessage">{error}</div>
+              </div>
+            ))}
+          </div>
+          <div>
+            <label className='form-field-labels'>First Name:</label>
+            <input
+              type='text'
+              className="form-field"
+              name='first_name'
+              onChange={updateFirstname}
+              value={first_name}
+              required
+            ></input>
+          </div>
+          <div>
+            <label className='form-field-labels'>Last Name:</label>
+            <input
+              type='text'
+              className="form-field"
+              name='last_name'
+              onChange={updateLastname}
+              value={last_name}
+              required
+            ></input>
+          </div>
+          <div>
+            <label className='form-field-labels'>User Name:</label>
+            <input
+              type='text'
+              className="form-field"
+              name='username'
+              onChange={updateUsername}
+              value={username}
+              required
+            ></input>
+          </div>
+          <div>
+            <label className='form-field-labels'>Email:</label>
+            <input
+              type='text'
+              className="form-field"
+              name='email'
+              onChange={updateEmail}
+              value={email}
+              required
+            ></input>
+          </div>
+          <div>
+            <label className='form-field-labels'>Password:</label>
+            <input
+              type='password'
+              className="form-field"
+              name='password'
+              onChange={updatePassword}
+              value={password}
+              required
+            ></input>
+          </div>
+          <div>
+            <label className='form-field-labels'>Confirm Password:</label>
+            <input
+              type='password'
+              className="form-field"
+              name='confirm_password'
+              onChange={updateConfirmPassword}
+              value={confirmPassword}
+              required
+            ></input>
+          </div>
+          <button type='submit' className='form-button'>Sign Up</button>
         </div>
-        <div>
-          <label className='form-field-labels'>First Name:</label>
-          <input
-            type='text'
-            className="form-field"
-            name='first_name'
-            onChange={updateFirstname}
-            value={first_name}
-            required
-          ></input>
-        </div>
-        <div>
-          <label className='form-field-labels'>Last Name:</label>
-          <input
-            type='text'
-            className="form-field"
-            name='last_name'
-            onChange={updateLastname}
-            value={last_name}
-            required
-          ></input>
-        </div>
-        <div>
-          <label className='form-field-labels'>User Name:</label>
-          <input
-            type='text'
-            className="form-field"
-            name='username'
-            onChange={updateUsername}
-            value={username}
-            required
-          ></input>
-        </div>
-        <div>
-          <label className='form-field-labels'>Email:</label>
-          <input
-            type='text'
-            className="form-field"
-            name='email'
-            onChange={updateEmail}
-            value={email}
-            required
-          ></input>
-        </div>
-        <div>
-          <label className='form-field-labels'>Password:</label>
-          <input
-            type='password'
-            className="form-field"
-            name='password'
-            onChange={updatePassword}
-            value={password}
-            required
-          ></input>
-        </div>
-        <div>
-          <label className='form-field-labels'>Repeat Password:</label>
-          <input
-            type='password'
-            className="form-field"
-            name='repeat_password'
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
-            required
-          ></input>
-        </div>
-        <button type='submit' className='form-button'>Sign Up</button>
       </form>
     </div>
   );

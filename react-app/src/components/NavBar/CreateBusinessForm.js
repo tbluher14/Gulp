@@ -136,7 +136,7 @@ function BusinessCreateForm() {
   return (
     <div className="form-outer-container">
       <form onSubmit={handleSubmit}>
-        <div className="create-business-form-requirements">Please fill out all of the following fields:</div>
+        <div className="form-header">Please fill out all of the following fields:</div>
         <div className="form-container">
           <div className="input-container">
             <div className="create_errors">
