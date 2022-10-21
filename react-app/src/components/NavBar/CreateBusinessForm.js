@@ -35,8 +35,8 @@ function BusinessCreateForm() {
   console.log('this is close', close)
 
 
-  const imageRegX = /\.*(com|jpeg|jpg|png|svg|)*$/
-  const webRegX = /\.(com|net|org|co|biz|info|gov)?$/
+  const imageRegX = /\.(jpeg|jpg|png|svg)$/
+  const webRegX = /\.(com|net|org|co|biz|info|gov)|^(com\/|net\/|org\/|co\/|biz\/|info\/|gov\/)$/
   const timeRegX = /^(0?[1-9]|1[0-2]):[0-5][0-9]$/
   const phoneRegX = /^\d{10}$/
   const zipRegX = /^\d{5}$/
@@ -54,44 +54,43 @@ function BusinessCreateForm() {
 
 
 
-      if (name.length < 5 || name.length > 255) {
-        errors.push("Business Name must be between 5 and 255 characters.")
+      if ((name.length < 1 || name.length > 255)) {
+        errors.push("Business Name must be between 5 to 255 characters.")
       }
 
-      if (address.length < 5 || address.length > 255) {
-        errors.push("Business Address must be between 5 and 255 characters.")
+      if ((address.length < 1 || address.length > 255)) {
+        errors.push("Business Address must be between 5 to 255 characters.")
       }
 
-      if (city.length < 3 || city.length > 255) {
-        errors.push("City must be between 3 and 255 characters.")
+      if ((city.length < 2 || city.length > 255)) {
+        errors.push("City must be between 5 to 255 characters.")
       }
-
-      if (state.length < 3  || state.length > 255) {
-        errors.push("State must be between 4 and 255 characters.")
+      if ((state.length < 2 || state.length > 255)) {
+        errors.push("State must be between 5 to 255 characters.")
       }
-      if (country.length < 3 || country.length > 255) {
-        errors.push("Country must be between 3 and 255 characters.")
+      if ((country.length < 2 || country.length > 255)) {
+        errors.push("Country must be between 4 and 255 characters.")
       }
-      if (website.length < 1 || !website.match(webRegX)) {
-        errors.push("Business Website must be a valid URL");
+      if (((website.length < 1 || !website.match(webRegX)))) {
+        errors.push("Business Website must be a valid URL ( https:// )");
       }
-      if (!zipCode.match(zipRegX)) {
+      if ((!zipCode.match(zipRegX))) {
         errors.push("Zipcode must be 5 numbers")
       }
-      if (open < 0 || open > 13 || !open.match(timeRegX)) {
+      if ((open < 0 || open > 13 || !open.match(timeRegX))) {
         errors.push('Please select an opening time')
       }
-      if (close < 0 || close > 13 || !close.match(timeRegX)) {
+      if ((close < 0 || close > 13 || !close.match(timeRegX))) {
         errors.push('Please select a closing time')
       }
-      if (phone.length !== 10 || !phone.match(phoneRegX)) {
+      if ((phone.length !== 10 || !phone.match(phoneRegX))) {
         errors.push("Business Phone must be 10 sequential numbers (ex: 1234567890)")
       }
-      if (description.length < 5 || description.length > 255) {
-        errors.push("Description must be between 5 and 255 characters.")
+      if ((description.length < 5 || description.length > 500)) {
+        errors.push("Description must be between 5 to 255 characters.")
       }
-      if (image.length < 1 || !image.split('?')[0].match(imageRegX) || !image.split('/')[0].match(imageRegX)) {
-        errors.push("Image must be a valid type: jpg, jpeg, png, or svg");
+      if ((image.length < 1 || !image.split('?')[0].match(imageRegX) && !image.includes("https://images.unsplash.com/photo"))) {
+        errors.push("Image must be a valid type: jpg, jpeg, png, svg")
       }
       setErrors(errors)
     }
