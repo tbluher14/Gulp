@@ -11,7 +11,7 @@
 }
 
 .navbar-logo-container {
-  width: 370px;
+  width: 430px;
 }
 
 .navbar-logo {
@@ -23,7 +23,7 @@
 
 .navbar-business-login-signup-container {
   display: flex;
-  width: 370px;
+  width: 430px;
   justify-content: space-between;
   font-family: 'Open Sans', sans-serif;
 }
@@ -31,7 +31,7 @@
 .navbar-create-business {
   cursor: pointer;
   font-weight: 600;
-  margin-left: 64px;
+  margin-left: 50px;
   padding: 7px;
 }
 
@@ -63,13 +63,13 @@
 
 .navbar-loggedin-container {
   display: flex;
-  width: 370px;
+  width: 430px;
   font-family: 'Open Sans', sans-serif;
   justify-content: flex-end;
 }
 
 .nav-bar-logout-button {
-  margin-left: 48px;
+  margin-left: 17px;
   background-color: #ff0000;
   color: white;
   font-size: 16px;
@@ -109,6 +109,20 @@
   border: none;
   cursor: pointer;
   margin-right: 50px;
+}
+
+.navbar-mybusinesses {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 12px;
+  padding: 7px;
+}
+
+.navbar-mybusinesses:hover{
+  background-color: lightgray;
+  border-radius: 4px;
 }
 
 .navbar-logged-out-button {

@@ -62,10 +62,8 @@ const NavBar = () => {
       {
         sessionUser && (
           <div className='navbar-loggedin-container'>
-            <div>
-              <div className='navbar-create-business' onClick={() => history.push(`/create-business-form`)}>Create Business</div>
-            </div>
-            <div onClick={ () => history.push('/my-businesses')}> My Businesses </div>
+            <div className='navbar-create-business' onClick={() => history.push(`/create-business-form`)}>Create Business</div>
+            <div className='navbar-mybusinesses' onClick={ () => history.push('/my-businesses')}> My Businesses </div>
             <div className='navbar-logged-out-button'>
               <LogoutButton/>
             </div>
