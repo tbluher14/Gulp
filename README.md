@@ -31,7 +31,7 @@ Database:
 
 ## Site Resources: 
 
-* [Gulp Live Link]()
+* [Gulp Live Link](https://gulped.herokuapp.com/)
 * [API Routes](https://github.com/tbluher14/Gulp/wiki/API-Routes)
 * [Database Schema](https://github.com/tbluher14/Gulp/wiki/Database-Schema)
 * [MVP Features](https://github.com/tbluher14/Gulp/wiki/MVP-Features)
@@ -49,3 +49,7 @@ Login or Signup as a New User:
 Create/Edit/Delete A Business: 
 
 <img width="578" alt="Screen Shot 2022-10-21 at 11 49 19 AM" src="https://user-images.githubusercontent.com/97054477/197259137-425cb957-809c-4bac-b063-637dac491d65.png">
+
+<img width="524" alt="Screen Shot 2022-10-21 at 12 00 17 PM" src="https://user-images.githubusercontent.com/97054477/197259919-386510f8-255c-45e4-b5c2-2f4cbf9f3bc5.png">
+
+
