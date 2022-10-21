@@ -66,6 +66,7 @@
   width: 430px;
   font-family: 'Open Sans', sans-serif;
   justify-content: flex-end;
+  width:auto;
 }
 
 .nav-bar-logout-button {
