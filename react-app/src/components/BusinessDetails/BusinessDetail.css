@@ -128,7 +128,7 @@
 
 .business-detail-two-left-menuitems {
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   /* padding-bottom: 32px; */
   padding-bottom: 12px;
 }
