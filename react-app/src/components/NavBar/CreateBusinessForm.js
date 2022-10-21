@@ -36,7 +36,6 @@ function BusinessCreateForm() {
 
 
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
-  const webRegX = /\.(com|net|org|co|biz|info|gov)|^(com\/|net\/|org\/|co\/|biz\/|info\/|gov\/)$/
   const timeRegX = /^(0?[1-9]|1[0-2]):[0-5][0-9]$/
   const phoneRegX = /^\d{10}$/
   const zipRegX = /^\d{5}$/
@@ -52,12 +51,9 @@ function BusinessCreateForm() {
       //   errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
       // }
 
-
-
       if ((name.length < 1 || name.length > 255)) {
         errors.push("Business Name must be between 5 to 255 characters.")
       }
-
       if ((address.length < 1 || address.length > 255)) {
         errors.push("Business Address must be between 5 to 255 characters.")
       }
@@ -65,14 +61,15 @@ function BusinessCreateForm() {
       if ((city.length < 2 || city.length > 255)) {
         errors.push("City must be between 5 to 255 characters.")
       }
+
       if ((state.length < 2 || state.length > 255)) {
         errors.push("State must be between 5 to 255 characters.")
       }
       if ((country.length < 2 || country.length > 255)) {
         errors.push("Country must be between 4 and 255 characters.")
       }
-      if (((website.length < 1 || !website.match(webRegX)))) {
-        errors.push("Business Website must be a valid URL ( https:// )");
+      if (website.length < 1 || /^https:\/\//.test(website) === false && /^http:\/\//.test(website) === false) {
+        errors.push("Business Website must be a valid URL ( https:// or http:// )");
       }
       if ((!zipCode.match(zipRegX))) {
         errors.push("Zipcode must be 5 numbers")
@@ -147,7 +144,7 @@ function BusinessCreateForm() {
               ))}
             </div>
             <div className="input-container">
-            <label htmlFor='Business Name' className='form-field-labels'>Business Name</label>
+              <label htmlFor='Business Name' className='form-field-labels'>Business Name</label>
               <input className="form-field"
                 name="Business Name"
                 type="text"
@@ -158,7 +155,7 @@ function BusinessCreateForm() {
               />
             </div>
             <div className="input-container">
-            <label htmlFor='Business Address' className='form-field-labels'>Business Address</label>
+              <label htmlFor='Business Address' className='form-field-labels'>Business Address</label>
               <input className="form-field"
                 name="Business Address"
                 type="text"
@@ -169,7 +166,7 @@ function BusinessCreateForm() {
               />
             </div>
             <div className="input-container">
-            <label htmlFor='City' className='form-field-labels'>City</label>
+              <label htmlFor='City' className='form-field-labels'>City</label>
               <input className="form-field"
                 name="City"
                 type="text"
@@ -180,7 +177,7 @@ function BusinessCreateForm() {
               />
             </div>
             <div className="input-container">
-            <label htmlFor='State' className='form-field-labels'>State</label>
+              <label htmlFor='State' className='form-field-labels'>State</label>
               <input className="form-field"
                 name="State"
                 type="text"
@@ -191,7 +188,7 @@ function BusinessCreateForm() {
               />
             </div>
             <div className="input-container">
-            <label htmlFor='Country' className='form-field-labels'>Country</label>
+              <label htmlFor='Country' className='form-field-labels'>Country</label>
               <input className="form-field"
                 name='Country'
                 type="text"
@@ -202,7 +199,7 @@ function BusinessCreateForm() {
               />
             </div>
             <div className="input-container">
-            <label htmlFor='Zip Code' className='form-field-labels'>Zip Code</label>
+              <label htmlFor='Zip Code' className='form-field-labels'>Zip Code</label>
               <input className="form-field"
                 name='Zip Code'
                 type="text"
@@ -213,7 +210,7 @@ function BusinessCreateForm() {
               />
             </div>
             <div className="input-container">
-            <label htmlFor='Business Website' className='form-field-labels'>Business Website</label>
+              <label htmlFor='Business Website' className='form-field-labels'>Business Website</label>
               <input className="form-field"
                 name='Business Website'
                 type="text"
@@ -225,7 +222,7 @@ function BusinessCreateForm() {
             </div>
             <div className="input-container">
 
-            <label htmlFor='Open Time & Close Time' className='form-field-labels'>Open Time & Close Time</label>
+              <label htmlFor='Open Time & Close Time' className='form-field-labels'>Open Time & Close Time</label>
               <select className="select-form-field-time" value={open} onChange={(e) => setOpen(e.target.value)} placeholder="time" required>
                 <option value="" disabled selected>Open Time</option>
                 <option value='1:00'>1:00</option>
@@ -275,7 +272,7 @@ function BusinessCreateForm() {
 
             </div>
             <div className="input-container">
-            <label htmlFor='Business Phone' className='form-field-labels'>Business Phone</label>
+              <label htmlFor='Business Phone' className='form-field-labels'>Business Phone</label>
               <input className="form-field"
                 name='Business Phone'
                 type="text"
@@ -286,7 +283,7 @@ function BusinessCreateForm() {
               />
             </div>
             <div className="input-container">
-            <label htmlFor='Business Description' className='form-field-labels'>Business Description</label>
+              <label htmlFor='Business Description' className='form-field-labels'>Business Description</label>
               <input className="form-field"
                 name='Business Description'
                 type="text"
@@ -297,7 +294,7 @@ function BusinessCreateForm() {
               />
             </div>
             <div className="input-container">
-            <label htmlFor='Image' className='form-field-labels'>Image</label>
+              <label htmlFor='Image' className='form-field-labels'>Image</label>
               <input className="form-field"
                 name='Image'
                 type="text"

@@ -36,8 +36,6 @@ function BusinessEditForm() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
-  // const webRegX = /\.(com|net|org|co|biz|info|gov)|^(com\/|net\/|org\/|co\/|biz\/|info\/|gov\/)$/
-  const webRegX = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)$/
   const timeRegX = /^(0?[1-9]|1[0-2]):[0-5][0-9]$/
   const phoneRegX = /^\d{10}$/
   const zipRegX = /^\d{5}$/
@@ -77,8 +75,8 @@ function BusinessEditForm() {
       if ((country.length < 2 || country.length > 255)) {
         errors.push("Country must be between 4 and 255 characters.")
       }
-      if (website.length < 1 || !website.match(webRegX)) {
-        errors.push("Business Website must be a valid URL ( https:// )");
+      if (website.length < 1 || /^https:\/\//.test(website) === false && /^http:\/\//.test(website) === false) {
+        errors.push("Business Website must be a valid URL ( https:// or http:// )");
       }
       if ((!zipCode.match(zipRegX))) {
         errors.push("Zipcode must be 5 numbers")
