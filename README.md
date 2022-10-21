@@ -40,20 +40,20 @@ Database:
 
 
 ## Features: 
-Login or Signup as a New User: 
+## Login or Signup as a New User: 
 
 <img width="577" alt="Screen Shot 2022-10-21 at 11 44 04 AM" src="https://user-images.githubusercontent.com/97054477/197257179-7cb27071-df91-428e-a458-2f7202830e56.png">
 <img width="578" alt="Screen Shot 2022-10-21 at 11 44 14 AM" src="https://user-images.githubusercontent.com/97054477/197257397-70e39350-5101-4aac-889b-9c408cd65eff.png">
 
 
-Create/Edit/Delete A Business: 
+## Create/Edit/Delete A Business: 
 
 <img width="578" alt="Screen Shot 2022-10-21 at 11 49 19 AM" src="https://user-images.githubusercontent.com/97054477/197259137-425cb957-809c-4bac-b063-637dac491d65.png">
 
 <img width="524" alt="Screen Shot 2022-10-21 at 12 00 17 PM" src="https://user-images.githubusercontent.com/97054477/197259919-386510f8-255c-45e4-b5c2-2f4cbf9f3bc5.png">
 
 
-Add/Delete Menu Items as a Business Owner: 
+## Add/Delete Menu Items as a Business Owner: 
 
 <img width="294" alt="Screen Shot 2022-10-21 at 12 01 31 PM" src="https://user-images.githubusercontent.com/97054477/197260221-9220b1fb-0fc5-4594-b17b-f493179115b8.png">
 <img width="615" alt="Screen Shot 2022-10-21 at 12 00 59 PM" src="https://user-images.githubusercontent.com/97054477/197260222-233f0ddf-5059-4fae-8194-7735a312265a.png">
