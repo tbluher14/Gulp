@@ -36,8 +36,7 @@ function BusinessEditForm() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
-  const webRegX = /\.(com|net|org|co|biz|info|gov|\bcom\/|\bnet\/|\borg\/|\bco\/|\bbiz\/|\binfo\/|\bgov\/)$/
-  // const webRegX = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi
+  const webRegX = /\.(com|net|org|co|biz|info|gov)|^(com\/|net\/|org\/|co\/|biz\/|info\/|gov\/)$/
   const timeRegX = /^(0?[1-9]|1[0-2]):[0-5][0-9]$/
   const phoneRegX = /^\d{10}$/
   const zipRegX = /^\d{5}$/
@@ -78,9 +77,12 @@ function BusinessEditForm() {
       if ((country.length < 2 || country.length > 255)) {
         errors.push("Country must be between 4 and 255 characters.")
       }
-      if (((website.length < 1 || !website.split('/')[0].match(webRegX)))) {
+      if (((website.length < 1 || !website.match(webRegX)))) {
         errors.push("Business Website must be a valid URL ( https:// )");
       }
+      // if (((website.length < 1 || !website.split('/')[0].match(webRegX)))) {
+      //   errors.push("Business Website must be a valid URL ( https:// )");
+      // }
       if ((!zipCode.match(zipRegX))) {
         errors.push("Zipcode must be 5 numbers")
       }
