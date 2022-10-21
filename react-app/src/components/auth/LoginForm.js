@@ -45,11 +45,19 @@ const LoginForm = () => {
 
   return (
     <div className='form-outer-container'>
-      <form
-        onSubmit={onLogin}
-        className='form-container'>
+      <form onSubmit={onLogin}>
+      <div className='form-header'>Log In</div>
+      <div className='form-container'>
+        <div className='errors_container'>
+          {errors.map((error, ind) => (
+            <div className="errorMessageContainer" key={ind}>
+              <i class="fa-solid fa-exclamation exclamation-point"></i>
+              <div className="errorMessage">{error}</div>
+            </div>
+          ))}
+        </div>
         <div>
-          <label htmlFor='email' className='form-field-labels'>Email</label>
+          <label htmlFor='email' className='form-field-labels'>Email:</label>
           <input
             name='email'
             className='form-field'
@@ -60,8 +68,9 @@ const LoginForm = () => {
             onChange={updateEmail}
           />
         </div>
+
         <div>
-          <label htmlFor='password' className='form-field-labels'>Password</label>
+          <label htmlFor='password' className='form-field-labels'>Password:</label>
           <input
             name='password'
             type='password'
@@ -74,19 +83,10 @@ const LoginForm = () => {
         </div>
 
         {/* <div className='login-button-container'> */}
-          <button type='submit' className='login-button'>Login</button>
-          <button onClick={() => { setEmail("demolition@aa.io"); setPassword("password") }}
-            type="submit" className='login-button'>Demo User</button>
+        <button type='submit' className='login-button'>Login</button>
+        <button onClick={() => { setEmail("demolition@aa.io"); setPassword("password") }}
+          type="submit" className='login-button'>Demo User</button>
         {/* </div> */}
-
-
-        <div className='errors_container'>
-          {errors.map((error, ind) => (
-            <div className="errorMessageContainer" key={ind}>
-              <i class="fa-solid fa-exclamation exclamation-point"></i>
-              <div className="errorMessage">{error}</div>
-            </div>
-          ))}
         </div>
       </form>
 

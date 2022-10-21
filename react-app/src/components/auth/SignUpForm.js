@@ -91,7 +91,7 @@ const SignUpForm = () => {
   return (
     <div className='form-outer-container'>
       <form onSubmit={onSignUp}>
-        <div className='form-header'>Sign Up For Gulp!</div>
+        <div className='form-header'>Sign Up For Gulped!</div>
         <div className='form-container'>
           <div className='errors_container'>
             {submitted && errors.map((error, ind) => (
