@@ -1,14 +1,15 @@
 .menu-item-card {
     height: 201px;
     width: 192px;
-    margin-right: 16px;
+    margin-right: 20px;
+    margin-left: 20px;
     font-family: 'Open Sans', sans-serif;
     margin-bottom: 50px;
 }
 
 .menu-item-image {
     display: flex;
-    width: 184px;
+    width: 192px;
     height: 150px;
     margin-bottom: 16px;
     border-radius: 4px;

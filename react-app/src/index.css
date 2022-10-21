@@ -77,6 +77,11 @@
   justify-content: center;
   margin-top: 12px;
 }
+
+a {
+  text-decoration: none;
+  color: #ff0000;
+}
 /* #modal {
   position: fixed;
   top: 0;
