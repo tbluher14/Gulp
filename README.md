@@ -54,6 +54,7 @@ Create/Edit/Delete A Business:
 
 
 Add/Delete Menu Items as a Business Owner: 
+
 <img width="294" alt="Screen Shot 2022-10-21 at 12 01 31 PM" src="https://user-images.githubusercontent.com/97054477/197260221-9220b1fb-0fc5-4594-b17b-f493179115b8.png">
 <img width="615" alt="Screen Shot 2022-10-21 at 12 00 59 PM" src="https://user-images.githubusercontent.com/97054477/197260222-233f0ddf-5059-4fae-8194-7735a312265a.png">
 
