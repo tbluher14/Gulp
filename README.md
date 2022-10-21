@@ -42,8 +42,8 @@ Database:
 ## Features: 
 Login or Signup as a New User: 
 
-<img width="577" alt="Screen Shot 2022-10-21 at 11 44 04 AM" src="https://user-images.githubusercontent.com/97054477/197257179-7cb27071-df91-428e-a458-2f7202830e56.png"><
-img width="577" alt="Screen Shot 2022-10-21 at 11 44 04 AM" src="https://user-images.githubusercontent.com/97054477/197257211-8516c4b1-31a1-43bb-9485-98f13d4dc05e.png">
+<img width="577" alt="Screen Shot 2022-10-21 at 11 44 04 AM" src="https://user-images.githubusercontent.com/97054477/197257179-7cb27071-df91-428e-a458-2f7202830e56.png">
+<img width="577" alt="Screen Shot 2022-10-21 at 11 44 04 AM" src="https://user-images.githubusercontent.com/97054477/197257211-8516c4b1-31a1-43bb-9485-98f13d4dc05e.png">
 
 
 
