@@ -19,6 +19,7 @@ import EditReviewForm from './components/Reviews/EditReviewForm';
 import QueriedBusiness from './components/QueriedBusiness/QueriedBusiness';
 import MenuItemsPage from './components/MenuItemsPage';
 import CreateMenuItemForm from './components/MenuItemsPage/CreateMenuItem'
+import MyBusinesses from './components/NavBar/MyBusinesses';
 //
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -83,6 +84,9 @@ function App() {
         </Route>
         <Route path='/search'>
           <QueriedBusiness />
+        </Route>
+        <Route path='/my-businesses'>
+          <MyBusinesses />
         </Route>
       </Switch>
     </BrowserRouter>

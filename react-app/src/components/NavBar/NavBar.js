@@ -6,6 +6,7 @@ import BusinessCreateForm from './CreateBusinessForm';
 import logo from './gulpedpic.jpg'
 import './NavBar.css'
 import { searchBusinessThunk } from '../../store/querybusiness';
+import MyBusinesses from './MyBusinesses';
 
 const NavBar = () => {
 
@@ -14,7 +15,7 @@ const NavBar = () => {
   const history = useHistory()
 
   const [search, setSearch] = useState("");
-  
+
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -64,6 +65,7 @@ const NavBar = () => {
             <div>
               <div className='navbar-create-business' onClick={() => history.push(`/create-business-form`)}>Create Business</div>
             </div>
+            <div onClick={ () => history.push('/my-businesses')}> My Businesses </div>
             <div className='navbar-logged-out-button'>
               <LogoutButton/>
             </div>
