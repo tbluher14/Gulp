@@ -15,14 +15,8 @@ const EditReviewForm = () => {
   const user = useSelector(state => (state.session.user))
   const reviews = useSelector(state => (state.review))
 
-  // console.log('this is businessId', businessId)
-  // console.log('this is reviewId', reviewId)
-
-  // console.log('this is reviews', reviews)
-
   const currentReview = reviews[reviewId.reviewId]
 
-  // console.log('this is currentReview', currentReview)
 
   const [review, setReview] = useState(currentReview?.review)
   const [rating, setRating] = useState(currentReview?.rating)
@@ -79,7 +73,7 @@ const EditReviewForm = () => {
       <div className="createReviewError">
           {submitted && (errors).map((error, i) => (
             <div className="errorMessageContainer" key={i}>
-              <i class="fa-solid fa-exclamation exclamation-point"></i>
+              <i className="fa-solid fa-exclamation exclamation-point"></i>
               <div className="errorMessage">{error}</div>
             </div>
           ))}

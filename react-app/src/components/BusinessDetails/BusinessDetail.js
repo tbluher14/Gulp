@@ -64,11 +64,13 @@ const BusinessesDetails = () => {
 
   useEffect((e) => {
 
-    dispatch(getAllUsersThunk())
-    dispatch(getAllBusinessesThunk())
-      .then(() => setIsLoaded(true))
-    dispatch(getAllReviewsThunk())
-    dispatch(getAllMenuItemsThunk())
+    (async ()=> {
+      await dispatch(getAllUsersThunk())
+      await dispatch(getAllBusinessesThunk())
+      await setIsLoaded(true)
+      await dispatch(getAllReviewsThunk())
+      await dispatch(getAllMenuItemsThunk())
+    })();
   }, [])
 
   if (!isLoaded) return null
@@ -107,7 +109,7 @@ const BusinessesDetails = () => {
           <div className='business-detail-image-text-container'>
             <div className='business-detail-image-text-inner-container'>
               <div className='business-detail-image-text-name'>{currentBusiness?.name}</div>
-              <div className='business-detail-image-text-review'><i class="fa-solid fa-star"></i>{businessReviewsArray.length ? averageReview(businessReviewsArray) : "No Reviews Yet!"}</div>
+              <div className='business-detail-image-text-review'><i className="fa-solid fa-star"></i>{businessReviewsArray.length ? averageReview(businessReviewsArray) : "No Reviews Yet!"}</div>
               <div className='business-detail-image-text-hours'>
                 {/* <div className='business-detail-image-text-hours-open'>{currentBusiness?.open < currentTime ? "Closed" : "Open" && currentBusiness?.close> currentTime ? "Closed": "Open"}</div> */}
                 <div className='business-detail-image-text-hours-open'>Hours Today:</div>
@@ -131,7 +133,7 @@ const BusinessesDetails = () => {
                   )}
                   {user?.id !== currentBusiness?.owner_id && !userReview.length && (
                     <button className='business-detail-review-button' onClick={reviewBusiness(currentBusiness?.id)}>
-                      <i class="fa-regular fa-star"></i> Write a Review</button>
+                      <i className="fa-regular fa-star"></i> Write a Review</button>
                   )}
 
                 </div>
@@ -149,23 +151,11 @@ const BusinessesDetails = () => {
                     </div>
                     <div className='business-detail-two-left-menuitems'>
                       {threeMenuItems.map(menuItems => (
-                        <MenuItemCard menuItems={menuItems}></MenuItemCard>
+                        <MenuItemCard menuItems={menuItems} key={menuItems.id}></MenuItemCard>
                       ))}
-
-                      {/* {user?.id == currentBusiness?.owner_id && ( */}
-                      {/* <button className='business-detail-edit-button' onClick={history.push(`/businesses/menu/${businessId}`)}>Edit Menu</button> */}
-                      {/* )} */}
-
                     </div>
                   </div>
                 </div>
-
-                {/* <div onClick={history.push(`/businesses/menu/${businessId}`)}>test</div> */}
-
-                {/* {user?.id == currentBusiness?.owner_id && (
-                <button onClick={() => history.push(`/businesses/menu/${businessId.businessId}`)}>Edit Menu</button>
-                )} */}
-
                 <div className='business-detail-two-left-location-hours-container'>
                   <div className='business-detail-two-left-location-hours-header'>Business Hours:</div>
                   <div> Monday: {currentBusiness?.open} {currentBusiness?.ampmopen} - {currentBusiness?.close} {currentBusiness.ampmclose}</div>
@@ -193,11 +183,11 @@ const BusinessesDetails = () => {
               <div className='business-detail-two-right-box'>
 
                 <div className='business-detail-two-right-box-website'><a href={currentBusiness?.website} target="_blank">Business Website</a>
-                  <i class="fa-solid fa-share-from-square"></i>
+                  <i className="fa-solid fa-share-from-square"></i>
                 </div>
 
                 <div className='business-detail-phone'>{formattedPhone}
-                  <i class="fa-solid fa-phone-volume"></i>
+                  <i className="fa-solid fa-phone-volume"></i>
                 </div>
 
                 <div className='business-detail-two-right-box-direction'>
@@ -211,7 +201,7 @@ const BusinessesDetails = () => {
                   </div>
 
                   <div className='business-detail-direction'>
-                    <i class="fa-regular fa-map"></i>
+                    <i className="fa-regular fa-map"></i>
                   </div>
                 </div>
 

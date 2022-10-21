@@ -13,8 +13,7 @@ function BusinessEditForm() {
   const { businessId } = useParams();
 
   const business = businesses[businessId];
-  // console.log("this is businessID in react", businessId)
-  // console.log("this is business in react", business)
+
 
   const [name, setName] = useState(business?.name || "");
   const [address, setAddress] = useState(business?.address || "");
@@ -139,7 +138,7 @@ function BusinessEditForm() {
             <div className="create_errors">
               {submitted && (errors).map((error, i) => (
                 <div className="errorMessageContainer" key={i}>
-                  <i class="fa-solid fa-exclamation exclamation-point"></i>
+                  <i className="fa-solid fa-exclamation exclamation-point"></i>
                   <div className="errorMessage">{error}</div>
                 </div>
               ))}
@@ -225,7 +224,7 @@ function BusinessEditForm() {
 
             <label htmlFor='Open Time & Close Time' className='form-field-labels'>Open Time & Close Time</label>
               <select className="select-form-field-time" value={open} onChange={(e) => setOpen(e.target.value)} placeholder="time" required>
-                <option value="" disabled selected>Open Time</option>
+                <option value="">Open Time</option>
                 <option value='1:00'>1:00</option>
                 <option value='2:00'>2:00</option>
                 <option value='3:00'>3:00</option>
@@ -241,7 +240,7 @@ function BusinessEditForm() {
               </select>
 
               <select className="select-form-field-time" value={ampmopen} onChange={(e) => setAmpmopen(e.target.value)} required>
-                <option value='' disabled selected>AM | PM</option>
+                <option value=''>AM | PM</option>
                 <option value='AM'>AM</option>
                 <option value='PM'>PM</option>
               </select>
@@ -250,7 +249,7 @@ function BusinessEditForm() {
             <div className="input-container">
 
               <select className="select-form-field-time" value={close} onChange={(e) => setClose(e.target.value)} required>
-                <option value="" disabled selected>Close Time</option>
+                <option value="">Close Time</option>
                 <option value='1:00'>1:00</option>
                 <option value='2:00'>2:00</option>
                 <option value='3:00'>3:00</option>
@@ -266,7 +265,7 @@ function BusinessEditForm() {
               </select>
 
               <select className="select-form-field-time" value={ampmclose} onChange={(e) => setAmpmclose(e.target.value)} required>
-                <option value='' disabled selected>AM | PM</option>
+                <option value=''>AM | PM</option>
                 <option value='AM'>AM</option>
                 <option value='PM'>PM</option>
               </select>

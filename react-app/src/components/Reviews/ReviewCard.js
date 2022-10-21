@@ -23,7 +23,6 @@ const ReviewCard = ({ review }) => {
   const date = new Date()
   const newDate = date.toString()
   const specificDate = newDate.split(1,19)
-  console.log(specificDate)
 
   return (
     <div className='review-card-container'>

@@ -96,7 +96,7 @@ const SignUpForm = () => {
           <div className='errors_container'>
             {submitted && errors.map((error, ind) => (
               <div className="errorMessageContainer" key={ind}>
-                <i class="fa-solid fa-exclamation exclamation-point"></i>
+                <i className="fa-solid fa-exclamation exclamation-point"></i>
                 <div className="errorMessage">{error}</div>
               </div>
             ))}

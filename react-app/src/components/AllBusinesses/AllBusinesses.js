@@ -22,16 +22,14 @@ const AllBusinesses = () => {
         dispatch(getAllUsersThunk())
     }, [])
 
-    // console.log("this is businessesssssss", businesses)
+
 
     return (
         <div className='all-business-container'>
             {Object.values(businesses).map((business) => (
-                <>
-                <div className='all-businesses-card-container'>
+                <div className='all-businesses-card-container' key={business.id}>
                     <BusinessCard key={business.id} business={business}/>
                 </div>
-                </>
             ))}
         </div>
     )

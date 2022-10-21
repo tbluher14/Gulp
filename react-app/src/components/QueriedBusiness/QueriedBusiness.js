@@ -15,7 +15,6 @@ const QueriedBusiness = () => {
   const query = new URLSearchParams(search).get("name");
 
   const url = useLocation().search
-  // console.log("URL******", url)
 
 
   useEffect(() => {
@@ -39,8 +38,8 @@ const QueriedBusiness = () => {
           {queriedBusinessesArr.length} business found for "{query}"
         </div>
           {queriedBusinessesArr.map((business) => (
-            <div className='all-businesses-card-container'>
-              <BusinessCard business={business}/>
+            <div className='all-businesses-card-container' key={business}>
+              <BusinessCard business={business} key={business}/>
             </div>
           ))}
       </div>

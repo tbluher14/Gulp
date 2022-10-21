@@ -38,13 +38,11 @@ export const getAllMenuItemsThunk = () => async (dispatch) => {
 
 // Create menu item thunk
 export const createMenuItemThunk = (menuItem) => async (dispatch) => {
-  console.log("THUNK IS RUNNING ")
   const res = await fetch(`/api/menu_items/create_menu_item`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(menuItem)
   })
-  console.log("THIS IS THE RES FROM THE THUNK", res)
   if (res.ok) {
     const menuItem = await res.json()
     dispatch(createMenuItemAC(menuItem))
@@ -73,7 +71,6 @@ const menuItemsReducer = (state = initialState, action) => {
   let newState = { ...state }
   switch (action.type) {
     case GET_ALL_MENU_ITEMS:
-      console.log('this is menu items action', action)
       action.payload.forEach(menuitem => {
         newState[menuitem.id] = menuitem
       })

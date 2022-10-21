@@ -30,7 +30,7 @@ const NavBar = () => {
   return (
     <div className='navbar-container'>
 
-      <div className='navbar-logo-container' exact to="/">
+      <div className='navbar-logo-container'>
         <img className='navbar-logo' src={logo} onClick={() => history.push(`/`)}></img>
       </div>
 
@@ -45,7 +45,7 @@ const NavBar = () => {
         </input>
 
         <button onClick={handleSearch} className='navbar-search-button'>
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
 

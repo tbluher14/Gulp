@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllBusinessesThunk } from "../../store/business";
+import { Redirect } from 'react-router-dom';
 import { getAllUsersThunk } from "../../store/users";
 import BusinessCard from "../BusinessCard";
 
@@ -9,21 +10,23 @@ const MyBusinesses = () => {
     const dispatch = useDispatch()
     const businesses = useSelector(state => state.business);
     const sessionUser = useSelector(state => state.session.user);
+    const [isLoaded, setIsLoaded] = useState(false);
     // const userBusinesses = businesses.filter(business => business.user_id === sessionUser.id)
-
-    const businessesArr = Object.values(businesses)
-    const userBusinesses = businessesArr.filter(business => business.owner_id === sessionUser.id)
-    console.log(userBusinesses)
     useEffect(() => {
+        dispatch(getAllUsersThunk()).then(() => setIsLoaded(true))
         dispatch(getAllBusinessesThunk())
-        dispatch(getAllUsersThunk())
     },[])
 
-    return (
+    if (!sessionUser) return <Redirect to="/" />;
+    const businessesArr = Object.values(businesses)
+    const userBusinesses = businessesArr.filter(business => business.owner_id === sessionUser.id)
+
+
+    return isLoaded && (
 
         < div>
         {userBusinesses.map(business => (
-            <BusinessCard business={business} />
+            <BusinessCard business={business} key={business.id}/>
         ))}
 
         </div>
