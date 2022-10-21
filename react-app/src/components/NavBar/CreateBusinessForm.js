@@ -35,8 +35,8 @@ function BusinessCreateForm() {
   console.log('this is close', close)
 
 
-  const imageRegX = /\.(jpeg|jpg|png|svg)$/
-  const webRegX = /\.(com|net|org|co|biz|info|gov)$/
+  const imageRegX = /\.*(com|jpeg|jpg|png|svg|)*$/
+  const webRegX = /\.(com|net|org|co|biz|info|gov)?$/
   const timeRegX = /^(0?[1-9]|1[0-2]):[0-5][0-9]$/
   const phoneRegX = /^\d{10}$/
   const zipRegX = /^\d{5}$/
@@ -90,7 +90,7 @@ function BusinessCreateForm() {
       if (description.length < 5 || description.length > 255) {
         errors.push("Description must be between 5 and 255 characters.")
       }
-      if (image.length < 1 || !image.split('?')[0].match(imageRegX)) {
+      if (image.length < 1 || !image.split('?')[0].match(imageRegX) || !image.split('/')[0].match(imageRegX)) {
         errors.push("Image must be a valid type: jpg, jpeg, png, or svg");
       }
       setErrors(errors)

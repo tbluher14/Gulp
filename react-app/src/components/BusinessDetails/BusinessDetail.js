@@ -100,7 +100,7 @@ const BusinessesDetails = () => {
             <img
               className='business-detail-image'
               src={currentBusiness?.image}
-              alt='business'
+              alt='Business Image'
             >
             </img>
           </div>
