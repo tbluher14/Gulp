@@ -28,7 +28,7 @@ const BusinessesDetails = () => {
   // Menu Items Logic
   const menu_itemsArr = Object.values(menu_items)
   const specific_menu = menu_itemsArr.filter(menuItem => menuItem?.business_id == currentBusiness?.id)
-  const specific_menuArr= Object.values(specific_menu)
+  const specific_menuArr = Object.values(specific_menu)
 
   let threeMenuItems = []
   if (specific_menuArr.length === 1) {
@@ -46,10 +46,11 @@ const BusinessesDetails = () => {
   const businessReviews = Object.values(reviews)
   const businessReviewsArray = businessReviews.filter(review => review?.business_id === currentBusiness?.id)
   const userReview = businessReviewsArray.filter(review => user?.id === review.user_id)
+  const businessWebsite = currentBusiness?.website
 
   const averageReview = (businessReviewsArray) => {
     let total = 0
-    for (let i = 0; i<businessReviewsArray.length; i++){
+    for (let i = 0; i < businessReviewsArray.length; i++) {
       total += businessReviewsArray[i].rating
     }
     return (total / businessReviewsArray.length).toFixed(2)
@@ -65,7 +66,7 @@ const BusinessesDetails = () => {
 
     dispatch(getAllUsersThunk())
     dispatch(getAllBusinessesThunk())
-    .then(() => setIsLoaded(true))
+      .then(() => setIsLoaded(true))
     dispatch(getAllReviewsThunk())
     dispatch(getAllMenuItemsThunk())
   }, [])
@@ -95,12 +96,14 @@ const BusinessesDetails = () => {
       <div className='business-detail-inner-container'>
 
         <div className='business-detail-one'>
-          <img
-            className='business-detail-image'
-            src={currentBusiness?.image}
-            alt='business'
-          >
-          </img>
+          <div id="image-container">
+            <img
+              className='business-detail-image'
+              src={currentBusiness?.image}
+              alt='business'
+            >
+            </img>
+          </div>
           <div className='business-detail-image-text-container'>
             <div className='business-detail-image-text-inner-container'>
               <div className='business-detail-image-text-name'>{currentBusiness?.name}</div>
@@ -122,10 +125,10 @@ const BusinessesDetails = () => {
 
                   {user?.id == currentBusiness?.owner_id && (
                     <button className='business-detail-edit-button' onClick={editBusiness(currentBusiness.id)}>Edit Business</button>
-                    )}
+                  )}
                   {user?.id == currentBusiness?.owner_id && (
                     <button className='business-detail-delete-button' onClick={removeBusiness(currentBusiness.id)}>Delete Business</button>
-                    )}
+                  )}
                   {user?.id !== currentBusiness?.owner_id && !userReview.length && (
                     <button className='business-detail-review-button' onClick={reviewBusiness(currentBusiness?.id)}>
                       <i class="fa-regular fa-star"></i> Write a Review</button>
@@ -150,8 +153,8 @@ const BusinessesDetails = () => {
                       ))}
 
                       {/* {user?.id == currentBusiness?.owner_id && ( */}
-                        {/* <button className='business-detail-edit-button' onClick={history.push(`/businesses/menu/${businessId}`)}>Edit Menu</button> */}
-                        {/* )} */}
+                      {/* <button className='business-detail-edit-button' onClick={history.push(`/businesses/menu/${businessId}`)}>Edit Menu</button> */}
+                      {/* )} */}
 
                     </div>
                   </div>
@@ -181,7 +184,7 @@ const BusinessesDetails = () => {
                 {reviews && (
                   businessReviewsArray.map((review) => (
                     <ReviewCard key={review.id} review={review} className='review-cards' />
-                )))}
+                  )))}
 
               </div>
             </div>
@@ -189,17 +192,17 @@ const BusinessesDetails = () => {
             <div className='business-detail-two-right'>
               <div className='business-detail-two-right-box'>
 
-                <div className='business-detail-two-right-box-website'>{currentBusiness?.website}
+                <div className='business-detail-two-right-box-website'><a href={currentBusiness?.website} target="_blank">Business Website</a>
                   <i class="fa-solid fa-share-from-square"></i>
                 </div>
 
                 <div className='business-detail-phone'>{formattedPhone}
-                 <i class="fa-solid fa-phone-volume"></i>
+                  <i class="fa-solid fa-phone-volume"></i>
                 </div>
 
                 <div className='business-detail-two-right-box-direction'>
                   <div>
-                    <div className='business-detail-two-right-box-direction-one'>Get Directions</div>
+                    <div className='business-detail-two-right-box-direction-one'>Address</div>
                     <div className='business-detail-two-right-box-direction-two'>
                       <div>{currentBusiness?.address}</div>
                       <div>{currentBusiness?.zipCode}</div>
@@ -219,7 +222,7 @@ const BusinessesDetails = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

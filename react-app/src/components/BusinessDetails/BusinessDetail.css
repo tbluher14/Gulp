@@ -10,6 +10,16 @@
 
 }
 
+#image-container::after {
+  background: linear-gradient(180deg, rgb(0,0,0,0), 50%, rgb(0,0,0));
+  content: "";
+  left: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+}
+
 .business-detail-image-text-container {
   width: 100%;
   max-width: 1144px;
@@ -117,7 +127,7 @@
 }
 
 .business-detail-view-menu-container {
-  margin-right: 32px;
+  margin-right: 5px;
   display: flex;
   cursor: pointer;
 }

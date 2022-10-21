@@ -22,10 +22,10 @@ const HomePage = () => {
           <div className='homepage-links-matt'>
             <div className='homepage-first-last-name'>Matt Fong</div>
             <div>
-              <a href='https://github.com/matt-fong'>
+              <a href='https://github.com/matt-fong' target="_blank">
                 <img className='home-page-github' src={github}></img>
               </a>
-              <a href='https://www.linkedin.com/in/matthewfongny/'>
+              <a href='https://www.linkedin.com/in/matthewfongny/' target="_blank">
                 <img className='home-page-linkedin' src={linkedin}></img>
               </a>
             </div>
@@ -34,10 +34,10 @@ const HomePage = () => {
           <div className='homepage-links-tom'>
             <div className='homepage-first-last-name'>Tom Bluher</div>
             <div>
-              <a href='https://github.com/tbluher14'>
+              <a href='https://github.com/tbluher14' target="_blank">
                 <img className='home-page-github' src={github}></img>
               </a>
-              <a href='https://www.linkedin.com/in/tom-bluher-172321115/'>
+              <a href='https://www.linkedin.com/in/tom-bluher-172321115/' target="_blank">
                 <img className='home-page-linkedin' src={linkedin}></img>
               </a>
             </div>
@@ -46,10 +46,10 @@ const HomePage = () => {
           <div className='homepage-links-will'>
             <div className='homepage-first-last-name'>Will Marett</div>
             <div>
-              <a href='https://github.com/codewjm'>
+              <a href='https://github.com/codewjm' target="_blank">
                 <img className='home-page-github' src={github}></img>
               </a>
-              <a href='https://www.linkedin.com/in/will-marett-a0b4b3188/'>
+              <a href='https://www.linkedin.com/in/will-marett-a0b4b3188/' target="_blank">
                 <img className='home-page-linkedin' src={linkedin}></img>
               </a>
             </div>
