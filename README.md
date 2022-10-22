@@ -42,9 +42,14 @@ Database:
 ## Features: 
 ## Login or Signup as a New User: 
 
-<img width="577" alt="Screen Shot 2022-10-21 at 11 44 04 AM" src="https://user-images.githubusercontent.com/97054477/197257179-7cb27071-df91-428e-a458-2f7202830e56.png">
 <img width="578" alt="Screen Shot 2022-10-21 at 11 44 14 AM" src="https://user-images.githubusercontent.com/97054477/197257397-70e39350-5101-4aac-889b-9c408cd65eff.png">
 
+- Sign up for our site with a valid email and user name and have access to all of Gulped's functionality
+
+<img width="577" alt="Screen Shot 2022-10-21 at 11 44 04 AM" src="https://user-images.githubusercontent.com/97054477/197257179-7cb27071-df91-428e-a458-2f7202830e56.png">
+
+- You can use you newly created account to log in
+- Or you can log in as a demo user 
 
 ## Create/Edit/Delete A Business: 
 
