@@ -16,10 +16,10 @@ const MenuItemCreateForm = () => {
     const [errors, setErrors] = useState([])
     const [submitted, setSubmitted] = useState(false);
     const user = useSelector((state) => state.session.user);
-    const decimalPrice = parseFloat(price).toFixed(2)
 
+    const decimalPrice = parseFloat(price).toFixed(2)
     const imageRegX = /\.(jpeg|jpg|png|svg)$/
-    const priceRegX = /^\s*-?\d+(\.\d{1,2})?\s*$/
+
 
     const imageLogic = (image_url) => {
         if (image_url) {
@@ -39,14 +39,14 @@ const MenuItemCreateForm = () => {
         }
         else {
 
-            if (price !== decimalPrice) {
-                errors.push("Must be a valid price: 0.00 ")
-            }
             if (name.length < 5 || name.length > 255) {
-                errors.push("Business Name must be between 5 and 255 characters.")
+                errors.push("business name: must be between 5 and 255 characters.")
+            }
+            if (price !== decimalPrice) {
+                errors.push("item price: must be a valid price ( 0.00 ).")
             }
             if (image_url.length < 1 || !image_url.split('?')[0].match(imageRegX)) {
-                errors.push("Image must be a valid type: jpg, jpeg, png, or svg");
+                errors.push("image url: must be a valid type: jpg, jpeg, png, or svg.");
             }
             setErrors(errors)
         }

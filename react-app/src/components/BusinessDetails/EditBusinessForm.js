@@ -36,7 +36,7 @@ function BusinessEditForm() {
 
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
   const timeRegX = /^(0?[1-9]|1[0-2]):[0-5][0-9]$/
-  const webRegX = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
+  const webRegX = /^(http(s)?:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
   const phoneRegX = /^\d{10}$/
   const zipRegX = /^\d{5}$/
 
@@ -80,7 +80,7 @@ function BusinessEditForm() {
       //   errors.push("business website: must be a valid URL ( https:// or http:// ).");
       // }
       if (website.length < 2 || !website.match(webRegX)) {
-        errors.push("business website: must be a valid URL ( https://example.ex ).");
+        errors.push("business website: must be a valid url ( https://example.ex ).");
       }
       if ((open < 0 || open > 13 || !open.match(timeRegX))) {
         errors.push('open time: please select an open time.')

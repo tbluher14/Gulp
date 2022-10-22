@@ -31,8 +31,11 @@ const ReviewForm = () => {
     //   errors.push('Rating must be a number')
     // }
 
+    if (rating < 1 || rating > 5) {
+      errors.push("rating: must be between 1 and 5.");
+    }
     if (review.length > 255 || review.length < 10) {
-      errors.push("Review must be between 10 to 255 Characters");
+      errors.push("review: must be between 10 and 255 Characters.");
     }
 
     setErrors(errors)
@@ -77,8 +80,8 @@ const ReviewForm = () => {
           <input
             type="number"
             className="form-field"
-            min="1"
-            max="5"
+            // min="1"
+            // max="5"
             placeholder="Rating"
             onChange={(e) => setRating(e.target.value)}
             required

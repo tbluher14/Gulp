@@ -70,7 +70,7 @@ function BusinessCreateForm() {
       //   errors.push("business website: must be a valid URL ( https:// or http:// ).");
       // }
       if (website.length < 2 || !website.match(webRegX)) {
-        errors.push("business website: must be a valid URL ( https://example.ex ).");
+        errors.push("business website: must be a valid url ( https://example.ex ).");
       }
       if ((open < 0 || open > 13 || !open.match(timeRegX))) {
         errors.push('open time: please select an open time.')
