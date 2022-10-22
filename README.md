@@ -55,8 +55,11 @@ Database:
 
 <img width="578" alt="Screen Shot 2022-10-21 at 11 49 19 AM" src="https://user-images.githubusercontent.com/97054477/197259137-425cb957-809c-4bac-b063-637dac491d65.png">
 
+- List your business on Gulped! Fill out the required fields and click submit to be taken to your newly created Gulped page
+
 <img width="524" alt="Screen Shot 2022-10-21 at 12 00 17 PM" src="https://user-images.githubusercontent.com/97054477/197259919-386510f8-255c-45e4-b5c2-2f4cbf9f3bc5.png">
 
+- Make edits to your business as things change! 
 
 ## Add/Delete Menu Items as a Business Owner: 
 
