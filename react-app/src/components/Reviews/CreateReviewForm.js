@@ -45,6 +45,8 @@ const ReviewForm = () => {
     e.preventDefault();
     setSubmitted(true)
 
+    if (errors.length > 0) return
+
     const data = {
       user_id: user.id,
       business_id: Number(businessId.businessId),

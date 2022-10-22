@@ -38,7 +38,7 @@ const EditReviewForm = () => {
     //   errors.push('Rating must be a number')
     // }
 
-    if (rating && (rating < 1 || rating > 5)) {
+    if (rating < 1 || rating > 5) {
       errors.push("rating: must be between 1 and 5.");
     }
     if (review && (review.length > 255 || review.length < 10)) {
@@ -48,9 +48,12 @@ const EditReviewForm = () => {
     setErrors(errors)
   }, [review, rating])
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true)
+
+    if (errors.length > 0) return
 
     const data = {
       user_id: user.id,
@@ -58,6 +61,7 @@ const EditReviewForm = () => {
       review: review,
       rating: rating,
     }
+
 
 
     if (review.length <= 255 && review.length >= 10) {
