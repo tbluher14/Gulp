@@ -24,13 +24,6 @@ const MenuItemCard = ({ menuItems }) => {
         }
     }
 
-    // const menuPrice = useSelector(state => state.menuItems)
-    // console.log("menuPrice********", menuPrice)
-    // const menuPricearry
-    // const decPrice = menuPrice.price
-
-    // console.log("decprice********", decPrice)
-    // const conDecPrice = decPrice?.toFixed(2)
 
     return (
 
@@ -51,7 +44,7 @@ const MenuItemCard = ({ menuItems }) => {
                 )} */}
 
                 {sessionUser?.id == currentBusiness?.owner_id && (
-                    <i class="fa-solid fa-trash fa-lg menu-item-delete" onClick={() => dispatch(deleteMenuItemThunk(menuItems?.id))}></i>
+                    <i className="fa-solid fa-trash fa-lg menu-item-delete" onClick={() => dispatch(deleteMenuItemThunk(menuItems?.id))}></i>
                     // <button onClick={() => dispatch(deleteMenuItemThunk(menuItems?.id))}>Delete Menu Item</button>
                 )}
 

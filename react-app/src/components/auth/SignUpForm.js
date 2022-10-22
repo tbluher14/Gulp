@@ -29,7 +29,7 @@ const SignUpForm = () => {
       errors.push("Last Name must be between 1 and 50 characters")
     }
     if (!email.includes("@")) {
-      errors.push("Email must be valid email address")
+      errors.push("Email must be valid email address (ex: ex@gmail.com)")
     }
     if (username < 1 || username > 50) {
       errors.push("User Name must be between 1 and 50 characters")
@@ -42,7 +42,7 @@ const SignUpForm = () => {
     }
 
     setErrors(errors);
-  }, [password, confirmPassword]);
+  }, [first_name, last_name, email, username, password, confirmPassword]);
 
 
 
@@ -50,7 +50,7 @@ const SignUpForm = () => {
     e.preventDefault();
     setSubmitted(true);
 
-    // if (errors.length > 0) return
+    if (errors.length > 0) return
 
     if (password === confirmPassword) {
       const data = await dispatch(signUp(username, email, password, first_name, last_name));
@@ -96,7 +96,7 @@ const SignUpForm = () => {
           <div className='errors_container'>
             {submitted && errors.map((error, ind) => (
               <div className="errorMessageContainer" key={ind}>
-                <i class="fa-solid fa-exclamation exclamation-point"></i>
+                <i className="fa-solid fa-exclamation exclamation-point"></i>
                 <div className="errorMessage">{error}</div>
               </div>
             ))}

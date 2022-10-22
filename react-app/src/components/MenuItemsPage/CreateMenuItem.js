@@ -10,7 +10,6 @@ const MenuItemCreateForm = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const businessId = useParams()
-    console.log(businessId)
     const [name, setName] = useState('')
     const [price, setPrice] = useState('')
     const [image_url, setImageUrl] = useState('')
@@ -83,7 +82,7 @@ const MenuItemCreateForm = () => {
                 <div className="createReviewError">
                     {submitted && (errors).map((error, i) => (
                         <div className="errorMessageContainer" key={i}>
-                            <i class="fa-solid fa-exclamation exclamation-point"></i>
+                            <i className="fa-solid fa-exclamation exclamation-point"></i>
                             <div className="errorMessage">{error}</div>
                         </div>
                     ))}

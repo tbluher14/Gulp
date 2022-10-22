@@ -30,7 +30,7 @@ const NavBar = () => {
   return (
     <div className='navbar-container'>
 
-      <div className='navbar-logo-container' exact to="/">
+      <div className='navbar-logo-container'>
         <img className='navbar-logo' src={logo} onClick={() => history.push(`/`)}></img>
       </div>
 
@@ -45,7 +45,7 @@ const NavBar = () => {
         </input>
 
         <button onClick={handleSearch} className='navbar-search-button'>
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
 
@@ -62,10 +62,8 @@ const NavBar = () => {
       {
         sessionUser && (
           <div className='navbar-loggedin-container'>
-            <div>
-              <div className='navbar-create-business' onClick={() => history.push(`/create-business-form`)}>Create Business</div>
-            </div>
-            <div onClick={ () => history.push('/my-businesses')}> My Businesses </div>
+            <div className='navbar-create-business' onClick={() => history.push(`/create-business-form`)}>Create Business</div>
+            <div className='navbar-mybusinesses' onClick={ () => history.push('/my-businesses')}> My Businesses </div>
             <div className='navbar-logged-out-button'>
               <LogoutButton/>
             </div>

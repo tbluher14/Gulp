@@ -9,7 +9,6 @@ const ReviewForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const businessId = useParams()
-  console.log(businessId)
   const business = useSelector(state => (state.business))
   const businessArr = Object.values(business)
   const currentBusiness = businessArr.filter(bus => bus.id == businessId.businessId)
@@ -67,7 +66,7 @@ const ReviewForm = () => {
         <div className="createReviewError">
           {submitted && (errors).map((error, i) => (
             <div className="errorMessageContainer" key={i}>
-              <i class="fa-solid fa-exclamation exclamation-point"></i>
+              <i className="fa-solid fa-exclamation exclamation-point"></i>
               <div className="errorMessage">{error}</div>
             </div>
           ))}

@@ -47,7 +47,6 @@ export const createReviewThunk = (review) => async (dispatch) => {
     })
     if (res.ok) {
         const review = await res.json()
-        console.log("this is a NEW REVIEWWWWW", review)
         dispatch(createReviewAC(review))
         return res
     }
@@ -61,7 +60,6 @@ export const editReviewThunk = (review, reviewId) => async (dispatch) => {
     })
     if (res.ok) {
         const review = await res.json()
-        console.log('this is edited review', review)
         dispatch(updateReviewAC(review))
         return res
     }
@@ -93,17 +91,13 @@ const reviewReducer = (state = initialState, action) => {
             return newState
         case CREATE_REVIEW:
             newState = {...state}
-            console.log("this is new state for create review", newState)
             return newState
         case UPDATE_REVIEW:
             newState = {...state}
             newState[action.payload.id] = action.payload
-            // console.log("this is new state for update", newState)
-            // console.log('this is action for update', action)
             return newState
         case DELETE_REVIEW:
             newState={...state}
-            // console.log('this is action for delete', action)
             delete newState[action.payload]
             return newState
         default:
