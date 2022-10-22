@@ -21,7 +21,7 @@ def check_email_length(form, field):
 
 def check_email(form, field):
     if "@" not in field.data:
-        raise ValidationError('must be valid email address ( example@gmail.com ).')
+        raise ValidationError('must be valid email address ( example@ex.com ).')
 
 def check_fname_length(form, field):
     if len(field.data)<2 or len(field.data)>50:
