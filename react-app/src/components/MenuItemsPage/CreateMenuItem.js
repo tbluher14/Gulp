@@ -40,7 +40,7 @@ const MenuItemCreateForm = () => {
         else {
 
             if (name.length < 5 || name.length > 255) {
-                errors.push("business name: must be between 5 and 255 characters.")
+                errors.push("item name: must be between 5 and 255 characters.")
             }
             if (price !== decimalPrice) {
                 errors.push("item price: must be a valid price ( 0.00 ).")
