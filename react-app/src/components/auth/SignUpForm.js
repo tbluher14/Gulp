@@ -23,25 +23,25 @@ const SignUpForm = () => {
     let errors = [];
 
     if (first_name.length < 2 || first_name.length > 50) {
-      errors.push("first name: First Name must be between 2 and 50 characters")
+      errors.push("first name: must be between 2 and 50 characters.")
     }
     if (last_name.length < 2 || last_name.length > 50) {
-      errors.push("last name: Last Name must be between 2 and 50 characters")
+      errors.push("last name: must be between 2 and 50 characters.")
     }
     if (!email.match(emailRegX)) {
-      errors.push("email: Email must be valid email address (ex: ex@gmail.com)")
+      errors.push("email: must be valid email address ( example@gmail.com ).")
     }
     if (email.length < 2 || email.length > 50) {
-      errors.push("email: Email must be between 2 and 50 characters")
+      errors.push("email: must be between 2 and 50 characters.")
     }
     if (username.length < 2 || username.length > 50) {
-      errors.push("username: Username must be between 2 and 50 characters")
-    }
-    if (password !== confirmPassword) {
-      errors.push('password: Passwords must match');
+      errors.push("username: must be between 2 and 50 characters.")
     }
     if (password.length < 6 || password.length > 50) {
-      errors.push('password: Password must be between 6 and 50 characters');
+      errors.push('password: must be between 6 and 50 characters.');
+    }
+    if (password !== confirmPassword) {
+      errors.push('password: passwords must match.');
     }
 
     setErrors(errors);
@@ -127,7 +127,7 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div>
-            <label className='form-field-labels'>User Name:</label>
+            <label className='form-field-labels'>Username:</label>
             <input
               type='text'
               className="form-field"

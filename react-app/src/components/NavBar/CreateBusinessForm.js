@@ -33,6 +33,7 @@ function BusinessCreateForm() {
 
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
   const timeRegX = /^(0?[1-9]|1[0-2]):[0-5][0-9]$/
+  const webRegX = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
   const phoneRegX = /^\d{10}$/
   const zipRegX = /^\d{5}$/
 
@@ -47,43 +48,44 @@ function BusinessCreateForm() {
       //   errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
       // }
 
-      if ((name.length < 2 || name.length > 255)) {
-        errors.push("business name: must be between 2 to 255 characters.")
+      if ((name.length < 2 || name.length > 50)) {
+        errors.push("business name: must be between 2 and 50 characters.")
       }
-      if ((address.length < 2 || address.length > 255)) {
-        errors.push("business address: must be between 2 to 255 characters.")
+      if ((address.length < 2 || address.length > 50)) {
+        errors.push("business address: must be between 2 and 50 characters.")
       }
-
-      if ((city.length < 2 || city.length > 255)) {
-        errors.push("city: must be between 5 to 255 characters.")
+      if ((city.length < 2 || city.length > 50)) {
+        errors.push("city: must be between 2 and 50 characters.")
       }
-
-      if ((state.length < 2 || state.length > 255)) {
-        errors.push("state: must be between 5 to 255 characters.")
+      if ((state.length < 2 || state.length > 50)) {
+        errors.push("state: must be between 2 and 50 characters.")
       }
-      if ((country.length < 2 || country.length > 255)) {
-        errors.push("country: must be between 4 and 255 characters.")
-      }
-      if (website.length < 1 || /^https:\/\//.test(website) === false && /^http:\/\//.test(website) === false) {
-        errors.push("business website: must be a valid URL ( https:// or http:// )");
+      if ((country.length < 2 || country.length > 50)) {
+        errors.push("country: must be between 2 and 50 characters.")
       }
       if ((!zipCode.match(zipRegX))) {
-        errors.push("Zipcode must be 5 numbers")
+        errors.push("zipcode: must be 5 numbers")
+      }
+            // if (website.length < 2 || /^https:\/\//.test(website) === false && /^http:\/\//.test(website) === false) {
+      //   errors.push("business website: must be a valid URL ( https:// or http:// ).");
+      // }
+      if (website.length < 2 || !website.match(webRegX)) {
+        errors.push("business website: must be a valid URL ( https://example.ex ).");
       }
       if ((open < 0 || open > 13 || !open.match(timeRegX))) {
-        errors.push('Please select an opening time')
+        errors.push('open time: please select an open time.')
       }
       if ((close < 0 || close > 13 || !close.match(timeRegX))) {
-        errors.push('Please select a closing time')
+        errors.push('close time: please select a close time.')
       }
       if ((phone.length !== 10 || !phone.match(phoneRegX))) {
-        errors.push("Business Phone must be 10 sequential numbers (ex: 1234567890)")
+        errors.push("business phone: must be 10 sequential numbers ( 1234567890 ).")
       }
       if ((description.length < 5 || description.length > 500)) {
-        errors.push("Description must be between 5 to 255 characters.")
+        errors.push("description: must be between 5 and 500 characters.")
       }
-      if ((image.length < 1 || !image.split('?')[0].match(imageRegX) && !image.includes("https://images.unsplash.com/photo"))) {
-        errors.push("Image must be a valid type: jpg, jpeg, png, svg")
+      if ((image.length < 2 || !image.split('?')[0].match(imageRegX) && !image.includes("https://images.unsplash.com/photo"))) {
+        errors.push("image: must be a valid type: jpg, jpeg, png, svg.")
       }
       setErrors(errors)
     }
