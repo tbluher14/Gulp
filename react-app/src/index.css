@@ -157,3 +157,9 @@ h2 {
   margin-bottom: 12px;
   margin-left: 19px;
 } */
+
+.no-businesses{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

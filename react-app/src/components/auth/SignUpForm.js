@@ -17,28 +17,31 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const [submitted, setSubmitted] = useState(false);
 
-
+  // const emailRegX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 
   useEffect(() => {
     let errors = [];
 
-    if (first_name.length < 1 || first_name.length > 50) {
-      errors.push("First Name must be between 1 and 50 characters")
+    if (first_name.length < 2 || first_name.length > 50) {
+      errors.push("first name: First Name must be between 2 and 50 characters")
     }
-    if (last_name.length < 1 || last_name.length > 50) {
-      errors.push("Last Name must be between 1 and 50 characters")
+    if (last_name.length < 2 || last_name.length > 50) {
+      errors.push("last name: Last Name must be between 2 and 50 characters")
     }
-    if (!email.includes("@")) {
-      errors.push("Email must be valid email address (ex: ex@gmail.com)")
-    }
-    if (username < 1 || username > 50) {
-      errors.push("User Name must be between 1 and 50 characters")
+    // if (!email.match(emailRegX)) {
+    //   errors.push("email: Email must be valid email address (ex: ex@gmail.com)")
+    // }
+    // if (!email.includes("@")) {
+    //   errors.push("email: Email must be valid email address (ex: ex@gmail.com)")
+    // }
+    if (username.length < 2 || username.length > 50) {
+      errors.push("user name: User Name must be between 2 and 50 characters")
     }
     if (password !== confirmPassword) {
-      errors.push('Passwords must match');
+      errors.push('password: Passwords must match');
     }
-    if (password.length < 1) {
-      errors.push('Password must be at least 1 characters');
+    if (password.length < 6 || password.length > 50) {
+      errors.push('password: Password must be between 6 and 50 characters');
     }
 
     setErrors(errors);

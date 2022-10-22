@@ -30,9 +30,11 @@ const MenuItemsPage = () => {
     <div className="menuitems-outer-container">
       <div className="form-header">Menu</div>
       <div className="menuitemspage-container" id="menuitemspage-container">
-        {specific_menuArr.map(menuItems => (
+      {specific_menuArr.length <1 ? <h2>No Menu Items Yet!</h2> :
+        specific_menuArr.map(menuItems => (
           <MenuItemCard menuItems={menuItems}></MenuItemCard>
         ))}
+
       </div>
 
       <div className="menu-item-button-container">
