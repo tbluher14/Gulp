@@ -20,6 +20,7 @@ import QueriedBusiness from './components/QueriedBusiness/QueriedBusiness';
 import MenuItemsPage from './components/MenuItemsPage';
 import CreateMenuItemForm from './components/MenuItemsPage/CreateMenuItem'
 import MyBusinesses from './components/NavBar/MyBusinesses';
+import FourOFour from './components/404Page/404Page';
 //
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -87,6 +88,9 @@ function App() {
         </Route>
         <Route path='/my-businesses'>
           <MyBusinesses />
+        </Route>
+        <Route>
+          <FourOFour />
         </Route>
       </Switch>
     </BrowserRouter>

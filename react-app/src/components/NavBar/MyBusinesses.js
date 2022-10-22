@@ -25,7 +25,9 @@ const MyBusinesses = () => {
     return isLoaded && (
 
         < div>
-        {userBusinesses.map(business => (
+        {
+        userBusinesses.length < 1 ? <h2 className="no-businesses">No Businesses Yet!</h2> :
+        userBusinesses.map(business => (
             <BusinessCard business={business} key={business.id}/>
         ))}
 
