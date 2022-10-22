@@ -47,25 +47,25 @@ function BusinessCreateForm() {
       //   errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
       // }
 
-      if ((name.length < 1 || name.length > 255)) {
-        errors.push("Business Name must be between 5 to 255 characters.")
+      if ((name.length < 2 || name.length > 255)) {
+        errors.push("business name: must be between 2 to 255 characters.")
       }
-      if ((address.length < 1 || address.length > 255)) {
-        errors.push("Business Address must be between 5 to 255 characters.")
+      if ((address.length < 2 || address.length > 255)) {
+        errors.push("business address: must be between 2 to 255 characters.")
       }
 
       if ((city.length < 2 || city.length > 255)) {
-        errors.push("City must be between 5 to 255 characters.")
+        errors.push("city: must be between 5 to 255 characters.")
       }
 
       if ((state.length < 2 || state.length > 255)) {
-        errors.push("State must be between 5 to 255 characters.")
+        errors.push("state: must be between 5 to 255 characters.")
       }
       if ((country.length < 2 || country.length > 255)) {
-        errors.push("Country must be between 4 and 255 characters.")
+        errors.push("country: must be between 4 and 255 characters.")
       }
       if (website.length < 1 || /^https:\/\//.test(website) === false && /^http:\/\//.test(website) === false) {
-        errors.push("Business Website must be a valid URL ( https:// or http:// )");
+        errors.push("business website: must be a valid URL ( https:// or http:// )");
       }
       if ((!zipCode.match(zipRegX))) {
         errors.push("Zipcode must be 5 numbers")

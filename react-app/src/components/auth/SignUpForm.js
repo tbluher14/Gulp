@@ -17,7 +17,7 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const [submitted, setSubmitted] = useState(false);
 
-  // const emailRegX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+  const emailRegX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 
   useEffect(() => {
     let errors = [];
@@ -28,14 +28,14 @@ const SignUpForm = () => {
     if (last_name.length < 2 || last_name.length > 50) {
       errors.push("last name: Last Name must be between 2 and 50 characters")
     }
-    // if (!email.match(emailRegX)) {
-    //   errors.push("email: Email must be valid email address (ex: ex@gmail.com)")
-    // }
-    // if (!email.includes("@")) {
-    //   errors.push("email: Email must be valid email address (ex: ex@gmail.com)")
-    // }
+    if (!email.match(emailRegX)) {
+      errors.push("email: Email must be valid email address (ex: ex@gmail.com)")
+    }
+    if (email.length < 2 || email.length > 50) {
+      errors.push("email: Email must be between 2 and 50 characters")
+    }
     if (username.length < 2 || username.length > 50) {
-      errors.push("user name: User Name must be between 2 and 50 characters")
+      errors.push("username: Username must be between 2 and 50 characters")
     }
     if (password !== confirmPassword) {
       errors.push('password: Passwords must match');
