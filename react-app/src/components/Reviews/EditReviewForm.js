@@ -12,6 +12,8 @@ const EditReviewForm = () => {
   const businessId = useParams();
   const reviewId = useParams()
   const business = useSelector(state => (state.business))
+  const businessArr = Object.values(business)
+  const currentBusiness = businessArr.filter(bus => bus.id == businessId.businessId)
   const user = useSelector(state => (state.session.user))
   const reviews = useSelector(state => (state.review))
 
@@ -36,8 +38,11 @@ const EditReviewForm = () => {
     //   errors.push('Rating must be a number')
     // }
 
+    if (rating && (rating < 1 || rating > 5)) {
+      errors.push("rating: must be between 1 and 5.");
+    }
     if (review && (review.length > 255 || review.length < 10)) {
-      errors.push("Review must be between 10 to 255 Characters");
+      errors.push("review: must be between 10 to 255 Characters.");
     }
 
     setErrors(errors)
@@ -68,7 +73,7 @@ const EditReviewForm = () => {
   return isLoaded && (
     <div className='form-outer-container'>
       <form onSubmit={handleSubmit} className="form-container">
-      <div className='create_review_header'>Edit Review</div>
+      <div className='create_review_header'>Edit Review for {currentBusiness[0]?.name}</div>
 
       <div className="createReviewError">
           {submitted && (errors).map((error, i) => (
@@ -83,8 +88,8 @@ const EditReviewForm = () => {
           <label className='form-field-labels'>Rating</label>
           <input className="form-field"
             type="number"
-            min="1"
-            max="5"
+            // min="1"
+            // max="5"
             value={rating}
             placeholder="Rating"
             onChange={(e) => setRating(e.target.value)}
