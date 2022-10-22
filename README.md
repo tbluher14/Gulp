@@ -64,13 +64,22 @@ Database:
 ## Add/Delete Menu Items as a Business Owner: 
 
 <img width="294" alt="Screen Shot 2022-10-21 at 12 01 31 PM" src="https://user-images.githubusercontent.com/97054477/197260221-9220b1fb-0fc5-4594-b17b-f493179115b8.png">
+
+- After listing your business, you'll want to let other users know what all you offer! 
+
 <img width="615" alt="Screen Shot 2022-10-21 at 12 00 59 PM" src="https://user-images.githubusercontent.com/97054477/197260222-233f0ddf-5059-4fae-8194-7735a312265a.png">
+
+- List your businesses's delicious menu items with their menu name, price, and a valid image url displaying the food! 
 
 ## Add Review: 
 
 <img width="585" alt="Screen Shot 2022-10-21 at 12 05 53 PM" src="https://user-images.githubusercontent.com/97054477/197260960-8da31701-4d13-4fb6-a67d-7f3da354c90a.png">
 
+- Check out other user's establishments and if you see one you've been to, leave them a review letting them know how your expierence was! 
+
 ## Edit/Delete A Review:
 
 <img width="343" alt="Screen Shot 2022-10-21 at 12 06 43 PM" src="https://user-images.githubusercontent.com/97054477/197261071-c2e4829d-3fac-4814-8433-09422d605708.png">
+
+- If you change your mind on a business and would like to change or remove your review, no worries, just click edit or delete review! 
 
