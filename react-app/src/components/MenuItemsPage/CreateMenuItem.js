@@ -39,8 +39,8 @@ const MenuItemCreateForm = () => {
         }
         else {
 
-            if (name.length < 5 || name.length > 255) {
-                errors.push("item name: must be between 5 and 255 characters.")
+            if (name.length < 5 || name.length > 25) {
+                errors.push("item name: must be between 5 and 25 characters.")
             }
             if (price !== decimalPrice) {
                 errors.push("item price: must be a valid price ( 0.00 ).")

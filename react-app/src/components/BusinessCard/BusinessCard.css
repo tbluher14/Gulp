@@ -32,6 +32,7 @@
 
 .business-card-inner-container-right {
   font-family: 'Open Sans', sans-serif;
+  word-wrap: break-word;
 }
 
 .business-card-header {
@@ -41,5 +42,7 @@
 }
 
 .business-card-description {
+  width: 600px;
   margin-top: 24px;
+  word-wrap: break-word;
 }

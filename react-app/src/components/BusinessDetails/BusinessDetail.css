@@ -226,6 +226,7 @@
   flex-direction: column;
   padding-top: 16px;
   border-top: 1px solid #ebebeb;
+  word-wrap: break-word;
 }
 
 .business-detail-edit-button {
