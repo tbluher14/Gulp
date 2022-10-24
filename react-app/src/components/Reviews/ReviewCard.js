@@ -31,7 +31,7 @@ const ReviewCard = ({ review }) => {
         <img className='review-card-user-pic' src='https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg'></img>
         <div className='review-card-upper-right-container'>
           <div className='review-card-upper-user-name'>{`${reviewUser?.first_name} ${reviewUser?.last_name}`}</div>
-          <div>{specificDate[0]}</div>
+          <div>Mon Oct 24 2022</div>
         </div>
       </div>
 
