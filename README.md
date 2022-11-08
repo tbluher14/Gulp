@@ -2,6 +2,8 @@
 
 This is our clone of Yelp, created for our Flask React Group Project project.
 
+Gulp was developed by [Matt Fong] (https://github.com/matt-fong), Tom Bluher, and [Willard Marett] (https://github.com/codewjm)
+
 Live Site: https://gulped.herokuapp.com/
 
 <img width="1328" alt="Screen Shot 2022-10-21 at 11 38 09 AM" src="https://user-images.githubusercontent.com/97054477/197256054-ad13f586-d193-4fef-9977-e665aac8472c.png">
