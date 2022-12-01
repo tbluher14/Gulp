@@ -32,6 +32,9 @@ const MenuItemCard = ({ menuItems }) => {
         className='menu-item-image'
         src={imageLogic()}
         alt=' '
+        onError={e => {
+            e.currentTarget.src = "https://images.squarespace-cdn.com/content/v1/5c13bce1c3c16a4d77693808/1548342383210-BKH0ECI90QZIRWTVJ8JT/DSC_4161.jpg?format=2500w"
+          }}
         >
         </img>
 
