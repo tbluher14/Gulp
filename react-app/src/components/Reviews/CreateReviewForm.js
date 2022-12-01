@@ -57,8 +57,6 @@ const ReviewForm = () => {
     if (review.length <= 255 && review.length >= 10) {
       const res = await dispatch(
         createReviewThunk(data))
-      // .then(() =>
-      // dispatch(getAllReviewsThunk()))
       history.push(`/businesses/${businessId.businessId}`)
     }
   }
