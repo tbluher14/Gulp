@@ -103,6 +103,9 @@ const BusinessesDetails = () => {
               className='business-detail-image'
               src={currentBusiness?.image}
               alt='Business Image'
+              onError={e => {
+                e.currentTarget.src = "https://www.hollywoodreporter.com/wp-content/uploads/2019/07/good_burger_pop_up_.jpg"
+              }}
             >
             </img>
           </div>

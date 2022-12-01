@@ -36,7 +36,11 @@ const BusinessCard = ({ business }) => {
           <div className='business-card-inner-container'>
 
             <div className='business-card-inner-container-left'>
-              <img src={business?.image} alt='business-card' className='business-card-picture'></img>
+              <img src={business?.image} alt='business-card'
+              className='business-card-picture'
+              onError={e => {
+                e.currentTarget.src = "https://www.hollywoodreporter.com/wp-content/uploads/2019/07/good_burger_pop_up_.jpg"
+              }}></img>
             </div>
 
             <div className='business-card-inner-container-right'>
