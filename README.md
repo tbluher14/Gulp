@@ -11,7 +11,7 @@ Live Site: https://gulped.herokuapp.com/
 
 <img width="1328" alt="Screen Shot 2022-10-21 at 11 38 09 AM" src="https://user-images.githubusercontent.com/97054477/197256054-ad13f586-d193-4fef-9977-e665aac8472c.png">
 
-Gulped is a full-stack clone of https://www.yelp.com/ . Users can add, edit, and delte their business, add reviews to other user's businesses, as well as edit and delete their reviews. Owners of businesses can add and delete menu items from their business.
+Gulped is a full-stack clone of https://www.yelp.com/ . Users can add, edit, and delete their business, add reviews to other user's businesses, as well as edit and delete their reviews. Owners of businesses can add and delete menu items from their business.
 
 ## Languages and Frameworks Used: 
 Frontend:
